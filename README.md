@@ -1,36 +1,16 @@
+!\[Cloud Banner](https://images.unsplash.com/photo-1451187580459-43490279c0fa)
+
+
+
 \# ◆ MZ UNIFIED CLOUD BOOTCAMP
 
 
 
-Welcome to the official MZ Unified Cloud Bootcamp repository.
+\## AWS Cloud Practitioner Learning System
 
 
 
-This repository contains:
-
-\- Session slides
-
-\- Student notes
-
-\- Labs
-
-\- Homework
-
-\- Practice resources
-
-
-
-The bootcamp is designed to help students build strong foundational knowledge in:
-
-\- Cloud Computing
-
-\- AWS Fundamentals
-
-\- Security Awareness
-
-\- Governance Concepts
-
-\- Core AWS Services
+Welcome to the official \*\*MZ Unified Cloud Bootcamp\*\*, a structured AWS learning program designed to build strong cloud foundations through practical learning, labs, and guided understanding.
 
 
 
@@ -38,23 +18,27 @@ The bootcamp is designed to help students build strong foundational knowledge in
 
 
 
-\# ◆ Current Sessions
+\# ◆ PROGRAM OVERVIEW
 
 
 
-\## Session 1 — Cloud Foundations + Account Setup
+This bootcamp focuses on:
 
 
-
-Topics:
 
 \- Cloud Computing Fundamentals
 
 \- AWS Global Infrastructure
 
-\- Regions and Availability Zones
+\- Cloud Security Awareness
 
-\- AWS Account Basics
+\- IAM \& Access Control Basics
+
+\- Shared Responsibility Model
+
+\- Hands-on AWS Console Exposure
+
+\- Cloud Thinking \& Governance Awareness
 
 
 
@@ -62,23 +46,35 @@ Topics:
 
 
 
-\## Session 2 — Shared Responsibility + Risk Awareness
+\# ◆ LEARNING STRUCTURE
 
 
 
-Topics:
+The program is divided into structured sessions:
+
+
+
+\## ◆ SESSION 1 — CLOUD FOUNDATIONS
+
+\- What is Cloud Computing
+
+\- AWS Global Infrastructure
+
+\- Regions \& Availability Zones
+
+\- AWS Console Navigation
+
+
+
+\## ◆ SESSION 2 — SECURITY FUNDAMENTALS
 
 \- Shared Responsibility Model
 
 \- IAM Basics
 
-\- Security Awareness
-
-\- MFA Concepts
-
 \- Security Groups
 
-\- Governance Fundamentals
+\- Cloud Risk Awareness
 
 
 
@@ -86,15 +82,93 @@ Topics:
 
 
 
-\# ◆ Instructor
+\# ◆ REPOSITORY STRUCTURE
 
 
 
-Mthulisi Zulu  
+Each session contains:
+
+
+
+✔ Slides (concept learning)
+
+✔ Notes (teaching guidance)
+
+✔ Labs (hands-on AWS practice)
+
+✔ Homework (assessment tasks)
+
+
+
+\---
+
+
+
+\# ◆ LEARNING APPROACH
+
+
+
+This is not a theory-only program.
+
+
+
+Students will:
+
+\- Learn concepts
+
+\- Apply in AWS console
+
+\- Understand real-world cloud behavior
+
+\- Build foundational cloud thinking
+
+
+
+\---
+
+
+
+\# ◆ IMPORTANT PRINCIPLES
+
+
+
+\- Cloud is practical, not theoretical
+
+\- Security is shared responsibility
+
+\- Misconfiguration causes most cloud issues
+
+\- Governance starts at foundation level
+
+
+
+\---
+
+
+
+\# ◆ INSTRUCTOR
+
+
+
+Mthulisi Zulu
 
 Cloud Governance Architect
 
-
-
 Email: green28@live.co.za
+
+
+
+\---
+
+
+
+\# ◆ STATUS
+
+
+
+✔ Session 1 Completed
+
+✔ Session 2 Completed
+
+⏳ Session 3 In Progress
 
