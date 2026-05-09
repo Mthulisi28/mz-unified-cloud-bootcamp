@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MZ Unified Cloud Bootcamp</title>
+  <title>MZ Unified LMS Dashboard</title>
 
-  <!-- CRITICAL: Base path for GitHub Pages -->
   <base href="/mz-unified-cloud-bootcamp/">
 
   <style>
@@ -31,12 +30,6 @@
       z-index: 1000;
     }
 
-    .brand-left, .brand-right {
-      display: flex;
-      align-items: center;
-      min-width: 100px;
-    }
-
     .brand-center {
       text-align: center;
       flex: 1;
@@ -55,16 +48,13 @@
     }
 
     .profile {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #38bdf8;
     }
 
     .logo {
-      width: 80px;
-      object-fit: contain;
+      width: 70px;
     }
 
     /* ===== SIDEBAR ===== */
@@ -72,73 +62,149 @@
       position: fixed;
       top: 90px;
       left: 0;
-      width: 260px;
+      width: 280px;
       height: calc(100vh - 90px);
       background: #0f172a;
       padding: 20px;
-      overflow-y: auto;
     }
 
-    /* ===== MAIN CONTENT ===== */
+    .session {
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #111827;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid #1f2937;
+    }
+
+    .locked {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .unlocked {
+      border-left: 3px solid #38bdf8;
+    }
+
+    /* ===== MAIN ===== */
     .main {
-      margin-left: 260px;
-      padding: 120px 40px 40px 40px;
+      margin-left: 280px;
+      padding: 120px 40px;
     }
 
     .card {
       background: #111827;
       padding: 20px;
       border-radius: 10px;
-      margin-bottom: 20px;
       border: 1px solid #1f2937;
+      margin-bottom: 20px;
     }
 
+    button {
+      background: #38bdf8;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .score {
+      font-size: 20px;
+      color: #22c55e;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
+<!-- TOP -->
+<div class="topbar">
+  <img src="assets/images/mthulisi.png" class="profile">
 
-    <div class="brand-left">
-      <img src="assets/images/mthulisi.png" class="profile">
-    </div>
-
-    <div class="brand-center">
-      <h1>◆ MZ Unified Cloud Bootcamp</h1>
-      <p>Enterprise Cloud Governance & Architecture Training System</p>
-    </div>
-
-    <div class="brand-right">
-      <img src="assets/images/mz-logo.png" class="logo">
-    </div>
-
+  <div class="brand-center">
+    <h1>◆ MZ LMS Dashboard</h1>
+    <p>Enterprise Cloud Governance Training System</p>
   </div>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h3>Sessions</h3>
-    <p>01 - Cloud Foundations</p>
-    <p>02 - Shared Responsibility</p>
-    <p>03 - IAM Deep Dive</p>
-    <p>04 - VPC Networking</p>
+  <img src="assets/images/mz-logo.png" class="logo">
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <h3>Sessions</h3>
+
+  <div id="s1" class="session unlocked" onclick="openSession(1)">01 - Cloud Foundations</div>
+  <div id="s2" class="session locked" onclick="openSession(2)">02 - Shared Responsibility</div>
+  <div id="s3" class="session locked" onclick="openSession(3)">03 - IAM Deep Dive</div>
+  <div id="s4" class="session locked" onclick="openSession(4)">04 - VPC Networking</div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <div class="card">
+    <h2>Session Panel</h2>
+    <p id="sessionText">Select a session</p>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="main">
+  <div class="card">
+    <h2>Mini Assessment</h2>
 
-    <div class="card">
-      <h2>Welcome to MZ Bootcamp</h2>
-      <p>Governance-driven AWS learning system.</p>
-    </div>
+    <p>What is AWS IAM used for?</p>
 
-    <div class="card">
-      <h2>Progress</h2>
-      <p>Track your cloud architecture mastery here.</p>
-    </div>
+    <button onclick="answer(true)">Identity & Access Control</button>
+    <button onclick="answer(false)">Networking</button>
 
+    <p class="score" id="score">Score: 0</p>
   </div>
+
+</div>
+
+<script>
+let score = parseInt(localStorage.getItem("score") || "0");
+let unlocked = JSON.parse(localStorage.getItem("unlocked") || "[1]");
+
+document.getElementById("score").innerText = "Score: " + score;
+
+function refreshUI(){
+  for(let i=1;i<=4;i++){
+    const el = document.getElementById("s"+i);
+
+    if(unlocked.includes(i)){
+      el.classList.remove("locked");
+      el.classList.add("unlocked");
+    } else {
+      el.classList.add("locked");
+    }
+  }
+}
+
+function openSession(id){
+  if(!unlocked.includes(id)) return;
+
+  document.getElementById("sessionText").innerText =
+    "You are viewing Session " + id;
+
+  if(id < 4 && !unlocked.includes(id+1)){
+    unlocked.push(id+1);
+    localStorage.setItem("unlocked", JSON.stringify(unlocked));
+    refreshUI();
+  }
+}
+
+function answer(correct){
+  if(correct){
+    score += 10;
+    localStorage.setItem("score", score);
+    document.getElementById("score").innerText = "Score: " + score;
+  }
+}
+
+refreshUI();
+</script>
 
 </body>
 </html>
