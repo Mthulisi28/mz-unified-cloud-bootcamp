@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- ◆ CACHE CONTROL (IMPORTANT FOR GITHUB PAGES) -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
   <title>MZ Unified Cloud Bootcamp LMS</title>
 
   <style>
@@ -12,7 +18,7 @@
       color: #e5e7eb;
     }
 
-    /* ===== TOPBAR ===== */
+    /* ===== TOP BAR ===== */
     .topbar {
       position: fixed;
       top: 0;
@@ -78,8 +84,8 @@
 
     .session:hover {
       background: #1f2937;
-      transform: translateX(4px);
       border-left: 3px solid #38bdf8;
+      transform: translateX(3px);
     }
 
     /* ===== MAIN ===== */
@@ -104,6 +110,15 @@
     #quizBox {
       display: none;
     }
+
+    /* VERSION TAG (FOR DEBUGGING) */
+    .version {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 11px;
+      color: #64748b;
+    }
   </style>
 </head>
 
@@ -116,7 +131,7 @@
 
   <div class="brand-center">
     <h1>◆ MZ Unified Cloud Bootcamp</h1>
-    <p id="welcomeText">Student LMS</p>
+    <p>Student LMS Platform</p>
   </div>
 
   <img src="assets/images/mz-logo.png" class="logo">
@@ -156,13 +171,17 @@
 
 </div>
 
+<!-- VERSION MARKER -->
+<div class="version">v3.8.0-production</div>
+
 <script>
 
+/* ===== STATE ===== */
 let score = 0;
 let sessionAnswered = false;
 let currentCorrect = null;
 
-/* ===== SESSION DATA ===== */
+/* ===== SESSIONS ===== */
 const sessions = {
   1: {
     title: "Cloud Foundations",
