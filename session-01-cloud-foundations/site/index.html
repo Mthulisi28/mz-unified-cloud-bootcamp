@@ -12,10 +12,20 @@
       color: white;
     }
 
-    .header {
-      text-align: center;
-      padding: 60px;
-      background: linear-gradient(135deg, #1e3a8a, #0b1220);
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 25px;
+      background: #0f172a;
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+    }
+
+    .nav a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .content {
@@ -40,31 +50,30 @@
 
 <body>
 
-  <div class="header">
-    <h1>Session 4 — VPC Networking</h1>
-    <p>Cloud Network Design, Subnets & Routing</p>
+  <div class="nav">
+    <a href="/index.html">← Home</a>
+    <a href="/session-03-iam-deep-dive/site/">← Previous</a>
+    <span style="opacity:0.4;">Next →</span>
   </div>
 
   <div class="content">
 
+    <h1>Session 4 — VPC Networking</h1>
+    <p>Cloud Network Design & Architecture</p>
+
     <div class="box">
       <h2>VPC</h2>
-      <p>Your isolated network inside AWS.</p>
+      <p>Isolated cloud network inside AWS.</p>
     </div>
 
     <div class="box">
       <h2>Subnets</h2>
-      <p>Public and private network segmentation inside a VPC.</p>
-    </div>
-
-    <div class="box">
-      <h2>Internet Gateway</h2>
-      <p>Allows communication between VPC and the internet.</p>
+      <p>Public and private network segmentation.</p>
     </div>
 
     <div class="box">
       <h2>Route Tables</h2>
-      <p>Control traffic flow within your network.</p>
+      <p>Control traffic flow within the network.</p>
     </div>
 
   </div>
