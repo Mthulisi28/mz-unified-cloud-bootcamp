@@ -54,6 +54,15 @@ body {
   border: 1px solid #1f2937;
 }
 
+button {
+  padding: 12px 18px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 h1, h2 {
   color: #38bdf8;
 }
@@ -64,22 +73,37 @@ h1, h2 {
 <body>
 
 <div class="sidebar">
-  <h2>MZ Bootcamp</h2>
-  <a href="/index.html">Dashboard</a>
-  <a href="/session-01-cloud-foundations/site/">Session 1</a>
-  <a href="/session-02-shared-responsibility/site/">Session 2</a>
-  <a href="/session-03-iam-deep-dive/site/">Session 3</a>
-  <a href="/session-04-vpc-networking/site/">Session 4</a>
+
+  <h2 style="margin-bottom:20px;">◆ MZ Bootcamp</h2>
+
+  <a href="/index.html">🏠 Dashboard</a>
+
+  <a id="s1" href="/session-01-cloud-foundations/site/">
+    Session 1 — Cloud Foundations
+  </a>
+
+  <a id="s2" href="/session-02-shared-responsibility/site/">
+    Session 2 — Security Basics
+  </a>
+
+  <a id="s3" href="/session-03-iam-deep-dive/site/">
+    Session 3 — IAM Deep Dive
+  </a>
+
+  <a id="s4" href="/session-04-vpc-networking/site/">
+    Session 4 — VPC Networking
+  </a>
+
 </div>
 
 <div class="main">
 
   <h1>Session 4 — VPC Networking</h1>
-  <p>Cloud Network Architecture</p>
+  <p>Cloud Network Design & Architecture</p>
 
   <div class="card">
     <h2>VPC</h2>
-    <p>Isolated virtual network in AWS.</p>
+    <p>Isolated virtual network environment inside AWS.</p>
   </div>
 
   <div class="card">
@@ -87,7 +111,42 @@ h1, h2 {
     <p>Public and private network segmentation.</p>
   </div>
 
+  <div class="card">
+    <h2>Route Tables</h2>
+    <p>Rules controlling network traffic flow.</p>
+  </div>
+
+  <button onclick="markComplete('s4')">
+    Mark Session Complete
+  </button>
+
 </div>
+
+<script>
+function markComplete(sessionId) {
+  localStorage.setItem(sessionId, "completed");
+  updateSidebar();
+  alert("Session marked as completed ✔");
+}
+
+function updateSidebar() {
+  const sessions = ["s1","s2","s3","s4"];
+
+  sessions.forEach(id => {
+    const status = localStorage.getItem(id);
+    const el = document.getElementById(id);
+
+    if (el && status === "completed") {
+      if (!el.innerHTML.includes("✔")) {
+        el.innerHTML += " ✔";
+      }
+      el.style.color = "#22c55e";
+    }
+  });
+}
+
+window.onload = updateSidebar;
+</script>
 
 </body>
 </html>
