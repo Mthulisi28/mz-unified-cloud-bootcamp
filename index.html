@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MZ Unified LMS Dashboard</title>
+  <title>MZ Unified Cloud Bootcamp LMS</title>
 
   <base href="/mz-unified-cloud-bootcamp/">
 
@@ -48,6 +48,7 @@
       cursor: pointer;
       font-weight: bold;
       width: 95%;
+      margin-top: 10px;
     }
 
     /* ================= APP ================= */
@@ -145,6 +146,11 @@
       font-size: 18px;
     }
 
+    #quizBox {
+      margin-top: 20px;
+      display: none;
+    }
+
   </style>
 </head>
 
@@ -157,7 +163,7 @@
     <h2>Student Login</h2>
 
     <input type="text" id="studentName" placeholder="Enter your full name">
-    <input type="text" id="studentId" placeholder="Enter phone number (e.g. 0821234567)">
+    <input type="text" id="studentId" placeholder="Enter phone number (0821234567)">
 
     <button onclick="login()">Enter LMS</button>
   </div>
@@ -201,15 +207,18 @@
       <p id="sessionView">Select a session</p>
     </div>
 
-    <div class="card">
+    <!-- SESSION-BASED QUIZ -->
+    <div class="card" id="quizBox">
+
       <h2>Mini Assessment</h2>
 
-      <p>What is IAM used for?</p>
+      <p id="questionText"></p>
 
-      <button onclick="answer(true)">Identity & Access Management</button>
-      <button onclick="answer(false)">Networking</button>
+      <button onclick="answer(true)">Correct Answer</button>
+      <button onclick="answer(false)">Wrong Answer</button>
 
       <p class="score" id="score">Score: 0</p>
+
     </div>
 
   </div>
@@ -230,12 +239,12 @@ function login(){
   const phoneRegex = /^0[6-8][0-9]{8}$/;
 
   if(!name || !id){
-    alert("Please fill all fields");
+    alert("Fill all fields");
     return;
   }
 
   if(!phoneRegex.test(id)){
-    alert("Invalid phone number format");
+    alert("Invalid phone number");
     return;
   }
 
@@ -249,18 +258,33 @@ function login(){
   document.getElementById("studentInfo").innerText = "Student ID: " + id;
 }
 
-// SESSION NAVIGATION
+// SESSION SYSTEM
 function openSession(id){
 
   const sessions = {
-    1: "Cloud Foundations",
-    2: "Shared Responsibility Model",
-    3: "IAM Deep Dive",
-    4: "VPC Networking"
+    1: {
+      title: "Cloud Foundations",
+      question: "What is a cloud region in AWS?"
+    },
+    2: {
+      title: "Shared Responsibility",
+      question: "Who is responsible for security IN the cloud?"
+    },
+    3: {
+      title: "IAM Deep Dive",
+      question: "What is IAM used for?"
+    },
+    4: {
+      title: "VPC Networking",
+      question: "What does a VPC control?"
+    }
   };
 
   document.getElementById("sessionView").innerText =
-    "Viewing Session " + id + " - " + sessions[id];
+    "Viewing Session " + id + " - " + sessions[id].title;
+
+  document.getElementById("quizBox").style.display = "block";
+  document.getElementById("questionText").innerText = sessions[id].question;
 }
 
 // SCORING
@@ -278,7 +302,6 @@ window.onload = function(){
   const id = localStorage.getItem("studentId");
 
   if(name && id){
-
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("app").style.display = "block";
 
