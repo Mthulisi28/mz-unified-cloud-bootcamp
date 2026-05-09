@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MZ Unified LMS - Student Portal</title>
+  <title>MZ Unified LMS Dashboard</title>
 
-  <!-- GitHub Pages base path -->
   <base href="/mz-unified-cloud-bootcamp/">
 
   <style>
@@ -82,7 +81,6 @@
 
     .logo {
       width: 70px;
-      object-fit: contain;
     }
 
     .brand-center {
@@ -119,6 +117,13 @@
       background: #111827;
       border-radius: 6px;
       cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .session:hover {
+      background: #1f2937;
+      transform: translateX(4px);
+      border-left: 3px solid #38bdf8;
     }
 
     /* ================= MAIN ================= */
@@ -149,14 +154,12 @@
 <div class="login-screen" id="loginScreen">
 
   <div class="login-box">
-
     <h2>Student Login</h2>
 
     <input type="text" id="studentName" placeholder="Enter your full name">
     <input type="text" id="studentId" placeholder="Enter phone number (e.g. 0821234567)">
 
     <button onclick="login()">Enter LMS</button>
-
   </div>
 
 </div>
@@ -181,10 +184,12 @@
   <!-- SIDEBAR -->
   <div class="sidebar">
     <h3>Sessions</h3>
-    <div class="session">01 - Cloud Foundations</div>
-    <div class="session">02 - Shared Responsibility</div>
-    <div class="session">03 - IAM Deep Dive</div>
-    <div class="session">04 - VPC Networking</div>
+
+    <div class="session" onclick="openSession(1)">01 - Cloud Foundations</div>
+    <div class="session" onclick="openSession(2)">02 - Shared Responsibility</div>
+    <div class="session" onclick="openSession(3)">03 - IAM Deep Dive</div>
+    <div class="session" onclick="openSession(4)">04 - VPC Networking</div>
+
   </div>
 
   <!-- MAIN -->
@@ -193,6 +198,7 @@
     <div class="card">
       <h2>Student Dashboard</h2>
       <p id="studentInfo"></p>
+      <p id="sessionView">Select a session</p>
     </div>
 
     <div class="card">
@@ -215,30 +221,27 @@
 
 let score = 0;
 
-// LOGIN FUNCTION
+// LOGIN
 function login(){
 
   const name = document.getElementById("studentName").value.trim();
   const id = document.getElementById("studentId").value.trim();
 
-  // South African phone validation
   const phoneRegex = /^0[6-8][0-9]{8}$/;
 
   if(!name || !id){
-    alert("Please fill in all fields");
+    alert("Please fill all fields");
     return;
   }
 
   if(!phoneRegex.test(id)){
-    alert("Invalid phone number format (e.g. 0821234567)");
+    alert("Invalid phone number format");
     return;
   }
 
-  // store session
   localStorage.setItem("studentName", name);
   localStorage.setItem("studentId", id);
 
-  // switch UI
   document.getElementById("loginScreen").style.display = "none";
   document.getElementById("app").style.display = "block";
 
@@ -246,7 +249,21 @@ function login(){
   document.getElementById("studentInfo").innerText = "Student ID: " + id;
 }
 
-// SCORING SYSTEM
+// SESSION NAVIGATION
+function openSession(id){
+
+  const sessions = {
+    1: "Cloud Foundations",
+    2: "Shared Responsibility Model",
+    3: "IAM Deep Dive",
+    4: "VPC Networking"
+  };
+
+  document.getElementById("sessionView").innerText =
+    "Viewing Session " + id + " - " + sessions[id];
+}
+
+// SCORING
 function answer(correct){
   if(correct){
     score += 10;
@@ -254,7 +271,7 @@ function answer(correct){
   }
 }
 
-// AUTO LOGIN (SESSION RESTORE)
+// AUTO LOGIN
 window.onload = function(){
 
   const name = localStorage.getItem("studentName");
