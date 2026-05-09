@@ -2,79 +2,279 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>MZ Unified Cloud Bootcamp</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>MZ Unified Cloud Bootcamp</title>
 
-    body{
-      background:#0b1220;
-      color:white;
-      font-family:Arial;
-      padding:40px;
-    }
+<style>
 
-    h1{
-      color:#38bdf8;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .session{
-      background:#111827;
-      padding:20px;
-      margin-bottom:15px;
-      border-radius:8px;
-      cursor:pointer;
-    }
+body{
+  font-family:Arial, sans-serif;
+  background:#0b1220;
+  color:#e5e7eb;
+}
 
-    .session:hover{
-      background:#1f2937;
-    }
+/* ===== TOPBAR ===== */
 
-    #viewer{
-      margin-top:30px;
-      background:#111827;
-      padding:20px;
-      border-radius:8px;
-    }
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:80px;
+  background:#111827;
+  border-bottom:1px solid #1f2937;
 
-  </style>
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
+  padding:0 30px;
+  z-index:1000;
+}
+
+.brand h1{
+  color:#38bdf8;
+  font-size:24px;
+}
+
+.brand p{
+  color:#94a3b8;
+  font-size:13px;
+}
+
+.contact{
+  text-align:right;
+  font-size:13px;
+  color:#94a3b8;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar{
+  position:fixed;
+  top:80px;
+  left:0;
+  width:280px;
+  height:calc(100vh - 80px);
+
+  background:#0f172a;
+  border-right:1px solid #1f2937;
+
+  padding:20px;
+}
+
+.sidebar h2{
+  margin-bottom:20px;
+  color:#38bdf8;
+}
+
+.session{
+  background:#111827;
+  padding:15px;
+  border-radius:8px;
+  margin-bottom:10px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.session:hover{
+  background:#1f2937;
+  transform:translateX(4px);
+  border-left:4px solid #38bdf8;
+}
+
+/* ===== MAIN ===== */
+
+.main{
+  margin-left:280px;
+  margin-top:80px;
+  padding:30px;
+}
+
+.card{
+  background:#111827;
+  border:1px solid #1f2937;
+  border-radius:10px;
+  padding:25px;
+  margin-bottom:20px;
+}
+
+.card h2{
+  color:#38bdf8;
+  margin-bottom:15px;
+}
+
+.card p{
+  line-height:1.8;
+  color:#d1d5db;
+}
+
+/* ===== LINKS ===== */
+
+.link{
+  display:block;
+  margin-top:10px;
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+.link:hover{
+  text-decoration:underline;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+  margin-top:40px;
+  text-align:center;
+  color:#64748b;
+  font-size:12px;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>MZ Unified Cloud Bootcamp</h1>
+<!-- ===== TOPBAR ===== -->
 
-<div class="session" onclick="showSession(1)">
-  Session 1 - Cloud Foundations
+<div class="topbar">
+
+  <div class="brand">
+    <h1>MZ Unified Cloud Bootcamp</h1>
+    <p>Cloud Governance • DevOps • Security Architecture</p>
+  </div>
+
+  <div class="contact">
+    <div>Mthulisi Zulu</div>
+    <div>green28@live.co.za</div>
+  </div>
+
 </div>
 
-<div class="session" onclick="showSession(2)">
-  Session 2 - IAM
+<!-- ===== SIDEBAR ===== -->
+
+<div class="sidebar">
+
+  <h2>Sessions</h2>
+
+  <div class="session" onclick="openSession(1)">
+    Session 1 - Cloud Foundations
+  </div>
+
+  <div class="session" onclick="openSession(2)">
+    Session 2 - IAM
+  </div>
+
+  <div class="session" onclick="openSession(3)">
+    Session 3 - Shared Responsibility
+  </div>
+
+  <div class="session" onclick="openSession(4)">
+    Session 4 - VPC Networking
+  </div>
+
 </div>
 
-<div id="viewer">
-  Select a session
+<!-- ===== MAIN ===== -->
+
+<div class="main">
+
+  <div class="card">
+
+    <h2 id="title">
+      Welcome
+    </h2>
+
+    <p id="content">
+      Select a session from the sidebar to begin learning.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Learning Resources</h2>
+
+    <a class="link"
+       href="https://docs.aws.amazon.com/"
+       target="_blank">
+
+       AWS Official Documentation
+
+    </a>
+
+    <a class="link"
+       href="https://www.youtube.com/@aws"
+       target="_blank">
+
+       AWS Official YouTube Channel
+
+    </a>
+
+  </div>
+
+  <div class="footer">
+    MZ Unified Cloud Bootcamp • v1.0 Stable LMS
+  </div>
+
 </div>
 
 <script>
 
-function showSession(id){
+function openSession(id){
 
-  let viewer =
-    document.getElementById("viewer");
+  let title =
+    document.getElementById("title");
+
+  let content =
+    document.getElementById("content");
 
   if(id === 1){
 
-    viewer.innerHTML =
-      "<h2>Cloud Foundations</h2><p>Introduction to AWS Cloud.</p>";
+    title.innerHTML =
+      "Cloud Foundations";
+
+    content.innerHTML =
+      "Introduction to cloud computing, AWS infrastructure, regions, availability zones, and cloud service models.";
 
   }
 
   if(id === 2){
 
-    viewer.innerHTML =
-      "<h2>IAM</h2><p>Identity and Access Management.</p>";
+    title.innerHTML =
+      "Identity & Access Management (IAM)";
+
+    content.innerHTML =
+      "Deep dive into IAM users, roles, policies, MFA, least privilege principles, and root account security risks.";
+
+  }
+
+  if(id === 3){
+
+    title.innerHTML =
+      "Shared Responsibility";
+
+    content.innerHTML =
+      "Understanding the AWS shared responsibility model and how security duties are divided between AWS and the customer.";
+
+  }
+
+  if(id === 4){
+
+    title.innerHTML =
+      "VPC Networking";
+
+    content.innerHTML =
+      "Introduction to AWS networking, VPC architecture, subnets, routing, gateways, and network segmentation.";
 
   }
 
