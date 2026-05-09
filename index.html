@@ -96,28 +96,10 @@ body {
   margin-bottom: 20px;
 }
 
-.score {
-  color: #22c55e;
+.session-title {
+  color: #38bdf8;
   font-size: 18px;
-}
-
-#quizBox {
-  display: none;
-}
-
-button {
-  padding: 10px 15px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-/* start button styling */
-.start-btn {
-  background: #38bdf8;
-  border: none;
-  color: black;
-  margin-top: 10px;
-  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
 .version {
@@ -160,80 +142,54 @@ button {
   <div class="card">
     <h2>Student Dashboard</h2>
     <p id="sessionView">Select a session to begin</p>
-
-    <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
   </div>
 
-  <div class="card" id="quizBox">
-    <h2>Mini Assessment</h2>
-
-    <p id="questionText"></p>
-
-    <button onclick="answer('A')">Option A</button>
-    <button onclick="answer('B')">Option B</button>
-
-    <p class="score" id="score">Score: 0</p>
+  <div class="card" id="contentBox">
+    <div class="session-title" id="sessionTitle"></div>
+    <p id="sessionContent">Session content will appear here.</p>
   </div>
 
 </div>
 
-<div class="version">v4.2.0-stable</div>
+<div class="version">v5.0.0-clean</div>
 
 <script>
 
-/* ===== STATE ===== */
-let score = 0;
-let sessionAnswered = false;
-let currentCorrect = null;
-
-/* ===== DATA ===== */
+/* ===== SESSION CONTENT ===== */
 const sessions = {
-  1: { title: "Cloud Foundations", question: "What is a cloud region in AWS?", correct: "A" },
-  2: { title: "Shared Responsibility", question: "Who secures infrastructure in AWS?", correct: "B" },
-  3: { title: "IAM Deep Dive", question: "What is IAM used for?", correct: "A" },
-  4: { title: "VPC Networking", question: "What does a VPC control?", correct: "B" }
+  1: {
+    title: "Cloud Foundations",
+    content: "Introduction to cloud computing, AWS global infrastructure, regions, availability zones, and core service models (IaaS, PaaS, SaaS)."
+  },
+  2: {
+    title: "Shared Responsibility",
+    content: "Understanding the shared responsibility model: AWS secures the cloud, you secure what you deploy. Risk boundaries and compliance fundamentals."
+  },
+  3: {
+    title: "IAM Deep Dive",
+    content: "Identity and Access Management: users, groups, roles, policies, least privilege principle, and security best practices."
+  },
+  4: {
+    title: "VPC Networking",
+    content: "Virtual Private Cloud architecture, subnets, route tables, internet gateways, NAT, and network segmentation design."
+  }
 };
 
-/* ===== OPEN SESSION (NO QUIZ TRIGGER) ===== */
+/* ===== OPEN SESSION ===== */
 window.openSession = function(id) {
 
-  sessionAnswered = false;
-
   const session = sessions[id];
+
   if (!session) return;
 
-  currentCorrect = session.correct;
-
   document.getElementById("sessionView").innerText =
-    "Selected: " + session.title;
+    "Viewing: " + session.title;
 
-  document.getElementById("questionText").innerText =
-    session.question;
+  document.getElementById("sessionTitle").innerText =
+    session.title;
 
-  document.getElementById("quizBox").style.display = "none";
-};
-
-/* ===== START QUIZ (CONTROLLED FLOW) ===== */
-window.startQuiz = function () {
-  document.getElementById("quizBox").style.display = "block";
-};
-
-/* ===== ANSWER SYSTEM ===== */
-window.answer = function(selected) {
-
-  if (sessionAnswered) {
-    alert("Already answered this session.");
-    return;
-  }
-
-  if (selected === currentCorrect) {
-    score += 10;
-    document.getElementById("score").innerText = "Score: " + score;
-  } else {
-    alert("Incorrect answer");
-  }
-
-  sessionAnswered = true;
+  document.getElementById("sessionContent").innerText =
+    session.content;
 };
 
 /* ===== INIT ===== */
