@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -29,6 +30,7 @@ body{
   left:0;
   right:0;
   height:80px;
+
   background:#111827;
   border-bottom:1px solid #1f2937;
 
@@ -52,8 +54,8 @@ body{
 
 .contact{
   text-align:right;
-  font-size:13px;
   color:#94a3b8;
+  font-size:13px;
 }
 
 /* ===== SIDEBAR ===== */
@@ -62,6 +64,7 @@ body{
   position:fixed;
   top:80px;
   left:0;
+
   width:280px;
   height:calc(100vh - 80px);
 
@@ -72,15 +75,16 @@ body{
 }
 
 .sidebar h2{
-  margin-bottom:20px;
   color:#38bdf8;
+  margin-bottom:20px;
 }
 
 .session{
   background:#111827;
   padding:15px;
-  border-radius:8px;
   margin-bottom:10px;
+  border-radius:8px;
+
   cursor:pointer;
   transition:0.2s;
 }
@@ -103,6 +107,7 @@ body{
   background:#111827;
   border:1px solid #1f2937;
   border-radius:10px;
+
   padding:25px;
   margin-bottom:20px;
 }
@@ -121,9 +126,11 @@ body{
 
 .link{
   display:block;
-  margin-top:10px;
+  margin-top:15px;
+
   color:#38bdf8;
   text-decoration:none;
+  font-weight:bold;
 }
 
 .link:hover{
@@ -140,6 +147,7 @@ body{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -194,15 +202,19 @@ body{
       Welcome
     </h2>
 
-    <p id="content">
+    <div id="content">
+
+      <p>
       Select a session from the sidebar to begin learning.
-    </p>
+      </p>
+
+    </div>
 
   </div>
 
   <div class="card">
 
-    <h2>Learning Resources</h2>
+    <h2>Global Learning Resources</h2>
 
     <a class="link"
        href="https://docs.aws.amazon.com/"
@@ -223,10 +235,12 @@ body{
   </div>
 
   <div class="footer">
-    MZ Unified Cloud Bootcamp • v1.0 Stable LMS
+    MZ Unified Cloud Bootcamp • Stable LMS v2.0
   </div>
 
 </div>
+
+<!-- ===== JAVASCRIPT ===== -->
 
 <script>
 
@@ -238,15 +252,56 @@ function openSession(id){
   let content =
     document.getElementById("content");
 
+  /* ===== SESSION 1 ===== */
+
   if(id === 1){
 
     title.innerHTML =
       "Cloud Foundations";
 
     content.innerHTML =
-      "Introduction to cloud computing, AWS infrastructure, regions, availability zones, and cloud service models.";
+
+    `
+    <h3>Session Overview</h3>
+
+    <p>
+    Introduction to cloud computing,
+    AWS global infrastructure,
+    regions, availability zones,
+    and cloud service models.
+    </p>
+
+    <br>
+
+    <a class="link"
+       href="https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html"
+       target="_blank">
+
+       Open Student Notes
+
+    </a>
+
+    <a class="link"
+       href="https://www.youtube.com/watch?v=ulprqHHWlng"
+       target="_blank">
+
+       Watch Lesson Video
+
+    </a>
+
+    <a class="link"
+       href="https://aws.amazon.com/getting-started/"
+       target="_blank">
+
+       AWS Learning Resource
+
+    </a>
+
+    `;
 
   }
+
+  /* ===== SESSION 2 ===== */
 
   if(id === 2){
 
@@ -254,9 +309,48 @@ function openSession(id){
       "Identity & Access Management (IAM)";
 
     content.innerHTML =
-      "Deep dive into IAM users, roles, policies, MFA, least privilege principles, and root account security risks.";
+
+    `
+    <h3>Session Overview</h3>
+
+    <p>
+    Deep dive into IAM users,
+    roles, policies, MFA,
+    least privilege principles,
+    and root account risks.
+    </p>
+
+    <br>
+
+    <a class="link"
+       href="https://docs.aws.amazon.com/iam/"
+       target="_blank">
+
+       Open IAM Documentation
+
+    </a>
+
+    <a class="link"
+       href="https://www.youtube.com/watch?v=KngM5bfpttA"
+       target="_blank">
+
+       Watch IAM Lesson
+
+    </a>
+
+    <a class="link"
+       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"
+       target="_blank">
+
+       IAM Best Practices
+
+    </a>
+
+    `;
 
   }
+
+  /* ===== SESSION 3 ===== */
 
   if(id === 3){
 
@@ -264,9 +358,39 @@ function openSession(id){
       "Shared Responsibility";
 
     content.innerHTML =
-      "Understanding the AWS shared responsibility model and how security duties are divided between AWS and the customer.";
+
+    `
+    <h3>Session Overview</h3>
+
+    <p>
+    Learn the AWS Shared Responsibility Model
+    and understand governance responsibilities
+    between AWS and customers.
+    </p>
+
+    <br>
+
+    <a class="link"
+       href="https://aws.amazon.com/compliance/shared-responsibility-model/"
+       target="_blank">
+
+       Open AWS Responsibility Model
+
+    </a>
+
+    <a class="link"
+       href="https://www.youtube.com/watch?v=txTqtm58AqM"
+       target="_blank">
+
+       Watch Lesson Video
+
+    </a>
+
+    `;
 
   }
+
+  /* ===== SESSION 4 ===== */
 
   if(id === 4){
 
@@ -274,7 +398,43 @@ function openSession(id){
       "VPC Networking";
 
     content.innerHTML =
-      "Introduction to AWS networking, VPC architecture, subnets, routing, gateways, and network segmentation.";
+
+    `
+    <h3>Session Overview</h3>
+
+    <p>
+    Learn AWS networking architecture,
+    VPCs, subnets, routing tables,
+    gateways, and network segmentation.
+    </p>
+
+    <br>
+
+    <a class="link"
+       href="https://docs.aws.amazon.com/vpc/"
+       target="_blank">
+
+       Open VPC Documentation
+
+    </a>
+
+    <a class="link"
+       href="https://www.youtube.com/watch?v=g2JOHLHh4rI"
+       target="_blank">
+
+       Watch VPC Lesson
+
+    </a>
+
+    <a class="link"
+       href="https://aws.amazon.com/vpc/"
+       target="_blank">
+
+       AWS VPC Resource
+
+    </a>
+
+    `;
 
   }
 
