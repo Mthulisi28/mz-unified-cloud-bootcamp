@@ -1,10 +1,10 @@
-\# ◆ LAB 1 — AWS CONSOLE EXPLORATION
+\# ◆ SESSION 1 LAB — AWS CONSOLE FOUNDATIONS
 
 
 
 \## Objective
 
-Familiarize students with AWS environment.
+Help students become familiar with the AWS Management Console and global infrastructure layout.
 
 
 
@@ -22,19 +22,7 @@ https://aws.amazon.com/console/
 
 
 
-\---
-
-
-
-\# ◆ STEP 2 — FIND REGION SELECTOR
-
-
-
-Top right corner:
-
-\- Change Region
-
-\- Observe multiple Regions
+Sign in and access the AWS Management Console.
 
 
 
@@ -42,7 +30,27 @@ Top right corner:
 
 
 
-\# ◆ STEP 3 — EXPLORE EC2
+\# ◆ STEP 2 — IDENTIFY REGION SETTINGS
+
+
+
+Top-right corner of AWS Console:
+
+
+
+\- Locate Region selector
+
+\- Switch between at least 2 Regions
+
+\- Observe differences
+
+
+
+\---
+
+
+
+\# ◆ STEP 3 — EXPLORE EC2 SERVICE
 
 
 
@@ -54,7 +62,7 @@ EC2 → Dashboard
 
 Observe:
 
-\- Instances
+\- Instances (compute resources)
 
 \- Security Groups
 
@@ -66,7 +74,7 @@ Observe:
 
 
 
-\# ◆ STEP 4 — EXPLORE S3
+\# ◆ STEP 4 — EXPLORE S3 SERVICE
 
 
 
@@ -80,7 +88,9 @@ Observe:
 
 \- Storage concept
 
-\- Global uniqueness
+\- Global bucket naming
+
+\- Object storage structure
 
 
 
@@ -88,9 +98,31 @@ Observe:
 
 
 
-\# ◆ KEY LEARNING
+\# ◆ STEP 5 — OBSERVATION TASK
 
 
 
-AWS is not software — it is a global infrastructure platform.
+Write down:
+
+\- What surprised you in AWS console?
+
+\- What feels different from traditional IT?
+
+
+
+\---
+
+
+
+\# ◆ LEARNING OUTCOME
+
+
+
+Students should now understand:
+
+\- AWS is a global platform
+
+\- Services are grouped logically
+
+\- Cloud is not a single server environment
 

@@ -1,12 +1,16 @@
-\# ◆ SESSION 1 HOMEWORK
+\# ◆ SESSION 1 HOMEWORK — CLOUD FOUNDATIONS
 
 
 
-\## Written Questions
+\---
 
 
 
-1\. Define cloud computing in your own words.
+\## ◆ THEORY QUESTIONS
+
+
+
+1\. What is cloud computing?
 
 2\. Why do companies move to the cloud?
 
@@ -14,7 +18,7 @@
 
 4\. What is an Availability Zone?
 
-5\. Why do we need multiple AZs?
+5\. Explain cloud scalability in your own words.
 
 
 
@@ -22,17 +26,39 @@
 
 
 
-\## Practical Task
+\## ◆ THINKING QUESTIONS
 
 
 
-\- Log into AWS console
+6\. Why is cloud better than traditional servers?
+
+7\. What risks exist if cloud systems are poorly understood?
+
+
+
+\---
+
+
+
+\## ◆ PRACTICAL TASK
+
+
+
+\- Log into AWS Console
 
 \- Identify Region selector
 
-\- Explore EC2 and S3 services
+\- Navigate EC2 dashboard
 
-\- Take screenshots (optional)
+\- Navigate S3 dashboard
+
+
+
+Take note of:
+
+\- What services you see
+
+\- How AWS is structured visually
 
 
 
@@ -40,9 +66,13 @@
 
 
 
-\## Goal
+\## ◆ OBJECTIVE
 
 
 
-Understand cloud basics, not memorization.
+This is not memorization.
+
+
+
+It is understanding cloud structure thinking.
 

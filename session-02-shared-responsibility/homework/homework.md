@@ -1,24 +1,4 @@
-\# ◆ SESSION 2 HOMEWORK
-
-
-
-\## Written Questions
-
-
-
-1\. Explain the Shared Responsibility Model.
-
-2\. What is AWS responsible for?
-
-3\. What is the customer responsible for?
-
-4\. What is IAM?
-
-5\. Why is MFA important?
-
-6\. What is a Security Group?
-
-7\. Give one example of a security risk in AWS.
+\# ◆ SESSION 2 HOMEWORK — SECURITY \& GOVERNANCE
 
 
 
@@ -26,7 +6,41 @@
 
 
 
-\## Practical Task
+\## ◆ THEORY QUESTIONS
+
+
+
+1\. Explain the Shared Responsibility Model.
+
+2\. What does AWS secure?
+
+3\. What does the customer secure?
+
+4\. What is IAM used for?
+
+5\. What is MFA and why is it important?
+
+
+
+\---
+
+
+
+\## ◆ SECURITY THINKING
+
+
+
+6\. Why are Security Groups important?
+
+7\. What risks come from misconfigured IAM policies?
+
+
+
+\---
+
+
+
+\## ◆ PRACTICAL TASK
 
 
 
@@ -36,7 +50,7 @@
 
 \- Review Security Groups
 
-\- Find one risky configuration example (if any)
+\- Identify one risky configuration
 
 
 
@@ -44,9 +58,9 @@
 
 
 
-\## Goal
+\## ◆ OBJECTIVE
 
 
 
-Understand security thinking, not memorization.
+Develop cloud security awareness thinking, not memorization.
 

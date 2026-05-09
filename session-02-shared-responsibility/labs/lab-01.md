@@ -1,8 +1,12 @@
-\# ◆ LAB — IAM + SECURITY GROUPS
+\# ◆ SESSION 2 LAB — IAM \& SECURITY GROUPS
 
 
 
-\## Objective
+\---
+
+
+
+\## ◆ OBJECTIVE
 
 Understand AWS access control and basic security configuration.
 
@@ -16,7 +20,7 @@ Understand AWS access control and basic security configuration.
 
 
 
-Go to AWS Console:
+Navigate to:
 
 IAM → Users
 
@@ -28,7 +32,21 @@ Observe:
 
 \- Groups
 
+\- Roles
+
 \- Permissions
+
+
+
+\---
+
+
+
+\## ◆ KEY QUESTION
+
+
+
+Who should have access to AWS resources in an organisation?
 
 
 
@@ -40,7 +58,7 @@ Observe:
 
 
 
-Go to:
+Navigate:
 
 EC2 → Security Groups
 
@@ -58,27 +76,13 @@ Observe:
 
 
 
-\# ◆ KEY LEARNING
+\## ◆ KEY SECURITY RULE
 
 
 
-IAM controls WHO can access AWS.
+Avoid:
 
 
-
-Security Groups control WHAT can access servers.
-
-
-
-\---
-
-
-
-\# ◆ WARNING EXAMPLE
-
-
-
-Never allow:
 
 0.0.0.0/0 on all ports
 
@@ -86,5 +90,39 @@ Never allow:
 
 This means:
 
-Everyone on the internet can access your server.
+❌ Anyone on the internet can access your system
+
+
+
+\---
+
+
+
+\# ◆ PART 3 — THINKING TASK
+
+
+
+Answer:
+
+\- What happens if IAM is misconfigured?
+
+\- What happens if Security Groups are too open?
+
+
+
+\---
+
+
+
+\# ◆ LEARNING OUTCOME
+
+
+
+Students understand:
+
+\- IAM controls identity
+
+\- Security Groups control traffic
+
+\- Misconfiguration = real cloud risk
 
