@@ -25,7 +25,6 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  z-index: 10;
 }
 
 .profile {
@@ -107,9 +106,18 @@ body {
 }
 
 button {
-  margin-right: 10px;
   padding: 10px 15px;
+  margin-right: 10px;
   cursor: pointer;
+}
+
+/* start button styling */
+.start-btn {
+  background: #38bdf8;
+  border: none;
+  color: black;
+  margin-top: 10px;
+  border-radius: 6px;
 }
 
 .version {
@@ -152,6 +160,8 @@ button {
   <div class="card">
     <h2>Student Dashboard</h2>
     <p id="sessionView">Select a session to begin</p>
+
+    <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
   </div>
 
   <div class="card" id="quizBox">
@@ -167,74 +177,48 @@ button {
 
 </div>
 
-<div class="version">v4.0.0-stable</div>
+<div class="version">v4.2.0-stable</div>
 
 <script>
-/* =========================
-   GLOBAL STATE (IMPORTANT)
-========================= */
 
+/* ===== STATE ===== */
 let score = 0;
 let sessionAnswered = false;
 let currentCorrect = null;
 
-/* =========================
-   SESSION DATA
-========================= */
-
+/* ===== DATA ===== */
 const sessions = {
-  1: {
-    title: "Cloud Foundations",
-    question: "What is a cloud region in AWS?",
-    correct: "A"
-  },
-  2: {
-    title: "Shared Responsibility",
-    question: "Who secures infrastructure in AWS?",
-    correct: "B"
-  },
-  3: {
-    title: "IAM Deep Dive",
-    question: "What is IAM used for?",
-    correct: "A"
-  },
-  4: {
-    title: "VPC Networking",
-    question: "What does a VPC control?",
-    correct: "B"
-  }
+  1: { title: "Cloud Foundations", question: "What is a cloud region in AWS?", correct: "A" },
+  2: { title: "Shared Responsibility", question: "Who secures infrastructure in AWS?", correct: "B" },
+  3: { title: "IAM Deep Dive", question: "What is IAM used for?", correct: "A" },
+  4: { title: "VPC Networking", question: "What does a VPC control?", correct: "B" }
 };
 
-/* =========================
-   CRITICAL FIX:
-   FORCE GLOBAL BINDING
-========================= */
-
+/* ===== OPEN SESSION (NO QUIZ TRIGGER) ===== */
 window.openSession = function(id) {
 
   sessionAnswered = false;
 
   const session = sessions[id];
-
-  if (!session) {
-    console.error("Invalid session:", id);
-    return;
-  }
+  if (!session) return;
 
   currentCorrect = session.correct;
 
   document.getElementById("sessionView").innerText =
-    "Viewing Session " + id + " - " + session.title;
-
-  document.getElementById("quizBox").style.display = "block";
+    "Selected: " + session.title;
 
   document.getElementById("questionText").innerText =
     session.question;
 
-  document.getElementById("score").innerText =
-    "Score: " + score;
+  document.getElementById("quizBox").style.display = "none";
 };
 
+/* ===== START QUIZ (CONTROLLED FLOW) ===== */
+window.startQuiz = function () {
+  document.getElementById("quizBox").style.display = "block";
+};
+
+/* ===== ANSWER SYSTEM ===== */
 window.answer = function(selected) {
 
   if (sessionAnswered) {
@@ -244,8 +228,7 @@ window.answer = function(selected) {
 
   if (selected === currentCorrect) {
     score += 10;
-    document.getElementById("score").innerText =
-      "Score: " + score;
+    document.getElementById("score").innerText = "Score: " + score;
   } else {
     alert("Incorrect answer");
   }
@@ -253,14 +236,12 @@ window.answer = function(selected) {
   sessionAnswered = true;
 };
 
-/* =========================
-   SAFE INITIAL STATE
-========================= */
-
+/* ===== INIT ===== */
 window.onload = function () {
   document.getElementById("sessionView").innerText =
     "Select a session to begin";
 };
+
 </script>
 
 </body>
