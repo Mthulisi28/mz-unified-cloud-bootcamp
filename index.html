@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,116 +24,59 @@ body{
 /* ===== TOPBAR ===== */
 
 .topbar{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  height:80px;
-
   background:#111827;
+  padding:20px 40px;
   border-bottom:1px solid #1f2937;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:0 30px;
-  z-index:1000;
 }
 
-.brand h1{
+.topbar h1{
   color:#38bdf8;
-  font-size:24px;
 }
 
-.brand p{
+.topbar p{
   color:#94a3b8;
-  font-size:13px;
+  font-size:14px;
 }
 
-.contact{
-  text-align:right;
-  color:#94a3b8;
-  font-size:13px;
+/* ===== GRID DASHBOARD ===== */
+
+.container{
+  padding:40px;
 }
 
-/* ===== SIDEBAR ===== */
-
-.sidebar{
-  position:fixed;
-  top:80px;
-  left:0;
-
-  width:280px;
-  height:calc(100vh - 80px);
-
-  background:#0f172a;
-  border-right:1px solid #1f2937;
-
-  padding:20px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:20px;
 }
 
-.sidebar h2{
-  color:#38bdf8;
-  margin-bottom:20px;
-}
-
-.session{
-  background:#111827;
-  padding:15px;
-  margin-bottom:10px;
-  border-radius:8px;
-
-  cursor:pointer;
-  transition:0.2s;
-}
-
-.session:hover{
-  background:#1f2937;
-  transform:translateX(4px);
-  border-left:4px solid #38bdf8;
-}
-
-/* ===== MAIN ===== */
-
-.main{
-  margin-left:280px;
-  margin-top:80px;
-  padding:30px;
-}
+/* ===== CARDS ===== */
 
 .card{
   background:#111827;
   border:1px solid #1f2937;
-  border-radius:10px;
+  border-radius:12px;
 
-  padding:25px;
-  margin-bottom:20px;
+  padding:20px;
+  cursor:pointer;
+
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#38bdf8;
 }
 
 .card h2{
   color:#38bdf8;
-  margin-bottom:15px;
+  margin-bottom:10px;
 }
 
 .card p{
-  line-height:1.8;
   color:#d1d5db;
-}
-
-/* ===== LINKS ===== */
-
-.link{
-  display:block;
-  margin-top:15px;
-
-  color:#38bdf8;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.link:hover{
-  text-decoration:underline;
+  font-size:14px;
+  line-height:1.5;
 }
 
 /* ===== FOOTER ===== */
@@ -156,287 +98,95 @@ body{
 
 <div class="topbar">
 
-  <div class="brand">
-    <h1>MZ Unified Cloud Bootcamp</h1>
-    <p>Cloud Governance • DevOps • Security Architecture</p>
-  </div>
-
-  <div class="contact">
-    <div>Mthulisi Zulu</div>
-    <div>green28@live.co.za</div>
-  </div>
+  <h1>MZ Unified Cloud Bootcamp</h1>
+  <p>Cloud Governance • DevOps • Security Architecture</p>
 
 </div>
 
-<!-- ===== SIDEBAR ===== -->
+<!-- ===== DASHBOARD ===== -->
 
-<div class="sidebar">
+<div class="container">
 
-  <h2>Sessions</h2>
+  <h2 style="margin-bottom:20px;">Learning Dashboard</h2>
 
-  <div class="session" onclick="openSession(1)">
-    Session 1 - Cloud Foundations
-  </div>
+  <div class="grid">
 
-  <div class="session" onclick="openSession(2)">
-    Session 2 - IAM
-  </div>
+    <!-- SESSION 1 -->
+    <div class="card"
+         onclick="go('sessions/session-1-cloud-foundations.html')">
 
-  <div class="session" onclick="openSession(3)">
-    Session 3 - Shared Responsibility
-  </div>
+      <h2>Session 1</h2>
+      <p>Cloud Foundations</p>
 
-  <div class="session" onclick="openSession(4)">
-    Session 4 - VPC Networking
-  </div>
+    </div>
 
-</div>
+    <!-- SESSION 2 -->
+    <div class="card"
+         onclick="go('sessions/session-2-iam.html')">
 
-<!-- ===== MAIN ===== -->
+      <h2>Session 2</h2>
+      <p>Identity & Access Management</p>
 
-<div class="main">
+    </div>
 
-  <div class="card">
+    <!-- SESSION 3 -->
+    <div class="card"
+         onclick="go('sessions/session-3-shared-responsibility.html')">
 
-    <h2 id="title">
-      Welcome
-    </h2>
+      <h2>Session 3</h2>
+      <p>Shared Responsibility Model</p>
 
-    <div id="content">
+    </div>
 
-      <p>
-      Select a session from the sidebar to begin learning.
-      </p>
+    <!-- SESSION 4 -->
+    <div class="card"
+         onclick="go('sessions/session-4-vpc-networking.html')">
+
+      <h2>Session 4</h2>
+      <p>VPC Networking</p>
+
+    </div>
+
+    <!-- LABS -->
+    <div class="card"
+         onclick="go('labs/iam-lab-1.html')">
+
+      <h2>Labs</h2>
+      <p>Hands-on AWS Practice</p>
+
+    </div>
+
+    <!-- EXAMS -->
+    <div class="card"
+         onclick="go('exams/mock-exam-1.html')">
+
+      <h2>Mock Exams</h2>
+      <p>Assessment & Revision</p>
+
+    </div>
+
+    <!-- NOTES -->
+    <div class="card"
+         onclick="go('notes/iam-notes.html')">
+
+      <h2>Notes</h2>
+      <p>Structured Learning Material</p>
 
     </div>
 
   </div>
 
-  <div class="card">
-
-    <h2>Global Learning Resources</h2>
-
-    <a class="link"
-       href="https://docs.aws.amazon.com/"
-       target="_blank">
-
-       AWS Official Documentation
-
-    </a>
-
-    <a class="link"
-       href="https://www.youtube.com/@aws"
-       target="_blank">
-
-       AWS Official YouTube Channel
-
-    </a>
-
-  </div>
-
   <div class="footer">
-    MZ Unified Cloud Bootcamp • Stable LMS v2.0
+    MZ Unified Cloud Bootcamp • Professional LMS v1.0
   </div>
 
 </div>
 
-<!-- ===== JAVASCRIPT ===== -->
-
 <script>
 
-function openSession(id){
+function go(page){
 
-  let title =
-    document.getElementById("title");
-
-  let content =
-    document.getElementById("content");
-
-  /* ===== SESSION 1 ===== */
-
-  if(id === 1){
-
-    title.innerHTML =
-      "Cloud Foundations";
-
-    content.innerHTML =
-
-    `
-    <h3>Session Overview</h3>
-
-    <p>
-    Introduction to cloud computing,
-    AWS global infrastructure,
-    regions, availability zones,
-    and cloud service models.
-    </p>
-
-    <br>
-
-    <a class="link"
-       href="https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html"
-       target="_blank">
-
-       Open Student Notes
-
-    </a>
-
-    <a class="link"
-       href="https://www.youtube.com/watch?v=ulprqHHWlng"
-       target="_blank">
-
-       Watch Lesson Video
-
-    </a>
-
-    <a class="link"
-       href="https://aws.amazon.com/getting-started/"
-       target="_blank">
-
-       AWS Learning Resource
-
-    </a>
-
-    `;
-
-  }
-
-  /* ===== SESSION 2 ===== */
-
-  if(id === 2){
-
-    title.innerHTML =
-      "Identity & Access Management (IAM)";
-
-    content.innerHTML =
-
-    `
-    <h3>Session Overview</h3>
-
-    <p>
-    Deep dive into IAM users,
-    roles, policies, MFA,
-    least privilege principles,
-    and root account risks.
-    </p>
-
-    <br>
-
-    <a class="link"
-       href="https://docs.aws.amazon.com/iam/"
-       target="_blank">
-
-       Open IAM Documentation
-
-    </a>
-
-    <a class="link"
-       href="https://www.youtube.com/watch?v=KngM5bfpttA"
-       target="_blank">
-
-       Watch IAM Lesson
-
-    </a>
-
-    <a class="link"
-       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"
-       target="_blank">
-
-       IAM Best Practices
-
-    </a>
-
-    `;
-
-  }
-
-  /* ===== SESSION 3 ===== */
-
-  if(id === 3){
-
-    title.innerHTML =
-      "Shared Responsibility";
-
-    content.innerHTML =
-
-    `
-    <h3>Session Overview</h3>
-
-    <p>
-    Learn the AWS Shared Responsibility Model
-    and understand governance responsibilities
-    between AWS and customers.
-    </p>
-
-    <br>
-
-    <a class="link"
-       href="https://aws.amazon.com/compliance/shared-responsibility-model/"
-       target="_blank">
-
-       Open AWS Responsibility Model
-
-    </a>
-
-    <a class="link"
-       href="https://www.youtube.com/watch?v=txTqtm58AqM"
-       target="_blank">
-
-       Watch Lesson Video
-
-    </a>
-
-    `;
-
-  }
-
-  /* ===== SESSION 4 ===== */
-
-  if(id === 4){
-
-    title.innerHTML =
-      "VPC Networking";
-
-    content.innerHTML =
-
-    `
-    <h3>Session Overview</h3>
-
-    <p>
-    Learn AWS networking architecture,
-    VPCs, subnets, routing tables,
-    gateways, and network segmentation.
-    </p>
-
-    <br>
-
-    <a class="link"
-       href="https://docs.aws.amazon.com/vpc/"
-       target="_blank">
-
-       Open VPC Documentation
-
-    </a>
-
-    <a class="link"
-       href="https://www.youtube.com/watch?v=g2JOHLHh4rI"
-       target="_blank">
-
-       Watch VPC Lesson
-
-    </a>
-
-    <a class="link"
-       href="https://aws.amazon.com/vpc/"
-       target="_blank">
-
-       AWS VPC Resource
-
-    </a>
-
-    `;
-
-  }
+  window.location.href = page;
 
 }
 
