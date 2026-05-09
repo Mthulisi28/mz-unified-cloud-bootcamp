@@ -74,53 +74,60 @@ h1, h2 {
 
 <div class="sidebar">
 
-  <h2 style="margin-bottom:20px;">◆ MZ Bootcamp</h2>
+<h2 style="margin-bottom:20px;">◆ MZ Bootcamp</h2>
 
-  <a href="/index.html">🏠 Dashboard</a>
+<a href="/index.html">🏠 Dashboard</a>
 
-  <a id="s1" href="/session-01-cloud-foundations/site/">
-    Session 1 — Cloud Foundations
-  </a>
+<a id="s1" href="/session-01-cloud-foundations/site/">
+Session 1 — Cloud Foundations
+</a>
 
-  <a id="s2" href="/session-02-shared-responsibility/site/">
-    Session 2 — Security Basics
-  </a>
+<a id="s2" href="/session-02-shared-responsibility/site/">
+Session 2 — Security Basics
+</a>
 
-  <a id="s3" href="/session-03-iam-deep-dive/site/">
-    Session 3 — IAM Deep Dive
-  </a>
+<a id="s3" href="/session-03-iam-deep-dive/site/">
+Session 3 — IAM Deep Dive
+</a>
 
-  <a id="s4" href="/session-04-vpc-networking/site/">
-    Session 4 — VPC Networking
-  </a>
+<a id="s4" href="/session-04-vpc-networking/site/">
+Session 4 — VPC Networking
+</a>
 
 </div>
 
 <div class="main">
 
-  <h1>Session 4 — VPC Networking</h1>
-  <p>Cloud Network Design & Architecture</p>
+<h1>Session 4 — VPC Networking</h1>
+<p>Cloud Network Design & Architecture</p>
 
-  <div class="card">
-    <h2>VPC</h2>
-    <p>Isolated virtual network environment inside AWS.</p>
-  </div>
+<div class="card">
+<h2>VPC</h2>
+<p>Isolated virtual network environment inside AWS.</p>
+</div>
 
-  <div class="card">
-    <h2>Subnets</h2>
-    <p>Public and private network segmentation.</p>
-  </div>
+<div class="card">
+<h2>Subnets</h2>
+<p>Public and private network segmentation.</p>
+</div>
 
-  <div class="card">
-    <h2>Route Tables</h2>
-    <p>Rules controlling network traffic flow.</p>
-  </div>
+<div class="card">
+<h2>Route Tables</h2>
+<p>Rules controlling network traffic flow.</p>
+</div>
 
-  <button onclick="markComplete('s4')">
-    Mark Session Complete
-  </button>
+<button onclick="markComplete('s4')">
+Mark Session Complete
+</button>
 
 </div>
+
+<script>
+if (localStorage.getItem("s3") !== "completed") {
+  alert("Complete Session 3 first.");
+  window.location.href = "/session-03-iam-deep-dive/site/";
+}
+</script>
 
 <script>
 function markComplete(sessionId) {
