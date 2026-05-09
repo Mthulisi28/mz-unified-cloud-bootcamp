@@ -109,14 +109,14 @@
 
 <body>
 
-<!-- TOPBAR -->
+<!-- TOP BAR -->
 <div class="topbar">
 
   <img src="assets/images/mthulisi.png" class="profile">
 
   <div class="brand-center">
     <h1>◆ MZ Unified Cloud Bootcamp</h1>
-    <p id="welcomeText">Welcome</p>
+    <p id="welcomeText">Student LMS</p>
   </div>
 
   <img src="assets/images/mz-logo.png" class="logo">
@@ -159,6 +159,7 @@
 <script>
 
 let score = 0;
+let sessionAnswered = false;
 let currentCorrect = null;
 
 /* ===== SESSION DATA ===== */
@@ -188,10 +189,12 @@ const sessions = {
 /* ===== OPEN SESSION ===== */
 function openSession(id){
 
+  sessionAnswered = false;
+
   const session = sessions[id];
 
   if(!session){
-    console.error("Invalid session:", id);
+    console.error("Session not found");
     return;
   }
 
@@ -206,8 +209,13 @@ function openSession(id){
     session.question;
 }
 
-/* ===== ANSWER CHECK ===== */
+/* ===== ANSWER LOGIC ===== */
 function answer(selected){
+
+  if(sessionAnswered){
+    alert("You already answered this session.");
+    return;
+  }
 
   if(selected === currentCorrect){
     score += 10;
@@ -215,6 +223,8 @@ function answer(selected){
   } else {
     alert("Incorrect answer");
   }
+
+  sessionAnswered = true;
 }
 
 </script>
