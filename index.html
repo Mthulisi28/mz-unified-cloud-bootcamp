@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MZ Unified LMS Dashboard</title>
+  <title>MZ Unified LMS - Student Portal</title>
 
   <!-- GitHub Pages base path -->
   <base href="/mz-unified-cloud-bootcamp/">
@@ -15,7 +15,7 @@
       color: #e5e7eb;
     }
 
-    /* ===== LOGIN SCREEN ===== */
+    /* ================= LOGIN ================= */
     .login-screen {
       height: 100vh;
       display: flex;
@@ -28,12 +28,12 @@
       padding: 30px;
       border-radius: 12px;
       border: 1px solid #1f2937;
-      width: 320px;
+      width: 340px;
       text-align: center;
     }
 
     input {
-      width: 90%;
+      width: 92%;
       padding: 10px;
       margin: 10px 0;
       border-radius: 6px;
@@ -51,12 +51,12 @@
       width: 95%;
     }
 
-    /* ===== APP ===== */
+    /* ================= APP ================= */
     .app {
       display: none;
     }
 
-    /* ===== TOP BAR ===== */
+    /* ================= TOPBAR ================= */
     .topbar {
       position: fixed;
       top: 0;
@@ -102,7 +102,7 @@
       color: #94a3b8;
     }
 
-    /* ===== SIDEBAR ===== */
+    /* ================= SIDEBAR ================= */
     .sidebar {
       position: fixed;
       top: 90px;
@@ -121,7 +121,7 @@
       cursor: pointer;
     }
 
-    /* ===== MAIN ===== */
+    /* ================= MAIN ================= */
     .main {
       margin-left: 280px;
       padding: 120px 40px;
@@ -139,6 +139,7 @@
       color: #22c55e;
       font-size: 18px;
     }
+
   </style>
 </head>
 
@@ -148,12 +149,14 @@
 <div class="login-screen" id="loginScreen">
 
   <div class="login-box">
+
     <h2>Student Login</h2>
 
-    <input type="text" id="studentName" placeholder="Enter your name">
-    <input type="text" id="studentId" placeholder="Enter student ID">
+    <input type="text" id="studentName" placeholder="Enter your full name">
+    <input type="text" id="studentId" placeholder="Enter phone number (e.g. 0821234567)">
 
     <button onclick="login()">Enter LMS</button>
+
   </div>
 
 </div>
@@ -197,7 +200,7 @@
 
       <p>What is IAM used for?</p>
 
-      <button onclick="answer(true)">Identity & Access Control</button>
+      <button onclick="answer(true)">Identity & Access Management</button>
       <button onclick="answer(false)">Networking</button>
 
       <p class="score" id="score">Score: 0</p>
@@ -212,19 +215,30 @@
 
 let score = 0;
 
+// LOGIN FUNCTION
 function login(){
 
   const name = document.getElementById("studentName").value.trim();
   const id = document.getElementById("studentId").value.trim();
 
+  // South African phone validation
+  const phoneRegex = /^0[6-8][0-9]{8}$/;
+
   if(!name || !id){
-    alert("Please enter all fields");
+    alert("Please fill in all fields");
     return;
   }
 
+  if(!phoneRegex.test(id)){
+    alert("Invalid phone number format (e.g. 0821234567)");
+    return;
+  }
+
+  // store session
   localStorage.setItem("studentName", name);
   localStorage.setItem("studentId", id);
 
+  // switch UI
   document.getElementById("loginScreen").style.display = "none";
   document.getElementById("app").style.display = "block";
 
@@ -232,6 +246,7 @@ function login(){
   document.getElementById("studentInfo").innerText = "Student ID: " + id;
 }
 
+// SCORING SYSTEM
 function answer(correct){
   if(correct){
     score += 10;
@@ -239,13 +254,14 @@ function answer(correct){
   }
 }
 
-// auto-login
+// AUTO LOGIN (SESSION RESTORE)
 window.onload = function(){
 
   const name = localStorage.getItem("studentName");
   const id = localStorage.getItem("studentId");
 
   if(name && id){
+
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("app").style.display = "block";
 
