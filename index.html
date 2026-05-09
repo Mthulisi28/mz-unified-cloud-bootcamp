@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>MZ Bootcamp LMS</title>
+  <meta charset="UTF-8">
+  <title>MZ Unified Cloud Bootcamp</title>
 
   <style>
+
     body{
       background:#0b1220;
       color:white;
@@ -11,12 +14,16 @@
       padding:40px;
     }
 
+    h1{
+      color:#38bdf8;
+    }
+
     .session{
       background:#111827;
       padding:20px;
-      margin-bottom:10px;
-      cursor:pointer;
+      margin-bottom:15px;
       border-radius:8px;
+      cursor:pointer;
     }
 
     .session:hover{
@@ -25,11 +32,13 @@
 
     #viewer{
       margin-top:30px;
-      padding:20px;
       background:#111827;
+      padding:20px;
       border-radius:8px;
     }
+
   </style>
+
 </head>
 
 <body>
@@ -52,18 +61,23 @@
 
 function showSession(id){
 
-  const viewer =
+  let viewer =
     document.getElementById("viewer");
 
   if(id === 1){
+
     viewer.innerHTML =
       "<h2>Cloud Foundations</h2><p>Introduction to AWS Cloud.</p>";
+
   }
 
   if(id === 2){
+
     viewer.innerHTML =
       "<h2>IAM</h2><p>Identity and Access Management.</p>";
+
   }
+
 }
 
 </script>
