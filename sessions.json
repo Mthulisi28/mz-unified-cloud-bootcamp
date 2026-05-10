@@ -3,109 +3,37 @@
                      {
                          "id":  1,
                          "pdf":  "assets/session1.pdf",
-                         "outcomes":  "✔ AZ Isolation\n✔ Region Strategy",
+                         "outcomes":  "✔ AZ Isolation",
                          "aws":  "sessions/session-1-cloud-foundations.html",
-                         "overview":  "AWS Global Infrastructure",
-                         "title":  "Session 1: Cloud Foundations",
+                         "overview":  "Infrastructure Bedrock",
+                         "title":  "Session 1: Foundations",
                          "video":  "#"
                      },
                      {
                          "id":  2,
                          "pdf":  "assets/session2.pdf",
-                         "outcomes":  "✔ Least Privilege\n✔ Role Assumption",
+                         "outcomes":  "✔ Least Privilege",
                          "aws":  "sessions/session-2-iam.html",
                          "overview":  "Identity Perimeter",
-                         "title":  "Session 2: IAM Governance",
+                         "title":  "Session 2: IAM",
                          "video":  "#"
                      },
                      {
                          "id":  3,
                          "pdf":  "assets/session3.pdf",
-                         "outcomes":  "✔ Security OF vs IN",
+                         "outcomes":  "✔ Compliance",
                          "aws":  "sessions/session-3-shared-responsibility.html",
-                         "overview":  "Governance Boundaries",
+                         "overview":  "Governance",
                          "title":  "Session 3: Shared Responsibility",
                          "video":  "#"
                      },
                      {
                          "id":  4,
                          "pdf":  "assets/session4.pdf",
-                         "outcomes":  "✔ VPC Peering\n✔ Transit Gateway",
+                         "outcomes":  "✔ Global Mesh",
                          "aws":  "sessions/session-4-vpc-networking.html",
-                         "overview":  "Global Network Mesh",
-                         "title":  "Session 4: VPC Networking",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  5,
-                         "pdf":  "",
-                         "outcomes":  "✔ Scaling Patterns",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] EC2 \u0026 Lambda",
-                         "title":  "Session 5: Compute Governance",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  6,
-                         "pdf":  "",
-                         "outcomes":  "✔ Encryption at Rest",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] S3 \u0026 EBS",
-                         "title":  "Session 6: Storage Architectures",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  7,
-                         "pdf":  "",
-                         "outcomes":  "✔ Multi-Region DR",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] RDS \u0026 DynamoDB",
-                         "title":  "Session 7: Database Governance",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  8,
-                         "pdf":  "",
-                         "outcomes":  "✔ Governance Alerts",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] CloudWatch/Trail",
-                         "title":  "Session 8: Monitoring \u0026 Audit",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  9,
-                         "pdf":  "",
-                         "outcomes":  "✔ State Management",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] Terraform Strategy",
-                         "title":  "Session 9: Infrastructure as Code",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  10,
-                         "pdf":  "",
-                         "outcomes":  "✔ Budget Guardrails",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] Cost Optimization",
-                         "title":  "Session 10: FinOps Strategy",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  11,
-                         "pdf":  "",
-                         "outcomes":  "✔ Multi-Account Control",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] AWS Organizations",
-                         "title":  "Session 11: Landing Zones",
-                         "video":  "#"
-                     },
-                     {
-                         "id":  12,
-                         "pdf":  "",
-                         "outcomes":  "✔ UCA Certification",
-                         "aws":  "#",
-                         "overview":  "[LOCKED] Global Exam",
-                         "title":  "Session 12: Final Certification",
+                         "overview":  "Networking",
+                         "title":  "Session 4: VPC",
                          "video":  "#"
                      }
                  ]

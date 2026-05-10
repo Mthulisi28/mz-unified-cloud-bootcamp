@@ -2,15 +2,25 @@
 let progress = JSON.parse(localStorage.getItem('uca_p')) || [1];
 
 async function init() {
-    const res = await fetch('sessions.json');
-    const data = await res.json();
-    sessions = data.sessions;
-    renderSidebar();
-    render(localStorage.getItem('uca_last') || 1);
+    console.log("UCA Bootloader: Initializing...");
+    try {
+        const res = await fetch('sessions.json');
+        if (!res.ok) throw new Error('HTTP error! status: ' + res.status);
+        const data = await res.json();
+        sessions = data.sessions;
+        console.log("UCA Data Plane: Loaded", sessions.length, "sessions.");
+        renderSidebar();
+        render(localStorage.getItem('uca_last') || 1);
+    } catch (e) {
+        console.error("UCA Critical Failure:", e);
+        document.getElementById('sessionTitle').innerText = "Data Plane Offline";
+        document.getElementById('overview').innerText = "Check sessions.json formatting or GitHub path.";
+    }
 }
 
 function renderSidebar() {
     const list = document.getElementById('sessionList');
+    if (!list) return;
     list.innerHTML = '';
     sessions.forEach(s => {
         const isLocked = s.id !== 1 && !progress.includes(s.id - 1);
@@ -31,27 +41,20 @@ function render(id) {
     document.getElementById('overview').innerText = s.overview;
     document.getElementById('outcomes').innerText = s.outcomes;
     
-    // Wire Links
-    document.getElementById('awsLink').setAttribute('data-url', s.aws);
-    document.getElementById('videoLink').setAttribute('data-url', s.video);
+    document.getElementById('awsLink').onclick = () => window.open(s.aws, '_blank');
+    document.getElementById('videoLink').onclick = () => window.open(s.video, '_blank');
     
-    // PDF Revealed Only if exists
     const pdfArea = document.getElementById('pdfArea');
-    pdfArea.innerHTML = s.pdf ? '<a href="' + s.pdf + '" target="_blank" style="color:#60a5fa; text-decoration:none; display:block; margin: 10px 0;">📥 Download Session Playbook (PDF)</a>' : '';
+    pdfArea.innerHTML = s.pdf ? '<a href="' + s.pdf + '" target="_blank" style="color:#60a5fa; text-decoration:none;">📥 Download Playbook</a>' : '';
     
     document.getElementById('completeBtn').onclick = () => {
         if (!progress.includes(s.id)) progress.push(s.id);
         localStorage.setItem('uca_p', JSON.stringify(progress));
-        renderSidebar();
         const next = sessions.find(x => x.id == s.id + 1);
         if (next) render(next.id);
+        renderSidebar();
     };
     renderSidebar();
 }
-
-document.addEventListener('click', e => {
-    const act = e.target.closest('[data-action="external"]');
-    if (act) window.open(act.getAttribute('data-url'), '_blank');
-});
 
 window.onload = init;
