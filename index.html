@@ -2,65 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UCA COMMAND CENTER | MTHULISI ZULU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCA ROADMAP | MTHULISI ZULU</title>
     <style>
-        :root { --primary: #3b82f6; --bg: #030712; --card: #111827; --text: #f9fafb; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
-        header { height: 80px; background: var(--card); border-bottom: 2px solid #1f2937; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+        :root { --primary: #3b82f6; --bg: #030712; --card: #111827; --text: #f9fafb; --accent: #10b981; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+        header { height: 80px; background: var(--card); border-bottom: 2px solid #1f2937; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-area img { height: 50px; }
+        .logo-area div { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; }
+        .profile-area { display: flex; align-items: center; gap: 15px; text-align: right; }
+        .profile-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
         main { display: flex; flex: 1; overflow: hidden; }
-        #sidebar { width: 340px; background: #000; border-right: 1px solid #1f2937; padding: 25px; overflow-y: auto; }
-        #content { flex: 1; padding: 60px; overflow-y: auto; }
-        .nav-item { display: block; width: 100%; padding: 18px; margin-bottom: 12px; background: #1f2937; color: #fff; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 10px; font-weight: 600; transition: 0.2s; }
-        .nav-item:hover { border-color: var(--primary); background: #1e3a8a; }
-        .nav-item.active { border-color: var(--primary); background: #2563eb; box-shadow: 0 0 15px rgba(37,99,235,0.4); }
-        .uca-card { background: #111827; padding: 35px; border-radius: 16px; border: 1px solid #374151; }
+        #sidebar { width: 350px; background: #000; border-right: 1px solid #1f2937; padding: 25px; overflow-y: auto; }
+        #content { flex: 1; padding: 60px; overflow-y: auto; background: radial-gradient(circle at top right, #1e293b, #030712); }
+        .session-btn { display: block; width: 100%; padding: 18px; margin-bottom: 12px; background: #1f2937; color: #fff; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 10px; transition: 0.2s; font-weight: 500; }
+        .session-btn:hover { background: #374151; border-color: var(--primary); }
+        .session-btn.active { border-color: var(--primary); background: #1e3a8a; box-shadow: 0 0 15px rgba(59,130,246,0.4); }
+        .premium-tag { float: right; background: #f59e0b; color: #000; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 900; margin-top: 2px; }
+        .uca-card { background: rgba(17, 24, 39, 0.8); padding: 40px; border-radius: 16px; border: 1px solid #374151; backdrop-filter: blur(10px); }
+        .action-btn { padding: 16px 32px; border-radius: 8px; font-weight: 800; cursor: pointer; border: none; color: white; background: var(--primary); text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; margin-top: 40px; display: inline-block; text-decoration: none;}
+        .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(59,130,246,0.6); }
+        .footer-text { margin-top: 50px; opacity: 0.4; font-size: 0.8rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
     <header>
-        <div style="font-size:1.5rem; font-weight:900; letter-spacing:-1px;">UCA <span style="color:var(--primary)">COMMAND CENTER</span></div>
-        <div style="text-align:right;"><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
+        <div class="logo-area">
+            <img src="assets/mz-logo.png" alt="UCA Logo" onerror="this.src='https://via.placeholder.com/150x50?text=Logo+Missing'">
+            <div>ROADMAP</div>
+        </div>
+        <div class="profile-area">
+            <div><strong style="font-size:1.1rem;">Mthulisi Zulu</strong><br><small style="color:var(--primary); font-weight:700;">CLOUD GOVERNANCE ARCHITECT</small></div>
+            <img src="assets/mthulisi.png" alt="Mthulisi Zulu" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
+        </div>
     </header>
     <main>
-        <div id="sidebar"><div id="engineList"></div></div>
+        <div id="sidebar"><div id="sList"></div></div>
         <div id="content">
-            <h1 id="coreTitle">SYSTEM INITIALIZED</h1>
-            <p id="coreOver" style="font-size:1.2rem; opacity:0.8; margin-bottom:30px;"></p>
+            <h1 id="sTitle" style="font-size:3rem; margin-bottom:10px;">Select Module</h1>
+            <p id="sOver" style="font-size:1.3rem; opacity:0.8; margin-bottom:40px; max-width:800px;"></p>
             <div class="uca-card">
-                <h4 style="color:var(--primary); text-transform:uppercase; margin-top:0;">Architectural Directives</h4>
-                <div id="coreOut" style="line-height:1.6; font-size:1.1rem;">Bypassing legacy cache... System Ready.</div>
+                <h4 style="margin:0 0 20px 0; color:var(--primary); text-transform:uppercase; letter-spacing:2px;">Strategic Implementation</h4>
+                <div id="sOut" style="font-size:1.1rem; line-height:1.8; color:#cbd5e1;"></div>
+            </div>
+            <a id="lLink" href="#" class="action-btn" target="_blank" style="display: none;">Launch Session Environment</a>
+            <div class="footer-text">
+                © 2022 MTHULISI ZULU | GLOBAL CLOUD BUSINESS OPERATIONS | PROTECTED BY UCA GOVERNANCE
             </div>
         </div>
     </main>
+
     <script>
-        // HARD-WIRED DATA: NO FETCH, NO SEARCHING, NO DELAY
-        const UCA_CORE_DATA = [
-            { id: 1, t: "01: Cloud Foundations", o: "Regions, AZs, and Global Latency.", c: "• High Availability Design<br>• Blast Radius Containment" },
-            { id: 2, t: "02: IAM Governance", o: "Identity as the new perimeter.", c: "• Zero Trust Roles<br>• Permission Boundaries" },
-            { id: 3, t: "03: VPC Networking", o: "Global Mesh and Segmentation.", c: "• Transit Gateway Logic<br>• Tiered Subnets" }
+        const sessions = [
+            { id: 1, title: "01: Cloud Foundations", over: "The bedrock of high-availability. Understanding Regions, AZs, and Global Latency Audit.", out: "• Master Region Selection Criteria<br>• AZ Isolation Strategy<br>• Edge Location Networking", url: "#", type: "free" },
+            { id: 2, title: "02: IAM Governance", over: "Identity as the primary security perimeter. Designing for Zero Trust and Least Privilege.", out: "• Cross-Account Role Assumption<br>• Service Control Policies (SCPs)<br>• Permission Boundaries", url: "#", type: "free" },
+            { id: 3, title: "03: VPC Networking", over: "Architecting the Global Mesh. Subnet isolation and blast radius containment.", out: "• VPC Peering vs Transit Gateway<br>• Private Link Implementation<br>• Network ACL vs Security Groups", url: "#", type: "free" },
+            { id: 4, title: "04: Shared Responsibility", over: "Defining the line between Cloud Provider and Architect. Security 'OF' vs 'IN' the cloud.", out: "• Compliance Mapping<br>• Audit Readiness Framework<br>• Shared Security Models", url: "#", type: "free" },
+            { id: 5, title: "05: Multi-Account Strategy", over: "Enterprise-grade landing zones. Control Tower and AWS Organizations.", out: "• Landing Zone Design<br>• Account Factory for Terraform<br>• Centralized Logging & Guardrails", url: "#", type: "premium" },
+            { id: 6, title: "06: Serverless Mastery", over: "Event-driven architecture at scale. Lambda, EventBridge, and DynamoDB.", out: "• Cold Start Mitigation<br>• SQS/SNS Decoupling Patterns<br>• Serverless Security Hardening", url: "#", type: "premium" },
+            { id: 7, title: "07: Containers & K8s", over: "Orchestration for the 1%. EKS and Fargate governance.", out: "• Cluster Autoscaling<br>• Pod Identity Security<br>• Helm Chart Governance", url: "#", type: "premium" },
+            { id: 8, title: "08: Database Governance", over: "Data durability and performance. RDS, Aurora, and NoSQL strategy.", out: "• Multi-Region Replication<br>• Point-in-Time Recovery<br>• Schema Governance", url: "#", type: "premium" },
+            { id: 9, title: "09: CI/CD Pipelines", over: "Automated delivery pipelines. GitOps and Infrastructure-as-Code.", out: "• Terraform State Management<br>• Policy-as-Code (Checkov/OPA)<br>• Automated Canary Deployments", url: "#", type: "premium" },
+            { id: 10, title: "10: Monitoring & Ops", over: "Observability for boardrooms. CloudWatch, X-Ray, and Cost Audit.", out: "• Custom Metrics & Alarms<br>• Distributed Tracing Logic<br>• Cost Optimization Guardrails", url: "#", type: "premium" },
+            { id: 11, title: "11: Security & Compliance", over: "Hardening the environment. GuardDuty, Security Hub, and Inspector.", out: "• Automated Threat Detection<br>• Incident Response Playbooks<br>• Regulatory Mapping (SOC2/PCI)", url: "#", type: "premium" },
+            { id: 12, title: "12: Capstone Project", over: "The Global Machine. Building a multi-region, multi-account enterprise architecture.", out: "• Final Architectural Defense<br>• UCA Certification Issuance<br>• High-Ticket Retainer Ready", url: "#", type: "premium" }
         ];
 
-        function deployUI() {
-            const list = document.getElementById('engineList');
+        const list = document.getElementById('sList');
+        const title = document.getElementById('sTitle');
+        const overview = document.getElementById('sOver');
+        const outcomes = document.getElementById('sOut');
+        const launchLink = document.getElementById('lLink');
+
+        function render() {
             list.innerHTML = '';
-            UCA_CORE_DATA.forEach(data => {
-                const btn = document.createElement('button');
-                btn.className = 'nav-item';
-                btn.innerHTML = data.t;
-                btn.onclick = () => {
-                    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    document.getElementById('coreTitle').innerText = data.t;
-                    document.getElementById('coreOver').innerText = data.o;
-                    document.getElementById('coreOut').innerHTML = data.c;
-                };
-                list.appendChild(btn);
+            sessions.forEach((s, index) => {
+                const b = document.createElement('button');
+                b.className = 'session-btn' + (localStorage.getItem('curr_uca') == s.id ? ' active' : '');
+                b.innerHTML = s.title + (s.type === 'premium' ? '<span class="premium-tag">PREMIUM</span>' : '');
+                b.onclick = () => show(s.id);
+                list.appendChild(b);
             });
-            // Immediate execution of first node
-            if(UCA_CORE_DATA.length > 0) list.firstChild.click();
         }
-        
-        deployUI();
+
+        function show(id) {
+            const s = sessions.find(x => x.id == id);
+            if (!s) return;
+
+            localStorage.setItem('curr_uca', id);
+            title.innerText = s.title;
+            overview.innerText = s.over;
+            outcomes.innerHTML = s.out;
+            
+            launchLink.href = s.url;
+            if (s.url && s.url !== "#") {
+                launchLink.style.display = 'inline-block';
+            } else {
+                launchLink.style.display = 'none';
+            }
+            render();
+        }
+
+        window.onload = () => show(localStorage.getItem('curr_uca') || 1);
     </script>
 </body>
 </html>
