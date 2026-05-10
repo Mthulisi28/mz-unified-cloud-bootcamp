@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MZ Unified Cloud Bootcamp LMS</title>
+<title>MZ Unified Cloud Bootcamp</title>
 
 <style>
 
@@ -19,8 +19,8 @@ GLOBAL
 }
 
 body{
-    font-family: Arial, sans-serif;
-    background:#081120;
+    font-family:Arial,sans-serif;
+    background:#071120;
     color:#E5E7EB;
 }
 
@@ -33,30 +33,25 @@ TOPBAR
     top:0;
     left:0;
     right:0;
-    height:80px;
+    height:85px;
     background:#0F172A;
     border-bottom:1px solid #1E293B;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 30px;
+    padding:0 35px;
     z-index:1000;
-}
-
-.brand{
-    display:flex;
-    flex-direction:column;
 }
 
 .brand h1{
     color:#38BDF8;
-    font-size:28px;
+    font-size:30px;
 }
 
 .brand p{
     color:#94A3B8;
-    font-size:13px;
     margin-top:5px;
+    font-size:13px;
 }
 
 /* =========================
@@ -65,10 +60,10 @@ SIDEBAR
 
 .sidebar{
     position:fixed;
-    top:80px;
+    top:85px;
     left:0;
-    width:300px;
-    height:calc(100vh - 80px);
+    width:320px;
+    height:calc(100vh - 85px);
     background:#0F172A;
     border-right:1px solid #1E293B;
     padding:25px;
@@ -78,52 +73,51 @@ SIDEBAR
 .sidebar h2{
     color:#38BDF8;
     margin-bottom:25px;
-    font-size:30px;
+    font-size:28px;
 }
 
 .session{
     background:#1E293B;
-    padding:18px;
-    border-radius:10px;
-    margin-bottom:15px;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:18px;
     cursor:pointer;
     transition:0.3s;
-    border-left:4px solid transparent;
+    border-left:5px solid transparent;
 }
 
 .session:hover{
-    transform:translateX(5px);
     background:#243447;
-    border-left:4px solid #38BDF8;
+    transform:translateX(6px);
+    border-left:5px solid #38BDF8;
 }
 
 .session-title{
     font-size:17px;
     font-weight:bold;
-    color:#FFFFFF;
 }
 
 /* =========================
-MAIN CONTENT
+MAIN
 ========================= */
 
 .main{
-    margin-left:300px;
-    padding:120px 40px 40px;
+    margin-left:320px;
+    padding:120px 40px 50px;
 }
 
 .hero{
     background:#0F172A;
     border:1px solid #1E293B;
-    border-radius:14px;
+    border-radius:16px;
     padding:35px;
     margin-bottom:30px;
 }
 
 .hero h2{
     color:#38BDF8;
-    font-size:40px;
-    margin-bottom:15px;
+    font-size:42px;
+    margin-bottom:10px;
 }
 
 .hero p{
@@ -131,10 +125,14 @@ MAIN CONTENT
     font-size:18px;
 }
 
+/* =========================
+CONTENT CARD
+========================= */
+
 .content-card{
     background:#0F172A;
     border:1px solid #1E293B;
-    border-radius:14px;
+    border-radius:16px;
     padding:40px;
 }
 
@@ -144,11 +142,63 @@ MAIN CONTENT
     margin-bottom:25px;
 }
 
-.content-card p{
+.section{
+    margin-bottom:35px;
+}
+
+.section-title{
+    color:#38BDF8;
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.section-content{
+    line-height:1.9;
     color:#E2E8F0;
-    line-height:2;
-    white-space:pre-line;
     font-size:17px;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.button-group{
+    margin-top:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 22px;
+    margin-right:15px;
+    margin-top:10px;
+    background:#38BDF8;
+    color:#071120;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#7DD3FC;
+    transform:translateY(-2px);
+}
+
+/* =========================
+LAB BOX
+========================= */
+
+.lab-box{
+    background:#111827;
+    border:1px solid #1E293B;
+    border-radius:12px;
+    padding:25px;
+    margin-top:15px;
+}
+
+.lab-box ul{
+    margin-left:20px;
+    line-height:2;
 }
 
 /* =========================
@@ -156,7 +206,7 @@ FOOTER
 ========================= */
 
 .footer{
-    margin-top:30px;
+    margin-top:35px;
     color:#64748B;
     font-size:13px;
 }
@@ -241,19 +291,17 @@ SIDEBAR
 </div>
 
 <!-- =========================
-MAIN CONTENT
+MAIN
 ========================= -->
 
 <div class="main">
 
     <div class="hero">
-
         <h2>Welcome to the Bootcamp</h2>
 
         <p id="heroText">
             Select a session from the left panel to begin learning.
         </p>
-
     </div>
 
     <div class="content-card">
@@ -262,14 +310,56 @@ MAIN CONTENT
             MZ Unified Cloud Bootcamp
         </h3>
 
-        <p id="sessionContent">
+        <div class="section">
+            <div class="section-title">Overview</div>
+
+            <div class="section-content" id="overview">
 Professional cloud engineering learning platform.
-        </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Learning Outcomes</div>
+
+            <div class="section-content" id="outcomes">
+Select a session to load outcomes.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Hands-On Lab</div>
+
+            <div class="lab-box" id="labs">
+Labs will appear here.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Learning Resources</div>
+
+            <div class="button-group">
+
+                <a id="awsLink"
+                   class="btn"
+                   href="#"
+                   target="_blank">
+                   AWS Documentation
+                </a>
+
+                <a id="videoLink"
+                   class="btn"
+                   href="#"
+                   target="_blank">
+                   Watch Video
+                </a>
+
+            </div>
+        </div>
 
     </div>
 
     <div class="footer">
-        MZ Unified Cloud Bootcamp • Professional LMS v2.0
+        MZ Unified Cloud Bootcamp • Professional LMS v3.0
     </div>
 
 </div>
@@ -285,215 +375,133 @@ const sessions = {
 1: {
 title: "Session 1 - Cloud Foundations",
 
-content: `
-Introduction to cloud computing, AWS infrastructure, regions, availability zones, and cloud fundamentals.
+overview:
+"Introduction to cloud computing, AWS infrastructure, regions, availability zones, and cloud fundamentals.",
 
-━━━━━━━━━━━━━━━━━━
-Topics Covered
-━━━━━━━━━━━━━━━━━━
+outcomes:
+"✔ Understand cloud computing\n✔ Understand AWS infrastructure\n✔ Understand scalable architecture",
 
-• What is Cloud Computing
-• AWS Global Infrastructure
-• Regions and Availability Zones
-• Benefits of Cloud Computing
-• Shared Responsibility Introduction
-• IaaS vs PaaS vs SaaS
-• Introduction to Core AWS Services
-
-━━━━━━━━━━━━━━━━━━
-Learning Outcomes
-━━━━━━━━━━━━━━━━━━
-
-✔ Understand cloud computing models
-✔ Understand AWS global infrastructure
-✔ Understand scalable cloud design
-
-━━━━━━━━━━━━━━━━━━
-Recommended AWS Reading
-━━━━━━━━━━━━━━━━━━
-
-https://aws.amazon.com/what-is-cloud-computing/
-
-━━━━━━━━━━━━━━━━━━
-Recommended Video
-━━━━━━━━━━━━━━━━━━
-
-https://www.youtube.com/watch?v=ulprqHHWlng
-
-━━━━━━━━━━━━━━━━━━
-Hands-On Lab
-━━━━━━━━━━━━━━━━━━
-
-• Create AWS Account
-• Explore AWS Console
-• Review Billing Dashboard
-• Open EC2 Dashboard
+labs:
 `
+<ul>
+<li>Create AWS Account</li>
+<li>Explore AWS Console</li>
+<li>Review EC2 Dashboard</li>
+<li>Explore Billing Dashboard</li>
+</ul>
+`,
+
+aws:
+"https://aws.amazon.com/what-is-cloud-computing/",
+
+video:
+"https://www.youtube.com/watch?v=ulprqHHWlng"
 },
 
 2: {
 title: "Session 2 - IAM",
 
-content: `
-Identity & Access Management (IAM) controls authentication and authorization in AWS.
+overview:
+"Identity & Access Management controls authentication and authorization in AWS.",
 
-━━━━━━━━━━━━━━━━━━
-Topics Covered
-━━━━━━━━━━━━━━━━━━
+outcomes:
+"✔ Understand IAM Users\n✔ Understand IAM Roles\n✔ Configure MFA\n✔ Apply least privilege",
 
-• IAM Users
-• IAM Roles
-• IAM Policies
-• MFA
-• Least Privilege Principle
-• Root Account Security
-• Permission Boundaries
-
-━━━━━━━━━━━━━━━━━━
-Learning Outcomes
-━━━━━━━━━━━━━━━━━━
-
-✔ Understand identity security
-✔ Understand access governance
-✔ Configure secure authentication controls
-
-━━━━━━━━━━━━━━━━━━
-Recommended AWS Reading
-━━━━━━━━━━━━━━━━━━
-
-https://docs.aws.amazon.com/iam/
-
-━━━━━━━━━━━━━━━━━━
-Recommended Video
-━━━━━━━━━━━━━━━━━━
-
-https://www.youtube.com/watch?v=KngM5bfpttA
-
-━━━━━━━━━━━━━━━━━━
-Hands-On Lab
-━━━━━━━━━━━━━━━━━━
-
-• Create IAM User
-• Enable MFA
-• Create IAM Group
-• Apply IAM Policies
-• Configure Least Privilege Access
+labs:
 `
+<ul>
+<li>Create IAM User</li>
+<li>Enable MFA</li>
+<li>Create IAM Group</li>
+<li>Apply IAM Policy</li>
+</ul>
+`,
+
+aws:
+"https://docs.aws.amazon.com/iam/",
+
+video:
+"https://www.youtube.com/watch?v=KngM5bfpttA"
 },
 
 3: {
 title: "Session 3 - Shared Responsibility",
 
-content: `
-The Shared Responsibility Model defines security ownership between AWS and customers.
+overview:
+"Understand AWS security boundaries and governance responsibilities.",
 
-━━━━━━━━━━━━━━━━━━
-Topics Covered
-━━━━━━━━━━━━━━━━━━
+outcomes:
+"✔ Understand Security OF the Cloud\n✔ Understand Security IN the Cloud\n✔ Understand governance boundaries",
 
-• Security OF the Cloud
-• Security IN the Cloud
-• Governance Responsibilities
-• Compliance Boundaries
-• AWS Responsibilities
-• Customer Responsibilities
-
-━━━━━━━━━━━━━━━━━━
-Learning Outcomes
-━━━━━━━━━━━━━━━━━━
-
-✔ Understand cloud governance
-✔ Understand security ownership
-✔ Understand compliance responsibility
-
-━━━━━━━━━━━━━━━━━━
-Recommended AWS Reading
-━━━━━━━━━━━━━━━━━━
-
-https://aws.amazon.com/compliance/shared-responsibility-model/
-
-━━━━━━━━━━━━━━━━━━
-Recommended Video
-━━━━━━━━━━━━━━━━━━
-
-https://www.youtube.com/watch?v=Zn5I6L0A5KM
-
-━━━━━━━━━━━━━━━━━━
-Hands-On Lab
-━━━━━━━━━━━━━━━━━━
-
-• Review IAM Permissions
-• Review MFA
-• Explore Security Groups
-• Review S3 Security
+labs:
 `
+<ul>
+<li>Review IAM Permissions</li>
+<li>Review MFA</li>
+<li>Review S3 Security</li>
+<li>Explore Security Groups</li>
+</ul>
+`,
+
+aws:
+"https://aws.amazon.com/compliance/shared-responsibility-model/",
+
+video:
+"https://www.youtube.com/watch?v=Zn5I6L0A5KM"
 },
 
 4: {
 title: "Session 4 - VPC Networking",
 
-content: `
-Virtual Private Cloud (VPC) is the networking foundation of AWS infrastructure.
+overview:
+"Learn AWS networking architecture and secure segmentation principles.",
 
-━━━━━━━━━━━━━━━━━━
-Topics Covered
-━━━━━━━━━━━━━━━━━━
+outcomes:
+"✔ Understand VPC Architecture\n✔ Understand Subnets\n✔ Configure Route Tables\n✔ Understand Gateways",
 
-• VPC Architecture
-• Public vs Private Subnets
-• Route Tables
-• Internet Gateway
-• NAT Gateway
-• Network Segmentation
-• Security Groups
-• NACLs
-
-━━━━━━━━━━━━━━━━━━
-Learning Outcomes
-━━━━━━━━━━━━━━━━━━
-
-✔ Understand AWS networking
-✔ Design secure cloud networks
-✔ Understand segmentation principles
-
-━━━━━━━━━━━━━━━━━━
-Recommended AWS Reading
-━━━━━━━━━━━━━━━━━━
-
-https://docs.aws.amazon.com/vpc/
-
-━━━━━━━━━━━━━━━━━━
-Recommended Video
-━━━━━━━━━━━━━━━━━━
-
-https://www.youtube.com/watch?v=g2JOHLHh4rI
-
-━━━━━━━━━━━━━━━━━━
-Hands-On Lab
-━━━━━━━━━━━━━━━━━━
-
-• Create VPC
-• Create Public Subnet
-• Create Private Subnet
-• Attach Internet Gateway
-• Configure Route Tables
+labs:
 `
+<ul>
+<li>Create VPC</li>
+<li>Create Public Subnet</li>
+<li>Create Private Subnet</li>
+<li>Configure Route Tables</li>
+</ul>
+`,
+
+aws:
+"https://docs.aws.amazon.com/vpc/",
+
+video:
+"https://www.youtube.com/watch?v=g2JOHLHh4rI"
 }
 
 };
 
 function openSession(id){
 
-    const session = sessions[id];
+const session = sessions[id];
 
-    document.getElementById("sessionTitle").innerText =
-        session.title;
+document.getElementById("sessionTitle").innerText =
+session.title;
 
-    document.getElementById("sessionContent").innerText =
-        session.content;
+document.getElementById("overview").innerText =
+session.overview;
 
-    document.getElementById("heroText").innerText =
-        "Currently viewing: " + session.title;
+document.getElementById("outcomes").innerText =
+session.outcomes;
+
+document.getElementById("labs").innerHTML =
+session.labs;
+
+document.getElementById("heroText").innerText =
+"Currently viewing: " + session.title;
+
+document.getElementById("awsLink").href =
+session.aws;
+
+document.getElementById("videoLink").href =
+session.video;
 
 }
 
