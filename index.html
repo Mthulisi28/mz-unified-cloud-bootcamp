@@ -2,103 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UCA ROADMAP | MTHULISI ZULU</title>
+    <title>UCA MACHINE | Mthulisi Zulu</title>
     <style>
-        :root { --primary: #3b82f6; --bg: #030712; --card: #111827; --text: #f9fafb; --accent: #10b981; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-        header { height: 80px; background: var(--card); border-bottom: 2px solid #1f2937; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        :root { --primary: #3b82f6; --bg: #030712; --card: #111827; --text: #f9fafb; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        header { height: 80px; background: var(--card); border-bottom: 2px solid #1f2937; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
         main { display: flex; flex: 1; overflow: hidden; }
-        #sidebar { width: 350px; background: #000; border-right: 1px solid #1f2937; padding: 25px; overflow-y: auto; }
-        #content { flex: 1; padding: 60px; overflow-y: auto; background: radial-gradient(circle at top right, #1e293b, #030712); }
-        .session-btn { display: block; width: 100%; padding: 18px; margin-bottom: 12px; background: #1f2937; color: #fff; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 10px; transition: 0.2s; font-weight: 500; }
-        .session-btn:hover { background: #374151; border-color: var(--primary); }
-        .session-btn.active { border-color: var(--primary); background: #1e3a8a; box-shadow: 0 0 15px rgba(59,130,246,0.4); }
-        .premium-tag { float: right; background: #f59e0b; color: #000; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 900; margin-top: 2px; }
-        .uca-card { background: rgba(17, 24, 39, 0.8); padding: 40px; border-radius: 16px; border: 1px solid #374151; backdrop-filter: blur(10px); }
-        .action-btn { padding: 16px 32px; border-radius: 8px; font-weight: 800; cursor: pointer; border: none; color: white; background: var(--primary); text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(59,130,246,0.6); }
-        .footer-text { margin-top: 50px; opacity: 0.4; font-size: 0.8rem; letter-spacing: 1px; }
+        #sidebar { width: 340px; background: #000; border-right: 1px solid #1f2937; padding: 25px; overflow-y: auto; }
+        #content { flex: 1; padding: 60px; overflow-y: auto; }
+        .session-btn { display: block; width: 100%; padding: 18px; margin-bottom: 12px; background: #1f2937; color: #fff; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 10px; font-weight: 600; transition: 0.2s; }
+        .session-btn:hover { border-color: var(--primary); background: #1e3a8a; }
+        .session-btn.active { border-color: var(--primary); background: #2563eb; box-shadow: 0 0 15px rgba(37,99,235,0.4); }
+        .uca-card { background: #111827; padding: 35px; border-radius: 16px; border: 1px solid #374151; }
     </style>
 </head>
 <body>
     <header>
-        <div style="font-size:1.6rem; font-weight:900; letter-spacing:-1px;">UNIFIED <span style="color:var(--primary)">CONTROL</span> ARCHITECTURE</div>
-        <div style="display:flex; align-items:center; gap:15px; text-align:right;">
-            <div><strong style="font-size:1.1rem;">Mthulisi Zulu</strong><br><small style="color:var(--primary); font-weight:700;">CLOUD GOVERNANCE ARCHITECT</small></div>
-            <img src="assets/mthulisi.jpg" style="width:50px; height:50px; border-radius:50%; border:2px solid var(--primary);" onerror="this.src='https://via.placeholder.com/50'">
-        </div>
+        <div style="font-size:1.5rem; font-weight:900; letter-spacing:-1px;">UCA <span style="color:var(--primary)">BOOTCAMP</span></div>
+        <div style="text-align:right;"><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
     </header>
     <main>
         <div id="sidebar"><div id="sList"></div></div>
         <div id="content">
-            <h1 id="sTitle" style="font-size:3rem; margin-bottom:10px;">Select Module</h1>
-            <p id="sOver" style="font-size:1.3rem; opacity:0.8; margin-bottom:40px; max-width:800px;"></p>
+            <h1 id="sTitle">MACHINE ONLINE</h1>
+            <p id="sOver" style="font-size:1.2rem; opacity:0.8; margin-bottom:30px;"></p>
             <div class="uca-card">
-                <h4 style="margin:0 0 20px 0; color:var(--primary); text-transform:uppercase; letter-spacing:2px;">Strategic Implementation</h4>
-                <div id="sOut" style="font-size:1.1rem; line-height:1.8; color:#cbd5e1;"></div>
-            </div>
-            <div style="margin-top:40px; display:flex; gap:20px;">
-                <button id="lLink" class="action-btn">Launch Session Environment</button>
-                <button id="payBtn" class="action-btn" style="background:#f59e0b; display:none;">Unlock Premium Content</button>
-            </div>
-            <div class="footer-text">
-                © 2022 MTHULISI ZULU | GLOBAL CLOUD BUSINESS OPERATIONS | PROTECTED BY UCA GOVERNANCE
+                <h4 style="color:var(--primary); text-transform:uppercase; margin-top:0;">Governance Outcomes</h4>
+                <div id="sOut" style="line-height:1.6; font-size:1.1rem;">Select a session to begin.</div>
             </div>
         </div>
     </main>
-
     <script>
         const sessions = [
-            { id: 1, title: "01: Cloud Foundations", over: "The bedrock of high-availability. Understanding Regions, AZs, and Global Latency Audit.", out: "• Master Region Selection Criteria<br>• AZ Isolation Strategy<br>• Edge Location Networking", type: "free" },
-            { id: 2, title: "02: IAM Governance", over: "Identity as the primary security perimeter. Designing for Zero Trust and Least Privilege.", out: "• Cross-Account Role Assumption<br>• Service Control Policies (SCPs)<br>• Permission Boundaries", type: "free" },
-            { id: 3, title: "03: VPC Networking", over: "Architecting the Global Mesh. Subnet isolation and blast radius containment.", out: "• VPC Peering vs Transit Gateway<br>• Private Link Implementation<br>• Network ACL vs Security Groups", type: "free" },
-            { id: 4, title: "04: Shared Responsibility", over: "Defining the line between Cloud Provider and Architect. Security 'OF' vs 'IN' the cloud.", out: "• Compliance Mapping<br>• Audit Readiness Framework<br>• Shared Security Models", type: "free" },
-            { id: 5, title: "05: Multi-Account Strategy", over: "Enterprise-grade landing zones. Control Tower and AWS Organizations.", out: "• Landing Zone Design<br>• Account Factory for Terraform<br>• Centralized Logging & Guardrails", type: "premium" },
-            { id: 6, title: "06: Serverless Mastery", over: "Event-driven architecture at scale. Lambda, EventBridge, and DynamoDB.", out: "• Cold Start Mitigation<br>• SQS/SNS Decoupling Patterns<br>• Serverless Security Hardening", type: "premium" },
-            { id: 7, title: "07: Containers & K8s", over: "Orchestration for the 1%. EKS and Fargate governance.", out: "• Cluster Autoscaling<br>• Pod Identity Security<br>• Helm Chart Governance", type: "premium" },
-            { id: 8, title: "08: Database Governance", over: "Data durability and performance. RDS, Aurora, and NoSQL strategy.", out: "• Multi-Region Replication<br>• Point-in-Time Recovery<br>• Schema Governance", type: "premium" },
-            { id: 9, title: "09: CI/CD Pipelines", over: "Automated delivery pipelines. GitOps and Infrastructure-as-Code.", out: "• Terraform State Management<br>• Policy-as-Code (Checkov/OPA)<br>• Automated Canary Deployments", type: "premium" },
-            { id: 10, title: "10: Monitoring & Ops", over: "Observability for boardrooms. CloudWatch, X-Ray, and Cost Audit.", out: "• Custom Metrics & Alarms<br>• Distributed Tracing Logic<br>• Cost Optimization Guardrails", type: "premium" },
-            { id: 11, title: "11: Security & Compliance", over: "Hardening the environment. GuardDuty, Security Hub, and Inspector.", out: "• Automated Threat Detection<br>• Incident Response Playbooks<br>• Regulatory Mapping (SOC2/PCI)", type: "premium" },
-            { id: 12, title: "12: Capstone Project", over: "The Global Machine. Building a multi-region, multi-account enterprise architecture.", out: "• Final Architectural Defense<br>• UCA Certification Issuance<br>• High-Ticket Retainer Ready", type: "premium" }
+            { id: 1, t: "01: Cloud Foundations", o: "Regions, AZs, and Global Latency.", c: "• High Availability Design<br>• Blast Radius Containment" },
+            { id: 2, t: "02: IAM Governance", o: "Identity as the new perimeter.", c: "• Zero Trust Roles<br>• Permission Boundaries" },
+            { id: 3, t: "03: VPC Networking", o: "Global Mesh and Segmentation.", c: "• Transit Gateway Logic<br>• Tiered Subnets" }
         ];
 
-        function render() {
+        function init() {
             const list = document.getElementById('sList');
             list.innerHTML = '';
             sessions.forEach(s => {
-                const b = document.createElement('button');
-                b.className = 'session-btn' + (localStorage.getItem('curr_uca') == s.id ? ' active' : '');
-                b.innerHTML = s.title + (s.type === 'premium' ? '<span class="premium-tag">PREMIUM</span>' : '');
-                b.onclick = () => show(s.id);
-                list.appendChild(b);
+                const btn = document.createElement('button');
+                btn.className = 'session-btn';
+                btn.innerHTML = s.t;
+                btn.onclick = () => {
+                    document.querySelectorAll('.session-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById('sTitle').innerText = s.t;
+                    document.getElementById('sOver').innerText = s.o;
+                    document.getElementById('sOut').innerHTML = s.c;
+                };
+                list.appendChild(btn);
             });
+            // Auto-click first session
+            if(sessions.length > 0) list.firstChild.click();
         }
-
-        function show(id) {
-            const s = sessions.find(x => x.id == id);
-            localStorage.setItem('curr_uca', id);
-            document.getElementById('sTitle').innerText = s.title;
-            document.getElementById('sOver').innerText = s.over;
-            document.getElementById('sOut').innerHTML = s.out;
-            
-            const lBtn = document.getElementById('lLink');
-            const pBtn = document.getElementById('payBtn');
-            
-            if(s.type === 'premium') {
-                lBtn.style.display = 'none';
-                pBtn.style.display = 'block';
-                pBtn.onclick = () => window.open('https://quickreserve.co.za/pay', '_blank');
-            } else {
-                lBtn.style.display = 'block';
-                pBtn.style.display = 'none';
-                lBtn.onclick = () => window.open('sessions/s' + s.id + '.html', '_blank');
-            }
-            render();
+        
+        // Force execution even if DOM is weird
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
         }
-
-        window.onload = () => show(localStorage.getItem('curr_uca') || 1);
     </script>
 </body>
 </html>
