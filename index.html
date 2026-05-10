@@ -18,9 +18,8 @@
         }
         .session-card:not(.locked):hover { 
             border-color: #d4af37; 
-            box-shadow: 0 15px 50px -12px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 15px 50px -12px rgba(212, 175, 55, 0.2);
         }
-        .locked { opacity: 0.3; filter: grayscale(1); cursor: not-allowed; border-style: dashed; }
         .gold-ink { color: #d4af37; }
         .btn-elite { 
             background: #d4af37; 
@@ -32,9 +31,7 @@
             display: block;
             text-align: center;
             border: 1px solid #d4af37;
-            transition: 0.3s;
         }
-        .btn-elite:hover { background: transparent; color: #d4af37; }
         .resource-link { 
             display: flex;
             justify-content: space-between;
@@ -43,10 +40,9 @@
             color: #8b949e;
             padding: 12px 0;
             border-bottom: 1px solid #21262d;
-            transition: 0.2s;
             text-decoration: none;
         }
-        .resource-link:hover { color: #d4af37; border-color: #d4af37; padding-left: 8px; }
+        .resource-link:hover { color: #d4af37; }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -60,7 +56,7 @@
         
         <div class="flex flex-col md:flex-row items-center justify-between mb-24 bg-[#0d1117] p-12 border border-gray-800 shadow-2xl">
             <div class="flex items-center">
-                <img src="image_ceb943.jpg" alt="Architect" class="w-44 h-44 border-2 border-[#d4af37] shadow-2xl object-cover">
+                <img src="image_ceb943.jpg" alt="Mthulisi Zulu" class="w-44 h-44 border-2 border-[#d4af37] shadow-2xl object-cover">
                 <div class="ml-12 text-left">
                     <h2 class="text-5xl font-black text-white tracking-tighter uppercase italic">Mthulisi Zulu</h2>
                     <p class="gold-ink font-bold text-xl uppercase tracking-[0.3em] mt-2">Global Systems Architect</p>
@@ -74,8 +70,8 @@
                 <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 01</span>
                 <h3 class="text-2xl font-black text-white mb-6 uppercase">Foundations</h3>
                 <div class="mb-8">
-                    <a href="Module_1_Cloud_Practitioner.pdf" target="_blank" class="resource-link"><span>UCA Module 1 PDF</span><span class="text-xs">OPEN</span></a>
-                    <a href="https://www.youtube.com/watch?v=SOTamWNgDKc" target="_blank" class="resource-link"><span>Infrastructure Video</span><span class="text-xs">VIEW</span></a>
+                    <a href="Module_1_Cloud_Practitioner.pdf" target="_blank" class="resource-link"><span>UCA Module 1 PDF</span><span class="text-xs">VIEW</span></a>
+                    <a href="https://www.youtube.com/watch?v=SOTamWNgDKc" target="_blank" class="resource-link"><span>Strategy Video</span><span class="text-xs">PLAY</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/" target="_blank" class="btn-elite">Access Console</a>
             </div>
@@ -84,8 +80,8 @@
                 <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 02</span>
                 <h3 class="text-2xl font-black text-white mb-6 uppercase">Design Logic</h3>
                 <div class="mb-8">
-                    <a href="Module_1_Solutions_Architect_Associate.pdf" target="_blank" class="resource-link"><span>Architect Associate PDF</span><span class="text-xs">OPEN</span></a>
-                    <a href="https://www.youtube.com/watch?v=IApZ5LqdOnk" target="_blank" class="resource-link"><span>Architecture Video</span><span class="text-xs">VIEW</span></a>
+                    <a href="Module_1_Solutions_Architect_Associate.pdf" target="_blank" class="resource-link"><span>Architect Associate PDF</span><span class="text-xs">VIEW</span></a>
+                    <a href="https://www.youtube.com/watch?v=IApZ5LqdOnk" target="_blank" class="resource-link"><span>Architecture Video</span><span class="text-xs">PLAY</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/artifact/" target="_blank" class="btn-elite">Access Artifact</a>
             </div>
@@ -94,15 +90,12 @@
                 <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 03</span>
                 <h3 class="text-2xl font-black text-white mb-6 uppercase">Identity & Risk</h3>
                 <div class="mb-8">
-                    <a href="Module_2_Solutions_Architect_Associate.pdf" target="_blank" class="resource-link"><span>Advanced Architect PDF</span><span class="text-xs">OPEN</span></a>
-                    <a href="https://www.youtube.com/watch?v=Z3Spx60L07k" target="_blank" class="resource-link"><span>IAM Masterclass</span><span class="text-xs">VIEW</span></a>
+                    <a href="Module_2_Solutions_Architect_Associate.pdf" target="_blank" class="resource-link"><span>Advanced Architect PDF</span><span class="text-xs">VIEW</span></a>
+                    <a href="https://www.youtube.com/watch?v=Z3Spx60L07k" target="_blank" class="resource-link"><span>IAM Masterclass</span><span class="text-xs">PLAY</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="btn-elite">Access IAM Core</a>
             </div>
 
-            <div class="session-card locked p-10"><h3 class="text-2xl font-black text-gray-700 uppercase">VPC Mesh</h3></div>
-            <div class="session-card locked p-10"><h3 class="text-2xl font-black text-gray-700 uppercase">Compute Logic</h3></div>
-            <div class="session-card locked p-10"><h3 class="text-2xl font-black text-gray-700 uppercase">Storage Tiers</h3></div>
         </div>
 
         <footer class="mt-40 text-center text-gray-800 border-t border-gray-900 pt-20 tracking-[1em] text-[10px] font-black gold-ink opacity-40">
