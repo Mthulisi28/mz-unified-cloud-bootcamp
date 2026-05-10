@@ -1,42 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MZ Unified Cloud Bootcamp</title>
 
 <style>
-body{font-family:Arial;background:#0b1220;color:#e5e7eb;padding:30px}
-h1{color:#38bdf8}
-.card{background:#111827;padding:20px;margin:15px 0;border-radius:10px;cursor:pointer}
-.card:hover{border:1px solid #38bdf8}
+
+body{
+    font-family: Arial, sans-serif;
+    background:#0b1220;
+    color:#e5e7eb;
+    margin:0;
+    padding:40px;
+}
+
+h1{
+    color:#38bdf8;
+}
+
+.subtitle{
+    color:#94a3b8;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#111827;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.2s;
+    border:1px solid #1f2937;
+}
+
+.card:hover{
+    border:1px solid #38bdf8;
+    transform:translateY(-2px);
+}
+
+.footer{
+    margin-top:40px;
+    color:#64748b;
+    font-size:12px;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <h1>MZ Unified Cloud Bootcamp</h1>
 
-<div class="card" onclick="go('sessions/session-1-cloud-foundations.html')">
-Session 1 - Cloud Foundations
+<div class="subtitle">
+Cloud Governance • DevOps • Security Architecture
 </div>
 
-<div class="card" onclick="go('sessions/session-2-iam.html')">
-Session 2 - IAM
+<!-- SESSION 1 -->
+<div class="card"
+onclick="window.location.href='./sessions/session-1-cloud-foundations.html'">
+
+<h2>Session 1 - Cloud Foundations</h2>
+
+<p>
+Introduction to cloud computing, AWS infrastructure,
+regions, availability zones, and cloud fundamentals.
+</p>
+
 </div>
 
-<div class="card" onclick="go('sessions/session-3-shared-responsibility.html')">
-Session 3 - Shared Responsibility
+<!-- SESSION 2 -->
+<div class="card"
+onclick="window.location.href='./sessions/session-2-iam.html'">
+
+<h2>Session 2 - IAM</h2>
+
+<p>
+Identity & Access Management,
+Users vs Roles vs Policies,
+MFA and least privilege.
+</p>
+
 </div>
 
-<div class="card" onclick="go('sessions/session-4-vpc-networking.html')">
-Session 4 - VPC Networking
+<!-- SESSION 3 -->
+<div class="card"
+onclick="window.location.href='./sessions/session-3-shared-responsibility.html'">
+
+<h2>Session 3 - Shared Responsibility</h2>
+
+<p>
+Understand AWS security boundaries,
+customer responsibilities,
+and governance models.
+</p>
+
 </div>
 
-<script>
-function go(p){
-  window.location.href = p;
-}
-</script>
+<!-- SESSION 4 -->
+<div class="card"
+onclick="window.location.href='./sessions/session-4-vpc-networking.html'">
+
+<h2>Session 4 - VPC Networking</h2>
+
+<p>
+Learn VPC architecture,
+subnets, routing tables,
+gateways, and segmentation.
+</p>
+
+</div>
+
+<div class="footer">
+MZ Unified Cloud Bootcamp • Professional LMS v1.0
+</div>
 
 </body>
+
 </html>
