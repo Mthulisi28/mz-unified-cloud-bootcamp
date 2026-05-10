@@ -2,51 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UCA Roadmap | Mthulisi Zulu</title>
     <style>
         :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
-        header { height: 70px; background: var(--card); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; border-bottom: 1px solid #334155; }
-        .profile-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; background: #334155; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+        header { height: 75px; background: var(--card); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; border-bottom: 2px solid #334155; }
+        .instructor-profile { display: flex; align-items: center; gap: 15px; }
+        .profile-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; background: #334155; }
         main { display: flex; flex: 1; overflow: hidden; }
-        #sidebar { width: 300px; background: #111827; padding: 20px; border-right: 1px solid #334155; overflow-y: auto; }
-        #content { flex: 1; padding: 40px; overflow-y: auto; }
-        .session-btn { display: block; width: 100%; padding: 15px; margin-bottom: 10px; background: var(--card); color: white; border: none; text-align: left; cursor: pointer; border-radius: 8px; border: 1px solid transparent; }
-        .session-btn.active { border-color: var(--primary); background: #2d3748; font-weight: bold; }
-        .session-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-        .uca-card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; }
-        .action-btn { padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; border: none; color: white; text-decoration: none; display: inline-block; }
+        #sidebar { width: 340px; background: #111827; padding: 25px; border-right: 1px solid #334155; overflow-y: auto; }
+        #content { flex: 1; padding: 50px; overflow-y: auto; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); }
+        .session-btn { display: block; width: 100%; padding: 18px; margin-bottom: 12px; background: var(--card); color: white; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 10px; transition: 0.3s; }
+        .session-btn.active { border-color: var(--primary); background: #2d3748; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+        .session-btn:disabled { opacity: 0.3; cursor: not-allowed; filter: grayscale(1); }
+        .uca-card { background: rgba(30, 41, 59, 0.7); padding: 35px; border-radius: 15px; border: 1px solid #475569; margin-bottom: 30px; backdrop-filter: blur(10px); }
+        .action-btn { padding: 16px 32px; border-radius: 8px; cursor: pointer; font-weight: bold; border: none; color: white; text-decoration: none; display: inline-block; transition: transform 0.2s; }
+        .action-btn:hover { transform: translateY(-2px); }
+        .footer-sig { margin-top: 60px; opacity: 0.4; font-size: 0.85rem; border-top: 1px solid #334155; padding-top: 25px; }
     </style>
 </head>
 <body>
     <header>
-        <div><img src="assets/mz-logo.png" style="height:40px;" onerror="this.style.display='none'"> <strong>UCA BOOTCAMP</strong></div>
-        <div style="display:flex; align-items:center; gap:12px;">
-            <div style="text-align:right;"><small style="opacity:0.7">Instructor</small><br><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
-            <img src="assets/mthulisi.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
+        <div style="display:flex; align-items:center; gap:20px;">
+            <img src="assets/mz-logo.png" style="height:45px;" onerror="this.style.display='none'">
+            <span style="font-weight: 900; font-size: 1.4rem; letter-spacing: 2px;">UCA BOOTCAMP</span>
+        </div>
+        <div class="instructor-profile">
+            <div style="text-align:right; line-height: 1.2;">
+                <span style="font-size: 0.8rem; opacity: 0.7;">INSTRUCTOR</span><br>
+                <strong style="font-size: 1.1rem;">Mthulisi Zulu</strong><br>
+                <small style="color: var(--primary); font-weight: bold; letter-spacing: 1px;">CLOUD GOVERNANCE ARCHITECT</small>
+            </div>
+            <img src="assets/mthulisi.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/100?text=MZ'">
         </div>
     </header>
     <main>
         <div id="sidebar"><div id="sessionList"></div></div>
         <div id="content">
-            <h1 id="sessionTitle">Machine Online</h1>
-            <p id="overview"></p>
-            <div class="uca-card"><h3>Lab Outcomes</h3><pre id="outcomes" style="color:#94a3b8; font-family:inherit; white-space:pre-wrap;"></pre></div>
-            <div id="pdfArea" style="margin-bottom:20px;"></div>
-            <div style="display:flex; gap:15px;">
-                <button id="awsLink" class="action-btn" style="background:var(--primary)">Lab Docs</button>
-                <button id="completeBtn" class="action-btn" style="background:#10b981">Complete & Unlock</button>
+            <h1 id="sessionTitle" style="font-size: 2.5rem; margin-bottom: 10px;">Initializing...</h1>
+            <p id="overview" style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 30px;"></p>
+            <div class="uca-card">
+                <h3 style="margin-top:0; color: var(--primary); text-transform: uppercase; letter-spacing: 1px;">Strategic Outcomes</h3>
+                <pre id="outcomes" style="color:#cbd5e1; font-family: inherit; font-size: 1.1rem; white-space: pre-wrap; line-height: 1.6;"></pre>
             </div>
-            <p style="margin-top:50px; opacity:0.5; font-size:0.8rem;">© 2022 Mthulisi Zulu. Global Cloud Business Operations.</p>
+            <div id="pdfArea" style="margin-bottom: 30px;"></div>
+            <div style="display:flex; gap:20px;">
+                <button id="awsLink" class="action-btn" style="background:var(--primary); box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);">ACCESS LAB DOCS</button>
+                <button id="completeBtn" class="action-btn" style="background:#10b981; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">COMPLETE & UNLOCK</button>
+            </div>
+            <div class="footer-sig">
+                <p>UNIFIED CONTROL ARCHITECTURE (UCA) | GLOBAL BUSINESS OPERATIONS</p>
+                <p>© 2022 Mthulisi Zulu. All Rights Reserved.</p>
+            </div>
         </div>
     </main>
 
     <script>
         const sessions = [
-            { id: 1, title: "Session 1: Foundations", overview: "AWS Global Infrastructure & High Availability.", outcomes: "✔ AZ Isolation\n✔ Region Selection Strategy", aws: "sessions/session-1-cloud-foundations.html", pdf: "assets/session1.pdf" },
-            { id: 2, title: "Session 2: IAM Governance", overview: "Identity as the Perimeter.", outcomes: "✔ Least Privilege\n✔ Role-Based Access", aws: "sessions/session-2-iam.html", pdf: "assets/session2.pdf" },
-            { id: 3, title: "Session 3: Shared Responsibility", overview: "Defining Architect Boundaries.", outcomes: "✔ Security OF vs IN the Cloud", aws: "sessions/session-3-shared-responsibility.html", pdf: "assets/session3.pdf" },
-            { id: 4, title: "Session 4: VPC Networking", overview: "Global Network Mesh.", outcomes: "✔ VPC Peering\n✔ Transit Gateway", aws: "sessions/session-4-vpc-networking.html", pdf: "assets/session4.pdf" }
+            { id: 1, title: "01: Cloud Foundations", overview: "Architecture bedrock: Regions, AZs, and High Availability.", outcomes: "✔ Master Regional Selection\n✔ Define High-Availability Boundaries\n✔ Blast Radius Mitigation", aws: "sessions/session-1-cloud-foundations.html", pdf: "assets/session1.pdf" },
+            { id: 2, title: "02: IAM Governance", overview: "The new perimeter: Identity and Access Management.", outcomes: "✔ Zero Trust Principles\n✔ Cross-Account Role Assumption\n✔ Guardrail Implementation", aws: "sessions/session-2-iam.html", pdf: "assets/session2.pdf" },
+            { id: 3, title: "03: Shared Responsibility", overview: "Governance alignment: Where the Architect's duty begins.", outcomes: "✔ Security 'OF' vs 'IN' the Cloud\n✔ Audit Readiness Framework\n✔ Compliance Mapping", aws: "sessions/session-3-shared-responsibility.html", pdf: "assets/session3.pdf" },
+            { id: 4, title: "04: VPC Networking", overview: "The Global Mesh: Secure network interconnectivity.", outcomes: "✔ VPC Peering & Transit Gateway\n✔ Subnet Segmentation\n✔ Network ACL vs Security Groups", aws: "sessions/session-4-vpc-networking.html", pdf: "assets/session4.pdf" }
         ];
 
         let progress = JSON.parse(localStorage.getItem('uca_p')) || [1];
@@ -75,7 +92,7 @@
             document.getElementById('awsLink').onclick = () => window.open(s.aws, '_blank');
             
             const pdfArea = document.getElementById('pdfArea');
-            pdfArea.innerHTML = s.pdf ? <a href="\" target="_blank" style="color:var(--primary); text-decoration:none;">📥 Download Session Playbook</a> : '';
+            pdfArea.innerHTML = s.pdf ? <a href="\" target="_blank" style="color:var(--primary); font-weight:bold; text-decoration:none; display:flex; align-items:center; gap:8px;">📥 DOWNLOAD SESSION PLAYBOOK</a> : '';
             
             document.getElementById('completeBtn').onclick = () => {
                 if (!progress.includes(s.id)) progress.push(s.id);
@@ -87,9 +104,7 @@
             renderSidebar();
         }
 
-        window.onload = () => {
-            render(localStorage.getItem('uca_last') || 1);
-        };
+        window.onload = () => render(localStorage.getItem('uca_last') || 1);
     </script>
 </body>
 </html>
