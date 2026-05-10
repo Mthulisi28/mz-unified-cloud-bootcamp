@@ -22,14 +22,14 @@
     <header>
         <div><img src="assets/mz-logo.png" style="height:40px;" onerror="this.style.display='none'"> <strong>UCA BOOTCAMP</strong></div>
         <div style="display:flex; align-items:center; gap:12px;">
-            <div style="text-align:right;"><small style="opacity:0.7">Instructor</small><br><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
+            <div style="text-align:right;"><small>Instructor</small><br><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
             <img src="assets/mthulisi.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
         </div>
     </header>
     <main>
         <div id="sidebar"><div id="sessionList"></div></div>
         <div id="content">
-            <h1 id="sessionTitle">Machine Online</h1>
+            <h1 id="sessionTitle">Initializing UCA...</h1>
             <p id="overview"></p>
             <div class="uca-card"><h3>Lab Outcomes</h3><pre id="outcomes" style="color:#94a3b8; font-family:inherit; white-space:pre-wrap;"></pre></div>
             <div id="pdfArea" style="margin-bottom:20px;"></div>
@@ -88,6 +88,7 @@
         }
 
         window.onload = () => {
+            console.log("UCA Engine Started.");
             render(localStorage.getItem('uca_last') || 1);
         };
     </script>
