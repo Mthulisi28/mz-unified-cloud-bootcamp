@@ -1,386 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MZ Unified Cloud Bootcamp</title>
-
-<style>
-
-/* =========================
-GLOBAL
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial,sans-serif;
-    background:#071120;
-    color:#E5E7EB;
-}
-
-/* =========================
-TOPBAR
-========================= */
-
-.topbar{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    height:85px;
-    background:#0F172A;
-    border-bottom:1px solid #1E293B;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 35px;
-    z-index:1000;
-}
-
-.brand h1{
-    color:#38BDF8;
-    font-size:30px;
-}
-
-.brand p{
-    color:#94A3B8;
-    margin-top:5px;
-    font-size:13px;
-}
-
-/* =========================
-SIDEBAR
-========================= */
-
-.sidebar{
-    position:fixed;
-    top:85px;
-    left:0;
-    width:320px;
-    height:calc(100vh - 85px);
-    background:#0F172A;
-    border-right:1px solid #1E293B;
-    padding:25px;
-    overflow-y:auto;
-}
-
-.sidebar h2{
-    color:#38BDF8;
-    margin-bottom:25px;
-    font-size:28px;
-}
-
-.session{
-    background:#1E293B;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:18px;
-    cursor:pointer;
-    transition:0.3s;
-    border-left:5px solid transparent;
-}
-
-.session:hover{
-    background:#243447;
-    transform:translateX(6px);
-    border-left:5px solid #38BDF8;
-}
-
-.session-title{
-    font-size:17px;
-    font-weight:bold;
-}
-
-/* =========================
-MAIN
-========================= */
-
-.main{
-    margin-left:320px;
-    padding:120px 40px 50px;
-}
-
-.hero{
-    background:#0F172A;
-    border:1px solid #1E293B;
-    border-radius:16px;
-    padding:35px;
-    margin-bottom:30px;
-}
-
-.hero h2{
-    color:#38BDF8;
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.hero p{
-    color:#CBD5E1;
-    font-size:18px;
-}
-
-/* =========================
-CONTENT CARD
-========================= */
-
-.content-card{
-    background:#0F172A;
-    border:1px solid #1E293B;
-    border-radius:16px;
-    padding:40px;
-}
-
-.content-card h3{
-    color:#38BDF8;
-    font-size:34px;
-    margin-bottom:25px;
-}
-
-.section{
-    margin-bottom:35px;
-}
-
-.section-title{
-    color:#38BDF8;
-    margin-bottom:15px;
-    font-size:22px;
-}
-
-.section-content{
-    line-height:1.9;
-    color:#E2E8F0;
-    font-size:17px;
-}
-
-/* =========================
-BUTTONS
-========================= */
-
-.button-group{
-    margin-top:20px;
-}
-
-.btn{
-    display:inline-block;
-    padding:14px 22px;
-    margin-right:15px;
-    margin-top:10px;
-    background:#38BDF8;
-    color:#071120;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#7DD3FC;
-    transform:translateY(-2px);
-}
-
-/* =========================
-LAB BOX
-========================= */
-
-.lab-box{
-    background:#111827;
-    border:1px solid #1E293B;
-    border-radius:12px;
-    padding:25px;
-    margin-top:15px;
-}
-
-.lab-box ul{
-    margin-left:20px;
-    line-height:2;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-.footer{
-    margin-top:35px;
-    color:#64748B;
-    font-size:13px;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-.sidebar{
-    position:relative;
-    width:100%;
-    height:auto;
-}
-
-.main{
-    margin-left:0;
-    padding:40px 20px;
-}
-
-.hero h2{
-    font-size:28px;
-}
-
-.content-card h3{
-    font-size:24px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- =========================
-TOPBAR
-========================= -->
-
-<div class="topbar">
-
-    <div class="brand">
-        <h1>◆ MZ Unified Cloud Bootcamp</h1>
-        <p>Cloud Governance • DevOps • Security Architecture</p>
-    </div>
-
-</div>
-
-<!-- =========================
-SIDEBAR
-========================= -->
-
-<div class="sidebar">
-
-    <h2>Sessions</h2>
-
-    <div class="session" onclick="openSession(1)">
-        <div class="session-title">
-            Session 1 - Cloud Foundations
-        </div>
-    </div>
-
-    <div class="session" onclick="openSession(2)">
-        <div class="session-title">
-            Session 2 - IAM
-        </div>
-    </div>
-
-    <div class="session" onclick="openSession(3)">
-        <div class="session-title">
-            Session 3 - Shared Responsibility
-        </div>
-    </div>
-
-    <div class="session" onclick="openSession(4)">
-        <div class="session-title">
-            Session 4 - VPC Networking
-        </div>
-    </div>
-
-</div>
-
-<!-- =========================
-MAIN
-========================= -->
-
-<div class="main">
-
-    <div class="hero">
-        <h2>Welcome to the Bootcamp</h2>
-
-        <p id="heroText">
-            Select a session from the left panel to begin learning.
-        </p>
-    </div>
-
-    <div class="content-card">
-
-        <h3 id="sessionTitle">
-            MZ Unified Cloud Bootcamp
-        </h3>
-
-        <div class="section">
-            <div class="section-title">Overview</div>
-
-            <div class="section-content" id="overview">
-Professional cloud engineering learning platform.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Learning Outcomes</div>
-
-            <div class="section-content" id="outcomes">
-Select a session to load outcomes.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Hands-On Lab</div>
-
-            <div class="lab-box" id="labs">
-Labs will appear here.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Learning Resources</div>
-
-            <div class="button-group">
-
-                <a id="awsLink"
-                   class="btn"
-                   href="#"
-                   target="_blank">
-                   AWS Documentation
-                </a>
-
-                <a id="videoLink"
-                   class="btn"
-                   href="#"
-                   target="_blank">
-                   Watch Video
-                </a>
-
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer">
-        MZ Unified Cloud Bootcamp • Professional LMS v3.0
-    </div>
-
-</div>
-
-<!-- =========================
-SCRIPT
-========================= -->
-
 <script>
 
 const sessions = {
 
 1: {
 title: "Session 1 - Cloud Foundations",
-
 overview:
 "Introduction to cloud computing, AWS infrastructure, regions, availability zones, and cloud fundamentals.",
-
 outcomes:
 "✔ Understand cloud computing\n✔ Understand AWS infrastructure\n✔ Understand scalable architecture",
-
 labs:
 `
 <ul>
@@ -390,23 +17,16 @@ labs:
 <li>Explore Billing Dashboard</li>
 </ul>
 `,
-
-aws:
-"https://aws.amazon.com/what-is-cloud-computing/",
-
-video:
-"https://www.youtube.com/watch?v=ulprqHHWlng"
+aws: "https://aws.amazon.com/what-is-cloud-computing/",
+video: "https://www.youtube.com/watch?v=ulprqHHWlng"
 },
 
 2: {
 title: "Session 2 - IAM",
-
 overview:
 "Identity & Access Management controls authentication and authorization in AWS.",
-
 outcomes:
-"✔ Understand IAM Users\n✔ Understand IAM Roles\n✔ Configure MFA\n✔ Apply least privilege",
-
+"✔ IAM Users\n✔ IAM Roles\n✔ MFA Setup\n✔ Least Privilege",
 labs:
 `
 <ul>
@@ -416,49 +36,35 @@ labs:
 <li>Apply IAM Policy</li>
 </ul>
 `,
-
-aws:
-"https://docs.aws.amazon.com/iam/",
-
-video:
-"https://www.youtube.com/watch?v=KngM5bfpttA"
+aws: "https://docs.aws.amazon.com/iam/",
+video: "https://www.youtube.com/watch?v=KngM5bfpttA"
 },
 
 3: {
 title: "Session 3 - Shared Responsibility",
-
 overview:
-"Understand AWS security boundaries and governance responsibilities.",
-
+"AWS security responsibility model and governance boundaries.",
 outcomes:
-"✔ Understand Security OF the Cloud\n✔ Understand Security IN the Cloud\n✔ Understand governance boundaries",
-
+"✔ Security OF the Cloud\n✔ Security IN the Cloud\n✔ Governance model",
 labs:
 `
 <ul>
 <li>Review IAM Permissions</li>
 <li>Review MFA</li>
 <li>Review S3 Security</li>
-<li>Explore Security Groups</li>
+<li>Security Groups Analysis</li>
 </ul>
 `,
-
-aws:
-"https://aws.amazon.com/compliance/shared-responsibility-model/",
-
-video:
-"https://www.youtube.com/watch?v=Zn5I6L0A5KM"
+aws: "https://aws.amazon.com/compliance/shared-responsibility-model/",
+video: "https://www.youtube.com/watch?v=Zn5I6L0A5KM"
 },
 
 4: {
 title: "Session 4 - VPC Networking",
-
 overview:
-"Learn AWS networking architecture and secure segmentation principles.",
-
+"AWS networking fundamentals: VPC, subnets, routing, gateways.",
 outcomes:
-"✔ Understand VPC Architecture\n✔ Understand Subnets\n✔ Configure Route Tables\n✔ Understand Gateways",
-
+"✔ VPC Design\n✔ Subnets\n✔ Routing\n✔ Gateways",
 labs:
 `
 <ul>
@@ -468,44 +74,116 @@ labs:
 <li>Configure Route Tables</li>
 </ul>
 `,
-
-aws:
-"https://docs.aws.amazon.com/vpc/",
-
-video:
-"https://www.youtube.com/watch?v=g2JOHLHh4rI"
+aws: "https://docs.aws.amazon.com/vpc/",
+video: "https://www.youtube.com/watch?v=g2JOHLHh4rI"
 }
 
 };
+
+//////////////////////////////////////////////////////
+// ◆ SAFE NAVIGATION (NO MULTI-OPEN BUG)
+//////////////////////////////////////////////////////
+
+let navigationLock = false;
+
+function safeOpen(url){
+
+if (navigationLock) return;
+
+navigationLock = true;
+
+const win = window.open(url, "_blank", "noopener,noreferrer");
+
+if (!win) {
+    // fallback if popup blocked
+    window.location.href = url;
+}
+
+setTimeout(() => {
+    navigationLock = false;
+}, 800);
+
+}
+
+//////////////////////////////////////////////////////
+// ◆ CLEAN EVENT BINDING (NO STACKING)
+//////////////////////////////////////////////////////
+
+function bindLinks(session){
+
+const awsBtn = document.getElementById("awsLink");
+const videoBtn = document.getElementById("videoLink");
+
+// FULL RESET (prevents duplicate listeners)
+const newAwsBtn = awsBtn.cloneNode(true);
+const newVideoBtn = videoBtn.cloneNode(true);
+
+awsBtn.parentNode.replaceChild(newAwsBtn, awsBtn);
+videoBtn.parentNode.replaceChild(newVideoBtn, videoBtn);
+
+// RE-BIND CLEAN EVENTS
+document.getElementById("awsLink").onclick = function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    safeOpen(session.aws);
+};
+
+document.getElementById("videoLink").onclick = function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    safeOpen(session.video);
+};
+
+}
+
+//////////////////////////////////////////////////////
+// ◆ MAIN SESSION LOADER (STATE RESET FIXED)
+//////////////////////////////////////////////////////
 
 function openSession(id){
 
 const session = sessions[id];
 
-document.getElementById("sessionTitle").innerText =
-session.title;
+// HARD RESET (prevents visual layering)
+document.getElementById("sessionTitle").innerText = "";
+document.getElementById("overview").innerText = "";
+document.getElementById("outcomes").innerText = "";
+document.getElementById("labs").innerHTML = "";
 
-document.getElementById("overview").innerText =
-session.overview;
+// REBUILD STATE CLEANLY
+document.getElementById("sessionTitle").innerText = session.title;
 
-document.getElementById("outcomes").innerText =
-session.outcomes;
+document.getElementById("overview").innerText = session.overview;
 
-document.getElementById("labs").innerHTML =
-session.labs;
+document.getElementById("outcomes").innerText = session.outcomes;
+
+document.getElementById("labs").innerHTML = session.labs;
 
 document.getElementById("heroText").innerText =
 "Currently viewing: " + session.title;
 
-document.getElementById("awsLink").href =
-session.aws;
+// BIND LINKS SAFELY
+bindLinks(session);
 
-document.getElementById("videoLink").href =
-session.video;
+// UX IMPROVEMENT
+window.scrollTo({ top: 0, behavior: "smooth" });
 
 }
 
-</script>
+//////////////////////////////////////////////////////
+// ◆ REMOVE GITHUB HASH SIDE EFFECTS
+//////////////////////////////////////////////////////
 
-</body>
-</html>
+if (window.location.hash) {
+    window.history.replaceState(null, null, window.location.pathname);
+}
+
+//////////////////////////////////////////////////////
+// ◆ DEFAULT LOAD
+//////////////////////////////////////////////////////
+
+window.onload = function(){
+    openSession(1);
+};
+
+</script>
