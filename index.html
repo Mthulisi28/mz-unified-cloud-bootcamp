@@ -19,9 +19,8 @@
         .session-card:not(.locked):hover { 
             border-color: #d4af37; 
             box-shadow: 0 15px 50px -12px rgba(212, 175, 55, 0.15);
-            transform: translateY(-8px);
         }
-        .locked { opacity: 0.4; filter: grayscale(1); cursor: not-allowed; border-style: dashed; }
+        .locked { opacity: 0.3; filter: grayscale(1); cursor: not-allowed; border-style: dashed; }
         .gold-ink { color: #d4af37; }
         .btn-elite { 
             background: #d4af37; 
@@ -36,17 +35,18 @@
             transition: 0.3s;
         }
         .btn-elite:hover { background: transparent; color: #d4af37; }
+        .resource-tag { font-size: 0.65rem; color: #484f58; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
         .resource-link { 
-            display: block;
-            font-size: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
             font-weight: 700;
-            text-transform: uppercase;
             color: #8b949e;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #21262d;
             transition: 0.2s;
         }
-        .resource-link:hover { color: #d4af37; border-color: #d4af37; padding-left: 5px; }
+        .resource-link:hover { color: #d4af37; border-color: #d4af37; padding-left: 8px; }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -55,14 +55,13 @@
         <img src="assets/mz-logo.png" alt="MZ Logo" class="mx-auto w-32 mb-8">
         <h1 class="text-7xl font-black tracking-tighter text-white italic uppercase">MZ UCA</h1>
         <h2 class="text-3xl font-bold text-white mt-1 tracking-[0.4em]">BOOT CAMP</h2>
-        <p class="text-[10px] mt-6 font-black tracking-[0.6em] gold-ink uppercase">Elite Cloud Governance Strategy</p>
     </header>
 
     <main class="max-w-7xl mx-auto px-8 py-20">
         
         <div class="flex flex-col md:flex-row items-center justify-between mb-24 bg-[#0d1117] p-12 border border-gray-800 shadow-2xl">
             <div class="flex items-center">
-                <img src="assets/image_cf2a96.jpg" alt="Architect" class="w-44 h-44 border-2 border-[#d4af37] shadow-2xl object-cover">
+                <img src="assets/image_ceb943.jpg" alt="Architect" class="w-44 h-44 border-2 border-[#d4af37] shadow-2xl object-cover">
                 <div class="ml-12 text-left">
                     <h2 class="text-5xl font-black text-white tracking-tighter uppercase italic">Mthulisi Zulu</h2>
                     <p class="gold-ink font-bold text-xl uppercase tracking-[0.3em] mt-2">Global Systems Architect</p>
@@ -73,31 +72,34 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
             <div class="session-card p-10">
-                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Session 01</span>
+                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 01</span>
                 <h3 class="text-2xl font-black text-white mb-6 uppercase">Foundations</h3>
-                <div class="mb-8 space-y-1">
-                    <a href="assets/docs/Module_1_Cloud_Practitioner.pdf" class="resource-link">Study Notes: Module 1</a>
-                    <a href="https://www.youtube.com/watch?v=ajP3S9E1SdA" class="resource-link">Global Infra Deep-Dive</a>
+                <div class="mb-8">
+                    <span class="resource-tag">Elite Assets</span>
+                    <a href="assets/docs/Module_1_Cloud_Practitioner.pdf" class="resource-link"><span>UCA Module 1 PDF</span><span class="text-xs">DOC</span></a>
+                    <a href="https://www.youtube.com/watch?v=SOTamWNgDKc" target="_blank" class="resource-link"><span>AWS Global Infrastructure</span><span class="text-xs">VIDEO</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/" target="_blank" class="btn-elite">Access Console</a>
             </div>
 
             <div class="session-card p-10">
-                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Session 02</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase">Architect Core</h3>
-                <div class="mb-8 space-y-1">
-                    <a href="assets/docs/Module_1_Solutions_Architect_Associate.pdf" class="resource-link">Solutions Architecture PDF</a>
-                    <a href="https://www.udemy.com/" class="resource-link">Elite Certification Video</a>
+                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 02</span>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Design Logic</h3>
+                <div class="mb-8">
+                    <span class="resource-tag">Elite Assets</span>
+                    <a href="assets/docs/Module_1_Solutions_Architect_Associate.pdf" class="resource-link"><span>Architect Associate PDF</span><span class="text-xs">DOC</span></a>
+                    <a href="https://www.youtube.com/watch?v=IApZ5LqdOnk" target="_blank" class="resource-link"><span>3-Tier Architecture Design</span><span class="text-xs">VIDEO</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/artifact/" target="_blank" class="btn-elite">Access Artifact</a>
             </div>
 
             <div class="session-card p-10">
-                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Session 03</span>
+                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 03</span>
                 <h3 class="text-2xl font-black text-white mb-6 uppercase">Identity & Risk</h3>
-                <div class="mb-8 space-y-1">
-                    <a href="assets/docs/Module_2_Solutions_Architect_Associate.pdf" class="resource-link">Module 2 Study Guide</a>
-                    <a href="https://policysim.aws.amazon.com/" class="resource-link">UCA Policy Simulator</a>
+                <div class="mb-8">
+                    <span class="resource-tag">Elite Assets</span>
+                    <a href="assets/docs/Module_2_Solutions_Architect_Associate.pdf" class="resource-link"><span>Advanced Architect PDF</span><span class="text-xs">DOC</span></a>
+                    <a href="https://www.youtube.com/watch?v=Z3Spx60L07k" target="_blank" class="resource-link"><span>IAM Masterclass 2026</span><span class="text-xs">VIDEO</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="btn-elite">Access IAM Core</a>
             </div>
