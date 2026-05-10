@@ -2,15 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MZ Unified Cloud Bootcamp</title>
-    <style>body{background:#1a1a1a;color:white;font-family:sans-serif;padding:20px;}</style>
+    <style>
+        body { background: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; margin: 0; display: flex; height: 100vh; }
+        #sidebar { width: 260px; background: #1e293b; padding: 20px; border-right: 1px solid #334155; }
+        #content { flex: 1; padding: 40px; overflow-y: auto; }
+        .session-btn { display: block; width: 100%; padding: 12px; margin-bottom: 8px; background: #334155; color: white; border: none; text-align: left; cursor: pointer; border-radius: 4px; }
+        .session-btn:hover { background: #475569; }
+        .btn-group { margin-top: 20px; }
+        .external-btn { padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; margin-right: 10px; }
+    </style>
 </head>
 <body>
-    <h1 id="sessionTitle">Loading...</h1>
-    <p id="overview"></p>
-    <pre id="outcomes"></pre>
-    <button id="awsLink" data-action="external">Documentation</button>
-    <button id="videoLink" data-action="external">Watch Video</button>
+    <div id="sidebar">
+        <h3>Sessions</h3>
+        <button class="session-btn" data-action="navigate" data-id="1">1. Cloud Foundations</button>
+        <button class="session-btn" data-action="navigate" data-id="2">2. IAM Governance</button>
+        <button class="session-btn" data-action="navigate" data-id="3">3. Shared Responsibility</button>
+    </div>
+    <div id="content">
+        <h1 id="sessionTitle">Loading...</h1>
+        <p id="overview" style="font-size: 1.2rem; color: #cbd5e1;"></p>
+        <div style="background: #1e293b; padding: 20px; border-radius: 8px;">
+            <h4>Learning Outcomes</h4>
+            <pre id="outcomes" style="white-space: pre-wrap; font-family: inherit;"></pre>
+        </div>
+        <div class="btn-group">
+            <button id="awsLink" class="external-btn" data-action="external">Documentation</button>
+            <button id="videoLink" class="external-btn" data-action="external" style="background:#ef4444;">Watch Video</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
