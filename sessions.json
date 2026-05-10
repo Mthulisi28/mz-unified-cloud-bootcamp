@@ -1,0 +1,25 @@
+﻿{
+    "sessions":  [
+                     {
+                         "video":  "https://youtube.com/...",
+                         "title":  "Cloud Foundations",
+                         "id":  1,
+                         "aws":  "https://aws.amazon.com/about-aws/global-infrastructure/",
+                         "overview":  "Global Infrastructure \u0026 Regions"
+                     },
+                     {
+                         "video":  "https://youtube.com/...",
+                         "title":  "IAM Governance",
+                         "id":  2,
+                         "aws":  "https://aws.amazon.com/iam/",
+                         "overview":  "Identity as the New Perimeter"
+                     },
+                     {
+                         "video":  "https://youtube.com/...",
+                         "title":  "Shared Responsibility",
+                         "id":  3,
+                         "aws":  "https://aws.amazon.com/compliance/shared-responsibility-model/",
+                         "overview":  "Governance vs. Execution"
+                     }
+                 ]
+}
