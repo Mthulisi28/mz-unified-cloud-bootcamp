@@ -1,39 +1,17 @@
-﻿let sessions = [];
-
-async function loadData() {
+﻿async function loadData() {
     try {
         const response = await fetch('sessions.json');
+        if (!response.ok) throw new Error('File not found');
         const data = await response.json();
-        sessions = data.sessions;
-        renderSession(sessions[0].id); // Default load
-    } catch (error) {
-        console.error('UCA-Audit-Fail: Data fetch failed', error);
+        const sessions = data.sessions;
+        
+        // Render first session
+        const s = sessions[0];
+        document.getElementById('sessionTitle').innerText = s.title;
+        document.getElementById('overview').innerText = s.overview;
+        document.getElementById('outcomes').innerText = s.outcomes;
+    } catch (e) {
+        document.body.innerHTML = '<h1>Audit Error: ' + e.message + '</h1>';
     }
 }
-
-document.addEventListener('click', (e) => {
-    const action = e.target.closest('[data-action]');
-    if (!action) return;
-    e.preventDefault();
-    const type = action.getAttribute('data-action');
-    const url = action.getAttribute('data-url');
-
-    if (type === 'navigate') {
-        renderSession(action.getAttribute('data-id'));
-    } else if (type === 'external') {
-        window.open(url, '_blank', 'noopener,noreferrer');
-    }
-});
-
-function renderSession(id) {
-    const data = sessions.find(s => s.id == id);
-    if (!data) return;
-    
-    document.getElementById('sessionTitle').innerText = data.title;
-    document.getElementById('overview').innerText = data.overview;
-    document.getElementById('outcomes').innerText = data.outcomes;
-    document.getElementById('awsLink').setAttribute('data-url', data.aws);
-    document.getElementById('videoLink').setAttribute('data-url', data.video);
-}
-
 window.onload = loadData;
