@@ -2,20 +2,29 @@
     "sessions":  [
                      {
                          "id":  1,
-                         "pdf":  "assets/UCA_Session1_Foundations.pdf",
-                         "outcomes":  "✔ AZ Isolation\n✔ Global Reach",
-                         "aws":  "https://aws.amazon.com/",
-                         "overview":  "Global Infrastructure \u0026 Regions",
+                         "pdf":  "assets/S1_Foundations.pdf",
+                         "outcomes":  "✔ AZ Isolation\n✔ Global Reach\n✔ High Availability Design",
+                         "aws":  "https://aws.amazon.com/about-aws/global-infrastructure/",
+                         "overview":  "Master AWS Global Infrastructure \u0026 Region Strategy.",
                          "title":  "Session 1: Cloud Foundations",
                          "video":  "https://youtube.com/watch?v=..."
                      },
                      {
                          "id":  2,
-                         "pdf":  "assets/UCA_Session2_IAM.pdf",
-                         "outcomes":  "✔ Least Privilege\n✔ IAM Roles",
+                         "pdf":  "assets/S2_IAM_Governance.pdf",
+                         "outcomes":  "✔ Least Privilege Mastery\n✔ Cross-Account Access\n✔ MFA Policy Enforcement",
                          "aws":  "https://docs.aws.amazon.com/iam/",
-                         "overview":  "Identity as the New Perimeter",
+                         "overview":  "Govern access with precision using IAM Roles and SCPs.",
                          "title":  "Session 2: IAM Governance",
+                         "video":  "https://youtube.com/watch?v=..."
+                     },
+                     {
+                         "id":  3,
+                         "pdf":  "assets/S3_Networking.pdf",
+                         "outcomes":  "✔ Tiered Subnet Strategy\n✔ VPC Peering \u0026 Transit Gateway\n✔ Traffic Filtering",
+                         "aws":  "https://docs.aws.amazon.com/vpc/",
+                         "overview":  "Build secure perimeters with VPC, NACLs, and Security Groups.",
+                         "title":  "Session 3: Networking \u0026 Security",
                          "video":  "https://youtube.com/watch?v=..."
                      }
                  ]
