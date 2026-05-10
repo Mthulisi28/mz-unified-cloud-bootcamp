@@ -3,82 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ UCA BOOT CAMP | Command Center</title>
+    <title>MZ UCA BOOT CAMP | Elite Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #010409; color: #f0f6fc; }
         .prestige-header { 
             background: radial-gradient(circle at top, #1e3a8a 0%, #020617 100%); 
-            border-bottom: 3px solid #d4af37;
+            border-bottom: 2px solid #d4af37;
         }
         .session-card { 
             background: #0d1117; 
             border: 1px solid #30363d; 
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
-        .session-card:hover { 
+        .session-card:not(.locked):hover { 
             border-color: #d4af37; 
-            box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.2);
-            transform: translateY(-12px);
+            box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.15);
+            transform: translateY(-8px);
         }
+        .locked { opacity: 0.5; filter: grayscale(0.8); cursor: not-allowed; }
         .gold-ink { color: #d4af37; }
-        .btn-prestige { 
-            background: linear-gradient(135deg, #d4af37 0%, #996515 100%); 
+        .btn-elite { 
+            background: #d4af37; 
             color: #010409; 
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            border-radius: 2px;
+            letter-spacing: 0.2em;
+            padding: 1rem;
+            display: block;
+            text-align: center;
+            border: 1px solid #d4af37;
+            transition: all 0.3s;
+        }
+        .btn-elite:hover { 
+            background: transparent; 
+            color: #d4af37;
+        }
+        .lock-badge { 
+            font-size: 0.6rem; 
+            border: 1px solid #30363d; 
+            padding: 2px 8px; 
+            color: #484f58;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body class="font-sans antialiased">
 
-    <header class="py-28 text-center prestige-header">
-        <img src="assets/mz-logo.png" alt="MZ Logo" class="mx-auto w-40 mb-10 drop-shadow-[0_0_25px_rgba(212,175,55,0.6)]">
-        <h1 class="text-8xl font-black tracking-tighter text-white uppercase italic">MZ UCA</h1>
-        <h2 class="text-4xl font-bold text-white mt-2 tracking-widest">BOOT CAMP</h2>
-        <div class="h-1 w-24 bg-[#d4af37] mx-auto mt-6"></div>
-        <p class="text-xl mt-6 font-semibold tracking-[0.6em] gold-ink uppercase text-shadow-sm">Unified Cloud Architecture Sessions</p>
+    <header class="py-24 text-center prestige-header">
+        <img src="assets/mz-logo.png" alt="MZ Logo" class="mx-auto w-40 mb-8 brightness-110">
+        <h1 class="text-7xl font-black tracking-tighter text-white uppercase italic">MZ UCA</h1>
+        <h2 class="text-3xl font-bold text-white mt-1 tracking-[0.3em]">BOOT CAMP</h2>
+        <p class="text-sm mt-6 font-bold tracking-[0.5em] gold-ink uppercase">Architectural Sovereignty Sessions</p>
     </header>
 
-    <main class="max-w-7xl mx-auto px-10 py-24">
+    <main class="max-w-7xl mx-auto px-10 py-20">
         
-        <div class="flex flex-col md:flex-row items-center justify-between mb-32 bg-[#161b22] p-16 rounded-sm border border-gray-800 shadow-2xl">
-            <div class="flex items-center">
-                <img src="assets/mthulisi.png" alt="Architect" class="w-48 h-48 border-4 border-[#d4af37] shadow-2xl object-cover">
-                <div class="ml-12 text-left">
-                    <h2 class="text-6xl font-black text-white tracking-tighter">Mthulisi Zulu</h2>
-                    <p class="gold-ink font-bold text-2xl uppercase tracking-[0.2em] mt-2">Global Cloud Architect</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <div class="session-card p-12">
+                <p class="gold-ink text-[10px] font-black tracking-[0.4em] mb-4 uppercase">Session 01</p>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Foundations</h3>
+                <div class="space-y-6">
+                    <a href="https://console.aws.amazon.com/" target="_blank" class="btn-elite">Access Console</a>
+                    <a href="assets/docs/uca-session-01.pdf" class="block text-gray-500 hover:text-white text-xs font-bold uppercase underline tracking-widest">Download Protocol PDF</a>
                 </div>
             </div>
-            <div class="hidden lg:block">
-                <span class="text-gray-800 text-9xl font-black select-none opacity-20">UCA</span>
+
+            <div class="session-card p-12">
+                <p class="gold-ink text-[10px] font-black tracking-[0.4em] mb-4 uppercase">Session 02</p>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Shared Risk</h3>
+                <div class="space-y-6">
+                    <a href="https://console.aws.amazon.com/artifact/" target="_blank" class="btn-elite">Access Artifact</a>
+                    <a href="assets/docs/uca-session-02.pdf" class="block text-gray-500 hover:text-white text-xs font-bold uppercase underline tracking-widest">Download Protocol PDF</a>
+                </div>
             </div>
+
+            <div class="session-card p-12">
+                <p class="gold-ink text-[10px] font-black tracking-[0.4em] mb-4 uppercase">Session 03</p>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Identity Core</h3>
+                <div class="space-y-6">
+                    <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="btn-elite">Access IAM</a>
+                    <a href="assets/docs/uca-session-03.pdf" class="block text-gray-500 hover:text-white text-xs font-bold uppercase underline tracking-widest">Download Protocol PDF</a>
+                </div>
+            </div>
+
+            <div class="session-card locked p-12">
+                <div class="flex justify-between items-center mb-4">
+                    <p class="text-[10px] font-black tracking-[0.4em] uppercase">Session 04</p>
+                    <span class="lock-badge">Encrypted</span>
+                </div>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">VPC Mesh</h3>
+                <button class="w-full py-4 border border-gray-800 text-gray-700 font-bold uppercase tracking-widest cursor-not-allowed">Access Restricted</button>
+            </div>
+
+            <div class="session-card locked p-12">
+                <div class="flex justify-between items-center mb-4">
+                    <p class="text-[10px] font-black tracking-[0.4em] uppercase">Session 05</p>
+                    <span class="lock-badge">Encrypted</span>
+                </div>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Compute Logic</h3>
+                <button class="w-full py-4 border border-gray-800 text-gray-700 font-bold uppercase tracking-widest cursor-not-allowed">Access Restricted</button>
+            </div>
+
+            <div class="session-card locked p-12">
+                <div class="flex justify-between items-center mb-4">
+                    <p class="text-[10px] font-black tracking-[0.4em] uppercase">Session 06</p>
+                    <span class="lock-badge">Encrypted</span>
+                </div>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Storage Tiers</h3>
+                <button class="w-full py-4 border border-gray-800 text-gray-700 font-bold uppercase tracking-widest cursor-not-allowed">Access Restricted</button>
+            </div>
+
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
-            <div class="session-card p-14 bg-gradient-to-b from-[#0d1117] to-[#161b22]">
-                <p class="gold-ink text-xs font-black tracking-[0.5em] mb-6 uppercase">Session 01</p>
-                <h3 class="text-3xl font-black text-white mb-8 uppercase">Foundations</h3>
-                <a href="https://console.aws.amazon.com/" target="_blank" class="block text-center py-6 btn-prestige">ENTER CONSOLE</a>
-            </div>
-
-            <div class="session-card p-14 bg-gradient-to-b from-[#0d1117] to-[#161b22]">
-                <p class="gold-ink text-xs font-black tracking-[0.5em] mb-6 uppercase">Session 02</p>
-                <h3 class="text-3xl font-black text-white mb-8 uppercase">Security</h3>
-                <a href="https://console.aws.amazon.com/artifact/" target="_blank" class="block text-center py-6 btn-prestige">EXECUTE ARTIFACT</a>
-            </div>
-
-            <div class="session-card p-14 bg-gradient-to-b from-[#0d1117] to-[#161b22]">
-                <p class="gold-ink text-xs font-black tracking-[0.5em] mb-6 uppercase">Session 03</p>
-                <h3 class="text-3xl font-black text-white mb-8 uppercase">Identity</h3>
-                <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="block text-center py-6 btn-prestige">IDENT CONTROL</a>
-            </div>
-        </div>
-
-        <footer class="mt-48 text-center text-gray-800 border-t border-gray-900 pt-20">
-            <p class="uppercase tracking-[0.8em] text-xs font-black gold-ink opacity-40 italic">MZ UCA BOOT CAMP | 2026</p>
+        <footer class="mt-40 text-center text-gray-800 border-t border-gray-900 pt-20">
+            <p class="uppercase tracking-[1em] text-[10px] font-black gold-ink opacity-40">MZ UCA BOOT CAMP | GLOBAL SOVEREIGNTY</p>
         </footer>
     </main>
 </body>
