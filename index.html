@@ -11,10 +11,9 @@
 <style>
 
 body{
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
     background:#0b1220;
     color:#e5e7eb;
-    margin:0;
     padding:40px;
 }
 
@@ -28,18 +27,25 @@ h1{
 }
 
 .card{
+    display:block;
     background:#111827;
     padding:20px;
     margin-bottom:15px;
     border-radius:10px;
-    cursor:pointer;
-    transition:0.2s;
     border:1px solid #1f2937;
+    text-decoration:none;
+    color:#e5e7eb;
+    transition:0.2s;
 }
 
 .card:hover{
-    border:1px solid #38bdf8;
+    border-color:#38bdf8;
     transform:translateY(-2px);
+}
+
+.card h2{
+    color:#38bdf8;
+    margin-top:0;
 }
 
 .footer{
@@ -60,22 +66,23 @@ h1{
 Cloud Governance • DevOps • Security Architecture
 </div>
 
-<!-- SESSION 1 -->
-<div class="card"
-onclick="window.location.href='./sessions/session-1-cloud-foundations.html'">
+<a class="card"
+href="./sessions/session-1-cloud-foundations.html">
 
 <h2>Session 1 - Cloud Foundations</h2>
 
 <p>
-Introduction to cloud computing, AWS infrastructure,
-regions, availability zones, and cloud fundamentals.
+Introduction to cloud computing,
+AWS infrastructure,
+regions,
+availability zones,
+and cloud fundamentals.
 </p>
 
-</div>
+</a>
 
-<!-- SESSION 2 -->
-<div class="card"
-onclick="window.location.href='./sessions/session-2-iam.html'">
+<a class="card"
+href="./sessions/session-2-iam.html">
 
 <h2>Session 2 - IAM</h2>
 
@@ -85,38 +92,38 @@ Users vs Roles vs Policies,
 MFA and least privilege.
 </p>
 
-</div>
+</a>
 
-<!-- SESSION 3 -->
-<div class="card"
-onclick="window.location.href='./sessions/session-3-shared-responsibility.html'">
+<a class="card"
+href="./sessions/session-3-shared-responsibility.html">
 
 <h2>Session 3 - Shared Responsibility</h2>
 
 <p>
-Understand AWS security boundaries,
+AWS security boundaries,
 customer responsibilities,
-and governance models.
+and governance principles.
 </p>
 
-</div>
+</a>
 
-<!-- SESSION 4 -->
-<div class="card"
-onclick="window.location.href='./sessions/session-4-vpc-networking.html'">
+<a class="card"
+href="./sessions/session-4-vpc-networking.html">
 
 <h2>Session 4 - VPC Networking</h2>
 
 <p>
-Learn VPC architecture,
-subnets, routing tables,
-gateways, and segmentation.
+VPC architecture,
+subnets,
+route tables,
+gateways,
+and segmentation.
 </p>
 
-</div>
+</a>
 
 <div class="footer">
-MZ Unified Cloud Bootcamp • Professional LMS v1.0
+MZ Unified Cloud Bootcamp • Stable LMS Build
 </div>
 
 </body>
