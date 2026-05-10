@@ -8,6 +8,10 @@
 
 <style>
 
+/* =========================
+GLOBAL
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -16,11 +20,13 @@
 
 body{
     font-family: Arial, sans-serif;
-    background:#0B1220;
+    background:#081120;
     color:#E5E7EB;
 }
 
-/* ===== TOPBAR ===== */
+/* =========================
+TOPBAR
+========================= */
 
 .topbar{
     position:fixed;
@@ -28,8 +34,8 @@ body{
     left:0;
     right:0;
     height:80px;
-    background:#111827;
-    border-bottom:1px solid #1F2937;
+    background:#0F172A;
+    border-bottom:1px solid #1E293B;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -43,115 +49,141 @@ body{
 }
 
 .brand h1{
-    font-size:20px;
     color:#38BDF8;
+    font-size:28px;
 }
 
 .brand p{
-    font-size:12px;
     color:#94A3B8;
-    margin-top:4px;
+    font-size:13px;
+    margin-top:5px;
 }
 
-/* ===== SIDEBAR ===== */
+/* =========================
+SIDEBAR
+========================= */
 
 .sidebar{
     position:fixed;
     top:80px;
     left:0;
-    width:280px;
+    width:300px;
     height:calc(100vh - 80px);
-    background:#111827;
-    border-right:1px solid #1F2937;
-    padding:20px;
+    background:#0F172A;
+    border-right:1px solid #1E293B;
+    padding:25px;
     overflow-y:auto;
 }
 
 .sidebar h2{
-    margin-bottom:20px;
     color:#38BDF8;
+    margin-bottom:25px;
+    font-size:30px;
 }
 
 .session{
-    background:#1F2937;
-    padding:15px;
-    border-radius:8px;
-    margin-bottom:12px;
+    background:#1E293B;
+    padding:18px;
+    border-radius:10px;
+    margin-bottom:15px;
     cursor:pointer;
     transition:0.3s;
+    border-left:4px solid transparent;
 }
 
 .session:hover{
-    background:#263244;
     transform:translateX(5px);
+    background:#243447;
     border-left:4px solid #38BDF8;
 }
 
 .session-title{
-    font-size:15px;
+    font-size:17px;
     font-weight:bold;
+    color:#FFFFFF;
 }
 
-/* ===== MAIN CONTENT ===== */
+/* =========================
+MAIN CONTENT
+========================= */
 
 .main{
-    margin-left:280px;
+    margin-left:300px;
     padding:120px 40px 40px;
 }
 
 .hero{
-    background:#111827;
-    border:1px solid #1F2937;
-    border-radius:12px;
-    padding:30px;
+    background:#0F172A;
+    border:1px solid #1E293B;
+    border-radius:14px;
+    padding:35px;
     margin-bottom:30px;
 }
 
 .hero h2{
     color:#38BDF8;
-    margin-bottom:10px;
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#CBD5E1;
+    font-size:18px;
 }
 
 .content-card{
-    background:#111827;
-    border:1px solid #1F2937;
-    border-radius:12px;
-    padding:30px;
+    background:#0F172A;
+    border:1px solid #1E293B;
+    border-radius:14px;
+    padding:40px;
 }
 
 .content-card h3{
     color:#38BDF8;
-    margin-bottom:20px;
-    font-size:24px;
+    font-size:34px;
+    margin-bottom:25px;
 }
 
 .content-card p{
-    line-height:1.8;
-    color:#CBD5E1;
+    color:#E2E8F0;
+    line-height:2;
+    white-space:pre-line;
+    font-size:17px;
 }
 
-/* ===== FOOTER ===== */
+/* =========================
+FOOTER
+========================= */
 
 .footer{
     margin-top:30px;
     color:#64748B;
-    font-size:12px;
+    font-size:13px;
 }
 
-/* ===== MOBILE ===== */
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:900px){
 
 .sidebar{
+    position:relative;
     width:100%;
     height:auto;
-    position:relative;
-    top:80px;
 }
 
 .main{
     margin-left:0;
-    padding:120px 20px 20px;
+    padding:40px 20px;
+}
+
+.hero h2{
+    font-size:28px;
+}
+
+.content-card h3{
+    font-size:24px;
 }
 
 }
@@ -161,7 +193,9 @@ body{
 
 <body>
 
-<!-- ===== TOPBAR ===== -->
+<!-- =========================
+TOPBAR
+========================= -->
 
 <div class="topbar">
 
@@ -172,39 +206,54 @@ body{
 
 </div>
 
-<!-- ===== SIDEBAR ===== -->
+<!-- =========================
+SIDEBAR
+========================= -->
 
 <div class="sidebar">
 
     <h2>Sessions</h2>
 
     <div class="session" onclick="openSession(1)">
-        <div class="session-title">Session 1 - Cloud Foundations</div>
+        <div class="session-title">
+            Session 1 - Cloud Foundations
+        </div>
     </div>
 
     <div class="session" onclick="openSession(2)">
-        <div class="session-title">Session 2 - IAM</div>
+        <div class="session-title">
+            Session 2 - IAM
+        </div>
     </div>
 
     <div class="session" onclick="openSession(3)">
-        <div class="session-title">Session 3 - Shared Responsibility</div>
+        <div class="session-title">
+            Session 3 - Shared Responsibility
+        </div>
     </div>
 
     <div class="session" onclick="openSession(4)">
-        <div class="session-title">Session 4 - VPC Networking</div>
+        <div class="session-title">
+            Session 4 - VPC Networking
+        </div>
     </div>
 
 </div>
 
-<!-- ===== MAIN ===== -->
+<!-- =========================
+MAIN CONTENT
+========================= -->
 
 <div class="main">
 
     <div class="hero">
+
         <h2>Welcome to the Bootcamp</h2>
+
         <p id="heroText">
             Select a session from the left panel to begin learning.
         </p>
+
     </div>
 
     <div class="content-card">
@@ -214,96 +263,220 @@ body{
         </h3>
 
         <p id="sessionContent">
-            Professional cloud engineering learning platform.
+Professional cloud engineering learning platform.
         </p>
 
     </div>
 
     <div class="footer">
-        MZ Unified Cloud Bootcamp • Professional LMS v1.0
+        MZ Unified Cloud Bootcamp • Professional LMS v2.0
     </div>
 
 </div>
 
-<!-- ===== SCRIPT ===== -->
+<!-- =========================
+SCRIPT
+========================= -->
 
 <script>
 
 const sessions = {
 
 1: {
-    title: "Session 1 - Cloud Foundations",
+title: "Session 1 - Cloud Foundations",
 
-    content: `
+content: `
 Introduction to cloud computing, AWS infrastructure, regions, availability zones, and cloud fundamentals.
 
-Topics Covered:
+━━━━━━━━━━━━━━━━━━
+Topics Covered
+━━━━━━━━━━━━━━━━━━
+
 • What is Cloud Computing
 • AWS Global Infrastructure
 • Regions and Availability Zones
-• Benefits of Cloud
-• Shared Cloud Models
-• Introduction to AWS Services
+• Benefits of Cloud Computing
+• Shared Responsibility Introduction
+• IaaS vs PaaS vs SaaS
+• Introduction to Core AWS Services
 
-Learning Outcome:
-Students understand the foundations of AWS cloud architecture.
+━━━━━━━━━━━━━━━━━━
+Learning Outcomes
+━━━━━━━━━━━━━━━━━━
+
+✔ Understand cloud computing models
+✔ Understand AWS global infrastructure
+✔ Understand scalable cloud design
+
+━━━━━━━━━━━━━━━━━━
+Recommended AWS Reading
+━━━━━━━━━━━━━━━━━━
+
+https://aws.amazon.com/what-is-cloud-computing/
+
+━━━━━━━━━━━━━━━━━━
+Recommended Video
+━━━━━━━━━━━━━━━━━━
+
+https://www.youtube.com/watch?v=ulprqHHWlng
+
+━━━━━━━━━━━━━━━━━━
+Hands-On Lab
+━━━━━━━━━━━━━━━━━━
+
+• Create AWS Account
+• Explore AWS Console
+• Review Billing Dashboard
+• Open EC2 Dashboard
 `
 },
 
 2: {
-    title: "Session 2 - IAM",
+title: "Session 2 - IAM",
 
-    content: `
+content: `
 Identity & Access Management (IAM) controls authentication and authorization in AWS.
 
-Topics Covered:
+━━━━━━━━━━━━━━━━━━
+Topics Covered
+━━━━━━━━━━━━━━━━━━
+
 • IAM Users
 • IAM Roles
 • IAM Policies
 • MFA
 • Least Privilege Principle
 • Root Account Security
+• Permission Boundaries
 
-Learning Outcome:
-Students understand identity security and cloud access governance.
+━━━━━━━━━━━━━━━━━━
+Learning Outcomes
+━━━━━━━━━━━━━━━━━━
+
+✔ Understand identity security
+✔ Understand access governance
+✔ Configure secure authentication controls
+
+━━━━━━━━━━━━━━━━━━
+Recommended AWS Reading
+━━━━━━━━━━━━━━━━━━
+
+https://docs.aws.amazon.com/iam/
+
+━━━━━━━━━━━━━━━━━━
+Recommended Video
+━━━━━━━━━━━━━━━━━━
+
+https://www.youtube.com/watch?v=KngM5bfpttA
+
+━━━━━━━━━━━━━━━━━━
+Hands-On Lab
+━━━━━━━━━━━━━━━━━━
+
+• Create IAM User
+• Enable MFA
+• Create IAM Group
+• Apply IAM Policies
+• Configure Least Privilege Access
 `
 },
 
 3: {
-    title: "Session 3 - Shared Responsibility",
+title: "Session 3 - Shared Responsibility",
 
-    content: `
-Understand AWS security boundaries and governance responsibilities.
+content: `
+The Shared Responsibility Model defines security ownership between AWS and customers.
 
-Topics Covered:
-• AWS Responsibility
-• Customer Responsibility
+━━━━━━━━━━━━━━━━━━
+Topics Covered
+━━━━━━━━━━━━━━━━━━
+
 • Security OF the Cloud
 • Security IN the Cloud
-• Governance Models
-• Compliance Concepts
+• Governance Responsibilities
+• Compliance Boundaries
+• AWS Responsibilities
+• Customer Responsibilities
 
-Learning Outcome:
-Students understand cloud security ownership boundaries.
+━━━━━━━━━━━━━━━━━━
+Learning Outcomes
+━━━━━━━━━━━━━━━━━━
+
+✔ Understand cloud governance
+✔ Understand security ownership
+✔ Understand compliance responsibility
+
+━━━━━━━━━━━━━━━━━━
+Recommended AWS Reading
+━━━━━━━━━━━━━━━━━━
+
+https://aws.amazon.com/compliance/shared-responsibility-model/
+
+━━━━━━━━━━━━━━━━━━
+Recommended Video
+━━━━━━━━━━━━━━━━━━
+
+https://www.youtube.com/watch?v=Zn5I6L0A5KM
+
+━━━━━━━━━━━━━━━━━━
+Hands-On Lab
+━━━━━━━━━━━━━━━━━━
+
+• Review IAM Permissions
+• Review MFA
+• Explore Security Groups
+• Review S3 Security
 `
 },
 
 4: {
-    title: "Session 4 - VPC Networking",
+title: "Session 4 - VPC Networking",
 
-    content: `
-Learn AWS networking architecture and segmentation fundamentals.
+content: `
+Virtual Private Cloud (VPC) is the networking foundation of AWS infrastructure.
 
-Topics Covered:
+━━━━━━━━━━━━━━━━━━
+Topics Covered
+━━━━━━━━━━━━━━━━━━
+
 • VPC Architecture
 • Public vs Private Subnets
 • Route Tables
 • Internet Gateway
 • NAT Gateway
 • Network Segmentation
+• Security Groups
+• NACLs
 
-Learning Outcome:
-Students understand AWS network infrastructure design.
+━━━━━━━━━━━━━━━━━━
+Learning Outcomes
+━━━━━━━━━━━━━━━━━━
+
+✔ Understand AWS networking
+✔ Design secure cloud networks
+✔ Understand segmentation principles
+
+━━━━━━━━━━━━━━━━━━
+Recommended AWS Reading
+━━━━━━━━━━━━━━━━━━
+
+https://docs.aws.amazon.com/vpc/
+
+━━━━━━━━━━━━━━━━━━
+Recommended Video
+━━━━━━━━━━━━━━━━━━
+
+https://www.youtube.com/watch?v=g2JOHLHh4rI
+
+━━━━━━━━━━━━━━━━━━
+Hands-On Lab
+━━━━━━━━━━━━━━━━━━
+
+• Create VPC
+• Create Public Subnet
+• Create Private Subnet
+• Attach Internet Gateway
+• Configure Route Tables
 `
 }
 
