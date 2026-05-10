@@ -2,35 +2,21 @@
     "sessions":  [
                      {
                          "id":  1,
-                         "outcomes":  "✔ Understand Cloud Value Proposition\n✔ Master AWS Global Infrastructure\n✔ Design for High Availability (AZ Isolation)",
-                         "aws":  "https://aws.amazon.com/about-aws/global-infrastructure/",
-                         "overview":  "Master the AWS Global Infrastructure, Regions, and Availability Zones to build resilient systems.",
+                         "pdf":  "assets/UCA_Session1_Foundations.pdf",
+                         "outcomes":  "✔ AZ Isolation\n✔ Global Reach",
+                         "aws":  "https://aws.amazon.com/",
+                         "overview":  "Global Infrastructure \u0026 Regions",
                          "title":  "Session 1: Cloud Foundations",
-                         "video":  "https://www.youtube.com/watch?v=ulprqHHWlng"
+                         "video":  "https://youtube.com/watch?v=..."
                      },
                      {
                          "id":  2,
-                         "outcomes":  "✔ Implement Least Privilege\n✔ Configure IAM Roles for Service-to-Service Access\n✔ Enforce Multi-Factor Authentication (MFA)",
+                         "pdf":  "assets/UCA_Session2_IAM.pdf",
+                         "outcomes":  "✔ Least Privilege\n✔ IAM Roles",
                          "aws":  "https://docs.aws.amazon.com/iam/",
-                         "overview":  "Identity is the new perimeter. Learn to govern access with surgical precision.",
+                         "overview":  "Identity as the New Perimeter",
                          "title":  "Session 2: IAM Governance",
-                         "video":  "https://www.youtube.com/watch?v=KngM5bfpttA"
-                     },
-                     {
-                         "id":  3,
-                         "outcomes":  "✔ Security OF the Cloud vs. Security IN the Cloud\n✔ Governance Frameworks\n✔ Compliance Boundary Analysis",
-                         "aws":  "https://aws.amazon.com/compliance/shared-responsibility-model/",
-                         "overview":  "Define the boundaries between AWS responsibility and Architect accountability.",
-                         "title":  "Session 3: Shared Responsibility",
-                         "video":  "https://www.youtube.com/watch?v=Zn5I6L0A5KM"
-                     },
-                     {
-                         "id":  4,
-                         "outcomes":  "✔ VPC and Subnet Segmentation\n✔ Route Tables and Gateways\n✔ Security Groups vs. Network ACLs",
-                         "aws":  "https://docs.aws.amazon.com/vpc/",
-                         "overview":  "The foundation of cloud security. Design private, secure, and scalable networks.",
-                         "title":  "Session 4: VPC Networking",
-                         "video":  "https://www.youtube.com/watch?v=g2JOHLHh4rI"
+                         "video":  "https://youtube.com/watch?v=..."
                      }
                  ]
 }
