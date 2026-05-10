@@ -1,34 +1,52 @@
-﻿<!DOCTYPE html>
-<html>
-<head><title>UCA OVERRIDE</title></head>
-<body style="background:#000; color:#fff; font-family:sans-serif; padding:50px;">
-    <h1>UCA MACHINE: BOOTED</h1>
-    <div id="out" style="border:1px solid #333; padding:20px; border-radius:10px;">
-        <h2 id="t">Loading Data...</h2>
-        <p id="o"></p>
-        <button onclick="comp()" style="background:blue; color:#fff; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">MARK COMPLETE</button>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UCA BOOTCAMP | MTHULISI ZULU</title>
+    <style>
+        :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        header { height: 75px; background: var(--card); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; border-bottom: 2px solid #334155; }
+        main { display: flex; flex: 1; overflow: hidden; }
+        #sidebar { width: 300px; background: #111827; padding: 25px; border-right: 1px solid #334155; }
+        #content { flex: 1; padding: 50px; overflow-y: auto; }
+        .session-btn { display: block; width: 100%; padding: 15px; margin-bottom: 10px; background: var(--card); color: white; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 8px; }
+        .session-btn.active { border-color: var(--primary); background: #2d3748; }
+        .uca-card { background: var(--card); padding: 30px; border-radius: 12px; border: 1px solid #334155; }
+    </style>
+</head>
+<body>
+    <header>
+        <strong>UCA BOOTCAMP</strong>
+        <div style="text-align:right;"><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
+    </header>
+    <main>
+        <div id="sidebar"><div id="list"></div></div>
+        <div id="content">
+            <h1 id="title">Select a Session</h1>
+            <div class="uca-card"><p id="desc">Your UCA Machine is initialized. Select a module from the left to begin the architectural deep-dive.</p></div>
+        </div>
+    </main>
     <script>
-        const d = [
-            {id:1, t:"Session 1: Foundations", o:"High-ticket HA architecture."},
-            {id:2, t:"Session 2: IAM", o:"Governance as a service."},
-            {id:3, t:"Session 3: VPC", o:"Global network mesh."}
+        const sessions = [
+            { id: 1, title: "01: Cloud Foundations", desc: "Governance bedrock and HA strategies." },
+            { id: 2, title: "02: IAM Governance", desc: "Identity as the primary security perimeter." },
+            { id: 3, title: "03: VPC Networking", desc: "Global mesh and blast radius isolation." }
         ];
-        let p = JSON.parse(localStorage.getItem('p')) || [1];
-        function render(id) {
-            const s = d.find(x => x.id == id);
-            document.getElementById('t').innerText = s.t;
-            document.getElementById('o').innerText = s.o;
-            localStorage.setItem('last', id);
-        }
-        function comp() {
-            let last = localStorage.getItem('last') || 1;
-            if(!p.includes(Number(last))) p.push(Number(last));
-            localStorage.setItem('p', JSON.stringify(p));
-            if(Number(last) < d.length) render(Number(last) + 1);
-            alert("Session Optimized. Moving to next high-value module.");
-        }
-        window.onload = () => render(localStorage.getItem('last') || 1);
+
+        const list = document.getElementById('list');
+        sessions.forEach(s => {
+            const btn = document.createElement('button');
+            btn.className = 'session-btn';
+            btn.innerText = s.title;
+            btn.onclick = () => {
+                document.querySelectorAll('.session-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('title').innerText = s.title;
+                document.getElementById('desc').innerText = s.desc;
+            };
+            list.appendChild(btn);
+        });
     </script>
 </body>
 </html>
