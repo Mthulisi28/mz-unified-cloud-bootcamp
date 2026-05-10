@@ -3,108 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UCA ROADMAP | MTHULISI ZULU</title>
+    <title>MZ UCA Boot Camp | Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --primary: #3b82f6; --bg: #030712; --card: #111827; --text: #f9fafb; --accent: #10b981; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-        header { height: 80px; background: var(--card); border-bottom: 2px solid #1f2937; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { height: 50px; }
-        .logo-area div { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; }
-        .profile-area { display: flex; align-items: center; gap: 15px; text-align: right; }
-        .profile-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
-        main { display: flex; flex: 1; overflow: hidden; }
-        #sidebar { width: 350px; background: #000; border-right: 1px solid #1f2937; padding: 25px; overflow-y: auto; }
-        #content { flex: 1; padding: 60px; overflow-y: auto; background: radial-gradient(circle at top right, #1e293b, #030712); }
-        .session-btn { display: block; width: 100%; padding: 18px; margin-bottom: 12px; background: #1f2937; color: #fff; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 10px; transition: 0.2s; font-weight: 500; }
-        .session-btn:hover { background: #374151; border-color: var(--primary); }
-        .session-btn.active { border-color: var(--primary); background: #1e3a8a; box-shadow: 0 0 15px rgba(59,130,246,0.4); }
-        .premium-tag { float: right; background: #f59e0b; color: #000; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 900; margin-top: 2px; }
-        .uca-card { background: rgba(17, 24, 39, 0.8); padding: 40px; border-radius: 16px; border: 1px solid #374151; backdrop-filter: blur(10px); }
-        .action-btn { padding: 16px 32px; border-radius: 8px; font-weight: 800; cursor: pointer; border: none; color: white; background: var(--primary); text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; margin-top: 40px; display: inline-block; text-decoration: none;}
-        .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(59,130,246,0.6); }
-        .footer-text { margin-top: 50px; opacity: 0.4; font-size: 0.8rem; letter-spacing: 1px; }
+        .gradient-bg { background: linear-gradient(135.2deg, #1a2a6c 0.6%, #b21f1f 49.3%, #fdbb2d 100.2%); }
+        .card:hover { transform: translateY(-5px); transition: 0.3s; }
     </style>
 </head>
-<body>
-    <header>
-        <div class="logo-area">
-            <img src="assets/mz-logo.png" alt="UCA Logo" onerror="this.src='https://via.placeholder.com/150x50?text=Logo+Missing'">
-            <div>ROADMAP</div>
-        </div>
-        <div class="profile-area">
-            <div><strong style="font-size:1.1rem;">Mthulisi Zulu</strong><br><small style="color:var(--primary); font-weight:700;">CLOUD GOVERNANCE ARCHITECT</small></div>
-            <img src="assets/mthulisi.png" alt="Mthulisi Zulu" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
-        </div>
+<body class="bg-gray-50 font-sans">
+
+    <header class="py-12 text-center text-white gradient-bg shadow-lg">
+        <img src="assets/mz-logo.png" alt="MZ Logo" class="mx-auto w-32 mb-4 drop-shadow-md">
+        <h1 class="text-5xl font-extrabold tracking-tight">MZ UCA BOOT CAMP</h1>
+        <p class="text-xl mt-2 font-light tracking-widest text-gray-200">UNIFIED CLOUD ARCHITECTURE SESSIONS</p>
     </header>
-    <main>
-        <div id="sidebar"><div id="sList"></div></div>
-        <div id="content">
-            <h1 id="sTitle" style="font-size:3rem; margin-bottom:10px;">Select Module</h1>
-            <p id="sOver" style="font-size:1.3rem; opacity:0.8; margin-bottom:40px; max-width:800px;"></p>
-            <div class="uca-card">
-                <h4 style="margin:0 0 20px 0; color:var(--primary); text-transform:uppercase; letter-spacing:2px;">Strategic Implementation</h4>
-                <div id="sOut" style="font-size:1.1rem; line-height:1.8; color:#cbd5e1;"></div>
-            </div>
-            <a id="lLink" href="#" class="action-btn" target="_blank" style="display: none;">Launch Session Environment</a>
-            <div class="footer-text">
-                © 2022 MTHULISI ZULU | GLOBAL CLOUD BUSINESS OPERATIONS | PROTECTED BY UCA GOVERNANCE
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <div class="flex items-center justify-center mb-16 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <img src="assets/mthulisi.png" alt="Architect" class="w-24 h-24 rounded-full border-4 border-red-600 mr-6">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800">Mthulisi Zulu</h2>
+                <p class="text-red-600 font-medium italic">Cloud Governance Architect | UCA Founder</p>
             </div>
         </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="card bg-white p-8 rounded-3xl shadow-xl border-t-8 border-blue-600">
+                <span class="text-xs font-bold text-blue-600 tracking-widest uppercase">Week 1 | Session 1</span>
+                <h3 class="text-2xl font-bold mt-2 mb-4">Cloud Foundations</h3>
+                <ul class="space-y-4 text-gray-600 text-sm">
+                    <li><a href="https://console.aws.amazon.com/" target="_blank" class="text-blue-500 font-bold hover:underline">🚀 DIRECT ACCESS: AWS Console</a></li>
+                    <li><a href="#" class="flex items-center hover:text-red-600">📄 UCA Foundations PDF</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=ajP3S9E1SdA" target="_blank" class="flex items-center hover:text-red-600">🎥 Global Infra (YouTube)</a></li>
+                </ul>
+            </div>
+
+            <div class="card bg-white p-8 rounded-3xl shadow-xl border-t-8 border-red-600">
+                <span class="text-xs font-bold text-red-600 tracking-widest uppercase">Week 1 | Session 2</span>
+                <h3 class="text-2xl font-bold mt-2 mb-4">Shared Responsibility</h3>
+                <ul class="space-y-4 text-gray-600 text-sm">
+                    <li><a href="https://console.aws.amazon.com/artifact/" target="_blank" class="text-blue-500 font-bold hover:underline">🚀 DIRECT ACCESS: AWS Artifact</a></li>
+                    <li><a href="https://aws.amazon.com/compliance/shared-responsibility-model/" target="_blank" class="flex items-center hover:text-red-600">📄 Compliance Docs</a></li>
+                    <li><a href="https://www.youtube.com/results?search_query=Capital+One+AWS+Breach" target="_blank" class="flex items-center hover:text-red-600">🎥 Breach Case Study</a></li>
+                </ul>
+            </div>
+
+            <div class="card bg-white p-8 rounded-3xl shadow-xl border-t-8 border-yellow-500">
+                <span class="text-xs font-bold text-yellow-600 tracking-widest uppercase">Week 1 | Session 3</span>
+                <h3 class="text-2xl font-bold mt-2 mb-4">IAM Masterclass</h3>
+                <ul class="space-y-4 text-gray-600 text-sm">
+                    <li><a href="https://console.aws.amazon.com/iam/home" target="_blank" class="text-blue-500 font-bold hover:underline">🚀 DIRECT ACCESS: IAM Console</a></li>
+                    <li><a href="https://policysim.aws.amazon.com/" target="_blank" class="flex items-center hover:text-red-600">🛠️ IAM Policy Simulator</a></li>
+                    <li><a href="https://www.udemy.com/" target="_blank" class="flex items-center hover:text-red-600">🎓 Udemy Advanced Module</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="mt-20 text-center text-gray-400 text-sm">
+            &copy; 2026 MZ UCA | Built by The Global Machine
+        </footer>
     </main>
-
-    <script>
-        const sessions = [
-            { id: 1, title: "01: Cloud Foundations", over: "The bedrock of high-availability. Understanding Regions, AZs, and Global Latency Audit.", out: "• Master Region Selection Criteria<br>• AZ Isolation Strategy<br>• Edge Location Networking", url: "#", type: "free" },
-            { id: 2, title: "02: IAM Governance", over: "Identity as the primary security perimeter. Designing for Zero Trust and Least Privilege.", out: "• Cross-Account Role Assumption<br>• Service Control Policies (SCPs)<br>• Permission Boundaries", url: "#", type: "free" },
-            { id: 3, title: "03: VPC Networking", over: "Architecting the Global Mesh. Subnet isolation and blast radius containment.", out: "• VPC Peering vs Transit Gateway<br>• Private Link Implementation<br>• Network ACL vs Security Groups", url: "#", type: "free" },
-            { id: 4, title: "04: Shared Responsibility", over: "Defining the line between Cloud Provider and Architect. Security 'OF' vs 'IN' the cloud.", out: "• Compliance Mapping<br>• Audit Readiness Framework<br>• Shared Security Models", url: "#", type: "free" },
-            { id: 5, title: "05: Multi-Account Strategy", over: "Enterprise-grade landing zones. Control Tower and AWS Organizations.", out: "• Landing Zone Design<br>• Account Factory for Terraform<br>• Centralized Logging & Guardrails", url: "#", type: "premium" },
-            { id: 6, title: "06: Serverless Mastery", over: "Event-driven architecture at scale. Lambda, EventBridge, and DynamoDB.", out: "• Cold Start Mitigation<br>• SQS/SNS Decoupling Patterns<br>• Serverless Security Hardening", url: "#", type: "premium" },
-            { id: 7, title: "07: Containers & K8s", over: "Orchestration for the 1%. EKS and Fargate governance.", out: "• Cluster Autoscaling<br>• Pod Identity Security<br>• Helm Chart Governance", url: "#", type: "premium" },
-            { id: 8, title: "08: Database Governance", over: "Data durability and performance. RDS, Aurora, and NoSQL strategy.", out: "• Multi-Region Replication<br>• Point-in-Time Recovery<br>• Schema Governance", url: "#", type: "premium" },
-            { id: 9, title: "09: CI/CD Pipelines", over: "Automated delivery pipelines. GitOps and Infrastructure-as-Code.", out: "• Terraform State Management<br>• Policy-as-Code (Checkov/OPA)<br>• Automated Canary Deployments", url: "#", type: "premium" },
-            { id: 10, title: "10: Monitoring & Ops", over: "Observability for boardrooms. CloudWatch, X-Ray, and Cost Audit.", out: "• Custom Metrics & Alarms<br>• Distributed Tracing Logic<br>• Cost Optimization Guardrails", url: "#", type: "premium" },
-            { id: 11, title: "11: Security & Compliance", over: "Hardening the environment. GuardDuty, Security Hub, and Inspector.", out: "• Automated Threat Detection<br>• Incident Response Playbooks<br>• Regulatory Mapping (SOC2/PCI)", url: "#", type: "premium" },
-            { id: 12, title: "12: Capstone Project", over: "The Global Machine. Building a multi-region, multi-account enterprise architecture.", out: "• Final Architectural Defense<br>• UCA Certification Issuance<br>• High-Ticket Retainer Ready", url: "#", type: "premium" }
-        ];
-
-        const list = document.getElementById('sList');
-        const title = document.getElementById('sTitle');
-        const overview = document.getElementById('sOver');
-        const outcomes = document.getElementById('sOut');
-        const launchLink = document.getElementById('lLink');
-
-        function render() {
-            list.innerHTML = '';
-            sessions.forEach((s, index) => {
-                const b = document.createElement('button');
-                b.className = 'session-btn' + (localStorage.getItem('curr_uca') == s.id ? ' active' : '');
-                b.innerHTML = s.title + (s.type === 'premium' ? '<span class="premium-tag">PREMIUM</span>' : '');
-                b.onclick = () => show(s.id);
-                list.appendChild(b);
-            });
-        }
-
-        function show(id) {
-            const s = sessions.find(x => x.id == id);
-            if (!s) return;
-
-            localStorage.setItem('curr_uca', id);
-            title.innerText = s.title;
-            overview.innerText = s.over;
-            outcomes.innerHTML = s.out;
-            
-            launchLink.href = s.url;
-            if (s.url && s.url !== "#") {
-                launchLink.style.display = 'inline-block';
-            } else {
-                launchLink.style.display = 'none';
-            }
-            render();
-        }
-
-        window.onload = () => show(localStorage.getItem('curr_uca') || 1);
-    </script>
 </body>
 </html>
