@@ -5,8 +5,24 @@
                          "outcomes":  "✔ AZ Isolation\n✔ Global Reach",
                          "aws":  "https://aws.amazon.com/",
                          "overview":  "AWS Regions \u0026 Global Infrastructure",
-                         "title":  "Cloud Foundations",
-                         "video":  "#"
+                         "title":  "Session 1: Cloud Foundations",
+                         "video":  "https://www.youtube.com/watch?v=ulprqHHWlng"
+                     },
+                     {
+                         "id":  2,
+                         "outcomes":  "✔ Least Privilege\n✔ IAM Roles",
+                         "aws":  "https://docs.aws.amazon.com/iam/",
+                         "overview":  "Identity as the New Perimeter",
+                         "title":  "Session 2: IAM Governance",
+                         "video":  "https://www.youtube.com/watch?v=KngM5bfpttA"
+                     },
+                     {
+                         "id":  3,
+                         "outcomes":  "✔ Security OF the Cloud\n✔ Security IN the Cloud",
+                         "aws":  "https://aws.amazon.com/compliance/shared-responsibility-model/",
+                         "overview":  "Governance Boundaries",
+                         "title":  "Session 3: Shared Responsibility",
+                         "video":  "https://www.youtube.com/watch?v=Zn5I6L0A5KM"
                      }
                  ]
 }
