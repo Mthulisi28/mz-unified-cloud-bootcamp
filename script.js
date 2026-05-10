@@ -30,11 +30,14 @@ function render(id) {
     document.getElementById('sessionTitle').innerText = s.title;
     document.getElementById('overview').innerText = s.overview;
     document.getElementById('outcomes').innerText = s.outcomes;
+    
+    // Wire Links
     document.getElementById('awsLink').setAttribute('data-url', s.aws);
     document.getElementById('videoLink').setAttribute('data-url', s.video);
     
+    // PDF Revealed Only if exists
     const pdfArea = document.getElementById('pdfArea');
-    pdfArea.innerHTML = s.pdf ? '<a href="' + s.pdf + '" target="_blank" style="color:#60a5fa">📥 Download PDF Slides</a>' : '';
+    pdfArea.innerHTML = s.pdf ? '<a href="' + s.pdf + '" target="_blank" style="color:#60a5fa; text-decoration:none; display:block; margin: 10px 0;">📥 Download Session Playbook (PDF)</a>' : '';
     
     document.getElementById('completeBtn').onclick = () => {
         if (!progress.includes(s.id)) progress.push(s.id);
@@ -42,7 +45,6 @@ function render(id) {
         renderSidebar();
         const next = sessions.find(x => x.id == s.id + 1);
         if (next) render(next.id);
-        else alert('UCA Roadmap Complete! Certification Unlocked.');
     };
     renderSidebar();
 }

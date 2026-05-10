@@ -2,30 +2,111 @@
     "sessions":  [
                      {
                          "id":  1,
-                         "pdf":  "assets/S1_Foundations.pdf",
-                         "outcomes":  "✔ AZ Isolation\n✔ Global Reach\n✔ High Availability Design",
-                         "aws":  "https://aws.amazon.com/about-aws/global-infrastructure/",
-                         "overview":  "Master AWS Global Infrastructure \u0026 Region Strategy.",
+                         "pdf":  "assets/session1.pdf",
+                         "outcomes":  "✔ AZ Isolation\n✔ Region Strategy",
+                         "aws":  "sessions/session-1-cloud-foundations.html",
+                         "overview":  "Global Infrastructure \u0026 Regions",
                          "title":  "Session 1: Cloud Foundations",
-                         "video":  "https://youtube.com/watch?v=..."
+                         "video":  "#"
                      },
                      {
                          "id":  2,
-                         "pdf":  "assets/S2_IAM_Governance.pdf",
-                         "outcomes":  "✔ Least Privilege Mastery\n✔ Cross-Account Access\n✔ MFA Policy Enforcement",
-                         "aws":  "https://docs.aws.amazon.com/iam/",
-                         "overview":  "Govern access with precision using IAM Roles and SCPs.",
+                         "pdf":  "assets/session2.pdf",
+                         "outcomes":  "✔ Least Privilege\n✔ Role Assumption",
+                         "aws":  "sessions/session-2-iam.html",
+                         "overview":  "Identity Perimeter \u0026 SCPs",
                          "title":  "Session 2: IAM Governance",
-                         "video":  "https://youtube.com/watch?v=..."
+                         "video":  "#"
                      },
                      {
                          "id":  3,
-                         "pdf":  "assets/S3_Networking.pdf",
-                         "outcomes":  "✔ Tiered Subnet Strategy\n✔ VPC Peering \u0026 Transit Gateway\n✔ Traffic Filtering",
-                         "aws":  "https://docs.aws.amazon.com/vpc/",
-                         "overview":  "Build secure perimeters with VPC, NACLs, and Security Groups.",
-                         "title":  "Session 3: Networking \u0026 Security",
-                         "video":  "https://youtube.com/watch?v=..."
+                         "pdf":  "assets/session3.pdf",
+                         "outcomes":  "✔ Security OF vs IN\n✔ Audit Readiness",
+                         "aws":  "sessions/session-3-shared-responsibility.html",
+                         "overview":  "Compliance Boundaries",
+                         "title":  "Session 3: Shared Responsibility",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  4,
+                         "pdf":  "assets/session4.pdf",
+                         "outcomes":  "✔ VPC Peering\n✔ Transit Gateway",
+                         "aws":  "sessions/session-4-vpc-networking.html",
+                         "overview":  "Global Network Mesh",
+                         "title":  "Session 4: VPC Networking",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  5,
+                         "pdf":  "",
+                         "outcomes":  "✔ Scaling Logic\n✔ Serverless Patterns",
+                         "aws":  "#",
+                         "overview":  "EC2, Lambda \u0026 Containers",
+                         "title":  "Session 5: Compute Strategy",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  6,
+                         "pdf":  "",
+                         "outcomes":  "✔ Data Encryption\n✔ Lifecycle Policies",
+                         "aws":  "#",
+                         "overview":  "S3, RDS \u0026 DynamoDB Governance",
+                         "title":  "Session 6: Storage \u0026 Databases",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  7,
+                         "pdf":  "",
+                         "outcomes":  "✔ Real-time Alerts\n✔ Governance Auditing",
+                         "aws":  "#",
+                         "overview":  "CloudWatch \u0026 CloudTrail",
+                         "title":  "Session 7: Monitoring \u0026 Logging",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  8,
+                         "pdf":  "",
+                         "outcomes":  "✔ Immutable Infra\n✔ State Management",
+                         "aws":  "#",
+                         "overview":  "Terraform \u0026 CloudFormation",
+                         "title":  "Session 8: Infrastructure as Code",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  9,
+                         "pdf":  "",
+                         "outcomes":  "✔ Threat Mitigation\n✔ Key Management",
+                         "aws":  "#",
+                         "overview":  "KMS, WAF \u0026 Shield",
+                         "title":  "Session 9: Security Deep Dive",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  10,
+                         "pdf":  "",
+                         "outcomes":  "✔ Cost Allocation\n✔ Savings Plans",
+                         "aws":  "#",
+                         "overview":  "FinOps \u0026 Budgeting",
+                         "title":  "Session 10: Cost Optimization",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  11,
+                         "pdf":  "",
+                         "outcomes":  "✔ Landing Zones\n✔ Guardrails",
+                         "aws":  "#",
+                         "overview":  "AWS Organizations \u0026 Control Tower",
+                         "title":  "Session 11: Multi-Account Strategy",
+                         "video":  "#"
+                     },
+                     {
+                         "id":  12,
+                         "pdf":  "",
+                         "outcomes":  "✔ Automated Handshake\n✔ Global Certification",
+                         "aws":  "#",
+                         "overview":  "UCA Capstone \u0026 Exam",
+                         "title":  "Session 12: Final Certification",
+                         "video":  "#"
                      }
                  ]
 }
