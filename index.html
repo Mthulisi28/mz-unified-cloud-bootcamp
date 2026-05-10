@@ -14,21 +14,22 @@
         .session-card { 
             background: #0d1117; 
             border: 1px solid #30363d; 
-            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .session-card:not(.locked):hover { 
             border-color: #d4af37; 
-            box-shadow: 0 15px 50px -12px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 15px 50px -12px rgba(212, 175, 55, 0.15);
+            transform: translateY(-8px);
         }
         .locked { opacity: 0.4; filter: grayscale(1); cursor: not-allowed; border-style: dashed; }
         .gold-ink { color: #d4af37; }
         .btn-elite { 
             background: #d4af37; 
             color: #010409; 
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            padding: 0.9rem;
+            letter-spacing: 0.2em;
+            padding: 1rem;
             display: block;
             text-align: center;
             border: 1px solid #d4af37;
@@ -36,19 +37,16 @@
         }
         .btn-elite:hover { background: transparent; color: #d4af37; }
         .resource-link { 
-            display: flex;
-            align-items: center;
-            font-size: 0.7rem;
+            display: block;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
             color: #8b949e;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #21262d;
             transition: 0.2s;
         }
-        .resource-link:hover { color: #d4af37; border-color: #d4af37; }
-        .section-label { color: #d4af37; font-size: 10px; font-weight: 900; letter-spacing: 0.3em; margin-bottom: 1rem; display: block; }
+        .resource-link:hover { color: #d4af37; border-color: #d4af37; padding-left: 5px; }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -57,74 +55,59 @@
         <img src="assets/mz-logo.png" alt="MZ Logo" class="mx-auto w-32 mb-8">
         <h1 class="text-7xl font-black tracking-tighter text-white italic uppercase">MZ UCA</h1>
         <h2 class="text-3xl font-bold text-white mt-1 tracking-[0.4em]">BOOT CAMP</h2>
+        <p class="text-[10px] mt-6 font-black tracking-[0.6em] gold-ink uppercase">Elite Cloud Governance Strategy</p>
     </header>
 
     <main class="max-w-7xl mx-auto px-8 py-20">
         
+        <div class="flex flex-col md:flex-row items-center justify-between mb-24 bg-[#0d1117] p-12 border border-gray-800 shadow-2xl">
+            <div class="flex items-center">
+                <img src="assets/image_cf2a96.jpg" alt="Architect" class="w-44 h-44 border-2 border-[#d4af37] shadow-2xl object-cover">
+                <div class="ml-12 text-left">
+                    <h2 class="text-5xl font-black text-white tracking-tighter uppercase italic">Mthulisi Zulu</h2>
+                    <p class="gold-ink font-bold text-xl uppercase tracking-[0.3em] mt-2">Global Systems Architect</p>
+                </div>
+            </div>
+        </div>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
             <div class="session-card p-10">
-                <span class="section-label uppercase">Session 01</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase tracking-tight">Foundations</h3>
-                
-                <div class="mb-8 space-y-2">
-                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest border-b border-gray-800 pb-2">Study Materials</p>
-                    <a href="assets/docs/session-01-notes.pdf" class="resource-link"><span>01. Protocol Notes (PDF)</span></a>
-                    <a href="assets/docs/session-01-slides.pdf" class="resource-link"><span>02. Architect Slides</span></a>
+                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Session 01</span>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Foundations</h3>
+                <div class="mb-8 space-y-1">
+                    <a href="assets/docs/Module_1_Cloud_Practitioner.pdf" class="resource-link">Study Notes: Module 1</a>
+                    <a href="https://www.youtube.com/watch?v=ajP3S9E1SdA" class="resource-link">Global Infra Deep-Dive</a>
                 </div>
-
-                <div class="mb-10 space-y-2">
-                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest border-b border-gray-800 pb-2">Video Training</p>
-                    <a href="https://youtube.com/..." class="resource-link"><span>Masterclass: Global Infra</span></a>
-                    <a href="https://udemy.com/..." class="resource-link"><span>Deep Dive: Cloud Logic</span></a>
-                </div>
-
                 <a href="https://console.aws.amazon.com/" target="_blank" class="btn-elite">Access Console</a>
             </div>
 
             <div class="session-card p-10">
-                <span class="section-label uppercase">Session 02</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase tracking-tight">Shared Risk</h3>
-                
-                <div class="mb-8 space-y-2">
-                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest border-b border-gray-800 pb-2">Study Materials</p>
-                    <a href="assets/docs/session-02-notes.pdf" class="resource-link"><span>01. Risk Framework</span></a>
-                    <a href="assets/docs/session-02-slides.pdf" class="resource-link"><span>02. Responsibility Map</span></a>
+                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Session 02</span>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Architect Core</h3>
+                <div class="mb-8 space-y-1">
+                    <a href="assets/docs/Module_1_Solutions_Architect_Associate.pdf" class="resource-link">Solutions Architecture PDF</a>
+                    <a href="https://www.udemy.com/" class="resource-link">Elite Certification Video</a>
                 </div>
-
-                <div class="mb-10 space-y-2">
-                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest border-b border-gray-800 pb-2">Video Training</p>
-                    <a href="https://youtube.com/..." class="resource-link"><span>Case Study: Breach Analysis</span></a>
-                </div>
-
                 <a href="https://console.aws.amazon.com/artifact/" target="_blank" class="btn-elite">Access Artifact</a>
             </div>
 
             <div class="session-card p-10">
-                <span class="section-label uppercase">Session 03</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase tracking-tight">Identity Core</h3>
-                
-                <div class="mb-8 space-y-2">
-                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest border-b border-gray-800 pb-2">Study Materials</p>
-                    <a href="assets/docs/session-03-notes.pdf" class="resource-link"><span>01. IAM Policy Logic</span></a>
-                    <a href="assets/docs/session-03-slides.pdf" class="resource-link"><span>02. Auth Architecture</span></a>
+                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Session 03</span>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase">Identity & Risk</h3>
+                <div class="mb-8 space-y-1">
+                    <a href="assets/docs/Module_2_Solutions_Architect_Associate.pdf" class="resource-link">Module 2 Study Guide</a>
+                    <a href="https://policysim.aws.amazon.com/" class="resource-link">UCA Policy Simulator</a>
                 </div>
-
-                <div class="mb-10 space-y-2">
-                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest border-b border-gray-800 pb-2">Video Training</p>
-                    <a href="https://youtube.com/..." class="resource-link"><span>IAM Lockdown Guide</span></a>
-                </div>
-
-                <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="btn-elite">Access IAM</a>
+                <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="btn-elite">Access IAM Core</a>
             </div>
 
-            <div class="session-card locked p-10"><span class="section-label">Session 04</span><h3 class="text-2xl font-black text-gray-600 mb-6 uppercase">VPC Mesh</h3><div class="h-24"></div></div>
-            <div class="session-card locked p-10"><span class="section-label">Session 05</span><h3 class="text-2xl font-black text-gray-600 mb-6 uppercase">Compute Logic</h3><div class="h-24"></div></div>
-            <div class="session-card locked p-10"><span class="section-label">Session 06</span><h3 class="text-2xl font-black text-gray-600 mb-6 uppercase">Storage Tiers</h3><div class="h-24"></div></div>
-
+            <div class="session-card locked p-10"><h3 class="text-2xl font-black text-gray-700 uppercase">VPC Mesh</h3></div>
+            <div class="session-card locked p-10"><h3 class="text-2xl font-black text-gray-700 uppercase">Compute Logic</h3></div>
+            <div class="session-card locked p-10"><h3 class="text-2xl font-black text-gray-700 uppercase">Storage Tiers</h3></div>
         </div>
 
-        <footer class="mt-40 text-center text-gray-800 border-t border-gray-900 pt-20 uppercase tracking-[1em] text-[10px] font-black gold-ink opacity-40">
+        <footer class="mt-40 text-center text-gray-800 border-t border-gray-900 pt-20 tracking-[1em] text-[10px] font-black gold-ink opacity-40">
             MZ UCA BOOT CAMP | GLOBAL SOVEREIGNTY
         </footer>
     </main>
