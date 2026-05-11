@@ -6,90 +6,52 @@
     <title>MZ UCA BOOT CAMP | Elite Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #010409; color: #f0f6fc; }
-        .prestige-header { 
-            background: radial-gradient(circle at top, #1e3a8a 0%, #020617 100%); 
-            border-bottom: 2px solid #d4af37;
-        }
-        .session-card { 
-            background: #0d1117; 
-            border: 1px solid #30363d; 
-            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .session-card:hover { border-color: #d4af37; box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.2); }
+        body { background-color: #010409; color: #f0f6fc; font-family: sans-serif; }
+        .prestige-header { background: radial-gradient(circle at top, #1e3a8a 0%, #020617 100%); border-bottom: 2px solid #d4af37; padding: 60px 0; }
+        .session-card { background: #0d1117; border: 1px solid #30363d; padding: 40px; transition: 0.3s; }
+        .session-card:hover { border-color: #d4af37; }
         .gold-ink { color: #d4af37; }
-        .btn-elite { 
-            background: #d4af37; 
-            color: #010409; 
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            padding: 1rem;
-            display: block;
-            text-align: center;
-        }
-        .resource-link { 
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #8b949e;
-            padding: 12px 0;
-            border-bottom: 1px solid #21262d;
-            text-decoration: none;
-        }
-        .resource-link:hover { color: #d4af37; border-color: #d4af37; }
+        .btn-elite { background: #d4af37; color: #010409; font-weight: 900; text-transform: uppercase; padding: 1rem; display: block; text-align: center; text-decoration: none; }
+        /* DIAGNOSTIC BORDER: Shows red if file is missing */
+        img:failed { border: 5px solid red !important; }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body>
 
-    <header class="py-24 text-center prestige-header">
-        <h1 class="text-7xl font-black tracking-tighter text-white italic uppercase">MZ UCA</h1>
-        <h2 class="text-3xl font-bold text-white mt-1 tracking-[0.4em]">BOOT CAMP</h2>
+    <header class="text-center prestige-header">
+        <h1 class="text-6xl font-black tracking-tighter uppercase italic">MZ UCA BOOT CAMP</h1>
     </header>
 
-    <main class="max-w-7xl mx-auto px-8 py-20">
+    <main class="max-w-6xl mx-auto px-6 py-16">
         
-        <div class="flex flex-col md:flex-row items-center justify-between mb-24 bg-[#0d1117] p-12 border border-gray-800">
-            <div class="flex items-center">
-                <img src="architect-profile.jpg" alt="Mthulisi Zulu" class="w-44 h-44 border-2 border-[#d4af37] object-cover shadow-2xl">
-                <div class="ml-12 text-left">
-                    <h2 class="text-5xl font-black text-white tracking-tighter uppercase italic">Mthulisi Zulu</h2>
-                    <p class="gold-ink font-bold text-xl uppercase tracking-[0.3em] mt-2">Global Systems Architect</p>
-                </div>
+        <div class="mb-16 bg-[#0d1117] p-10 border border-gray-800 flex items-center">
+            <img src="architect-profile.jpg" alt="Architect" class="w-40 h-40 border-2 border-[#d4af37] object-cover" onerror="this.style.border='5px solid red'">
+            <div class="ml-10">
+                <h2 class="text-4xl font-black uppercase italic">Mthulisi Zulu</h2>
+                <p class="gold-ink font-bold tracking-widest uppercase">Global Systems Architect</p>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-            <div class="session-card p-10">
-                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 01</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Foundations</h3>
-                <div class="mb-8">
-                    <a href="cloud-practitioner-01.pdf" target="_blank" class="resource-link"><span>UCA Module 1</span><span class="text-xs">DOC</span></a>
-                </div>
-                <a href="https://console.aws.amazon.com/" target="_blank" class="btn-elite">Access Console</a>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="session-card">
+                <p class="gold-ink text-xs font-black mb-2 uppercase">Protocol 01</p>
+                <h3 class="text-xl font-bold mb-6">Foundations</h3>
+                <a href="cloud-practitioner-01.pdf" target="_blank" class="btn-elite">View Module 01</a>
             </div>
 
-            <div class="session-card p-10">
-                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 02</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Design Logic</h3>
-                <div class="mb-8">
-                    <a href="solutions-architect-01.pdf" target="_blank" class="resource-link"><span>Architect Associate 01</span><span class="text-xs">DOC</span></a>
-                </div>
-                <a href="https://console.aws.amazon.com/artifact/" target="_blank" class="btn-elite">Access Artifact</a>
+            <div class="session-card">
+                <p class="gold-ink text-xs font-black mb-2 uppercase">Protocol 02</p>
+                <h3 class="text-xl font-bold mb-6">Architect Core</h3>
+                <a href="solutions-architect-01.pdf" target="_blank" class="btn-elite">View Module 02</a>
             </div>
 
-            <div class="session-card p-10">
-                <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 03</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Identity & Risk</h3>
-                <div class="mb-8">
-                    <a href="solutions-architect-02.pdf" target="_blank" class="resource-link"><span>Architect Associate 02</span><span class="text-xs">DOC</span></a>
-                </div>
-                <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="btn-elite">Access IAM Core</a>
+            <div class="session-card">
+                <p class="gold-ink text-xs font-black mb-2 uppercase">Protocol 03</p>
+                <h3 class="text-xl font-bold mb-6">Identity & Risk</h3>
+                <a href="solutions-architect-02.pdf" target="_blank" class="btn-elite">View Module 03</a>
             </div>
-
         </div>
+
     </main>
 </body>
 </html>
