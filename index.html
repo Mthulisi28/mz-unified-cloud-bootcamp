@@ -2,48 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MZ UCA | ELITE COMMAND CENTER</title>
+    <title>MZ UCA | GLOBAL COMMAND CENTER</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #010409; color: #f0f6fc; }
+        body { background-color: #010409; color: #f0f6fc; font-family: 'Inter', sans-serif; }
         .gold-ink { color: #d4af37; }
-        .session-card { background: #0d1117; border: 1px solid #30363d; padding: 2.5rem; border-radius: 4px; transition: 0.4s; }
-        .session-card:hover { border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); }
-        .btn-elite { background: #d4af37; color: #010409; font-weight: 900; display: block; text-align: center; padding: 1.2rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
+        .bg-prestige { background: #0d1117; border: 1px solid #30363d; }
+        .session-card { transition: all 0.3s ease; }
+        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); }
+        .btn-gold { background: #d4af37; color: #000; font-weight: 800; padding: 0.75rem; text-align: center; display: block; text-transform: uppercase; font-size: 0.75rem; }
+        .sub-link { font-size: 0.7rem; color: #8b949e; display: block; padding: 5px 0; border-bottom: 1px solid #21262d; text-decoration: none; }
+        .sub-link:hover { color: #d4af37; }
     </style>
 </head>
-<body class="p-10 font-sans">
-    <div class="max-w-6xl mx-auto">
-        <header class="mb-16 border-b border-gray-800 pb-10">
-            <h1 class="text-5xl font-black italic gold-ink tracking-tighter">MZ UCA BOOT CAMP</h1>
-            <p class="text-gray-500 mt-2 tracking-[0.5em] uppercase text-xs">Unified Control Architecture</p>
-        </header>
-
-        <div class="bg-[#0d1117] border border-gray-800 p-10 mb-12 flex items-center">
-            <img src="assets/profile-architect.jpg" class="w-40 h-40 border-2 border-[#d4af37] object-cover mr-10 shadow-2xl">
-            <div>
-                <h2 class="text-4xl font-black uppercase italic italic text-white">Mthulisi Zulu</h2>
-                <p class="gold-ink font-bold tracking-widest text-sm mt-1">GLOBAL SYSTEMS ARCHITECT</p>
+<body class="p-8 md:p-20">
+    <div class="max-w-7xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center mb-16 border-b border-gray-800 pb-12">
+            <div class="flex items-center">
+                <img src="assets/mz-logo.png" alt="MZ Logo" class="h-20 mr-8">
+                <div>
+                    <h1 class="text-5xl font-black italic gold-ink tracking-tighter">MZ UCA BOOT CAMP</h1>
+                    <p class="uppercase tracking-[0.4em] text-gray-500 text-[10px]">Unified Control Architecture // Global Deployment</p>
+                </div>
             </div>
+            <img src="assets/profile-architect.jpg" class="w-32 h-32 rounded-full border-2 border-[#d4af37] mt-6 md:mt-0 object-cover shadow-2xl">
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="session-card">
-                <p class="gold-ink text-[10px] font-black mb-2 uppercase tracking-widest">Protocol 01</p>
-                <h3 class="text-xl font-bold mb-8 text-white uppercase">Foundations</h3>
-                <a href="assets/cloud-practitioner.pdf" target="_blank" class="btn-elite">Access Workbook</a>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="bg-prestige p-8 session-card">
+                <p class="gold-ink text-[10px] font-bold mb-1 italic">PROTOCOL 01</p>
+                <h3 class="text-xl font-black mb-6 uppercase">Cloud Foundations</h3>
+                <div class="mb-6 space-y-2">
+                    <a href="assets/cloud-practitioner.pdf" class="sub-link">◈ Core Workbook</a>
+                    <a href="assets/WEEK 1 — SESSION 1 REVISION PACK.pdf" class="sub-link">◈ Revision Pack</a>
+                    <a href="assets/week1AWS CLOUD PRACTITIONER BOOTCAMPstudentnotes.pdf" class="sub-link">◈ Student Notes</a>
+                </div>
+                <a href="assets/WEEK 1 — SESSION 1.pdf" target="_blank" class="btn-gold">View Slides</a>
             </div>
-            <div class="session-card">
-                <p class="gold-ink text-[10px] font-black mb-2 uppercase tracking-widest">Protocol 02</p>
-                <h3 class="text-xl font-bold mb-8 text-white uppercase">Architect Core</h3>
-                <a href="assets/architect-associate-01.pdf" target="_blank" class="btn-elite">Access Core</a>
+
+            <div class="bg-prestige p-8 session-card">
+                <p class="gold-ink text-[10px] font-bold mb-1 italic">PROTOCOL 02</p>
+                <h3 class="text-xl font-black mb-6 uppercase">Architect Core</h3>
+                <div class="mb-6 space-y-2">
+                    <a href="assets/architect-associate-01.pdf" class="sub-link">◈ Core Architecture</a>
+                    <a href="assets/SESSION 2Student Learning Notes .pdf" class="sub-link">◈ Learning Notes</a>
+                    <a href="assets/SESSION 2github.pdf" class="sub-link">◈ GitHub Labs</a>
+                </div>
+                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-gold">Shared Responsibility</a>
             </div>
-            <div class="session-card">
-                <p class="gold-ink text-[10px] font-black mb-2 uppercase tracking-widest">Protocol 03</p>
-                <h3 class="text-xl font-bold mb-8 text-white uppercase">Security & Risk</h3>
-                <a href="assets/architect-associate-02.pdf" target="_blank" class="btn-elite">Access Risk</a>
+
+            <div class="bg-prestige p-8 session-card">
+                <p class="gold-ink text-[10px] font-bold mb-1 italic">PROTOCOL 03</p>
+                <h3 class="text-xl font-black mb-6 uppercase">Identity (IAM)</h3>
+                <div class="mb-6 space-y-2">
+                    <a href="assets/architect-associate-02.pdf" class="sub-link">◈ IAM Strategy</a>
+                    <a href="assets/IAM SESSION 3 — PREMIUM STUDENT NOTES.pdf" class="sub-link">◈ Premium Notes</a>
+                    <a href="assets/IAM SESSION 3 — HANDS-ON LABS.pdf" class="sub-link">◈ Lab Workbook</a>
+                </div>
+                <a href="assets/SESSION3 Identity & Access Management (IAM).pdf" target="_blank" class="btn-gold">Access Slides</a>
             </div>
+
+            <div class="bg-prestige p-8 session-card">
+                <p class="gold-ink text-[10px] font-bold mb-1 italic">PROTOCOL 04</p>
+                <h3 class="text-xl font-black mb-6 uppercase">VPC & Network</h3>
+                <div class="mb-6 space-y-2">
+                    <a href="assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES).pdf" class="sub-link">◈ Core Services</a>
+                    <a href="assets/WEEK 2 — SESSION 4labs.pdf" class="sub-link">◈ Networking Labs</a>
+                    <a href="assets/WEEK 2 — SESSION 4mockexams.pdf" class="sub-link">◈ Mock Exam</a>
+                </div>
+                <a href="assets/WEEK 2 — SESSION 4.pdf" target="_blank" class="btn-gold">Access Session 4</a>
+            </div>
+
         </div>
+
+        <footer class="mt-20 pt-10 border-t border-gray-900 text-center">
+            <p class="text-gray-600 text-[10px] uppercase tracking-widest">Architected by Mthulisi Zulu // Global Business Operations</p>
+        </footer>
     </div>
 </body>
 </html>
