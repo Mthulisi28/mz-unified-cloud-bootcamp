@@ -16,10 +16,7 @@
             border: 1px solid #30363d; 
             transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         }
-        .session-card:not(.locked):hover { 
-            border-color: #d4af37; 
-            box-shadow: 0 15px 50px -12px rgba(212, 175, 55, 0.2);
-        }
+        .session-card:hover { border-color: #d4af37; box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.2); }
         .gold-ink { color: #d4af37; }
         .btn-elite { 
             background: #d4af37; 
@@ -30,7 +27,6 @@
             padding: 1rem;
             display: block;
             text-align: center;
-            border: 1px solid #d4af37;
         }
         .resource-link { 
             display: flex;
@@ -42,7 +38,7 @@
             border-bottom: 1px solid #21262d;
             text-decoration: none;
         }
-        .resource-link:hover { color: #d4af37; border-color: #d4af37; padding-left: 8px; }
+        .resource-link:hover { color: #d4af37; border-color: #d4af37; }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -54,9 +50,9 @@
 
     <main class="max-w-7xl mx-auto px-8 py-20">
         
-        <div class="flex flex-col md:flex-row items-center justify-between mb-24 bg-[#0d1117] p-12 border border-gray-800 shadow-2xl">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-24 bg-[#0d1117] p-12 border border-gray-800">
             <div class="flex items-center">
-                <img src="image_974014.jpg" alt="Mthulisi Zulu" class="w-44 h-44 border-2 border-[#d4af37] shadow-2xl object-cover">
+                <img src="architect-profile.jpg" alt="Mthulisi Zulu" class="w-44 h-44 border-2 border-[#d4af37] object-cover shadow-2xl">
                 <div class="ml-12 text-left">
                     <h2 class="text-5xl font-black text-white tracking-tighter uppercase italic">Mthulisi Zulu</h2>
                     <p class="gold-ink font-bold text-xl uppercase tracking-[0.3em] mt-2">Global Systems Architect</p>
@@ -68,36 +64,32 @@
 
             <div class="session-card p-10">
                 <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 01</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase">Foundations</h3>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Foundations</h3>
                 <div class="mb-8">
-                    <a href="Module%201%20-%20Cloud%20Practitioner.pdf" target="_blank" class="resource-link"><span>UCA Module 1 PDF</span><span class="text-xs">VIEW</span></a>
+                    <a href="cloud-practitioner-01.pdf" target="_blank" class="resource-link"><span>UCA Module 1</span><span class="text-xs">DOC</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/" target="_blank" class="btn-elite">Access Console</a>
             </div>
 
             <div class="session-card p-10">
                 <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 02</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase">Architect Core</h3>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Design Logic</h3>
                 <div class="mb-8">
-                    <a href="Module%201%20-%20Solutions%20Architect%20Associate.pdf" target="_blank" class="resource-link"><span>Architect Associate PDF</span><span class="text-xs">VIEW</span></a>
+                    <a href="solutions-architect-01.pdf" target="_blank" class="resource-link"><span>Architect Associate 01</span><span class="text-xs">DOC</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/artifact/" target="_blank" class="btn-elite">Access Artifact</a>
             </div>
 
             <div class="session-card p-10">
                 <span class="gold-ink text-[10px] font-black tracking-widest uppercase">Protocol 03</span>
-                <h3 class="text-2xl font-black text-white mb-6 uppercase">Identity & Risk</h3>
+                <h3 class="text-2xl font-black text-white mb-6 uppercase italic">Identity & Risk</h3>
                 <div class="mb-8">
-                    <a href="Module%202%20-%20Solutions%20Architect%20Associate.pdf" target="_blank" class="resource-link"><span>Advanced Architect PDF</span><span class="text-xs">VIEW</span></a>
+                    <a href="solutions-architect-02.pdf" target="_blank" class="resource-link"><span>Architect Associate 02</span><span class="text-xs">DOC</span></a>
                 </div>
                 <a href="https://console.aws.amazon.com/iam/home" target="_blank" class="btn-elite">Access IAM Core</a>
             </div>
 
         </div>
-
-        <footer class="mt-40 text-center text-gray-800 border-t border-gray-900 pt-20 tracking-[1em] text-[10px] font-black gold-ink opacity-40">
-            MZ UCA BOOT CAMP | GLOBAL SOVEREIGNTY
-        </footer>
     </main>
 </body>
 </html>
