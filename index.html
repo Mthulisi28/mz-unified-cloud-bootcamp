@@ -2,42 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MZ UCA | Command Center</title>
+    <title>MZ UCA | ELITE COMMAND CENTER</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #010409; color: #f0f6fc; }
         .gold-ink { color: #d4af37; }
-        .session-card { background: #0d1117; border: 1px solid #30363d; padding: 2rem; }
-        .session-card:hover { border-color: #d4af37; }
-        .btn-action { background: #d4af37; color: #000; font-weight: 900; display: block; text-align: center; padding: 1rem; text-decoration: none; text-transform: uppercase; }
+        .session-card { background: #0d1117; border: 1px solid #30363d; padding: 2.5rem; border-radius: 4px; transition: 0.4s; }
+        .session-card:hover { border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); }
+        .btn-elite { background: #d4af37; color: #010409; font-weight: 900; display: block; text-align: center; padding: 1.2rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
     </style>
 </head>
-<body class="p-10">
-    <div class="max-w-5xl mx-auto">
-        <header class="mb-20 text-center">
-            <h1 class="text-6xl font-black italic gold-ink">MZ UCA BOOT CAMP</h1>
+<body class="p-10 font-sans">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-16 border-b border-gray-800 pb-10">
+            <h1 class="text-5xl font-black italic gold-ink tracking-tighter">MZ UCA BOOT CAMP</h1>
+            <p class="text-gray-500 mt-2 tracking-[0.5em] uppercase text-xs">Unified Control Architecture</p>
         </header>
 
-        <div class="bg-[#0d1117] border border-gray-800 p-8 mb-12 flex items-center">
-            <img src="profile-main.jpg" class="w-32 h-32 border-2 border-[#d4af37] object-cover mr-8" onerror="this.src='https://via.placeholder.com/150?text=Check+Filename'">
+        <div class="bg-[#0d1117] border border-gray-800 p-10 mb-12 flex items-center">
+            <img src="assets/profile-architect.jpg" class="w-40 h-40 border-2 border-[#d4af37] object-cover mr-10 shadow-2xl">
             <div>
-                <h2 class="text-3xl font-bold uppercase italic">Mthulisi Zulu</h2>
-                <p class="gold-ink tracking-widest text-sm">GLOBAL SYSTEMS ARCHITECT</p>
+                <h2 class="text-4xl font-black uppercase italic italic text-white">Mthulisi Zulu</h2>
+                <p class="gold-ink font-bold tracking-widest text-sm mt-1">GLOBAL SYSTEMS ARCHITECT</p>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-8">
             <div class="session-card">
-                <h3 class="mb-4 font-bold uppercase text-gray-400 text-xs">Module 01</h3>
-                <a href="m1-practitioner.pdf" target="_blank" class="btn-action">View Document</a>
+                <p class="gold-ink text-[10px] font-black mb-2 uppercase tracking-widest">Protocol 01</p>
+                <h3 class="text-xl font-bold mb-8 text-white uppercase">Foundations</h3>
+                <a href="assets/cloud-practitioner.pdf" target="_blank" class="btn-elite">Access Workbook</a>
             </div>
             <div class="session-card">
-                <h3 class="mb-4 font-bold uppercase text-gray-400 text-xs">Module 02</h3>
-                <a href="m1-architect.pdf" target="_blank" class="btn-action">View Document</a>
+                <p class="gold-ink text-[10px] font-black mb-2 uppercase tracking-widest">Protocol 02</p>
+                <h3 class="text-xl font-bold mb-8 text-white uppercase">Architect Core</h3>
+                <a href="assets/architect-associate-01.pdf" target="_blank" class="btn-elite">Access Core</a>
             </div>
             <div class="session-card">
-                <h3 class="mb-4 font-bold uppercase text-gray-400 text-xs">Module 03</h3>
-                <a href="m2-architect.pdf" target="_blank" class="btn-action">View Document</a>
+                <p class="gold-ink text-[10px] font-black mb-2 uppercase tracking-widest">Protocol 03</p>
+                <h3 class="text-xl font-bold mb-8 text-white uppercase">Security & Risk</h3>
+                <a href="assets/architect-associate-02.pdf" target="_blank" class="btn-elite">Access Risk</a>
             </div>
         </div>
     </div>
