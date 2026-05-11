@@ -2,80 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MZ UCA | GITHUB ACADEMY</title>
+    <title>MZ UCA | GLOBAL KNOWLEDGE ENGINE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0b0e14; color: #adbac7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
         .gold-ink { color: #d4af37; }
-        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; transition: 0.2s; }
-        .session-card:hover { border-color: #d4af37; transform: translateY(-3px); }
-        .btn-gold { background: #d4af37; color: #0d1117; font-weight: 800; font-size: 11px; padding: 12px; text-align: center; display: block; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; }
-        .pow-badge { background: #1c2128; border: 1px solid #444c56; color: #768390; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
-        .week-header { border-left: 4px solid #d4af37; padding-left: 1rem; margin-bottom: 1.5rem; }
+        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .btn-primary { background: #d4af37; color: #0d1117; font-weight: 800; font-size: 10px; padding: 10px; text-align: center; border-radius: 4px; text-transform: uppercase; display: block; width: 100%; }
+        .link-video { color: #58a6ff; font-size: 11px; font-weight: 600; display: flex; items-center: center; margin-top: 8px; text-decoration: none; }
+        .link-video:hover { text-decoration: underline; color: #d4af37; }
+        .pow-badge { background: #1c2128; border: 1px solid #444c56; color: #768390; font-size: 9px; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .week-header { border-left: 4px solid #d4af37; padding-left: 1.5rem; margin-bottom: 2rem; }
     </style>
 </head>
-<body class="p-6 md:p-16">
-    <div class="max-w-6xl mx-auto">
-        <header class="mb-16 border-b border-[#30363d] pb-10 flex justify-between items-end">
+<body class="p-6 md:p-20">
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-20 border-b border-[#30363d] pb-12 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div>
-                <img src="assets/mz-logo.png" class="h-12 mb-4">
-                <h1 class="text-4xl font-black gold-ink italic tracking-tighter uppercase">UCA Boot Camp</h1>
-                <p class="text-xs uppercase tracking-[0.3em] text-gray-500">Global Cloud Architecture Academy</p>
+                <h1 class="text-5xl font-black gold-ink italic tracking-tighter uppercase mb-2">UCA Academy</h1>
+                <p class="text-sm uppercase tracking-[0.5em] text-gray-500 font-light">Global Deployment // High-Leverage Architecture</p>
             </div>
-            <div class="text-right">
-                <p class="text-[10px] text-gray-600 uppercase font-bold tracking-widest">Architected By</p>
-                <p class="text-white font-bold italic text-sm">Mthulisi Zulu</p>
+            <div class="mt-8 md:mt-0 flex items-center bg-[#161b22] p-4 border border-[#30363d] rounded-lg">
+                <div class="mr-4 text-right">
+                    <p class="text-[10px] text-gray-500 uppercase font-bold">Lead Architect</p>
+                    <p class="text-white font-bold italic">Mthulisi Zulu</p>
+                </div>
+                <img src="assets/profile-architect.jpg" class="w-12 h-12 rounded-full border border-[#d4af37]">
             </div>
         </header>
 
-        <section class="mb-16">
-            <div class="week-header">
-                <h2 class="text-2xl font-black text-white italic">◉ CORE MODULES: PHASE I</h2>
-                <p class="text-xs text-gray-500 uppercase">Verified Content Path</p>
+        <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div class="session-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="gold-ink text-[11px] font-black italic">PROTOCOL 01</span>
+                        <span class="pow-badge">PoW: AWS-01</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white mb-4 leading-tight uppercase">Foundations</h3>
+                    <div class="space-y-3 mb-8">
+                        <a href="https://youtube.com/link_here" target="_blank" class="link-video">▶ YouTube: Global Infra Intro</a>
+                        <a href="https://udemy.com/link_here" target="_blank" class="link-video">◈ Premium: Core Concepts</a>
+                    </div>
+                </div>
+                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-primary">View Master Slides</a>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="session-card p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="gold-ink text-[10px] font-bold">S01</span>
-                            <span class="pow-badge">cloud-basics.md</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-6 text-sm uppercase">Foundations</h3>
+
+            <div class="session-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="gold-ink text-[11px] font-black italic">PROTOCOL 02</span>
+                        <span class="pow-badge">PoW: RISK-02</span>
                     </div>
-                    <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-gold">Launch Slides</a>
-                </div>
-                <div class="session-card p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="gold-ink text-[10px] font-bold">S02</span>
-                            <span class="pow-badge">risk-scenarios.md</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-6 text-sm uppercase">Shared Resp</h3>
+                    <h3 class="text-xl font-extrabold text-white mb-4 leading-tight uppercase">Shared Resp</h3>
+                    <div class="space-y-3 mb-8">
+                        <a href="https://youtube.com/link_here" target="_blank" class="link-video">▶ YouTube: Security Models</a>
+                        <a href="https://udemy.com/link_here" target="_blank" class="link-video">◈ Premium: Governance Deep Dive</a>
                     </div>
-                    <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-gold">Launch Slides</a>
                 </div>
-                <div class="session-card p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="gold-ink text-[10px] font-bold">S03</span>
-                            <span class="pow-badge">iam-setup.md</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-6 text-sm uppercase">Identity (IAM)</h3>
-                    </div>
-                    <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-gold">Launch Slides</a>
-                </div>
-                <div class="session-card p-6 flex flex-col justify-between border-[#d4af37]">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="gold-ink text-[10px] font-bold">S04</span>
-                            <span class="pow-badge">compute-guide.md</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-6 text-sm uppercase">Core Services</h3>
-                    </div>
-                    <a href="assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES).pdf" target="_blank" class="btn-gold">Launch Slides</a>
-                </div>
+                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-primary">View Master Slides</a>
             </div>
+
+            <div class="session-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="gold-ink text-[11px] font-black italic">PROTOCOL 03</span>
+                        <span class="pow-badge">PoW: IAM-03</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white mb-4 leading-tight uppercase">Identity (IAM)</h3>
+                    <div class="space-y-3 mb-8">
+                        <a href="https://youtube.com/link_here" target="_blank" class="link-video">▶ YouTube: Identity Mastery</a>
+                        <a href="https://udemy.com/link_here" target="_blank" class="link-video">◈ Premium: IAM Policy Logic</a>
+                    </div>
+                </div>
+                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-primary">View Master Slides</a>
+            </div>
+
+            <div class="session-card p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="gold-ink text-[11px] font-black italic">PROTOCOL 04</span>
+                        <span class="pow-badge">PoW: COMP-04</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white mb-4 leading-tight uppercase">Core Services</h3>
+                    <div class="space-y-3 mb-8">
+                        <a href="https://youtube.com/link_here" target="_blank" class="link-video">▶ YouTube: Compute Scaling</a>
+                        <a href="https://udemy.com/link_here" target="_blank" class="link-video">◈ Premium: Storage & DB</a>
+                    </div>
+                </div>
+                <a href="assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES).pdf" target="_blank" class="btn-gold btn-primary">View Master Slides</a>
+            </div>
+
         </section>
+
+        <footer class="mt-32 pt-12 border-t border-[#30363d] text-center">
+            <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] italic">Built by Mthulisi Zulu // Global Cloud Business Architect</p>
+        </footer>
     </div>
 </body>
 </html>
