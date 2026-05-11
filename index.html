@@ -2,56 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ UCA BOOT CAMP | Elite Command Center</title>
+    <title>MZ UCA | Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #010409; color: #f0f6fc; font-family: sans-serif; }
-        .prestige-header { background: radial-gradient(circle at top, #1e3a8a 0%, #020617 100%); border-bottom: 2px solid #d4af37; padding: 60px 0; }
-        .session-card { background: #0d1117; border: 1px solid #30363d; padding: 40px; transition: 0.3s; }
-        .session-card:hover { border-color: #d4af37; }
+        body { background-color: #010409; color: #f0f6fc; }
         .gold-ink { color: #d4af37; }
-        .btn-elite { background: #d4af37; color: #010409; font-weight: 900; text-transform: uppercase; padding: 1rem; display: block; text-align: center; text-decoration: none; }
-        /* DIAGNOSTIC BORDER: Shows red if file is missing */
-        img:failed { border: 5px solid red !important; }
+        .session-card { background: #0d1117; border: 1px solid #30363d; padding: 2rem; }
+        .session-card:hover { border-color: #d4af37; }
+        .btn-action { background: #d4af37; color: #000; font-weight: 900; display: block; text-align: center; padding: 1rem; text-decoration: none; text-transform: uppercase; }
     </style>
 </head>
-<body>
+<body class="p-10">
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-20 text-center">
+            <h1 class="text-6xl font-black italic gold-ink">MZ UCA BOOT CAMP</h1>
+        </header>
 
-    <header class="text-center prestige-header">
-        <h1 class="text-6xl font-black tracking-tighter uppercase italic">MZ UCA BOOT CAMP</h1>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-6 py-16">
-        
-        <div class="mb-16 bg-[#0d1117] p-10 border border-gray-800 flex items-center">
-            <img src="architect-profile.jpg" alt="Architect" class="w-40 h-40 border-2 border-[#d4af37] object-cover" onerror="this.style.border='5px solid red'">
-            <div class="ml-10">
-                <h2 class="text-4xl font-black uppercase italic">Mthulisi Zulu</h2>
-                <p class="gold-ink font-bold tracking-widest uppercase">Global Systems Architect</p>
+        <div class="bg-[#0d1117] border border-gray-800 p-8 mb-12 flex items-center">
+            <img src="profile-main.jpg" class="w-32 h-32 border-2 border-[#d4af37] object-cover mr-8" onerror="this.src='https://via.placeholder.com/150?text=Check+Filename'">
+            <div>
+                <h2 class="text-3xl font-bold uppercase italic">Mthulisi Zulu</h2>
+                <p class="gold-ink tracking-widest text-sm">GLOBAL SYSTEMS ARCHITECT</p>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-6">
             <div class="session-card">
-                <p class="gold-ink text-xs font-black mb-2 uppercase">Protocol 01</p>
-                <h3 class="text-xl font-bold mb-6">Foundations</h3>
-                <a href="cloud-practitioner-01.pdf" target="_blank" class="btn-elite">View Module 01</a>
+                <h3 class="mb-4 font-bold uppercase text-gray-400 text-xs">Module 01</h3>
+                <a href="m1-practitioner.pdf" target="_blank" class="btn-action">View Document</a>
             </div>
-
             <div class="session-card">
-                <p class="gold-ink text-xs font-black mb-2 uppercase">Protocol 02</p>
-                <h3 class="text-xl font-bold mb-6">Architect Core</h3>
-                <a href="solutions-architect-01.pdf" target="_blank" class="btn-elite">View Module 02</a>
+                <h3 class="mb-4 font-bold uppercase text-gray-400 text-xs">Module 02</h3>
+                <a href="m1-architect.pdf" target="_blank" class="btn-action">View Document</a>
             </div>
-
             <div class="session-card">
-                <p class="gold-ink text-xs font-black mb-2 uppercase">Protocol 03</p>
-                <h3 class="text-xl font-bold mb-6">Identity & Risk</h3>
-                <a href="solutions-architect-02.pdf" target="_blank" class="btn-elite">View Module 03</a>
+                <h3 class="mb-4 font-bold uppercase text-gray-400 text-xs">Module 03</h3>
+                <a href="m2-architect.pdf" target="_blank" class="btn-action">View Document</a>
             </div>
         </div>
-
-    </main>
+    </div>
 </body>
 </html>
