@@ -8,8 +8,9 @@
     <style>
         body { background-color: #0b0e14; color: #adbac7; font-family: sans-serif; }
         .gold-ink { color: #d4af37; }
-        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); background: #000; }
-        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; }
+        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); background: #1c2128; }
+        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; transition: 0.3s; }
+        .session-card:hover { border-color: #d4af37; }
         .btn-master { background: #d4af37; color: #0d1117; font-weight: 900; font-size: 11px; padding: 14px; text-align: center; border-radius: 4px; text-transform: uppercase; text-decoration: none; display: block; margin-top: auto; }
     </style>
 </head>
@@ -18,7 +19,7 @@
         <header class="mb-16 border-b border-[#30363d] pb-10 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-6">
                 <div class="w-20 h-20 bg-[#1c2128] border border-[#30363d] rounded flex items-center justify-center overflow-hidden">
-                    <img src="assets/mz-logo.png" alt="UCA" class="w-full h-full object-contain">
+                    <img src="assets/mz-logo.png?v=1131" alt="UCA" class="w-full h-full object-contain">
                 </div>
                 <div>
                     <h1 class="text-6xl font-black gold-ink italic tracking-tighter uppercase">UCA Academy</h1>
@@ -28,36 +29,36 @@
             
             <div class="bg-[#1c2128] border border-[#d4af37] p-5 rounded-lg flex items-center shadow-2xl">
                 <div class="text-right mr-4">
-                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Principal Architect</p>
-                    <p class="text-white font-bold italic text-lg uppercase">Mthulisi Zulu</p>
+                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest text-gray-400">Principal Architect</p>
+                    <p class="text-white font-bold italic text-lg uppercase tracking-tight">Mthulisi Zulu</p>
                 </div>
                 <div class="w-16 h-16 rounded-full profile-ring overflow-hidden flex items-center justify-center">
-                    <img src="assets/mthulisi.png" alt="MZ" class="w-full h-full object-cover">
+                    <img src="assets/mthulisi.png?v=1131" alt="MZ" class="w-full h-full object-cover">
                 </div>
             </div>
         </header>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="session-card">
-                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 1:<br>AWS Global Infrastructure</h3>
-                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-master">View Master Slides</a>
+            <div class="session-card flex flex-col">
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 1:<br>AWS Foundations</h3>
+                <a href="assets/WEEK 1 — SESSION 1.pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
-            <div class="session-card">
-                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 2:<br>Shared Responsibility Model</h3>
+            <div class="session-card flex flex-col">
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 2:<br>Governance & FinOps</h3>
                 <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
-            <div class="session-card">
-                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 3:<br>Identity & Access Management</h3>
-                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-master">View Master Slides</a>
+            <div class="session-card flex flex-col">
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 3:<br>Security Engineering</h3>
+                <a href="assets/SESSION3 Identity & Access Management (IAM).pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
-            <div class="session-card">
-                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 4:<br>Core Services (Compute+)</h3>
-                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-master">View Master Slides</a>
+            <div class="session-card flex flex-col">
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 4:<br>Global Operations</h3>
+                <a href="assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES).pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
         </div>
 
-        <footer class="mt-20 border-t border-[#30363d] pt-8 text-[9px] uppercase font-bold tracking-widest text-gray-700">
-            © 2022 UCA GLOBAL ENGINE // Johannesburg // London // Global
+        <footer class="mt-20 border-t border-[#30363d] pt-8 text-[9px] uppercase font-bold tracking-[0.3em] text-gray-700">
+            © 2024 UCA GLOBAL ENGINE ◆ Johannesburg ◆ LONDON ◆ THE WORLD
         </footer>
     </div>
 </body>
