@@ -4,67 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MZ UCA | ARCHITECT PORTAL</title>
-    <link rel="prefetch" href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0b0e14; color: #adbac7; font-family: sans-serif; -webkit-font-smoothing: antialiased; }
+        body { background-color: #0b0e14; color: #adbac7; font-family: -apple-system, system-ui, sans-serif; }
         .gold-ink { color: #d4af37; }
-        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; transition: 0.3s; }
-        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.3); }
+        
         .btn-master { 
-            background: #d4af37; color: #0d1117; font-weight: 900; font-size: 11px; padding: 14px; 
-            text-align: center; border-radius: 4px; text-transform: uppercase; text-decoration: none; 
-            display: block; margin-top: auto; cursor: pointer;
+            background: #d4af37; color: #0d1117; 
+            font-weight: 900; font-size: 11px; 
+            padding: 14px; text-align: center; 
+            border-radius: 4px; text-transform: uppercase; 
+            text-decoration: none; display: block; 
+            margin-top: auto; transition: 0.2s;
         }
-        /* ADDING A LOADING SHIMMER */
-        .loading-shimmer { background: linear-gradient(90deg, #161b22 25%, #1c2128 50%, #161b22 75%); background-size: 200% 100%; animation: shimmer 2s infinite; }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .btn-master:hover { background: #fff; transform: scale(1.02); }
+        
+        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; transition: 0.3s; }
+        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+
+        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .asset-link { color: #58a6ff !important; text-decoration: underline !important; font-size: 13px; font-weight: 800; display: block; margin: 15px 0; }
+        .asset-link:hover { color: #d4af37 !important; }
     </style>
 </head>
-<body class="p-6 lg:p-20">
+<body class="p-6 md:p-20">
     <div class="max-w-7xl mx-auto">
+        
         <header class="mb-16 border-b border-[#30363d] pb-10 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-6">
-                <div class="w-16 h-16 bg-[#d4af37] flex items-center justify-center rounded font-black text-black text-2xl">UCA</div>
+                <img src="assets/uca-logo.png" alt="UCA Logo" class="w-16 h-16">
                 <div>
-                    <h1 class="text-5xl font-black gold-ink italic tracking-tighter uppercase">UCA Academy</h1>
-                    <p class="text-xs uppercase tracking-[0.6em] text-gray-500">Global Governance Engine</p>
+                    <h1 class="text-6xl font-black gold-ink italic tracking-tighter uppercase">UCA Academy</h1>
+                    <p class="text-[10px] uppercase tracking-[0.7em] text-gray-500 font-bold">Global Governance Standard</p>
                 </div>
             </div>
-            <div class="bg-[#1c2128] border border-[#d4af37] p-4 rounded-xl flex items-center gap-4">
-                <div class="text-right">
-                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Lead Architect</p>
+            
+            <div class="bg-[#1c2128] border border-[#d4af37] p-5 rounded-lg flex items-center shadow-2xl">
+                <div class="text-right mr-4">
+                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Principal Architect</p>
                     <p class="text-white font-bold italic text-lg uppercase">Mthulisi Zulu</p>
                 </div>
-                <div class="w-16 h-16 rounded-full border-2 border-[#d4af37] bg-black flex items-center justify-center font-black gold-ink">MZ</div>
+                <img src="assets/mthulisi-profile.jpg" alt="Mthulisi Zulu" class="w-16 h-16 rounded-full profile-ring object-cover">
             </div>
         </header>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="session-card">
-                <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 1:<br>AWS Global Infrastructure</h3>
-                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
-                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-master">Instant Access</a>
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 1:<br>AWS Global Infrastructure</h3>
+                <a href="https://explore.skillbuilder.aws/" target="_blank" class="asset-link">◈ Skill Builder Entry</a>
+                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
 
             <div class="session-card">
-                <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 2:<br>Shared Responsibility Model</h3>
-                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
-                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-master">Instant Access</a>
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 2:<br>Shared Responsibility Model</h3>
+                <a href="https://aws.amazon.com/compliance/shared-responsibility-model/" target="_blank" class="asset-link">◈ Compliance Logic</a>
+                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
 
             <div class="session-card">
-                <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 3:<br>Identity & Access Management</h3>
-                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
-                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-master">Instant Access</a>
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 3:<br>Identity & Access Management</h3>
+                <a href="https://docs.aws.amazon.com/iam/" target="_blank" class="asset-link">◈ IAM Governance</a>
+                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
 
             <div class="session-card">
-                <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 4:<br>Core Services (Compute+)</h3>
-                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
-                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-master">Instant Access</a>
+                <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 4:<br>Core Services (Compute+)</h3>
+                <a href="https://aws.amazon.com/products/" target="_blank" class="asset-link">◈ Services Audit</a>
+                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-master">View Master Slides</a>
             </div>
         </div>
+
+        <footer class="mt-20 border-t border-[#30363d] pt-8 text-[9px] uppercase font-bold tracking-widest text-gray-700">
+            © 2022 UCA GLOBAL ENGINE // Johannesburg // London // Global
+        </footer>
     </div>
 </body>
 </html>
