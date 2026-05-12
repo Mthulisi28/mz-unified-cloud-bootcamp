@@ -1,195 +1,49 @@
-<style>
-            /* Custom Scrollbar for premium feel */
-            ::-webkit-scrollbar { width: 6px; }
-            ::-webkit-scrollbar-track { background: var(--bg); }
-            ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 10px; }
-            ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
-
-            /* Animation for card entry */
-            @keyframes fadeInUp {
-                from { opacity: 0; transform: translateY(20px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-            .card { animation: fadeInUp 0.5s ease forwards; }
-        </style>
-    </head>
-    <body>
-    <div class="page">
-
-        <nav class="topbar">
-            <div class="topbar-logo">
-                <div class="topbar-brand">
-                    <span class="topbar-brand-name">Mthulisi Zulu</span>
-                    <span class="topbar-brand-sub">Unified Control Architecture</span>
-                </div>
+<nav class="topbar">
+    <div class="topbar-logo">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 40px; height: 40px; background: var(--gold); display: flex; align-items: center; justify-content: center; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                <span style="color: var(--bg); font-weight: 800; font-size: 1.2rem;">MZ</span>
             </div>
-            <div class="topbar-right">
-                <div class="topbar-instructor">
-                    <div class="instructor-meta">
-                        <span class="instructor-name">MZ Advisor</span>
-                        <span class="instructor-title">Cloud Governance Architect</span>
-                    </div>
-                </div>
-                <div class="topbar-badge">Global Tier</div>
-            </div>
-        </nav>
-
-        <section class="hero">
-            <div class="hero-left">
-                <div class="hero-eyebrow">Operational Excellence</div>
-                <h1 class="hero-title">Governance<span>-In-A-Box</span></h1>
-                <p class="hero-desc">
-                    The Global Machine is live. Access the architectural blueprints, 
-                    governance frameworks, and automated deployment modules designed for 
-                    the top 1% of cloud practitioners.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-num">04</span>
-                        <span class="stat-label">Active Modules</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">08</span>
-                        <span class="stat-label">System Blueprints</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">∞</span>
-                        <span class="stat-label">Global Scale</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-right">
-                <div class="video-panel">
-                    <div class="video-label">
-                        <span class="video-label-text">Featured Session: Compute Layer</span>
-                        <div class="video-live-dot">System Online</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:#000;">
-                           <span style="color:var(--gold-dim); font-size:0.8rem; letter-spacing:0.3em;">[ UCA_CORE_VISUALIZATION ]</span>
-                        </div>
-                    </div>
-                    <div class="video-meta">
-                        <span class="video-meta-text">Current Focus: <strong>Elasticity & Scaling Governance</strong></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-header">
-            <span class="section-header-label">Curriculum Modules</span>
-            <div class="section-header-line"></div>
-            <span class="section-header-count">Phase 01 / Core Hardening</span>
-        </div>
-
-        <div class="session-grid">
-            <div class="card active">
-                <div class="card-head">
-                    <p class="card-num">Module 01</p>
-                    <h3 class="card-title">Cloud Foundations</h3>
-                    <p class="card-week">Week 01</p>
-                </div>
-                <div class="card-topics">
-                    <span class="topic-pill">Global Infra</span>
-                    <span class="topic-pill">Shared Resp</span>
-                    <span class="topic-pill">Economics</span>
-                </div>
-                <div class="card-resources">
-                    <a href="assets/WEEK 1 — SESSION 1.pdf" class="resource-link">
-                        <span class="res-icon">◆</span> View Syllabus
-                    </a>
-                </div>
-            </div>
-
-            <div class="card active">
-                <div class="card-head">
-                    <p class="card-num">Module 02</p>
-                    <h3 class="card-title">Shared Responsibility</h3>
-                    <p class="card-week">Week 01</p>
-                </div>
-                <div class="card-topics">
-                    <span class="topic-pill">Compliance</span>
-                    <span class="topic-pill">Security</span>
-                    <span class="topic-pill">Audit</span>
-                </div>
-                <div class="card-resources">
-                    <a href="assets/session2sharedresp.pdf" class="resource-link">
-                        <span class="res-icon">◆</span> View Assets
-                    </a>
-                </div>
-            </div>
-
-            <div class="card active">
-                <div class="card-head">
-                    <p class="card-num">Module 03</p>
-                    <h3 class="card-title">IAM Masterclass</h3>
-                    <p class="card-week">Week 02</p>
-                </div>
-                <div class="card-topics">
-                    <span class="topic-pill">Zero Trust</span>
-                    <span class="topic-pill">RBAC</span>
-                    <span class="topic-pill">Policies</span>
-                </div>
-                <div class="card-resources">
-                    <a href="assets/SESSION3 Identity & Access Management (IAM).pdf" class="resource-link">
-                        <span class="res-icon">◆</span> View Assets
-                    </a>
-                </div>
-            </div>
-
-            <div class="card active">
-                <div class="card-head">
-                    <p class="card-num">Module 04</p>
-                    <h3 class="card-title">Compute & Storage</h3>
-                    <p class="card-week">Week 02</p>
-                </div>
-                <div class="card-topics">
-                    <span class="topic-pill">EC2</span>
-                    <span class="topic-pill">Lambda</span>
-                    <span class="topic-pill">EBS</span>
-                </div>
-                <div class="card-resources">
-                    <a href="assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES)sld.pdf" target="_blank" class="resource-link">
-                        <span class="res-icon">◆</span> View Core Slides
-                    </a>
-                    <a href="#" class="resource-link">
-                        <span class="res-icon">◈</span> Architecture Lab
-                    </a>
-                </div>
-            </div>
-
-            <div class="card locked">
-                <div class="card-head">
-                    <p class="card-num">Module 05</p>
-                    <h3 class="card-title">Network Hardening</h3>
-                    <p class="card-week">Week 03</p>
-                </div>
-                <div class="card-locked-body">
-                    <p class="locked-msg">Awaiting Core Hardening</p>
-                </div>
-            </div>
-
-            <div class="card locked">
-                <div class="card-head">
-                    <p class="card-num">Module 06</p>
-                    <h3 class="card-title">FinOps Mastery</h3>
-                    <p class="card-week">Week 04</p>
-                </div>
-                <div class="card-locked-body">
-                    <p class="locked-msg">Awaiting Core Hardening</p>
-                </div>
+            <div class="topbar-brand">
+                <span class="topbar-brand-name">Mthulisi Zulu</span>
+                <span class="topbar-brand-sub">Unified Control Architecture</span>
             </div>
         </div>
-
-        <footer>
-            <div class="footer-brand">
-                <div class="footer-text">© 2026 <span>UCA Global</span> | Architectural Excellence</div>
-            </div>
-            <div class="footer-right">
-                System Status: <span>Optimized</span>
-            </div>
-        </footer>
     </div>
-</body>
-</html>
+    <div class="topbar-right">
+        <div class="topbar-instructor">
+            <div class="instructor-meta">
+                <span class="instructor-name">MZ Advisor</span>
+                <span class="instructor-title">Cloud Governance Architect</span>
+            </div>
+        </div>
+        <div class="topbar-badge">Global Tier</div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-right">
+        <div class="video-panel">
+            <div class="video-label">
+                <span class="video-label-text">Featured Session: Compute Layer</span>
+                <div class="video-live-dot">System Online</div>
+            </div>
+            <div class="video-wrapper" style="background: #000; overflow: hidden; display: flex; flex-direction: column;">
+                <div style="padding: 20px; border-bottom: 1px solid var(--gold-dim); background: rgba(212, 175, 55, 0.05);">
+                    <h4 style="color: var(--gold); margin: 0; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;">Week 2 Core Services</h4>
+                    <p style="color: #fff; margin: 5px 0 0; font-size: 0.75rem; opacity: 0.8;">Compute + Storage + Databases</p>
+                </div>
+                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <div style="text-align: center; z-index: 1;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">λ</div>
+                        <div style="color: var(--gold); font-family: monospace; font-size: 0.8rem;">[ SESSION_04_EC2_LAMBDA ]</div>
+                    </div>
+                    <div style="position: absolute; inset: 0; opacity: 0.1; background-image: radial-gradient(var(--gold) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                </div>
+            </div>
+            <div class="video-meta">
+                <span class="video-meta-text">Focus: <strong>Instance Selection & Serverless ROI</strong></span>
+            </div>
+        </div>
+    </div>
+</section>
