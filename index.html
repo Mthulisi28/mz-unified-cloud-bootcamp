@@ -11,25 +11,31 @@
         .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; transition: 0.3s; }
         .session-card:hover { border-color: #d4af37; transform: translateY(-5px); }
         .btn-master { background: #d4af37; color: #0d1117; font-weight: 900; font-size: 11px; padding: 14px; text-align: center; border-radius: 4px; text-transform: uppercase; text-decoration: none; display: block; margin-top: auto; }
-        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); background: #000; }
+        .img-fallback { display: flex; items-center; justify-center; font-weight: 900; color: #d4af37; }
     </style>
 </head>
 <body class="p-6 md:p-20">
     <div class="max-w-7xl mx-auto">
         <header class="mb-16 border-b border-[#30363d] pb-10 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-6">
-                <img src="assets/uca-logo.png" alt="UCA Logo" class="w-16 h-16" loading="lazy">
+                <div class="w-16 h-16 bg-[#1c2128] border border-[#30363d] rounded flex items-center justify-center overflow-hidden">
+                    <img src="assets/uca-logo.png" alt="UCA" class="w-full h-full object-contain" onerror="this.style.display='none'">
+                </div>
                 <div>
                     <h1 class="text-6xl font-black gold-ink italic tracking-tighter uppercase">UCA Academy</h1>
                     <p class="text-[10px] uppercase tracking-[0.7em] text-gray-500 font-bold">Global Governance Standard</p>
                 </div>
             </div>
+            
             <div class="bg-[#1c2128] border border-[#d4af37] p-5 rounded-lg flex items-center shadow-2xl">
                 <div class="text-right mr-4">
                     <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Principal Architect</p>
                     <p class="text-white font-bold italic text-lg uppercase">Mthulisi Zulu</p>
                 </div>
-                <img src="assets/mthulisi-profile.jpg" alt="Mthulisi Zulu" class="w-16 h-16 rounded-full profile-ring object-cover" fetchpriority="high">
+                <div class="w-16 h-16 rounded-full profile-ring overflow-hidden img-fallback text-xs">
+                    <img src="assets/mthulisi-profile.jpg" alt="MZ" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                </div>
             </div>
         </header>
 
