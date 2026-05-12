@@ -27,230 +27,62 @@
             min-height: 100vh;
             background-image:
                 radial-gradient(ellipse 80% 40% at 50% -10%, rgba(212,175,55,0.06) 0%, transparent 70%),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 39px,
-                    rgba(255,255,255,0.015) 39px,
-                    rgba(255,255,255,0.015) 40px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 39px,
-                    rgba(255,255,255,0.015) 39px,
-                    rgba(255,255,255,0.015) 40px
-                );
+                repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.015) 39px, rgba(255,255,255,0.015) 40px),
+                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.015) 39px, rgba(255,255,255,0.015) 40px);
         }
 
-        .page-wrap {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 4rem 2rem 6rem;
-        }
+        .page-wrap { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
-        /* ── HEADER ── */
-        header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
+        header { border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 3rem; position: relative; }
+        header::before { content: ''; position: absolute; bottom: -1px; left: 0; width: 120px; height: 1px; background: var(--gold); }
 
-        header::before {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 120px;
-            height: 1px;
-            background: var(--gold);
-        }
+        .header-eyebrow { font-size: 9px; letter-spacing: 0.4em; color: var(--gold); font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; }
+        h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: 0.04em; line-height: 0.9; color: #ffffff; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .header-sub { font-size: 10px; letter-spacing: 0.3em; color: var(--text-muted); text-transform: uppercase; }
+        .header-sub span { color: var(--gold); }
 
-        .header-eyebrow {
-            font-family: 'Space Mono', monospace;
-            font-size: 9px;
-            letter-spacing: 0.4em;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-        }
+        .section-label { font-size: 9px; letter-spacing: 0.35em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            letter-spacing: 0.04em;
-            line-height: 0.9;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .header-sub {
-            font-size: 10px;
-            letter-spacing: 0.3em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .header-sub span {
-            color: var(--gold);
-        }
-
-        /* ── SECTION LABEL ── */
-        .section-label {
-            font-size: 9px;
-            letter-spacing: 0.35em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        /* ── GRID ── */
-        .session-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
+        .session-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
         @media (min-width: 640px)  { .session-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 900px)  { .session-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (min-width: 1100px) { .session-grid { grid-template-columns: repeat(4, 1fr); } }
 
-        /* ── CARD ── */
-        .card {
-            background: var(--surface);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            position: relative;
-            transition: background 0.2s;
-            min-height: 190px;
-        }
+        .card { background: var(--surface); padding: 1.5rem; display: flex; flex-direction: column; position: relative; transition: background 0.2s; min-height: 190px; }
+        .card.active:hover { background: #0f1420; }
+        .card.locked { opacity: 0.28; filter: grayscale(1); }
 
-        .card.active:hover {
-            background: #0f1420;
-        }
-
-        .card.locked {
-            opacity: 0.28;
-            filter: grayscale(1);
-        }
-
-        .card-num {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 0.6rem;
-        }
-
+        .card-num { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 0.6rem; }
         .card.active .card-num { color: var(--gold); }
         .card.locked .card-num { color: var(--text-muted); }
 
-        .card-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem;
-            letter-spacing: 0.06em;
-            color: #ffffff;
-            line-height: 1.1;
-            text-transform: uppercase;
-            flex: 1;
-            padding-bottom: 1rem;
-        }
-
-        .card-divider {
-            height: 1px;
-            background: var(--border);
-            margin-bottom: 1rem;
-        }
-
-        .card-link {
-            display: block;
-            font-size: 10px;
-            letter-spacing: 0.2em;
-            color: #6b7280;
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 3px 0;
-            transition: color 0.15s;
-        }
-
+        .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; color: #ffffff; line-height: 1.1; text-transform: uppercase; flex: 1; padding-bottom: 1rem; }
+        .card-divider { height: 1px; background: var(--border); margin-bottom: 1rem; }
+        .card-link { display: block; font-size: 10px; letter-spacing: 0.2em; color: #6b7280; text-decoration: none; text-transform: uppercase; padding: 3px 0; transition: color 0.15s; }
         .card-link:hover { color: #ffffff; }
+        .card-link::before { content: '◈ '; color: var(--gold-dim); }
 
-        .card-link::before {
-            content: '◈ ';
-            color: var(--gold-dim);
-            transition: color 0.15s;
-        }
+        .card-locked-label { font-size: 10px; letter-spacing: 0.2em; color: #374151; text-transform: uppercase; font-style: italic; }
+        .card.active::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
 
-        .card-link:hover::before { color: var(--gold); }
-
-        .card-locked-label {
-            font-size: 10px;
-            letter-spacing: 0.2em;
-            color: #374151;
-            text-transform: uppercase;
-            font-style: italic;
-        }
-
-        /* active card gold accent bar */
-        .card.active::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold), transparent);
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 9px;
-            letter-spacing: 0.25em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 9px; letter-spacing: 0.25em; color: var(--text-muted); text-transform: uppercase; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
         footer span { color: var(--gold); }
     </style>
 </head>
 <body>
 <div class="page-wrap">
 
-    <!-- ── HEADER ── -->
     <header>
         <p class="header-eyebrow">◈ Global Academy Curriculum Portal</p>
         <h1>MZ Unified<br>Cloud Architecture</h1>
         <p class="header-sub"><span>2026 Execution</span> &nbsp;·&nbsp; 12-Session Programme &nbsp;·&nbsp; Multi-Cloud Track</p>
     </header>
 
-    <!-- ── GRID ── -->
     <p class="section-label">◈ Session Modules</p>
 
     <div class="session-grid">
 
-        <!-- SESSION 1 — ACTIVE -->
         <div class="card active">
             <p class="card-num">S-01</p>
             <h3 class="card-title">Cloud<br>Foundations</h3>
@@ -259,7 +91,6 @@
             <a href="#" class="card-link">Watch Replay</a>
         </div>
 
-        <!-- SESSION 2 — ACTIVE -->
         <div class="card active">
             <p class="card-num">S-02</p>
             <h3 class="card-title">Shared<br>Responsibility</h3>
@@ -268,7 +99,6 @@
             <a href="#" class="card-link">Watch Replay</a>
         </div>
 
-        <!-- SESSION 3 — ACTIVE -->
         <div class="card active">
             <p class="card-num">S-03</p>
             <h3 class="card-title">IAM<br>Masterclass</h3>
@@ -277,7 +107,6 @@
             <a href="#" class="card-link">Watch Replay</a>
         </div>
 
-        <!-- SESSION 4 — ACTIVE -->
         <div class="card active">
             <p class="card-num">S-04</p>
             <h3 class="card-title">Compute<br>Layer</h3>
@@ -286,78 +115,22 @@
             <a href="#" class="card-link">Watch Replay</a>
         </div>
 
-        <!-- SESSION 5 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-05</p>
-            <h3 class="card-title">Storage<br>Layer</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
+        <div class="card locked"><p class="card-num">S-05</p><h3 class="card-title">Storage<br>Layer</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
+        <div class="card locked"><p class="card-num">S-06</p><h3 class="card-title">Databases</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
+        <div class="card locked"><p class="card-num">S-07</p><h3 class="card-title">Networking</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
+        <div class="card locked"><p class="card-num">S-08</p><h3 class="card-title">Network<br>Security</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
+        <div class="card locked"><p class="card-num">S-09</p><h3 class="card-title">Architecture<br>Design</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
+        <div class="card locked"><p class="card-num">S-10</p><h3 class="card-title">Billing &amp;<br>Pricing</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
+        <div class="card locked"><p class="card-num">S-11</p><h3 class="card-title">Exam<br>Strategy</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
+        <div class="card locked"><p class="card-num">S-12</p><h3 class="card-title">Final Mock<br>Exam</h3><div class="card-divider"></div><p class="card-locked-label">System Locked</p></div>
 
-        <!-- SESSION 6 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-06</p>
-            <h3 class="card-title">Databases</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
+    </div>
 
-        <!-- SESSION 7 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-07</p>
-            <h3 class="card-title">Networking</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 8 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-08</p>
-            <h3 class="card-title">Network<br>Security</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 9 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-09</p>
-            <h3 class="card-title">Architecture<br>Design</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 10 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-10</p>
-            <h3 class="card-title">Billing &amp;<br>Pricing</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 11 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-11</p>
-            <h3 class="card-title">Exam<br>Strategy</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 12 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-12</p>
-            <h3 class="card-title">Final Mock<br>Exam</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-    </div><!-- /session-grid -->
-
-    <!-- ── FOOTER ── -->
     <footer>
         <div>MZ Unified Cloud Architecture &nbsp;·&nbsp; <span>Global Academy</span></div>
         <div>Sessions Active: <span>4 / 12</span></div>
     </footer>
 
-</div><!-- /page-wrap -->
+</div>
 </body>
 </html>
