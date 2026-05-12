@@ -8,69 +8,54 @@
     <style>
         body { background-color: #0b0e14; color: #adbac7; font-family: sans-serif; }
         .gold-ink { color: #d4af37; }
-        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; transition: 0.3s border; }
-        .session-card:hover { border-color: #d4af37; }
+        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; transition: 0.3s; }
+        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); }
         .lab-link { color: #58a6ff !important; text-decoration: underline !important; font-size: 13px; font-weight: 800; display: block; margin: 15px 0; }
-        .lab-link:hover { color: #d4af37 !important; }
         .btn-master { background: #d4af37; color: #0d1117; font-weight: 900; font-size: 11px; padding: 14px; text-align: center; border-radius: 4px; text-transform: uppercase; text-decoration: none; display: block; margin-top: auto; }
-        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
     </style>
 </head>
 <body class="p-6 lg:p-20">
     <div class="max-w-7xl mx-auto">
-        
         <header class="mb-16 border-b border-[#30363d] pb-10 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-6">
-                <img src="assets/uca-logo.png" alt="UCA Logo" class="w-16 h-16">
+                <div class="w-16 h-16 bg-[#d4af37] flex items-center justify-center rounded font-black text-black text-2xl">UCA</div>
                 <div>
                     <h1 class="text-5xl font-black gold-ink italic tracking-tighter uppercase">UCA Academy</h1>
-                    <p class="text-xs uppercase tracking-[0.6em] text-gray-500">Unified Control Architecture</p>
+                    <p class="text-xs uppercase tracking-[0.6em] text-gray-500">Global Governance Engine</p>
                 </div>
             </div>
-            
-            <div class="bg-[#1c2128] border border-[#30363d] p-4 rounded-xl flex items-center gap-4">
+            <div class="bg-[#1c2128] border border-[#d4af37] p-4 rounded-xl flex items-center gap-4">
                 <div class="text-right">
-                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Lead Architect</p>
+                    <p class="text-[9px] text-gray-500 uppercase font-bold">Lead Architect</p>
                     <p class="text-white font-bold italic text-lg uppercase">Mthulisi Zulu</p>
                 </div>
-                <img src="assets/mthulisi-profile.jpg" alt="Mthulisi Zulu" class="w-16 h-16 rounded-full profile-ring object-cover">
+                <div class="w-16 h-16 rounded-full profile-ring bg-black flex items-center justify-center font-black gold-ink">MZ</div>
             </div>
         </header>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2">LAB 01: IAM</h3>
-                <p class="text-gray-500 text-xs mb-4 uppercase font-bold italic">Identity Governance</p>
-                <a href="https://github.com/mthulisi-zulu/uca-labs/tree/main/iam-policy-hardening" target="_blank" class="lab-link">◈ REPO: Policy Hardening</a>
-                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-master">Launch Slides</a>
+                <a href="#" class="lab-link">◈ REPO: Policy Hardening</a>
+                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-master">View Slides</a>
             </div>
-
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2">LAB 02: VPC</h3>
-                <p class="text-gray-500 text-xs mb-4 uppercase font-bold italic">Network Isolation</p>
-                <a href="https://github.com/mthulisi-zulu/uca-labs/tree/main/vpc-segmentation" target="_blank" class="lab-link">◈ REPO: Tier Segmentation</a>
-                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-master">Launch Slides</a>
+                <a href="#" class="lab-link">◈ REPO: Network Isolation</a>
+                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-master">View Slides</a>
             </div>
-
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2">LAB 03: OPS</h3>
-                <p class="text-gray-500 text-xs mb-4 uppercase font-bold italic">Automated Governance</p>
-                <a href="https://github.com/mthulisi-zulu/uca-labs/tree/main/config-rules" target="_blank" class="lab-link">◈ REPO: AWS Config Guardrails</a>
-                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-master">Launch Slides</a>
+                <a href="#" class="lab-link">◈ REPO: Automated Config</a>
+                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-master">View Slides</a>
             </div>
-
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-xl mb-4 border-b border-[#30363d] pb-2">LAB 04: SCALE</h3>
-                <p class="text-gray-500 text-xs mb-4 uppercase font-bold italic">Multi-Account Strategy</p>
-                <a href="https://github.com/mthulisi-zulu/uca-labs/tree/main/landing-zone" target="_blank" class="lab-link">◈ REPO: Landing Zone Setup</a>
-                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-master">Launch Slides</a>
+                <a href="#" class="lab-link">◈ REPO: Landing Zone</a>
+                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-master">View Slides</a>
             </div>
         </div>
-
-        <footer class="mt-24 border-t border-[#30363d] pt-10 flex justify-between items-center text-[10px] uppercase font-bold tracking-widest text-gray-600">
-            <div>© 2026 UCA GLOBAL ENGINE</div>
-            <div>Johannesburg // London // Global</div>
-        </footer>
     </div>
 </body>
 </html>
