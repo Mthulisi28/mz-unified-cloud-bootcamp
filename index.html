@@ -407,16 +407,7 @@
         .card.active .card-num { color: var(--gold); }
         .card.locked .card-num { color: var(--text-muted); }
 
-        .card-title {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 900;
-            letter-spacing: 0.05em;
-            color: #ffffff;
-            line-height: 1.1;
-            text-transform: uppercase;
-            margin-bottom: 0.4rem;
-        }
+        
 
         .card-week {
             font-size: 0.6rem;
@@ -541,6 +532,255 @@
         }
 
         .footer-right span { color: var(--gold); }
+
+        /* ── PREMIUM TITLE BLOCK ── */
+        .card-title-block {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.3rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .card-title-line1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .card-title-line2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--gold-dim);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        .card.active .card-title-line2 { color: var(--gold); }
+        .card-topic-tag {
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--gold);
+            padding: 2px 7px;
+            align-self: flex-start;
+        }
+
+        /* ── THEMBI SUPPORT BANNER ── */
+        .thembi-banner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .thembi-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .thembi-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--bg);
+            flex-shrink: 0;
+        }
+        .thembi-info { display: flex; flex-direction: column; gap: 2px; }
+        .thembi-name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+        .thembi-role {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .thembi-desc {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            max-width: 400px;
+            line-height: 1.5;
+        }
+        .thembi-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .thembi-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: all 0.15s;
+        }
+        .thembi-btn-wa {
+            background: #25d366;
+            color: #000;
+        }
+        .thembi-btn-wa:hover { background: #1ebe5d; }
+        .thembi-btn-tip {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold-dim);
+        }
+        .thembi-btn-tip:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        /* ── COHORT INVITE SECTION ── */
+        .cohort-banner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            padding: 2.5rem 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .cohort-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+        }
+        .cohort-banner::after {
+            content: 'COHORT 2';
+            position: absolute;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 12rem;
+            color: rgba(212,175,55,0.03);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: 0.1em;
+        }
+        .cohort-eyebrow {
+            font-size: 0.6rem;
+            letter-spacing: 0.45em;
+            color: var(--gold);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .cohort-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: #fff;
+            letter-spacing: 0.04em;
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .cohort-title span { color: var(--gold); }
+        .cohort-date {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .cohort-date strong { color: var(--gold-bright); }
+        .cohort-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            max-width: 560px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        .cohort-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 14px 36px;
+            background: var(--gold);
+            color: var(--bg);
+            transition: background 0.15s;
+            position: relative;
+            z-index: 1;
+        }
+        .cohort-cta:hover { background: var(--gold-bright); }
+        .cohort-cta-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 14px 36px;
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold-dim);
+            transition: all 0.15s;
+            position: relative;
+            z-index: 1;
+        }
+        .cohort-cta-ghost:hover { border-color: var(--gold); color: #fff; }
+        .cohort-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .cohort-pill {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+        .cohort-pill.gold {
+            border-color: var(--gold-dim);
+            color: var(--gold);
+        }
+
     </style>
 </head>
 <body>
@@ -627,6 +867,32 @@
          SESSION MODULES GRID
     ══════════════════════════════ -->
     <!-- ══════════════════════════════
+         GITHUB SUPPORT — THEMBI MAKAMU
+    ══════════════════════════════ -->
+    <div class="thembi-banner">
+        <div class="thembi-left">
+            <div class="thembi-avatar">TM</div>
+            <div class="thembi-info">
+                <span class="thembi-name">Thembi Makamu</span>
+                <span class="thembi-role">GitHub Support Mentor &nbsp;·&nbsp; Cohort Assistant</span>
+            </div>
+        </div>
+        <p class="thembi-desc">
+            Need help with GitHub — pushing files, fixing 404s, or managing your repo?
+            Thembi is here to guide you. If she saves your session, show your appreciation.
+        </p>
+        <div class="thembi-actions">
+            <a href="https://wa.me/27792873250?text=Hi%20Thembi%2C%20I%20need%20help%20with%20GitHub%20for%20the%20MZ%20UCA%20Bootcamp"
+               target="_blank" class="thembi-btn thembi-btn-wa">
+                &#128172; WhatsApp Thembi
+            </a>
+            <a href="https://www.paypal.com/paypalme" target="_blank" class="thembi-btn thembi-btn-tip">
+                &#9733; Tip Thembi
+            </a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
          QUICK ACCESS RESOURCES
     ══════════════════════════════ -->
     <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);">
@@ -645,11 +911,15 @@
 
     <div class="session-grid">
 
-                                <!-- ═══ SESSION 1 — ACTIVE ═══ -->
+                                        <!-- ═══ SESSION 1 — ACTIVE ═══ -->
         <div class="card active">
             <div class="card-head">
                 <p class="card-num">S-01 &nbsp;·&nbsp; Week 1</p>
-                <h3 class="card-title">Cloud<br>Foundations</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Cloud</span>
+                    <span class="card-title-line2">Foundations</span>
+                    <span class="card-topic-tag">AWS Fundamentals</span>
+                </div>
                 <p class="card-week">Intro to Cloud Computing</p>
             </div>
             <div class="card-topics">
@@ -671,7 +941,7 @@
                     <span class="res-icon">&#9998;</span> Mock Exam
                 </a>
                 <a href="https://www.youtube.com/watch?v=a9__D53WsMs" target="_blank" class="resource-link">
-                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; Cloud Foundations
+                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS Cloud Practitioner Full Course
                 </a>
             </div>
         </div>
@@ -680,7 +950,11 @@
         <div class="card active">
             <div class="card-head">
                 <p class="card-num">S-02 &nbsp;·&nbsp; Week 1</p>
-                <h3 class="card-title">Shared<br>Responsibility</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Shared</span>
+                    <span class="card-title-line2">Responsibility</span>
+                    <span class="card-topic-tag">Security Model</span>
+                </div>
                 <p class="card-week">Security &amp; Compliance Model</p>
             </div>
             <div class="card-topics">
@@ -702,7 +976,7 @@
                     <span class="res-icon">&#9998;</span> Mock Exam
                 </a>
                 <a href="https://www.youtube.com/watch?v=tgMFHCyKSmk" target="_blank" class="resource-link">
-                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; Shared Responsibility
+                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS Shared Responsibility Model
                 </a>
             </div>
         </div>
@@ -711,7 +985,11 @@
         <div class="card active">
             <div class="card-head">
                 <p class="card-num">S-03 &nbsp;·&nbsp; Week 1</p>
-                <h3 class="card-title">IAM<br>Masterclass</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">IAM</span>
+                    <span class="card-title-line2">Masterclass</span>
+                    <span class="card-topic-tag">Identity &amp; Access</span>
+                </div>
                 <p class="card-week">Identity &amp; Access Management</p>
             </div>
             <div class="card-topics">
@@ -733,7 +1011,7 @@
                     <span class="res-icon">&#9998;</span> Mock Exam
                 </a>
                 <a href="https://www.youtube.com/watch?v=SXSqhTn2DuE" target="_blank" class="resource-link">
-                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS IAM Deep Dive
+                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS IAM Full Tutorial
                 </a>
             </div>
         </div>
@@ -742,7 +1020,11 @@
         <div class="card active">
             <div class="card-head">
                 <p class="card-num">S-04 &nbsp;·&nbsp; Week 2</p>
-                <h3 class="card-title">Compute<br>Layer</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Compute</span>
+                    <span class="card-title-line2">Layer</span>
+                    <span class="card-topic-tag">EC2 + Lambda</span>
+                </div>
                 <p class="card-week">EC2, Lambda &amp; Auto Scaling</p>
             </div>
             <div class="card-topics">
@@ -765,7 +1047,7 @@
                     <span class="res-icon">&#9998;</span> Mock Exam
                 </a>
                 <a href="https://www.youtube.com/watch?v=up86zfLoa9Q" target="_blank" class="resource-link">
-                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; EC2 &amp; Compute
+                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; EC2 &amp; Compute Deep Dive
                 </a>
             </div>
         </div>
@@ -774,7 +1056,11 @@
         <div class="card active">
             <div class="card-head">
                 <p class="card-num">S-05 &nbsp;·&nbsp; Week 2</p>
-                <h3 class="card-title">Storage<br>Layer</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Storage</span>
+                    <span class="card-title-line2">Layer</span>
+                    <span class="card-topic-tag">S3 + EBS + EFS</span>
+                </div>
                 <p class="card-week">S3, EBS, EFS &amp; Glacier</p>
             </div>
             <div class="card-topics">
@@ -797,7 +1083,7 @@
                     <span class="res-icon">&#9998;</span> Mock Exam
                 </a>
                 <a href="https://www.youtube.com/watch?v=77lMCiiMilo" target="_blank" class="resource-link">
-                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS S3 &amp; Storage
+                    <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS S3 Storage Masterclass
                 </a>
             </div>
         </div>
@@ -806,7 +1092,10 @@
         <div class="card locked">
             <div class="card-head">
                 <p class="card-num">S-06 &nbsp;·&nbsp; Week 2</p>
-                <h3 class="card-title">Databases</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Databases</span>
+                    <span class="card-title-line2"></span>
+                </div>
                 <p class="card-week">RDS, DynamoDB &amp; Aurora</p>
             </div>
             <div class="card-topics">
@@ -823,7 +1112,10 @@
         <div class="card locked">
             <div class="card-head">
                 <p class="card-num">S-07 &nbsp;·&nbsp; Week 3</p>
-                <h3 class="card-title">Networking</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Networking</span>
+                    <span class="card-title-line2"></span>
+                </div>
                 <p class="card-week">VPC, Subnets &amp; Route 53</p>
             </div>
             <div class="card-topics">
@@ -840,7 +1132,10 @@
         <div class="card locked">
             <div class="card-head">
                 <p class="card-num">S-08 &nbsp;·&nbsp; Week 3</p>
-                <h3 class="card-title">Network<br>Security</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Network</span>
+                    <span class="card-title-line2">Security</span>
+                </div>
                 <p class="card-week">WAF, Shield &amp; NACLs</p>
             </div>
             <div class="card-topics">
@@ -857,7 +1152,10 @@
         <div class="card locked">
             <div class="card-head">
                 <p class="card-num">S-09 &nbsp;·&nbsp; Week 3</p>
-                <h3 class="card-title">Architecture<br>Design</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Architecture</span>
+                    <span class="card-title-line2">Design</span>
+                </div>
                 <p class="card-week">Well-Architected Framework</p>
             </div>
             <div class="card-topics">
@@ -874,7 +1172,10 @@
         <div class="card locked">
             <div class="card-head">
                 <p class="card-num">S-10 &nbsp;·&nbsp; Week 4</p>
-                <h3 class="card-title">Billing &amp;<br>Pricing</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Billing &amp;</span>
+                    <span class="card-title-line2">Pricing</span>
+                </div>
                 <p class="card-week">Cost Management &amp; Optimisation</p>
             </div>
             <div class="card-topics">
@@ -891,7 +1192,10 @@
         <div class="card locked">
             <div class="card-head">
                 <p class="card-num">S-11 &nbsp;·&nbsp; Week 4</p>
-                <h3 class="card-title">Exam<br>Strategy</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Exam</span>
+                    <span class="card-title-line2">Strategy</span>
+                </div>
                 <p class="card-week">AWS CCP Exam Prep</p>
             </div>
             <div class="card-topics">
@@ -908,7 +1212,10 @@
         <div class="card locked">
             <div class="card-head">
                 <p class="card-num">S-12 &nbsp;·&nbsp; Week 4</p>
-                <h3 class="card-title">Final Mock<br>Exam</h3>
+                <div class="card-title-block">
+                    <span class="card-title-line1">Final Mock</span>
+                    <span class="card-title-line2">Exam</span>
+                </div>
                 <p class="card-week">Full 65-Question Simulation</p>
             </div>
             <div class="card-topics">
@@ -922,6 +1229,38 @@
         </div>
 
     </div><!-- /session-grid -->
+
+    <!-- ══════════════════════════════
+         NEXT COHORT INVITATION
+    ══════════════════════════════ -->
+    <div class="cohort-banner">
+        <p class="cohort-eyebrow">◈ Now Enrolling &nbsp;·&nbsp; Limited Seats</p>
+        <h2 class="cohort-title">Join the Next<br><span>Cohort</span></h2>
+        <p class="cohort-date">Intake opens &nbsp;<strong>1 June 2026</strong></p>
+        <div class="cohort-pills">
+            <span class="cohort-pill gold">◈ 12 Live Sessions</span>
+            <span class="cohort-pill gold">◈ AWS Cloud Practitioner Track</span>
+            <span class="cohort-pill">Slides + Labs + Notes + Mock Exams</span>
+            <span class="cohort-pill">Global Online Delivery</span>
+            <span class="cohort-pill">Instructor: Zulu Mthulisi</span>
+        </div>
+        <p class="cohort-desc">
+            Build a career in cloud architecture from the ground up.
+            This practitioner-grade programme covers AWS core services,
+            IAM, compute, storage, networking, governance and exam strategy —
+            delivered live by a working Cloud Governance Architect.
+        </p>
+        <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1;">
+            <a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20June%202026%20UCA%20Bootcamp"
+               target="_blank" class="cohort-cta">
+                &#9654; &nbsp; Reserve My Seat
+            </a>
+            <a href="mailto:green28@live.co.za?subject=UCA%20Bootcamp%20June%202026%20Enquiry"
+               class="cohort-cta-ghost">
+                &#9993; &nbsp; Send Enquiry
+            </a>
+        </div>
+    </div>
 
     <!-- ══════════════════════════════
          FOOTER
