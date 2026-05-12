@@ -6,64 +6,67 @@
     <title>MZ | UCA Cloud Bootcamp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #05070a; color: #e5e7eb; font-family: 'Inter', sans-serif; }
+        body { background-color: #05070a; color: #e5e7eb; font-family: sans-serif; }
         .gold-ink { color: #d4af37; }
-        .session-card { transition: all 0.3s ease; }
-        .session-card:hover { border-color: #d4af37; transform: translateY(-2px); }
-        .locked { filter: grayscale(1); opacity: 0.3; cursor: not-allowed; }
+        .session-card { background: #0b0e14; border: 1px solid #1f2937; transition: all 0.2s ease; }
+        .session-card:hover { border-color: #d4af37; }
+        .status-tag { font-size: 9px; font-weight: bold; letter-spacing: 1px; padding: 2px 6px; border-radius: 2px; }
     </style>
 </head>
-<body class="p-8 md:p-20">
-    <header class="mb-16 border-b border-gray-800 pb-8">
-        <h1 class="text-4xl font-black tracking-tighter italic mb-2 uppercase">MZ UNIFIED CLOUD ARCHITECTURE</h1>
-        <p class="text-xs gold-ink tracking-[0.2em] font-bold">◈ GLOBAL ACADEMY | 2026 EXECUTION</p>
+<body class="p-6 md:p-20 max-w-7xl mx-auto">
+    
+    <header class="mb-12 border-b border-gray-900 pb-8">
+        <h1 class="text-3xl font-black italic uppercase tracking-tighter mb-2">MZ UNIFIED CLOUD ARCHITECTURE</h1>
+        <p class="text-[10px] gold-ink font-bold tracking-[0.3em]">◈ GLOBAL ACADEMY | EXECUTION PORTAL</p>
     </header>
 
-    <main>
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6">◆ THE 4-WEEK EXECUTION ROADMAP</h2>
-            <div id="session-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                </div>
-        </section>
-    </main>
+    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-gray-400">◆ 4-Week Execution Roadmap</h2>
 
-    <footer class="mt-20 pt-8 border-t border-gray-900 text-[10px] text-gray-600">
-        <p>QUICKRESERVE.CO.ZA | CLOUD GOVERNANCE ARCHITECT | GLOBAL MACHINE</p>
-    </footer>
+    <div id="session-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        </div>
 
     <script>
-    const sessions = [
-        { n: 1, title: 'Cloud Foundations', link: 'assets/WEEK 1 — SESSION 1.pdf', status: 'active' },
-        { n: 2, title: 'Shared Responsibility', link: 'assets/session2sharedresp.pdf', status: 'active' },
-        { n: 3, title: 'IAM Masterclass', link: 'assets/SESSION3 Identity & Access Management (IAM).pdf', status: 'active' },
-        { n: 4, title: 'Compute Layer', link: 'assets/WEEK 2 — SESSION 4.pdf', status: 'active' },
-        { n: 5, title: 'Storage Layer', link: '#', status: 'locked' },
-        { n: 6, title: 'Databases', link: '#', status: 'locked' },
-        { n: 7, title: 'Networking', link: '#', status: 'locked' },
-        { n: 8, title: 'Network Security', link: '#', status: 'locked' },
-        { n: 9, title: 'Architecture Design', link: '#', status: 'locked' },
-        { n: 10, title: 'Billing & Pricing', link: '#', status: 'locked' },
-        { n: 11, title: 'Exam Strategy', link: '#', status: 'locked' },
-        { n: 12, title: 'Final Mock Exam', link: '#', status: 'locked' }
-    ];
+        const sessions = [
+            { n: 1, title: 'Cloud Foundations', link: 'assets/WEEK 1 — SESSION 1.pdf', status: 'active' },
+            { n: 2, title: 'Shared Responsibility', link: 'assets/session2sharedresp.pdf', status: 'active' },
+            { n: 3, title: 'IAM Masterclass', link: 'assets/SESSION3 Identity & Access Management (IAM).pdf', status: 'active' },
+            { n: 4, title: 'Compute Layer', link: 'assets/WEEK 2 — SESSION 4.pdf', status: 'active' },
+            { n: 5, title: 'Storage Layer', link: '#', status: 'locked' },
+            { n: 6, title: 'Databases', link: '#', status: 'locked' },
+            { n: 7, title: 'Networking', link: '#', status: 'locked' },
+            { n: 8, title: 'Network Security', link: '#', status: 'locked' },
+            { n: 9, title: 'Architecture Design', link: '#', status: 'locked' },
+            { n: 10, title: 'Billing & Pricing', link: '#', status: 'locked' },
+            { n: 11, title: 'Exam Strategy', link: '#', status: 'locked' },
+            { n: 12, title: 'Final Mock Exam', link: '#', status: 'locked' }
+        ];
 
-    function renderSessions() {
         const container = document.getElementById('session-grid');
         container.innerHTML = sessions.map(s => `
-            <div class="p-6 border ${s.status === 'active' ? 'border-[#d4af37]/40' : 'border-gray-800'} bg-[#0b0e14] session-card">
-                <p class="text-[10px] ${s.status === 'active' ? 'gold-ink' : 'text-gray-600'} font-bold mb-1 italic">SESSION ${s.n}</p>
-                <h4 class="text-sm font-bold ${s.status === 'active' ? 'text-white' : 'text-gray-700'} mb-4">${s.title.toUpperCase()}</h4>
-                <div class="flex flex-col gap-2">
+            <div class="session-card p-6 ${s.status === 'locked' ? 'opacity-30 grayscale' : ''}">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-[10px] font-black ${s.status === 'active' ? 'gold-ink' : 'text-gray-600'}">S-${s.n}</span>
+                    <span class="status-tag ${s.status === 'active' ? 'bg-[#d4af37]/10 gold-ink' : 'bg-gray-800 text-gray-500'}">
+                        ${s.status.toUpperCase()}
+                    </span>
+                </div>
+                <h3 class="text-sm font-bold mb-6 ${s.status === 'active' ? 'text-white' : 'text-gray-700'} h-10">
+                    ${s.title.toUpperCase()}
+                </h3>
+                <div class="space-y-2">
                     ${s.status === 'active' ? 
-                        \`<a href="${s.link}" target="_blank" class="text-[11px] text-gray-400 hover:text-white">◈ VIEW ASSETS</a>
-                         <a href="#" class="text-[11px] text-gray-400 hover:text-white">◈ WATCH SESSION</a>\` : 
-                        \`<span class="text-[11px] text-gray-800 font-bold italic">LOCKED</span>\`
+                        \`<a href="${s.link}" target="_blank" class="block text-[10px] text-gray-400 hover:text-white transition">◈ VIEW ASSETS</a>
+                         <a href="#" class="block text-[10px] text-gray-400 hover:text-white transition">◈ WATCH REPLAY</a>\` : 
+                        \`<span class="block text-[10px] text-gray-700 italic">SYSTEM LOCKED</span>\`
                     }
                 </div>
             </div>
         `).join('');
-    }
-    renderSessions();
     </script>
+
+    <footer class="mt-32 text-[9px] text-gray-700 font-mono">
+        &copy; 2026 MZ-UCA | CLOUD GOVERNANCE ARCHITECT | GLOBAL MACHINE V1.0
+    </footer>
+
 </body>
 </html>
