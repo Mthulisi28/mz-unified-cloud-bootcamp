@@ -1,362 +1,195 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ | UCA Cloud Bootcamp</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+<style>
+            /* Custom Scrollbar for premium feel */
+            ::-webkit-scrollbar { width: 6px; }
+            ::-webkit-scrollbar-track { background: var(--bg); }
+            ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 10px; }
+            ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
-        :root {
-            --gold: #d4af37;
-            --gold-dim: #8a6f1e;
-            --bg: #05070a;
-            --surface: #0b0e14;
-            --border: #1a2030;
-            --border-hover: #d4af37;
-            --text-muted: #4b5563;
-        }
+            /* Animation for card entry */
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .card { animation: fadeInUp 0.5s ease forwards; }
+        </style>
+    </head>
+    <body>
+    <div class="page">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        <nav class="topbar">
+            <div class="topbar-logo">
+                <div class="topbar-brand">
+                    <span class="topbar-brand-name">Mthulisi Zulu</span>
+                    <span class="topbar-brand-sub">Unified Control Architecture</span>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-instructor">
+                    <div class="instructor-meta">
+                        <span class="instructor-name">MZ Advisor</span>
+                        <span class="instructor-title">Cloud Governance Architect</span>
+                    </div>
+                </div>
+                <div class="topbar-badge">Global Tier</div>
+            </div>
+        </nav>
 
-        body {
-            background-color: var(--bg);
-            color: #e5e7eb;
-            font-family: 'Space Mono', monospace;
-            min-height: 100vh;
-            background-image:
-                radial-gradient(ellipse 80% 40% at 50% -10%, rgba(212,175,55,0.06) 0%, transparent 70%),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 39px,
-                    rgba(255,255,255,0.015) 39px,
-                    rgba(255,255,255,0.015) 40px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 39px,
-                    rgba(255,255,255,0.015) 39px,
-                    rgba(255,255,255,0.015) 40px
-                );
-        }
+        <section class="hero">
+            <div class="hero-left">
+                <div class="hero-eyebrow">Operational Excellence</div>
+                <h1 class="hero-title">Governance<span>-In-A-Box</span></h1>
+                <p class="hero-desc">
+                    The Global Machine is live. Access the architectural blueprints, 
+                    governance frameworks, and automated deployment modules designed for 
+                    the top 1% of cloud practitioners.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num">04</span>
+                        <span class="stat-label">Active Modules</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">08</span>
+                        <span class="stat-label">System Blueprints</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">∞</span>
+                        <span class="stat-label">Global Scale</span>
+                    </div>
+                </div>
+            </div>
 
-        .page-wrap {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 4rem 2rem 6rem;
-        }
+            <div class="hero-right">
+                <div class="video-panel">
+                    <div class="video-label">
+                        <span class="video-label-text">Featured Session: Compute Layer</span>
+                        <div class="video-live-dot">System Online</div>
+                    </div>
+                    <div class="video-wrapper">
+                        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:#000;">
+                           <span style="color:var(--gold-dim); font-size:0.8rem; letter-spacing:0.3em;">[ UCA_CORE_VISUALIZATION ]</span>
+                        </div>
+                    </div>
+                    <div class="video-meta">
+                        <span class="video-meta-text">Current Focus: <strong>Elasticity & Scaling Governance</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        /* ── HEADER ── */
-        header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 120px;
-            height: 1px;
-            background: var(--gold);
-        }
-
-        .header-eyebrow {
-            font-family: 'Space Mono', monospace;
-            font-size: 9px;
-            letter-spacing: 0.4em;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            letter-spacing: 0.04em;
-            line-height: 0.9;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .header-sub {
-            font-size: 10px;
-            letter-spacing: 0.3em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .header-sub span {
-            color: var(--gold);
-        }
-
-        /* ── SECTION LABEL ── */
-        .section-label {
-            font-size: 9px;
-            letter-spacing: 0.35em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        /* ── GRID ── */
-        .session-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        @media (min-width: 640px)  { .session-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 900px)  { .session-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (min-width: 1100px) { .session-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        /* ── CARD ── */
-        .card {
-            background: var(--surface);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            position: relative;
-            transition: background 0.2s;
-            min-height: 190px;
-        }
-
-        .card.active:hover {
-            background: #0f1420;
-        }
-
-        .card.locked {
-            opacity: 0.28;
-            filter: grayscale(1);
-        }
-
-        .card-num {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 0.6rem;
-        }
-
-        .card.active .card-num { color: var(--gold); }
-        .card.locked .card-num { color: var(--text-muted); }
-
-        .card-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem;
-            letter-spacing: 0.06em;
-            color: #ffffff;
-            line-height: 1.1;
-            text-transform: uppercase;
-            flex: 1;
-            padding-bottom: 1rem;
-        }
-
-        .card-divider {
-            height: 1px;
-            background: var(--border);
-            margin-bottom: 1rem;
-        }
-
-        .card-link {
-            display: block;
-            font-size: 10px;
-            letter-spacing: 0.2em;
-            color: #6b7280;
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 3px 0;
-            transition: color 0.15s;
-        }
-
-        .card-link:hover { color: #ffffff; }
-
-        .card-link::before {
-            content: '◈ ';
-            color: var(--gold-dim);
-            transition: color 0.15s;
-        }
-
-        .card-link:hover::before { color: var(--gold); }
-
-        .card-locked-label {
-            font-size: 10px;
-            letter-spacing: 0.2em;
-            color: #374151;
-            text-transform: uppercase;
-            font-style: italic;
-        }
-
-        /* active card gold accent bar */
-        .card.active::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold), transparent);
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 9px;
-            letter-spacing: 0.25em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        footer span { color: var(--gold); }
-    </style>
-</head>
-<body>
-<div class="page-wrap">
-
-    <!-- ── HEADER ── -->
-    <header>
-        <p class="header-eyebrow">◈ Global Academy Curriculum Portal</p>
-        <h1>MZ Unified<br>Cloud Architecture</h1>
-        <p class="header-sub"><span>2026 Execution</span> &nbsp;·&nbsp; 12-Session Programme &nbsp;·&nbsp; Multi-Cloud Track</p>
-    </header>
-
-    <!-- ── GRID ── -->
-    <p class="section-label">◈ Session Modules</p>
-
-    <div class="session-grid">
-
-        <!-- SESSION 1 — ACTIVE -->
-        <div class="card active">
-            <p class="card-num">S-01</p>
-            <h3 class="card-title">Cloud<br>Foundations</h3>
-            <div class="card-divider"></div>
-            <a href="assets/WEEK 1 — SESSION 1.pdf" target="_blank" class="card-link">View Assets</a>
-            <a href="#" class="card-link">Watch Replay</a>
+        <div class="section-header">
+            <span class="section-header-label">Curriculum Modules</span>
+            <div class="section-header-line"></div>
+            <span class="section-header-count">Phase 01 / Core Hardening</span>
         </div>
 
-        <!-- SESSION 2 — ACTIVE -->
-        <div class="card active">
-            <p class="card-num">S-02</p>
-            <h3 class="card-title">Shared<br>Responsibility</h3>
-            <div class="card-divider"></div>
-            <a href="assets/session2sharedresp.pdf" target="_blank" class="card-link">View Assets</a>
-            <a href="#" class="card-link">Watch Replay</a>
+        <div class="session-grid">
+            <div class="card active">
+                <div class="card-head">
+                    <p class="card-num">Module 01</p>
+                    <h3 class="card-title">Cloud Foundations</h3>
+                    <p class="card-week">Week 01</p>
+                </div>
+                <div class="card-topics">
+                    <span class="topic-pill">Global Infra</span>
+                    <span class="topic-pill">Shared Resp</span>
+                    <span class="topic-pill">Economics</span>
+                </div>
+                <div class="card-resources">
+                    <a href="assets/WEEK 1 — SESSION 1.pdf" class="resource-link">
+                        <span class="res-icon">◆</span> View Syllabus
+                    </a>
+                </div>
+            </div>
+
+            <div class="card active">
+                <div class="card-head">
+                    <p class="card-num">Module 02</p>
+                    <h3 class="card-title">Shared Responsibility</h3>
+                    <p class="card-week">Week 01</p>
+                </div>
+                <div class="card-topics">
+                    <span class="topic-pill">Compliance</span>
+                    <span class="topic-pill">Security</span>
+                    <span class="topic-pill">Audit</span>
+                </div>
+                <div class="card-resources">
+                    <a href="assets/session2sharedresp.pdf" class="resource-link">
+                        <span class="res-icon">◆</span> View Assets
+                    </a>
+                </div>
+            </div>
+
+            <div class="card active">
+                <div class="card-head">
+                    <p class="card-num">Module 03</p>
+                    <h3 class="card-title">IAM Masterclass</h3>
+                    <p class="card-week">Week 02</p>
+                </div>
+                <div class="card-topics">
+                    <span class="topic-pill">Zero Trust</span>
+                    <span class="topic-pill">RBAC</span>
+                    <span class="topic-pill">Policies</span>
+                </div>
+                <div class="card-resources">
+                    <a href="assets/SESSION3 Identity & Access Management (IAM).pdf" class="resource-link">
+                        <span class="res-icon">◆</span> View Assets
+                    </a>
+                </div>
+            </div>
+
+            <div class="card active">
+                <div class="card-head">
+                    <p class="card-num">Module 04</p>
+                    <h3 class="card-title">Compute & Storage</h3>
+                    <p class="card-week">Week 02</p>
+                </div>
+                <div class="card-topics">
+                    <span class="topic-pill">EC2</span>
+                    <span class="topic-pill">Lambda</span>
+                    <span class="topic-pill">EBS</span>
+                </div>
+                <div class="card-resources">
+                    <a href="assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES)sld.pdf" target="_blank" class="resource-link">
+                        <span class="res-icon">◆</span> View Core Slides
+                    </a>
+                    <a href="#" class="resource-link">
+                        <span class="res-icon">◈</span> Architecture Lab
+                    </a>
+                </div>
+            </div>
+
+            <div class="card locked">
+                <div class="card-head">
+                    <p class="card-num">Module 05</p>
+                    <h3 class="card-title">Network Hardening</h3>
+                    <p class="card-week">Week 03</p>
+                </div>
+                <div class="card-locked-body">
+                    <p class="locked-msg">Awaiting Core Hardening</p>
+                </div>
+            </div>
+
+            <div class="card locked">
+                <div class="card-head">
+                    <p class="card-num">Module 06</p>
+                    <h3 class="card-title">FinOps Mastery</h3>
+                    <p class="card-week">Week 04</p>
+                </div>
+                <div class="card-locked-body">
+                    <p class="locked-msg">Awaiting Core Hardening</p>
+                </div>
+            </div>
         </div>
 
-        <!-- SESSION 3 — ACTIVE -->
-        <div class="card active">
-            <p class="card-num">S-03</p>
-            <h3 class="card-title">IAM<br>Masterclass</h3>
-            <div class="card-divider"></div>
-            <a href="assets/SESSION3 Identity & Access Management (IAM).pdf" target="_blank" class="card-link">View Assets</a>
-            <a href="#" class="card-link">Watch Replay</a>
-        </div>
-
-        <!-- SESSION 4 — ACTIVE -->
-        <div class="card active">
-            <p class="card-num">S-04</p>
-            <h3 class="card-title">Compute<br>Layer</h3>
-            <div class="card-divider"></div>
-            <a href="assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES)sld.pdf" target="_blank" class="card-link">View Slides</a>
-        </div>
-
-        <!-- SESSION 5 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-05</p>
-            <h3 class="card-title">Storage<br>Layer</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 6 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-06</p>
-            <h3 class="card-title">Databases</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 7 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-07</p>
-            <h3 class="card-title">Networking</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 8 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-08</p>
-            <h3 class="card-title">Network<br>Security</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 9 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-09</p>
-            <h3 class="card-title">Architecture<br>Design</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 10 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-10</p>
-            <h3 class="card-title">Billing &amp;<br>Pricing</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 11 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-11</p>
-            <h3 class="card-title">Exam<br>Strategy</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-        <!-- SESSION 12 — LOCKED -->
-        <div class="card locked">
-            <p class="card-num">S-12</p>
-            <h3 class="card-title">Final Mock<br>Exam</h3>
-            <div class="card-divider"></div>
-            <p class="card-locked-label">System Locked</p>
-        </div>
-
-    </div><!-- /session-grid -->
-
-    <!-- ── FOOTER ── -->
-    <footer>
-        <div>MZ Unified Cloud Architecture &nbsp;·&nbsp; <span>Global Academy</span></div>
-        <div>Sessions Active: <span>4 / 12</span></div>
-    </footer>
-
-</div><!-- /page-wrap -->
+        <footer>
+            <div class="footer-brand">
+                <div class="footer-text">© 2026 <span>UCA Global</span> | Architectural Excellence</div>
+            </div>
+            <div class="footer-right">
+                System Status: <span>Optimized</span>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
