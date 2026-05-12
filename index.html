@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,50 +6,358 @@
     <title>MZ | UCA Cloud Bootcamp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #05070a; color: #e5e7eb; font-family: sans-serif; }
-        .gold-ink { color: #d4af37; }
-        .session-card { background: #0b0e14; border: 1px solid #1f2937; transition: all 0.2s ease; }
-        .session-card:hover { border-color: #d4af37; transform: translateY(-2px); }
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --gold: #d4af37;
+            --gold-dim: #8a6f1e;
+            --bg: #05070a;
+            --surface: #0b0e14;
+            --border: #1a2030;
+            --border-hover: #d4af37;
+            --text-muted: #4b5563;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: #e5e7eb;
+            font-family: 'Space Mono', monospace;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse 80% 40% at 50% -10%, rgba(212,175,55,0.06) 0%, transparent 70%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 39px,
+                    rgba(255,255,255,0.015) 39px,
+                    rgba(255,255,255,0.015) 40px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 39px,
+                    rgba(255,255,255,0.015) 39px,
+                    rgba(255,255,255,0.015) 40px
+                );
+        }
+
+        .page-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        /* ── HEADER ── */
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 120px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .header-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            letter-spacing: 0.04em;
+            line-height: 0.9;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-sub {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .header-sub span {
+            color: var(--gold);
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-size: 9px;
+            letter-spacing: 0.35em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── GRID ── */
+        .session-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        @media (min-width: 640px)  { .session-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 900px)  { .session-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1100px) { .session-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        /* ── CARD ── */
+        .card {
+            background: var(--surface);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            transition: background 0.2s;
+            min-height: 190px;
+        }
+
+        .card.active:hover {
+            background: #0f1420;
+        }
+
+        .card.locked {
+            opacity: 0.28;
+            filter: grayscale(1);
+        }
+
+        .card-num {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        .card.active .card-num { color: var(--gold); }
+        .card.locked .card-num { color: var(--text-muted); }
+
+        .card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.06em;
+            color: #ffffff;
+            line-height: 1.1;
+            text-transform: uppercase;
+            flex: 1;
+            padding-bottom: 1rem;
+        }
+
+        .card-divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            color: #6b7280;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 3px 0;
+            transition: color 0.15s;
+        }
+
+        .card-link:hover { color: #ffffff; }
+
+        .card-link::before {
+            content: '◈ ';
+            color: var(--gold-dim);
+            transition: color 0.15s;
+        }
+
+        .card-link:hover::before { color: var(--gold); }
+
+        .card-locked-label {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            color: #374151;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        /* active card gold accent bar */
+        .card.active::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 9px;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        footer span { color: var(--gold); }
     </style>
 </head>
-<body class="p-8 md:p-20 max-w-7xl mx-auto">
-    <header class="mb-12 border-b border-gray-900 pb-8">
-        <h1 class="text-4xl font-black italic uppercase tracking-tighter mb-2">MZ UNIFIED CLOUD ARCHITECTURE</h1>
-        <p class="text-[10px] gold-ink font-bold tracking-[0.3em]">◈ GLOBAL ACADEMY | 2026 EXECUTION</p>
+<body>
+<div class="page-wrap">
+
+    <!-- ── HEADER ── -->
+    <header>
+        <p class="header-eyebrow">◈ Global Academy Curriculum Portal</p>
+        <h1>MZ Unified<br>Cloud Architecture</h1>
+        <p class="header-sub"><span>2026 Execution</span> &nbsp;·&nbsp; 12-Session Programme &nbsp;·&nbsp; Multi-Cloud Track</p>
     </header>
 
-    <div id="session-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    <!-- ── GRID ── -->
+    <p class="section-label">◈ Session Modules</p>
 
-    <script>
-        const sessions = [
-            { n: 1, title: 'Cloud Foundations', link: 'assets/WEEK 1 — SESSION 1.pdf', status: 'active' },
-            { n: 2, title: 'Shared Responsibility', link: 'assets/session2sharedresp.pdf', status: 'active' },
-            { n: 3, title: 'IAM Masterclass', link: 'assets/SESSION3 Identity & Access Management (IAM).pdf', status: 'active' },
-            { n: 4, title: 'Compute Layer', link: 'assets/WEEK 2 — SESSION 4.pdf', status: 'active' },
-            { n: 5, title: 'Storage Layer', link: '#', status: 'locked' },
-            { n: 6, title: 'Databases', link: '#', status: 'locked' },
-            { n: 7, title: 'Networking', link: '#', status: 'locked' },
-            { n: 8, title: 'Network Security', link: '#', status: 'locked' },
-            { n: 9, title: 'Architecture Design', link: '#', status: 'locked' },
-            { n: 10, title: 'Billing & Pricing', link: '#', status: 'locked' },
-            { n: 11, title: 'Exam Strategy', link: '#', status: 'locked' },
-            { n: 12, title: 'Final Mock Exam', link: '#', status: 'locked' }
-        ];
+    <div class="session-grid">
 
-        const container = document.getElementById('session-grid');
-        container.innerHTML = sessions.map(s => `
-            <div class="session-card p-6 ${s.status === 'locked' ? 'opacity-30 grayscale' : ''}">
-                <p class="text-[10px] font-black ${s.status === 'active' ? 'gold-ink' : 'text-gray-500'} mb-2">S-${s.n}</p>
-                <h3 class="text-sm font-bold mb-6 text-white h-10 uppercase">${s.title}</h3>
-                <div class="space-y-2">
-                    ${s.status === 'active' ? 
-                        \`<a href="${s.link}" target="_blank" class="block text-[11px] text-gray-400 hover:text-white transition">◈ VIEW ASSETS</a>
-                         <a href="#" class="block text-[11px] text-gray-400 hover:text-white transition">◈ WATCH REPLAY</a>\` : 
-                        \`<span class="block text-[11px] text-gray-700 italic">SYSTEM LOCKED</span>\`
-                    }
-                </div>
-            </div>
-        `).join('');
-    </script>
+        <!-- SESSION 1 — ACTIVE -->
+        <div class="card active">
+            <p class="card-num">S-01</p>
+            <h3 class="card-title">Cloud<br>Foundations</h3>
+            <div class="card-divider"></div>
+            <a href="assets/WEEK 1 — SESSION 1.pdf" target="_blank" class="card-link">View Assets</a>
+            <a href="#" class="card-link">Watch Replay</a>
+        </div>
+
+        <!-- SESSION 2 — ACTIVE -->
+        <div class="card active">
+            <p class="card-num">S-02</p>
+            <h3 class="card-title">Shared<br>Responsibility</h3>
+            <div class="card-divider"></div>
+            <a href="assets/session2sharedresp.pdf" target="_blank" class="card-link">View Assets</a>
+            <a href="#" class="card-link">Watch Replay</a>
+        </div>
+
+        <!-- SESSION 3 — ACTIVE -->
+        <div class="card active">
+            <p class="card-num">S-03</p>
+            <h3 class="card-title">IAM<br>Masterclass</h3>
+            <div class="card-divider"></div>
+            <a href="assets/SESSION3 Identity & Access Management (IAM).pdf" target="_blank" class="card-link">View Assets</a>
+            <a href="#" class="card-link">Watch Replay</a>
+        </div>
+
+        <!-- SESSION 4 — ACTIVE -->
+        <div class="card active">
+            <p class="card-num">S-04</p>
+            <h3 class="card-title">Compute<br>Layer</h3>
+            <div class="card-divider"></div>
+            <a href="assets/WEEK 2 — SESSION 4.pdf" target="_blank" class="card-link">View Assets</a>
+            <a href="#" class="card-link">Watch Replay</a>
+        </div>
+
+        <!-- SESSION 5 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-05</p>
+            <h3 class="card-title">Storage<br>Layer</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+        <!-- SESSION 6 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-06</p>
+            <h3 class="card-title">Databases</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+        <!-- SESSION 7 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-07</p>
+            <h3 class="card-title">Networking</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+        <!-- SESSION 8 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-08</p>
+            <h3 class="card-title">Network<br>Security</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+        <!-- SESSION 9 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-09</p>
+            <h3 class="card-title">Architecture<br>Design</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+        <!-- SESSION 10 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-10</p>
+            <h3 class="card-title">Billing &amp;<br>Pricing</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+        <!-- SESSION 11 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-11</p>
+            <h3 class="card-title">Exam<br>Strategy</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+        <!-- SESSION 12 — LOCKED -->
+        <div class="card locked">
+            <p class="card-num">S-12</p>
+            <h3 class="card-title">Final Mock<br>Exam</h3>
+            <div class="card-divider"></div>
+            <p class="card-locked-label">System Locked</p>
+        </div>
+
+    </div><!-- /session-grid -->
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div>MZ Unified Cloud Architecture &nbsp;·&nbsp; <span>Global Academy</span></div>
+        <div>Sessions Active: <span>4 / 12</span></div>
+    </footer>
+
+</div><!-- /page-wrap -->
 </body>
 </html>
