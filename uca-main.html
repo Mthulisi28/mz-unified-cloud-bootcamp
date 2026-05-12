@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UCA Roadmap | Mthulisi Zulu</title>
+    <style>
+        :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        header { height: 70px; background: var(--card); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; border-bottom: 1px solid #334155; }
+        .profile-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; background: #334155; }
+        main { display: flex; flex: 1; overflow: hidden; }
+        #sidebar { width: 300px; background: #111827; padding: 20px; border-right: 1px solid #334155; overflow-y: auto; }
+        #content { flex: 1; padding: 40px; overflow-y: auto; }
+        .session-btn { display: block; width: 100%; padding: 15px; margin-bottom: 10px; background: var(--card); color: white; border: none; text-align: left; cursor: pointer; border-radius: 8px; border: 1px solid transparent; }
+        .session-btn.active { border-color: var(--primary); background: #2d3748; font-weight: bold; }
+        .session-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .uca-card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; }
+        .action-btn { padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; border: none; color: white; text-decoration: none; display: inline-block; }
+    </style>
+</head>
+<body>
+    <header>
+        <div><img src="assets/mz-logo.png" style="height:40px;" onerror="this.style.display='none'"> <strong>UCA BOOTCAMP</strong></div>
+        <div style="display:flex; align-items:center; gap:12px;">
+            <div style="text-align:right;"><small>Instructor</small><br><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
+            <img src="assets/mthulisi.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
+        </div>
+    </header>
+    <main>
+        <div id="sidebar"><div id="sessionList"></div></div>
+        <div id="content">
+            <h1 id="sessionTitle">Initializing UCA...</h1>
+            <p id="overview"></p>
+            <div class="uca-card"><h3>Lab Outcomes</h3><pre id="outcomes" style="color:#94a3b8; font-family:inherit; white-space:pre-wrap;"></pre></div>
+            <div id="pdfArea" style="margin-bottom:20px;"></div>
+            <div style="display:flex; gap:15px;">
+                <button id="awsLink" class="action-btn" style="background:var(--primary)">Lab Docs</button>
+                <button id="completeBtn" class="action-btn" style="background:#10b981">Complete & Unlock</button>
+            </div>
+            <p style="margin-top:50px; opacity:0.5; font-size:0.8rem;">© 2022 Mthulisi Zulu. Global Cloud Business Operations.</p>
+        </div>
+    </main>
+
+    <script>
+        const sessions = [
+            { id: 1, title: "Session 1: Foundations", overview: "AWS Global Infrastructure & High Availability.", outcomes: "✔ AZ Isolation\n✔ Region Selection Strategy", aws: "sessions/session-1-cloud-foundations.html", pdf: "assets/session1.pdf" },
+            { id: 2, title: "Session 2: IAM Governance", overview: "Identity as the Perimeter.", outcomes: "✔ Least Privilege\n✔ Role-Based Access", aws: "sessions/session-2-iam.html", pdf: "assets/session2.pdf" },
+            { id: 3, title: "Session 3: Shared Responsibility", overview: "Defining Architect Boundaries.", outcomes: "✔ Security OF vs IN the Cloud", aws: "sessions/session-3-shared-responsibility.html", pdf: "assets/session3.pdf" },
+            { id: 4, title: "Session 4: VPC Networking", overview: "Global Network Mesh.", outcomes: "✔ VPC Peering\n✔ Transit Gateway", aws: "sessions/session-4-vpc-networking.html", pdf: "assets/session4.pdf" }
+        ];
+
+        let progress = JSON.parse(localStorage.getItem('uca_p')) || [1];
+
+        function renderSidebar() {
+            const list = document.getElementById('sessionList');
+            list.innerHTML = '';
+            sessions.forEach(s => {
+                const isLocked = s.id !== 1 && !progress.includes(s.id - 1);
+                const btn = document.createElement('button');
+                btn.className = 'session-btn' + (localStorage.getItem('uca_last') == s.id ? ' active' : '');
+                btn.disabled = isLocked;
+                btn.innerHTML = (isLocked ? '🔒 ' : '✅ ') + s.title;
+                btn.onclick = () => render(s.id);
+                list.appendChild(btn);
+            });
+        }
+
+        function render(id) {
+            const s = sessions.find(x => x.id == id);
+            if (!s) return;
+            localStorage.setItem('uca_last', id);
+            document.getElementById('sessionTitle').innerText = s.title;
+            document.getElementById('overview').innerText = s.overview;
+            document.getElementById('outcomes').innerText = s.outcomes;
+            document.getElementById('awsLink').onclick = () => window.open(s.aws, '_blank');
+            
+            const pdfArea = document.getElementById('pdfArea');
+            pdfArea.innerHTML = s.pdf ? <a href="\" target="_blank" style="color:var(--primary); text-decoration:none;">📥 Download Session Playbook</a> : '';
+            
+            document.getElementById('completeBtn').onclick = () => {
+                if (!progress.includes(s.id)) progress.push(s.id);
+                localStorage.setItem('uca_p', JSON.stringify(progress));
+                const next = sessions.find(x => x.id == s.id + 1);
+                if (next) render(next.id);
+                renderSidebar();
+            };
+            renderSidebar();
+        }
+
+        window.onload = () => {
+            console.log("UCA Engine Started.");
+            render(localStorage.getItem('uca_last') || 1);
+        };
+    </script>
+</body>
+</html>

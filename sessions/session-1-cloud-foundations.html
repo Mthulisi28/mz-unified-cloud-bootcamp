@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MZ Unified Cloud Bootcamp</title>
+
+<style>
+body{font-family:Arial;background:#0b1220;color:#e5e7eb;padding:30px}
+h1{color:#38bdf8}
+.card{background:#111827;padding:20px;margin:15px 0;border-radius:10px;cursor:pointer}
+.card:hover{border:1px solid #38bdf8}
+</style>
+
+</head>
+
+<body>
+
+<h1>MZ Unified Cloud Bootcamp</h1>
+
+<div class="card" onclick="go('sessions/session-1-cloud-foundations.html')">
+Session 1 - Cloud Foundations
+</div>
+
+<div class="card" onclick="go('sessions/session-2-iam.html')">
+Session 2 - IAM
+</div>
+
+<div class="card" onclick="go('sessions/session-3-shared-responsibility.html')">
+Session 3 - Shared Responsibility
+</div>
+
+<div class="card" onclick="go('sessions/session-4-vpc-networking.html')">
+Session 4 - VPC Networking
+</div>
+
+<script>
+function go(page){
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>
