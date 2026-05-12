@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,12 +41,12 @@
         container.innerHTML = sessions.map(s => `
             <div class="session-card p-6 ${s.status === 'locked' ? 'opacity-30 grayscale' : ''}">
                 <p class="text-[10px] font-black ${s.status === 'active' ? 'gold-ink' : 'text-gray-500'} mb-2">S-${s.n}</p>
-                <h3 class="text-sm font-bold mb-6 text-white h-10">${s.title.toUpperCase()}</h3>
+                <h3 class="text-sm font-bold mb-6 text-white h-10 uppercase">${s.title}</h3>
                 <div class="space-y-2">
                     ${s.status === 'active' ? 
-                        \`<a href="${s.link}" target="_blank" class="block text-[11px] text-gray-400 hover:text-white">◈ VIEW ASSETS</a>
-                         <a href="#" class="block text-[11px] text-gray-400 hover:text-white">◈ WATCH VIDEO</a>\` : 
-                        \`<span class="block text-[11px] text-gray-700 italic">LOCKED</span>\`
+                        \`<a href="${s.link}" target="_blank" class="block text-[11px] text-gray-400 hover:text-white transition">◈ VIEW ASSETS</a>
+                         <a href="#" class="block text-[11px] text-gray-400 hover:text-white transition">◈ WATCH REPLAY</a>\` : 
+                        \`<span class="block text-[11px] text-gray-700 italic">SYSTEM LOCKED</span>\`
                     }
                 </div>
             </div>
