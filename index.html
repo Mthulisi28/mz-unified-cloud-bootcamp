@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MZ UCA | ARCHITECT PORTAL</title>
+    <link rel="prefetch" href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0b0e14; color: #adbac7; font-family: sans-serif; }
+        body { background-color: #0b0e14; color: #adbac7; font-family: sans-serif; -webkit-font-smoothing: antialiased; }
         .gold-ink { color: #d4af37; }
         .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; transition: 0.3s; }
-        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); }
-        .nav-link { color: #58a6ff !important; text-decoration: underline !important; font-size: 13px; font-weight: 800; display: block; margin: 15px 0; }
-        .nav-link:hover { color: #d4af37 !important; }
-        .btn-master { background: #d4af37; color: #0d1117; font-weight: 900; font-size: 11px; padding: 14px; text-align: center; border-radius: 4px; text-transform: uppercase; text-decoration: none; display: block; margin-top: auto; }
-        .profile-ring { border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.3); }
+        .btn-master { 
+            background: #d4af37; color: #0d1117; font-weight: 900; font-size: 11px; padding: 14px; 
+            text-align: center; border-radius: 4px; text-transform: uppercase; text-decoration: none; 
+            display: block; margin-top: auto; cursor: pointer;
+        }
+        /* ADDING A LOADING SHIMMER */
+        .loading-shimmer { background: linear-gradient(90deg, #161b22 25%, #1c2128 50%, #161b22 75%); background-size: 200% 100%; animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
     </style>
 </head>
 <body class="p-6 lg:p-20">
     <div class="max-w-7xl mx-auto">
-        
         <header class="mb-16 border-b border-[#30363d] pb-10 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-6">
                 <div class="w-16 h-16 bg-[#d4af37] flex items-center justify-center rounded font-black text-black text-2xl">UCA</div>
@@ -27,46 +31,40 @@
                     <p class="text-xs uppercase tracking-[0.6em] text-gray-500">Global Governance Engine</p>
                 </div>
             </div>
-            
             <div class="bg-[#1c2128] border border-[#d4af37] p-4 rounded-xl flex items-center gap-4">
                 <div class="text-right">
                     <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Lead Architect</p>
                     <p class="text-white font-bold italic text-lg uppercase">Mthulisi Zulu</p>
                 </div>
-                <div class="w-16 h-16 rounded-full profile-ring bg-black flex items-center justify-center font-black gold-ink">MZ</div>
+                <div class="w-16 h-16 rounded-full border-2 border-[#d4af37] bg-black flex items-center justify-center font-black gold-ink">MZ</div>
             </div>
         </header>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 1:<br>AWS Global Infrastructure</h3>
-                <a href="https://explore.skillbuilder.aws/" target="_blank" class="nav-link">◈ Skill Builder Entry</a>
-                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-master">Access Knowledge</a>
+                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
+                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-master">Instant Access</a>
             </div>
 
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 2:<br>Shared Responsibility Model</h3>
-                <a href="https://aws.amazon.com/compliance/shared-responsibility-model/" target="_blank" class="nav-link">◈ Compliance Logic</a>
-                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-master">Access Knowledge</a>
+                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
+                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-master">Instant Access</a>
             </div>
 
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 3:<br>Identity & Access Management</h3>
-                <a href="https://docs.aws.amazon.com/iam/" target="_blank" class="nav-link">◈ IAM Governance</a>
-                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-master">Access Knowledge</a>
+                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
+                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-master">Instant Access</a>
             </div>
 
             <div class="session-card">
                 <h3 class="text-white font-black uppercase text-lg mb-4 border-b border-[#30363d] pb-2 leading-tight">Session 4:<br>Core Services (Compute+)</h3>
-                <a href="https://aws.amazon.com/products/" target="_blank" class="nav-link">◈ Services Audit</a>
-                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-master">Access Knowledge</a>
+                <p class="text-[10px] mb-4 text-gray-500 italic">Optimized for fast-load</p>
+                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-master">Instant Access</a>
             </div>
         </div>
-
-        <footer class="mt-24 border-t border-[#30363d] pt-10 flex justify-between items-center text-[10px] uppercase font-bold tracking-widest text-gray-600">
-            <div>© 2026 UCA GLOBAL ENGINE</div>
-            <div>STATUS: Operational</div>
-        </footer>
     </div>
 </body>
 </html>
