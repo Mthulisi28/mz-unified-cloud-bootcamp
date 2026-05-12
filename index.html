@@ -7,87 +7,98 @@
     <style>
         body { background-color: #0b0e14; color: #adbac7; font-family: sans-serif; }
         .gold-ink { color: #d4af37; }
-        .session-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; transition: 0.3s; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
-        .session-card:hover { border-color: #d4af37; transform: translateY(-5px); }
-        .btn-primary { background: #d4af37; color: #0d1117; font-weight: 800; font-size: 10px; padding: 12px; text-align: center; border-radius: 4px; text-transform: uppercase; text-decoration: none; }
-        .link-video { color: #58a6ff; font-size: 11px; font-weight: 600; display: block; margin-top: 10px; text-decoration: none; }
-        .link-video:hover { color: #d4af37; text-decoration: underline; }
-        .pow-badge { background: #1c2128; border: 1px solid #444c56; color: #768390; font-size: 9px; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+        .session-card { 
+            background: #161b22; 
+            border: 1px solid #30363d; 
+            border-radius: 8px; 
+            padding: 24px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            min-height: 400px;
+        }
+        /* HARDENED LINK STYLES */
+        .power-link { 
+            color: #58a6ff !important; 
+            text-decoration: underline !important; 
+            font-size: 12px; 
+            font-weight: 700; 
+            display: block; 
+            margin-bottom: 12px;
+            transition: 0.2s;
+        }
+        .power-link:hover { color: #d4af37 !important; }
+        
+        .btn-primary { 
+            background: #d4af37; 
+            color: #0d1117; 
+            font-weight: 900; 
+            font-size: 11px; 
+            padding: 14px; 
+            text-align: center; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            text-decoration: none; 
+            display: block;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body class="p-6 md:p-20">
     <div class="max-w-7xl mx-auto">
         
-        <header class="mb-16 border-b border-[#30363d] pb-10 flex justify-between items-end">
-            <div>
-                <h1 class="text-5xl font-black gold-ink italic tracking-tighter uppercase">UCA Academy</h1>
-                <p class="text-xs uppercase tracking-[0.5em] text-gray-500">Unified Control Architecture</p>
+        <header class="mb-16 border-b border-[#30363d] pb-10 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left">
+                <h1 class="text-5xl font-black gold-ink italic uppercase tracking-tighter">UCA Academy</h1>
+                <p class="text-[10px] uppercase tracking-[0.6em] text-gray-500">Global Governance Standard</p>
             </div>
-            <div class="text-right">
-                <p class="text-[10px] text-gray-500 uppercase font-bold">Principal Architect</p>
-                <p class="text-white font-bold italic">Mthulisi Zulu</p>
+            <div class="mt-6 md:mt-0 bg-[#1c2128] border border-[#d4af37] p-4 rounded flex items-center">
+                <div class="text-right mr-4">
+                    <p class="text-[9px] text-gray-500 uppercase font-bold">Principal Architect</p>
+                    <p class="text-white font-bold italic">Mthulisi Zulu</p>
+                </div>
+                <div class="w-12 h-12 bg-[#d4af37] rounded-full flex items-center justify-center font-black text-black">MZ</div>
             </div>
         </header>
-
-        <section class="mb-20 bg-[#1c2128] border border-[#30363d] p-8 rounded-xl">
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
-                <div>
-                    <h2 class="text-2xl font-black text-white italic uppercase mb-4">The Strategic Vision</h2>
-                    <p class="text-gray-400 text-sm mb-6">Foundational architecture for the Global Machine.</p>
-                    <a href="https://www.youtube.com/watch?v=up86zfLoa9Q" target="_blank" class="btn-primary inline-block px-10">Watch Now</a>
-                </div>
-                <div class="aspect-video rounded-lg overflow-hidden border-2 border-[#30363d]">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/up86zfLoa9Q" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="session-card">
                 <div>
-                    <div class="flex justify-between mb-4"><span class="gold-ink text-[10px] font-bold italic">PROTOCOL 01</span><span class="pow-badge">INFRA</span></div>
-                    <h3 class="text-white font-bold mb-4 uppercase">Foundations</h3>
-                    <a href="https://www.youtube.com/watch?v=Ia-UEYYR44s" target="_blank" class="link-video">◆ Global Infrastructure</a>
-                    <a href="https://www.udemy.com/courses/search/?q=aws+cloud+practitioner" target="_blank" class="link-video">◆ Udemy Path</a>
+                    <h3 class="text-white font-black uppercase mb-6 border-b border-[#30363d] pb-2">01 Foundations</h3>
+                    <a href="https://www.youtube.com/watch?v=Ia-UEYYR44s" target="_blank" class="power-link">▶ YOUTUBE: Global Infrastructure</a>
+                    <a href="https://www.udemy.com/courses/search/?q=aws+cloud+practitioner" target="_blank" class="power-link">◈ UDEMY: Practitioner Path</a>
                 </div>
-                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-primary mt-6">View Slides</a>
+                <a href="assets/WEEK%201%20%E2%80%94%20SESSION%201.pdf" target="_blank" class="btn-primary">View Master Slides</a>
             </div>
 
             <div class="session-card">
                 <div>
-                    <div class="flex justify-between mb-4"><span class="gold-ink text-[10px] font-bold italic">PROTOCOL 02</span><span class="pow-badge">RISK</span></div>
-                    <h3 class="text-white font-bold mb-4 uppercase">Shared Resp</h3>
-                    <a href="https://www.youtube.com/watch?v=7y6p8mN42m4" target="_blank" class="link-video">◆ Compliance Logic</a>
-                    <a href="https://www.udemy.com/courses/search/?q=aws+security" target="_blank" class="link-video">◆ Udemy Security</a>
+                    <h3 class="text-white font-black uppercase mb-6 border-b border-[#30363d] pb-2">02 Shared Resp</h3>
+                    <a href="https://www.youtube.com/watch?v=7y6p8mN42m4" target="_blank" class="power-link">▶ YOUTUBE: Compliance Logic</a>
+                    <a href="https://www.udemy.com/courses/search/?q=aws+security" target="_blank" class="power-link">◈ UDEMY: Security Path</a>
                 </div>
-                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-primary mt-6">View Slides</a>
+                <a href="assets/session2sharedresp.pdf" target="_blank" class="btn-primary">View Master Slides</a>
             </div>
 
             <div class="session-card">
                 <div>
-                    <div class="flex justify-between mb-4"><span class="gold-ink text-[10px] font-bold italic">PROTOCOL 03</span><span class="pow-badge">IAM</span></div>
-                    <h3 class="text-white font-bold mb-4 uppercase">Identity</h3>
-                    <a href="https://www.youtube.com/watch?v=Z3S_L6kE_V8" target="_blank" class="link-video">◆ IAM Deep Dive</a>
-                    <a href="https://www.udemy.com/courses/search/?q=aws+iam" target="_blank" class="link-video">◆ Udemy IAM</a>
+                    <h3 class="text-white font-black uppercase mb-6 border-b border-[#30363d] pb-2">03 Identity</h3>
+                    <a href="https://www.youtube.com/watch?v=Z3S_L6kE_V8" target="_blank" class="power-link">▶ YOUTUBE: IAM Mastery</a>
+                    <a href="https://www.udemy.com/courses/search/?q=aws+iam" target="_blank" class="power-link">◈ UDEMY: IAM Specialty</a>
                 </div>
-                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-primary mt-6">View Slides</a>
+                <a href="assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM).pdf" target="_blank" class="btn-primary">View Master Slides</a>
             </div>
 
             <div class="session-card">
                 <div>
-                    <div class="flex justify-between mb-4"><span class="gold-ink text-[10px] font-bold italic">PROTOCOL 04</span><span class="pow-badge">CORE</span></div>
-                    <h3 class="text-white font-bold mb-4 uppercase">Core Services</h3>
-                    <a href="https://www.youtube.com/watch?v=Wv7v8Fk6X7I" target="_blank" class="link-video">◆ Compute/DB Scaling</a>
-                    <a href="https://www.udemy.com/courses/search/?q=aws+solutions+architect" target="_blank" class="link-video">◆ Udemy Architect</a>
+                    <h3 class="text-white font-black uppercase mb-6 border-b border-[#30363d] pb-2">04 Core Services</h3>
+                    <a href="https://www.youtube.com/watch?v=Wv7v8Fk6X7I" target="_blank" class="power-link">▶ YOUTUBE: Scaling Strategy</a>
+                    <a href="https://www.udemy.com/courses/search/?q=aws+solutions+architect" target="_blank" class="power-link">◈ UDEMY: Architect Path</a>
                 </div>
-                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-primary mt-6">View Slides</a>
+                <a href="assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20%2B%20STORAGE%20%2B%20DATABASES).pdf" target="_blank" class="btn-primary">View Master Slides</a>
             </div>
         </div>
 
-        <footer class="mt-20 border-t border-[#30363d] pt-10 flex justify-between items-center">
-            <p class="text-[9px] text-gray-600 uppercase tracking-widest font-bold">UCA Academy // Deploy Globally</p>
-            <a href="https://explore.skillbuilder.aws/" target="_blank" class="text-[#ff9900] text-[10px] font-bold uppercase hover:underline">AWS Skill Builder</a>
-        </footer>
     </div>
 </body>
 </html>
