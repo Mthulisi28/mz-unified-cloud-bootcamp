@@ -924,6 +924,197 @@
             line-height: 1.5;
         }
 
+
+        /* ══════════════════════════
+           PIN VAULT OVERLAY SYSTEM
+        ══════════════════════════ */
+        .vault-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(4,6,8,0.97);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+        .vault-overlay.active { display: flex; }
+
+        .vault-modal {
+            background: #080c12;
+            border: 1px solid #1a2030;
+            border-top: 3px solid var(--gold);
+            width: 100%;
+            max-width: 420px;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 0 80px rgba(212,175,55,0.08);
+        }
+        .vault-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px 8px;
+            transition: color 0.15s;
+        }
+        .vault-close:hover { color: #fff; }
+
+        .vault-tier-badge {
+            display: inline-block;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            margin-bottom: 1rem;
+        }
+        .vault-tier-badge.l2 {
+            background: rgba(212,175,55,0.12);
+            color: var(--gold);
+            border: 1px solid var(--gold-dim);
+        }
+        .vault-tier-badge.l3 {
+            background: rgba(229,62,62,0.1);
+            color: #e53e3e;
+            border: 1px solid rgba(229,62,62,0.3);
+        }
+
+        .vault-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .vault-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            line-height: 1;
+        }
+        .vault-subtitle {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+        .vault-resource-name {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            padding: 6px 10px;
+            background: rgba(212,175,55,0.05);
+            border-left: 2px solid var(--gold);
+        }
+
+        .vault-input-wrap { position: relative; margin-bottom: 1rem; }
+        .vault-input {
+            width: 100%;
+            background: #040608;
+            border: 1px solid #1a2030;
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.4rem;
+            letter-spacing: 0.4em;
+            text-align: center;
+            padding: 0.9rem 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            -webkit-text-security: disc;
+            text-security: disc;
+        }
+        .vault-input:focus { border-color: var(--gold); }
+        .vault-input.error { border-color: #e53e3e; animation: shake 0.35s ease; }
+        .vault-input.success { border-color: #38a169; }
+
+        @keyframes shake {
+            0%,100% { transform: translateX(0); }
+            20%,60%  { transform: translateX(-6px); }
+            40%,80%  { transform: translateX(6px); }
+        }
+
+        .vault-btn {
+            width: 100%;
+            background: var(--gold);
+            color: var(--bg);
+            border: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 0.9rem;
+            cursor: pointer;
+            transition: background 0.15s;
+            margin-bottom: 1rem;
+        }
+        .vault-btn:hover { background: var(--gold-bright); }
+        .vault-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .vault-error-msg {
+            font-size: 0.68rem;
+            color: #e53e3e;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            min-height: 1rem;
+            letter-spacing: 0.1em;
+        }
+        .vault-hint {
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            text-align: center;
+            letter-spacing: 0.1em;
+            line-height: 1.6;
+        }
+        .vault-hint a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .vault-hint a:hover { text-decoration: underline; }
+
+        .vault-attempts {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 1rem;
+        }
+        .vault-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            border: 1px solid var(--text-muted);
+            transition: all 0.2s;
+        }
+        .vault-dot.used { background: #e53e3e; border-color: #e53e3e; }
+
+        /* Tier badge on resource links */
+        .res-tier {
+            font-size: 0.48rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 1px 5px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+        .res-tier.l2 {
+            background: rgba(212,175,55,0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold-dim);
+        }
+        .res-tier.l3 {
+            background: rgba(229,62,62,0.08);
+            color: #e53e3e;
+            border: 1px solid rgba(229,62,62,0.25);
+        }
+
     </style>
 </head>
 <body>
@@ -1129,14 +1320,14 @@
                 <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201sld.pdf" target="_blank" class="resource-link">
                     <span class="res-icon">&#128196;</span> View Slides
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201%20REVISION%20PACK.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#128218;</span> Revision Pack
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201%20REVISION%20PACK.pdf','Revision Pack','L3');return false;" class="resource-link">
+                    <span class="res-icon">&#128218;</span> Revision Pack <span class="res-tier l3">L3</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week1AWS%20CLOUD%20PRACTITIONER%20BOOTCAMPstudentnotes.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#128221;</span> Student Notes
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week1AWS%20CLOUD%20PRACTITIONER%20BOOTCAMPstudentnotes.pdf','Student Notes','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#128221;</span> Student Notes <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201%20mock.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9998;</span> Mock Exam
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201%20mock.pdf','Mock Exam','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9998;</span> Mock Exam <span class="res-tier l2">L2</span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=a9__D53WsMs" target="_blank" class="resource-link">
                     <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS Cloud Practitioner Full Course
@@ -1167,14 +1358,14 @@
                 <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/session2sharedrespsld.pdf" target="_blank" class="resource-link">
                     <span class="res-icon">&#128196;</span> View Slides
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202%20LABS.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9728;</span> GitHub Lab
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202%20LABS.pdf','GitHub Lab','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9728;</span> GitHub Lab <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202Student%20Learning%20Notes%20.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#128221;</span> Student Notes
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202Student%20Learning%20Notes%20.pdf','Student Notes','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#128221;</span> Student Notes <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202%20MOCK%20EXAM.docx" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9998;</span> Mock Exam
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202%20MOCK%20EXAM.docx','Mock Exam','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9998;</span> Mock Exam <span class="res-tier l2">L2</span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=tgMFHCyKSmk" target="_blank" class="resource-link">
                     <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS Shared Responsibility Model
@@ -1205,14 +1396,14 @@
                 <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM)sld.pdf" target="_blank" class="resource-link">
                     <span class="res-icon">&#128196;</span> View Slides
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/IAM%20SESSION%203%20%E2%80%94%20HANDS-ON%20LABS.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9728;</span> GitHub Lab
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/IAM%20SESSION%203%20%E2%80%94%20HANDS-ON%20LABS.pdf','GitHub Lab','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9728;</span> GitHub Lab <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/IAM%20SESSION%203%20%E2%80%94%20PREMIUM%20STUDENT%20NOTES.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#128221;</span> Premium Notes
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/IAM%20SESSION%203%20%E2%80%94%20PREMIUM%20STUDENT%20NOTES.pdf','Premium Notes','L3');return false;" class="resource-link">
+                    <span class="res-icon">&#128221;</span> Premium Notes <span class="res-tier l3">L3</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/AWS%20IAM%20MOCK%20EXAM%20%E2%80%94%20SESSION%203.docx" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9998;</span> Mock Exam
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/AWS%20IAM%20MOCK%20EXAM%20%E2%80%94%20SESSION%203.docx','Mock Exam','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9998;</span> Mock Exam <span class="res-tier l2">L2</span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=SXSqhTn2DuE" target="_blank" class="resource-link">
                     <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS IAM Full Tutorial
@@ -1244,14 +1435,14 @@
                 <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20+%20STORAGE%20+%20DATABASES)sld.pdf" target="_blank" class="resource-link">
                     <span class="res-icon">&#128196;</span> View Slides
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204labs.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9728;</span> GitHub Lab
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204labs.pdf','GitHub Lab','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9728;</span> GitHub Lab <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S4%20notes.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#128221;</span> Session Notes
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S4%20notes.pdf','Session Notes','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#128221;</span> Session Notes <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204mockexams.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9998;</span> Mock Exam
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204mockexams.pdf','Mock Exam','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9998;</span> Mock Exam <span class="res-tier l2">L2</span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=up86zfLoa9Q" target="_blank" class="resource-link">
                     <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; EC2 &amp; Compute Deep Dive
@@ -1283,14 +1474,14 @@
                 <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205ZLIDE.pdf" target="_blank" class="resource-link">
                     <span class="res-icon">&#128196;</span> View Slides
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205GITHUBLAB.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9728;</span> GitHub Lab
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205GITHUBLAB.pdf','GitHub Lab','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9728;</span> GitHub Lab <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205NOTES.pdf" target="_blank" class="resource-link">
-                    <span class="res-icon">&#128221;</span> Session Notes
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205NOTES.pdf','Session Notes','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#128221;</span> Session Notes <span class="res-tier l2">L2</span>
                 </a>
-                <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S5%20mock%20exam.docx" target="_blank" class="resource-link">
-                    <span class="res-icon">&#9998;</span> Mock Exam
+                <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S5%20mock%20exam.docx','Mock Exam','L2');return false;" class="resource-link">
+                    <span class="res-icon">&#9998;</span> Mock Exam <span class="res-tier l2">L2</span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=77lMCiiMilo" target="_blank" class="resource-link">
                     <span class="res-icon" style="color:#e53e3e">&#9654;</span> YouTube &#8212; AWS S3 Storage Masterclass
@@ -1510,5 +1701,166 @@
     </footer>
 
 </div><!-- /page -->
+
+    <!-- ══════════════════════════
+         PIN VAULT OVERLAY HTML
+    ══════════════════════════ -->
+    <div class="vault-overlay" id="vaultOverlay">
+        <div class="vault-modal" id="vaultModal">
+            <button class="vault-close" onclick="vaultClose()">&#10005;</button>
+            <span class="vault-icon" id="vaultIcon">&#128274;</span>
+            <div id="vaultTierBadge"></div>
+            <h2 class="vault-title">Access Vault</h2>
+            <p class="vault-subtitle" id="vaultSubtitle">This resource is protected. Enter your architect access PIN to continue.</p>
+            <div class="vault-resource-name" id="vaultResourceName"></div>
+            <div class="vault-attempts" id="vaultAttempts">
+                <div class="vault-dot" id="dot0"></div>
+                <div class="vault-dot" id="dot1"></div>
+                <div class="vault-dot" id="dot2"></div>
+            </div>
+            <div class="vault-input-wrap">
+                <input type="password" class="vault-input" id="vaultInput"
+                    placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+                    maxlength="12"
+                    onkeydown="if(event.key==='Enter')vaultSubmit()"
+                    oninput="document.getElementById('vaultError').textContent='';
+                             this.classList.remove('error');">
+            </div>
+            <div class="vault-error-msg" id="vaultError"></div>
+            <button class="vault-btn" id="vaultBtn" onclick="vaultSubmit()">
+                &#9670; &nbsp; Unlock Access
+            </button>
+            <p class="vault-hint" id="vaultHint">
+                Don't have a PIN?
+                <a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20need%20my%20UCA%20access%20PIN" target="_blank">
+                    Contact Mthulisi
+                </a>
+                &nbsp;to receive your key.
+            </p>
+        </div>
+    </div>
+
+    <script>
+    // ════════════════════════════════════════
+    // MZ UCA VAULT — CLIENT-SIDE PIN GATEWAY
+    // Tier L2 = "UCA2026"   (Labs, Notes, Mocks)
+    // Tier L3 = "ARCH9900"  (Premium / Revision)
+    // ════════════════════════════════════════
+
+    const VAULT = {
+        L2: { pin: "UCA2026",  label: "LEVEL 2 — STUDENT ACCESS",  icon: "&#128220;" },
+        L3: { pin: "ARCH9900", label: "LEVEL 3 — ARCHITECT ACCESS", icon: "&#9889;" }
+    };
+
+    const SESSION_KEY_L2 = "uca_l2_auth";
+    const SESSION_KEY_L3 = "uca_l3_auth";
+
+    let _pendingUrl   = null;
+    let _pendingTier  = null;
+    let _attempts     = 0;
+    const MAX_ATTEMPTS = 3;
+
+    function isUnlocked(tier) {
+        try {
+            return sessionStorage.getItem(tier === "L2" ? SESSION_KEY_L2 : SESSION_KEY_L3) === "1";
+        } catch(e) { return false; }
+    }
+
+    function setUnlocked(tier) {
+        try {
+            sessionStorage.setItem(tier === "L2" ? SESSION_KEY_L2 : SESSION_KEY_L3, "1");
+        } catch(e) {}
+    }
+
+    function vaultOpen(url, label, tier) {
+        if (isUnlocked(tier)) { window.open(url, "_blank"); return; }
+        _pendingUrl   = url;
+        _pendingTier  = tier;
+        _attempts     = 0;
+
+        // Reset UI
+        document.getElementById("vaultInput").value = "";
+        document.getElementById("vaultInput").classList.remove("error","success");
+        document.getElementById("vaultError").textContent = "";
+        document.getElementById("vaultBtn").disabled = false;
+        document.getElementById("vaultResourceName").textContent = label;
+        document.getElementById("vaultSubtitle").textContent =
+            tier === "L3"
+            ? "This is Level 3 Architect content. Enter your premium access key."
+            : "Enter your student access PIN to unlock this resource.";
+
+        // Tier badge
+        const cfg = VAULT[tier];
+        const badge = document.getElementById("vaultTierBadge");
+        badge.innerHTML = '<span class="vault-tier-badge ' + tier.toLowerCase() + '">' + cfg.label + '</span>';
+        document.getElementById("vaultIcon").innerHTML = cfg.icon;
+
+        // Reset dots
+        for(let i=0;i<3;i++) document.getElementById("dot"+i).classList.remove("used");
+
+        document.getElementById("vaultOverlay").classList.add("active");
+        setTimeout(() => document.getElementById("vaultInput").focus(), 100);
+    }
+
+    function vaultClose() {
+        document.getElementById("vaultOverlay").classList.remove("active");
+        _pendingUrl = null; _pendingTier = null;
+    }
+
+    function vaultSubmit() {
+        const input = document.getElementById("vaultInput");
+        const entered = input.value.trim();
+        const cfg = VAULT[_pendingTier];
+
+        if (!entered) {
+            document.getElementById("vaultError").textContent = "Please enter your PIN.";
+            return;
+        }
+
+        if (entered === cfg.pin) {
+            // SUCCESS
+            input.classList.add("success");
+            document.getElementById("vaultBtn").disabled = true;
+            document.getElementById("vaultError").textContent = "";
+            setUnlocked(_pendingTier);
+            setTimeout(() => {
+                vaultClose();
+                window.open(_pendingUrl, "_blank");
+            }, 600);
+        } else {
+            // FAIL
+            _attempts++;
+            input.classList.add("error");
+            input.value = "";
+            if (_attempts <= MAX_ATTEMPTS) {
+                document.getElementById("dot" + (_attempts-1)).classList.add("used");
+            }
+            if (_attempts >= MAX_ATTEMPTS) {
+                document.getElementById("vaultBtn").disabled = true;
+                document.getElementById("vaultError").textContent =
+                    "Maximum attempts reached. Contact Mthulisi for access.";
+                document.getElementById("vaultHint").innerHTML =
+                    '<a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20am%20locked%20out%20of%20the%20UCA%20vault" target="_blank" style="color:#e53e3e;">&#128172; Request Access via WhatsApp</a>';
+                setTimeout(() => {
+                    _attempts = 0;
+                    document.getElementById("vaultBtn").disabled = false;
+                    for(let i=0;i<3;i++) document.getElementById("dot"+i).classList.remove("used");
+                    document.getElementById("vaultHint").innerHTML =
+                        'Don\'t have a PIN? <a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20need%20my%20UCA%20access%20PIN" target="_blank">Contact Mthulisi</a> to receive your key.';
+                }, 8000);
+            } else {
+                const remaining = MAX_ATTEMPTS - _attempts;
+                document.getElementById("vaultError").textContent =
+                    "Incorrect PIN. " + remaining + " attempt" + (remaining > 1 ? "s" : "") + " remaining.";
+            }
+        }
+    }
+
+    // Close on overlay click outside modal
+    document.getElementById("vaultOverlay").addEventListener("click", function(e) {
+        if (e.target === this) vaultClose();
+    });
+    </script>
+
 </body>
 </html>
