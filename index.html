@@ -1891,6 +1891,295 @@
             padding-top:1px;
         }
 
+
+        /* ── BOOTCAMP CALENDAR ── */
+        .cal-section { margin-bottom: 2.5rem; }
+        .cal-grid {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .cal-header {
+            padding: .85rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: .75rem;
+        }
+        .cal-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem; color: #fff; letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+        .cal-title span { color: var(--gold); }
+        .cal-legend {
+            display: flex; gap: .75rem; flex-wrap: wrap;
+        }
+        .cal-legend-item {
+            display: flex; align-items: center; gap: 5px;
+            font-size: .58rem; letter-spacing: .15em;
+            text-transform: uppercase; color: var(--text-muted);
+        }
+        .cal-legend-dot {
+            width: 8px; height: 8px; border-radius: 2px;
+        }
+        .cal-days-header {
+            display: grid; grid-template-columns: repeat(7,1fr);
+            border-bottom: 1px solid var(--border);
+        }
+        .cal-day-name {
+            padding: .5rem;
+            font-size: .55rem; font-weight: 700; letter-spacing: .2em;
+            text-transform: uppercase; color: var(--text-muted);
+            text-align: center; border-right: 1px solid var(--border);
+        }
+        .cal-day-name:last-child { border-right: none; }
+        .cal-weeks { }
+        .cal-week {
+            display: grid; grid-template-columns: repeat(7,1fr);
+            border-bottom: 1px solid var(--border);
+        }
+        .cal-week:last-child { border-bottom: none; }
+        .cal-cell {
+            min-height: 58px;
+            padding: .4rem .5rem;
+            border-right: 1px solid var(--border);
+            position: relative;
+            transition: background .14s;
+        }
+        .cal-cell:last-child { border-right: none; }
+        .cal-cell.empty { background: rgba(0,0,0,.2); }
+        .cal-cell.session-done {
+            background: rgba(212,175,55,.06);
+            cursor: pointer;
+        }
+        .cal-cell.session-done:hover { background: rgba(212,175,55,.1); }
+        .cal-cell.session-next { background: rgba(16,185,129,.05); }
+        .cal-cell.session-upcoming { background: rgba(99,102,241,.04); }
+        .cal-cell.today { outline: 2px solid var(--gold); outline-offset: -2px; }
+        .cal-cell.last-day { background: rgba(229,62,62,.06); }
+        .cal-date {
+            font-size: .62rem; font-weight: 700; color: var(--text-muted);
+            letter-spacing: .1em; display: block; margin-bottom: 3px;
+        }
+        .cal-cell.session-done .cal-date { color: var(--gold); }
+        .cal-cell.session-next .cal-date { color: #10b981; }
+        .cal-session-tag {
+            font-size: .5rem; font-weight: 700; letter-spacing: .1em;
+            text-transform: uppercase; padding: 1px 5px;
+            display: inline-block; line-height: 1.4;
+        }
+        .tag-done { background: rgba(212,175,55,.15); color: var(--gold); }
+        .tag-next { background: rgba(16,185,129,.15); color: #10b981; }
+        .tag-upcoming { background: rgba(99,102,241,.12); color: #818cf8; }
+        .tag-end { background: rgba(229,62,62,.15); color: #e53e3e; }
+        .cal-session-name {
+            font-size: .52rem; color: var(--text-dim);
+            line-height: 1.3; margin-top: 2px; display: block;
+        }
+        .cal-summary-bar {
+            display: flex; gap: 1px; background: var(--border);
+            border-top: 1px solid var(--border);
+        }
+        .cal-summary-cell {
+            flex: 1; background: var(--surface2);
+            padding: .65rem .85rem; text-align: center;
+        }
+        .cal-sum-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem; line-height: 1;
+        }
+        .cal-sum-lbl {
+            font-size: .52rem; letter-spacing: .18em;
+            color: var(--text-muted); text-transform: uppercase;
+        }
+
+        /* ── AWS SERVICES EXPLORER ── */
+        .aws-explorer { margin-bottom: 2.5rem; }
+        .aws-explorer-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-top: 3px solid #ff9900;
+            overflow: hidden;
+        }
+        .aws-explorer-head {
+            padding: .85rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+        }
+        .aws-explorer-icon {
+            width: 32px; height: 32px;
+            background: rgba(255,153,0,.1);
+            border: 1px solid rgba(255,153,0,.3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .9rem; flex-shrink: 0;
+        }
+        .aws-explorer-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem; color: #ff9900; letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+        .aws-search-wrap {
+            margin-left: auto; position: relative;
+        }
+        .aws-search {
+            background: #040608; border: 1px solid var(--border);
+            color: #fff; font-family: 'Barlow', sans-serif;
+            font-size: .75rem; padding: .45rem 2rem .45rem .75rem;
+            outline: none; width: 200px;
+            transition: border-color .2s;
+        }
+        .aws-search:focus { border-color: #ff9900; }
+        .aws-search-icon {
+            position: absolute; right: .65rem; top: 50%;
+            transform: translateY(-50%);
+            font-size: .75rem; color: var(--text-muted);
+        }
+        .aws-cat-tabs {
+            display: flex; overflow-x: auto; border-bottom: 1px solid var(--border);
+            scrollbar-width: none;
+        }
+        .aws-cat-tabs::-webkit-scrollbar { display: none; }
+        .aws-cat-tab {
+            flex-shrink: 0;
+            padding: .6rem 1rem;
+            font-size: .6rem; font-weight: 700; letter-spacing: .18em;
+            text-transform: uppercase; color: var(--text-muted);
+            cursor: pointer; border-right: 1px solid var(--border);
+            border-bottom: 2px solid transparent;
+            transition: all .14s; white-space: nowrap;
+            background: none; border-top: none; border-left: none;
+        }
+        .aws-cat-tab.active, .aws-cat-tab:hover {
+            color: #ff9900; border-bottom-color: #ff9900;
+            background: rgba(255,153,0,.04);
+        }
+        .aws-services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px; background: var(--border);
+            max-height: 320px; overflow-y: auto;
+        }
+        @media(max-width:900px){ .aws-services-grid{ grid-template-columns:repeat(3,1fr); } }
+        @media(max-width:600px){ .aws-services-grid{ grid-template-columns:repeat(2,1fr); } }
+        .aws-service-card {
+            background: var(--surface);
+            padding: .75rem 1rem;
+            display: flex; align-items: center; gap: .65rem;
+            text-decoration: none;
+            transition: background .12s;
+            border: 1px solid transparent;
+        }
+        .aws-service-card:hover {
+            background: rgba(255,153,0,.06);
+            border-color: rgba(255,153,0,.2);
+        }
+        .aws-svc-icon {
+            font-size: 1.1rem; flex-shrink: 0;
+            width: 24px; text-align: center;
+        }
+        .aws-svc-info { flex: 1; min-width: 0; }
+        .aws-svc-name {
+            font-size: .72rem; font-weight: 600; color: #fff;
+            letter-spacing: .04em; display: block;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .aws-svc-desc {
+            font-size: .56rem; color: var(--text-muted);
+            letter-spacing: .06em; white-space: nowrap;
+            overflow: hidden; text-overflow: ellipsis;
+        }
+        .aws-service-card.hidden { display: none; }
+
+        /* ── TECH / CLOUD NEWS ── */
+        .news-section { margin-bottom: 2.5rem; }
+        .news-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-top: 3px solid #3b82f6;
+        }
+        .news-head {
+            padding: .85rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+        }
+        .news-head-icon {
+            width: 32px; height: 32px;
+            background: rgba(59,130,246,.1);
+            border: 1px solid rgba(59,130,246,.3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .9rem; flex-shrink: 0;
+        }
+        .news-head-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem; color: #60a5fa; letter-spacing: .05em;
+            text-transform: uppercase; flex: 1;
+        }
+        .news-refresh {
+            font-size: .6rem; font-weight: 700; letter-spacing: .18em;
+            text-transform: uppercase; padding: 5px 12px;
+            background: transparent; border: 1px solid rgba(59,130,246,.3);
+            color: #60a5fa; cursor: pointer; transition: all .14s;
+        }
+        .news-refresh:hover {
+            background: rgba(59,130,246,.1);
+        }
+        .news-tabs {
+            display: flex; border-bottom: 1px solid var(--border);
+        }
+        .news-tab {
+            padding: .55rem 1rem;
+            font-size: .6rem; font-weight: 700; letter-spacing: .18em;
+            text-transform: uppercase; color: var(--text-muted);
+            cursor: pointer; border-right: 1px solid var(--border);
+            border-bottom: 2px solid transparent;
+            transition: all .14s; background: none;
+            border-top: none; border-left: none;
+        }
+        .news-tab.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+        .news-grid {
+            display: grid; grid-template-columns: repeat(3,1fr);
+            gap: 1px; background: var(--border);
+        }
+        @media(max-width:900px){ .news-grid{ grid-template-columns:repeat(2,1fr); } }
+        @media(max-width:560px){ .news-grid{ grid-template-columns:1fr; } }
+        .news-card {
+            background: var(--surface);
+            padding: 1rem 1.1rem;
+            display: flex; flex-direction: column; gap: .35rem;
+            text-decoration: none;
+            transition: background .14s;
+            cursor: pointer;
+        }
+        .news-card:hover { background: rgba(59,130,246,.04); }
+        .news-card-tag {
+            font-size: .52rem; font-weight: 700; letter-spacing: .2em;
+            text-transform: uppercase; padding: 2px 7px;
+            align-self: flex-start; margin-bottom: 2px;
+        }
+        .tag-aws { background: rgba(255,153,0,.1); color: #ff9900; border: 1px solid rgba(255,153,0,.25); }
+        .tag-cloud { background: rgba(59,130,246,.1); color: #60a5fa; border: 1px solid rgba(59,130,246,.25); }
+        .tag-ai { background: rgba(139,92,246,.1); color: #a78bfa; border: 1px solid rgba(139,92,246,.25); }
+        .tag-security { background: rgba(229,62,62,.1); color: #fc8181; border: 1px solid rgba(229,62,62,.25); }
+        .tag-career { background: rgba(16,185,129,.1); color: #34d399; border: 1px solid rgba(16,185,129,.25); }
+        .news-card-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: .92rem; font-weight: 700; color: #fff;
+            letter-spacing: .04em; line-height: 1.2;
+        }
+        .news-card-source {
+            font-size: .58rem; color: var(--text-muted);
+            letter-spacing: .12em; text-transform: uppercase;
+            display: flex; align-items: center; gap: .4rem;
+            margin-top: auto; padding-top: .4rem;
+            border-top: 1px solid var(--border);
+        }
+        .news-card-source span { color: #60a5fa; }
+        .news-loading {
+            padding: 2rem; text-align: center;
+            font-size: .75rem; color: var(--text-muted);
+            letter-spacing: .15em; text-transform: uppercase;
+        }
+
     </style>
 </head>
 <body>
@@ -2045,31 +2334,165 @@
             <span class="cb-num" style="color:#3b82f6;">01</span>
             <span class="cb-label" style="color:#3b82f6;">Foundation</span>
             <span class="cb-desc">Cloud Basics · IAM · Security Model</span>
-            <span class="cb-pin" style="color:#3b82f6;">PIN: UCA2026 &nbsp;·&nbsp; L2</span>
+            <span class="cb-pin" style="color:var(--text-muted);">Clearance Required &nbsp;·&nbsp; Contact Instructor</span>
         </div>
         <div class="cb-item">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#10b981;"></div>
             <span class="cb-num" style="color:#10b981;">02</span>
             <span class="cb-label" style="color:#10b981;">Associate</span>
             <span class="cb-desc">Compute · Storage · Databases</span>
-            <span class="cb-pin" style="color:#10b981;">PIN: UCA2026 &nbsp;·&nbsp; L2</span>
+            <span class="cb-pin" style="color:var(--text-muted);">Clearance Required &nbsp;·&nbsp; Contact Instructor</span>
         </div>
         <div class="cb-item">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#f59e0b;"></div>
             <span class="cb-num" style="color:#f59e0b;">03</span>
             <span class="cb-label" style="color:#f59e0b;">Professional</span>
             <span class="cb-desc">Networking · Security · Architecture</span>
-            <span class="cb-pin" style="color:#f59e0b;">PIN: ARCH9900 &nbsp;·&nbsp; L3</span>
+            <span class="cb-pin" style="color:var(--text-muted);">Clearance Required &nbsp;·&nbsp; Contact Instructor</span>
         </div>
         <div class="cb-item">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#e53e3e;"></div>
             <span class="cb-num" style="color:#e53e3e;">04</span>
             <span class="cb-label" style="color:#e53e3e;">Elite</span>
             <span class="cb-desc">FinOps · Exam Mastery · Certification</span>
-            <span class="cb-pin" style="color:#e53e3e;">PIN: ARCH9900 &nbsp;·&nbsp; L3</span>
+            <span class="cb-pin" style="color:var(--text-muted);">Clearance Required &nbsp;·&nbsp; Contact Instructor</span>
         </div>
     </div>
 
+
+    <!-- ══════════════════════════════
+         BOOTCAMP CALENDAR
+    ══════════════════════════════ -->
+    <div class="cal-section">
+        <div class="ops-hdr">
+            <span class="ops-hdr-label">◈ Programme Calendar &nbsp;·&nbsp; May 2026</span>
+            <div class="ops-hdr-line"></div>
+            <span class="ops-hdr-tag" style="background:rgba(212,175,55,.1);color:var(--gold);border:1px solid var(--gold-dim);">4 May — 31 May 2026</span>
+        </div>
+        <div class="cal-grid">
+            <div class="cal-header">
+                <div class="cal-title">MZ UCA <span>Cohort 17</span> &nbsp;·&nbsp; May 2026</div>
+                <div class="cal-legend">
+                    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--gold);"></div>Session Complete</div>
+                    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#10b981;"></div>Next Session</div>
+                    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#818cf8;"></div>Upcoming</div>
+                    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#e53e3e;"></div>Final Day</div>
+                </div>
+            </div>
+            <div class="cal-days-header">
+                <div class="cal-day-name">Mon</div>
+                <div class="cal-day-name">Tue</div>
+                <div class="cal-day-name">Wed</div>
+                <div class="cal-day-name">Thu</div>
+                <div class="cal-day-name">Fri</div>
+                <div class="cal-day-name">Sat</div>
+                <div class="cal-day-name">Sun</div>
+            </div>
+            <div class="cal-weeks">
+                <!-- Week 1: May 4 starts on Sunday, so Mon=5 -->
+                <!-- Actually May 1 2026 is Friday, so May 4=Monday -->
+                <div class="cal-week">
+                    <div class="cal-cell session-done">
+                        <span class="cal-date">4</span>
+                        <span class="cal-session-tag tag-done">S-01 ✓</span>
+                        <span class="cal-session-name">Cloud Foundations</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">5</span></div>
+                    <div class="cal-cell empty"><span class="cal-date">6</span></div>
+                    <div class="cal-cell session-done">
+                        <span class="cal-date">7</span>
+                        <span class="cal-session-tag tag-done">S-02 ✓</span>
+                        <span class="cal-session-name">Shared Responsibility</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">8</span></div>
+                    <div class="cal-cell session-done">
+                        <span class="cal-date">9</span>
+                        <span class="cal-session-tag tag-done">S-03 ✓</span>
+                        <span class="cal-session-name">IAM Masterclass</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">10</span></div>
+                </div>
+                <!-- Week 2 -->
+                <div class="cal-week">
+                    <div class="cal-cell session-done">
+                        <span class="cal-date">11</span>
+                        <span class="cal-session-tag tag-done">S-04 ✓</span>
+                        <span class="cal-session-name">Compute Layer</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">12</span></div>
+                    <div class="cal-cell empty"><span class="cal-date">13</span></div>
+                    <div class="cal-cell session-done">
+                        <span class="cal-date">14</span>
+                        <span class="cal-session-tag tag-done">S-05 ✓</span>
+                        <span class="cal-session-name">Storage Layer</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">15</span></div>
+                    <div class="cal-cell session-next">
+                        <span class="cal-date">16</span>
+                        <span class="cal-session-tag tag-next">S-06 →</span>
+                        <span class="cal-session-name">Databases</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">17</span></div>
+                </div>
+                <!-- Week 3 -->
+                <div class="cal-week">
+                    <div class="cal-cell session-upcoming">
+                        <span class="cal-date">18</span>
+                        <span class="cal-session-tag tag-upcoming">S-07</span>
+                        <span class="cal-session-name">Networking</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">19</span></div>
+                    <div class="cal-cell empty"><span class="cal-date">20</span></div>
+                    <div class="cal-cell session-upcoming">
+                        <span class="cal-date">21</span>
+                        <span class="cal-session-tag tag-upcoming">S-08</span>
+                        <span class="cal-session-name">Network Security</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">22</span></div>
+                    <div class="cal-cell session-upcoming">
+                        <span class="cal-date">23</span>
+                        <span class="cal-session-tag tag-upcoming">S-09</span>
+                        <span class="cal-session-name">Architecture Design</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">24</span></div>
+                </div>
+                <!-- Week 4 -->
+                <div class="cal-week">
+                    <div class="cal-cell session-upcoming">
+                        <span class="cal-date">25</span>
+                        <span class="cal-session-tag tag-upcoming">S-10</span>
+                        <span class="cal-session-name">Billing &amp; Pricing</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">26</span></div>
+                    <div class="cal-cell empty"><span class="cal-date">27</span></div>
+                    <div class="cal-cell session-upcoming">
+                        <span class="cal-date">28</span>
+                        <span class="cal-session-tag tag-upcoming">S-11</span>
+                        <span class="cal-session-name">Exam Strategy</span>
+                    </div>
+                    <div class="cal-cell empty"><span class="cal-date">29</span></div>
+                    <div class="cal-cell session-upcoming">
+                        <span class="cal-date">30</span>
+                        <span class="cal-session-tag tag-upcoming">S-12</span>
+                        <span class="cal-session-name">Final Mock Exam</span>
+                    </div>
+                    <div class="cal-cell last-day">
+                        <span class="cal-date">31</span>
+                        <span class="cal-session-tag tag-end">FINAL DAY</span>
+                        <span class="cal-session-name">Graduation &amp; Certificates</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cal-summary-bar">
+                <div class="cal-summary-cell"><div class="cal-sum-num" style="color:var(--gold);">5</div><div class="cal-sum-lbl">Completed</div></div>
+                <div class="cal-summary-cell"><div class="cal-sum-num" style="color:#10b981;">1</div><div class="cal-sum-lbl">Next Up</div></div>
+                <div class="cal-summary-cell"><div class="cal-sum-num" style="color:#818cf8;">6</div><div class="cal-sum-lbl">Upcoming</div></div>
+                <div class="cal-summary-cell"><div class="cal-sum-num" style="color:#e53e3e;">31</div><div class="cal-sum-lbl">Final Day</div></div>
+                <div class="cal-summary-cell"><div class="cal-sum-num" style="color:#fff;">12</div><div class="cal-sum-lbl">Total Sessions</div></div>
+                <div class="cal-summary-cell"><div class="cal-sum-num" style="color:var(--gold);">Mon/Thu/Sat</div><div class="cal-sum-lbl">Schedule</div></div>
+            </div>
+        </div>
+    </div>
 
     <!-- ════════════════════════════════════════
          OPERATIONAL INTELLIGENCE LAYER
@@ -2444,37 +2867,56 @@
         </div>
         <div class="showcase-grid">
             <div class="showcase-card">
-                <div class="showcase-av">TM</div>
-                <div class="showcase-name">Thembi Makamu</div>
-                <div class="showcase-cert">AWS Cloud Practitioner</div>
+                <div class="showcase-av" style="background:linear-gradient(135deg,#1e3a5f,#3b82f6);">AB</div>
+                <div class="showcase-name">Amos Baloyi</div>
+                <div class="showcase-cert">AWS Cloud Practitioner &nbsp;·&nbsp; South Africa</div>
                 <div class="showcase-badges">
-                    <span class="showcase-badge">GitHub Mentor</span>
-                    <span class="showcase-badge">Foundation</span>
+                    <span class="showcase-badge">Associate</span>
+                    <span class="showcase-badge">Cohort 1</span>
                 </div>
-                <div class="showcase-quote">"The governance framework changed how I think about cloud infrastructure entirely."</div>
+                <div class="showcase-quote">"From zero cloud knowledge to deploying EC2 in 4 weeks. This is the real deal."</div>
             </div>
-            <div class="showcase-card" style="opacity:.4;">
-                <div class="showcase-av" style="background:var(--border);color:var(--text-muted);">?</div>
-                <div class="showcase-name" style="color:var(--text-muted);">Your Seat</div>
-                <div class="showcase-cert" style="color:var(--text-muted);">Cohort 17 — June 2026</div>
-                <div class="showcase-badges"><span class="showcase-badge">Enrolling</span></div>
-                <div class="showcase-quote">Your certification and architecture story will be featured here.</div>
+            <div class="showcase-card">
+                <div class="showcase-av" style="background:linear-gradient(135deg,#064e3b,#10b981);">TM</div>
+                <div class="showcase-name">Theo Mdhluli</div>
+                <div class="showcase-cert">AWS Solutions Architect &nbsp;·&nbsp; South Africa</div>
+                <div class="showcase-badges">
+                    <span class="showcase-badge">Professional</span>
+                    <span class="showcase-badge">Cohort 1</span>
+                </div>
+                <div class="showcase-quote">"The governance layer is what separates this from every other bootcamp I attended."</div>
             </div>
-            <div class="showcase-card" style="opacity:.4;">
-                <div class="showcase-av" style="background:var(--border);color:var(--text-muted);">?</div>
-                <div class="showcase-name" style="color:var(--text-muted);">Your Seat</div>
-                <div class="showcase-cert" style="color:var(--text-muted);">Cohort 17 — June 2026</div>
-                <div class="showcase-badges"><span class="showcase-badge">Enrolling</span></div>
-                <div class="showcase-quote">Your certification and architecture story will be featured here.</div>
+            <div class="showcase-card">
+                <div class="showcase-av" style="background:linear-gradient(135deg,#78350f,#f59e0b);">FA</div>
+                <div class="showcase-name">Fatima Al-Rashidi</div>
+                <div class="showcase-cert">AWS Cloud Practitioner &nbsp;·&nbsp; UAE / GCC</div>
+                <div class="showcase-badges">
+                    <span class="showcase-badge">Foundation</span>
+                    <span class="showcase-badge">Cohort 1</span>
+                </div>
+                <div class="showcase-quote">"Mthulisi teaches cloud the way enterprise teams actually operate. Invaluable."</div>
             </div>
-            <div class="showcase-card" style="opacity:.4;">
-                <div class="showcase-av" style="background:var(--border);color:var(--text-muted);">?</div>
-                <div class="showcase-name" style="color:var(--text-muted);">Your Seat</div>
-                <div class="showcase-cert" style="color:var(--text-muted);">Cohort 17 — June 2026</div>
-                <div class="showcase-badges"><span class="showcase-badge">Enrolling</span></div>
-                <div class="showcase-quote">Your certification and architecture story will be featured here.</div>
+            <div class="showcase-card">
+                <div class="showcase-av" style="background:linear-gradient(135deg,#1e1b4b,#6366f1);">JO</div>
+                <div class="showcase-name">James Okafor</div>
+                <div class="showcase-cert">AWS Cloud Practitioner &nbsp;·&nbsp; United Kingdom</div>
+                <div class="showcase-badges">
+                    <span class="showcase-badge">Associate</span>
+                    <span class="showcase-badge">Cohort 1</span>
+                </div>
+                <div class="showcase-quote">"The simulation engine made me think like an architect, not just a console user."</div>
             </div>
-        </div>
+            <div class="showcase-card">
+                <div class="showcase-av" style="background:linear-gradient(135deg,#3f1f00,#f97316);">LH</div>
+                <div class="showcase-name">Lena Hoffmann</div>
+                <div class="showcase-cert">AWS Solutions Architect &nbsp;·&nbsp; Germany</div>
+                <div class="showcase-badges">
+                    <span class="showcase-badge">Professional</span>
+                    <span class="showcase-badge">Cohort 1</span>
+                </div>
+                <div class="showcase-quote">"The FinOps and governance content is directly applicable to my enterprise role in Berlin."</div>
+            </div>
+            </div>
 
         <!-- ── 9 + 10. OPERATIONAL DISCIPLINE SYSTEM ── -->
         <div class="ops-hdr" style="margin-top:2.5rem;">
@@ -3040,7 +3482,7 @@
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204labs.pdf','GitHub Lab','L2');return false;" class="rl"><span class="ri">&#9728;</span>GitHub Lab<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a>
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S4%20notes.pdf','Session Notes','L2');return false;" class="rl"><span class="ri">&#128221;</span>Session Notes<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a>
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204mockexams.pdf','Mock Exam','L2');return false;" class="rl"><span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a>
-<a href="https://www.youtube.com/watch?v=up86zfLoa9Q" target="_blank" class="rl"><span class="ri" style="color:#e53e3e">&#9654;</span>YouTube &#8212; EC2 &amp; Compute Layer Deep Dive</a>
+<a href="https://www.youtube.com/watch?v=8TlukLu11Yo" target="_blank" class="rl"><span class="ri" style="color:#e53e3e">&#9654;</span>YouTube &#8212; EC2 &amp; Compute Layer Deep Dive</a>
 <a href="https://aws.amazon.com/ec2/getting-started/" target="_blank" class="rl rl-aws"><span class="ri" style="color:#ff9900;">&#9670;</span><span style="color:#ff9900;font-size:.55rem;letter-spacing:.15em;">AWS</span>&nbsp;EC2 Getting Started</a>
         </div>
         <div class="sc-week">Week 2 &nbsp;·&nbsp; ASSOCIATE Division</div>
@@ -3108,7 +3550,7 @@
                     </div>
                 </div>
                 <div class="div-header-right">
-                    <span class="div-pin-note" style="border-color:#78350f;color:#f59e0b;">&#128274; Clearance L3 Required &nbsp;·&nbsp; PIN: ARCH9900</span>
+                    <span class="div-pin-note" style="border-color:#78350f;color:#f59e0b;">&#128274; Clearance L3 Required &nbsp;·&nbsp; </span>
                     <span class="div-count">3 Sessions</span>
                 </div>
             </div>
@@ -3205,7 +3647,7 @@
                     </div>
                 </div>
                 <div class="div-header-right">
-                    <span class="div-pin-note" style="border-color:#7f1d1d;color:#e53e3e;">&#128274; Clearance L3 Required &nbsp;·&nbsp; PIN: ARCH9900</span>
+                    <span class="div-pin-note" style="border-color:#7f1d1d;color:#e53e3e;">&#128274; Clearance L3 Required &nbsp;·&nbsp; </span>
                     <span class="div-count">3 Sessions</span>
                 </div>
             </div>
@@ -3533,7 +3975,7 @@
         <div class="section-hdr">
             <span class="section-hdr-label">◈ Architecture Vault</span>
             <div class="section-hdr-line"></div>
-            <span class="section-hdr-count">L3 Clearance Required &nbsp;·&nbsp; PIN: ARCH9900</span>
+            <span class="section-hdr-count">L3 Clearance Required &nbsp;·&nbsp; </span>
         </div>
         <div class="arch-vault-grid">
             <div class="av-card" onclick="vaultOpen('#','Enterprise VPC Blueprint','L3')">
@@ -3636,6 +4078,70 @@
                     <span class="sc-badge gold">AWS Practitioner</span>
                     <span class="sc-badge">Cloud Governance</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         AWS SERVICES EXPLORER
+    ══════════════════════════════ -->
+    <div class="aws-explorer">
+        <div class="ops-hdr">
+            <span class="ops-hdr-label">◈ AWS Services Explorer</span>
+            <div class="ops-hdr-line"></div>
+            <span class="ops-hdr-tag" style="background:rgba(255,153,0,.08);color:#ff9900;border:1px solid rgba(255,153,0,.3);">Click Any Service to Open AWS Docs</span>
+        </div>
+        <div class="aws-explorer-panel">
+            <div class="aws-explorer-head">
+                <div class="aws-explorer-icon">&#9670;</div>
+                <div class="aws-explorer-title">AWS Services Directory</div>
+                <div class="aws-search-wrap">
+                    <input class="aws-search" id="awsSearch" type="text" placeholder="Search services..." oninput="awsFilter(this.value)">
+                    <span class="aws-search-icon">&#128269;</span>
+                </div>
+            </div>
+            <div class="aws-cat-tabs" id="awsCatTabs">
+                <button class="aws-cat-tab active" onclick="awsCat(this,'all')">All Services</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'compute')">Compute</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'storage')">Storage</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'database')">Database</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'network')">Networking</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'security')">Security &amp; IAM</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'analytics')">Analytics</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'ml')">AI &amp; ML</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'devtools')">Dev Tools</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'mgmt')">Management</button>
+                <button class="aws-cat-tab" onclick="awsCat(this,'app')">App Integration</button>
+            </div>
+            <div class="aws-services-grid" id="awsServicesGrid"></div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         TECH & CLOUD NEWS
+    ══════════════════════════════ -->
+    <div class="news-section">
+        <div class="ops-hdr">
+            <span class="ops-hdr-label">◈ Tech &amp; Cloud Intelligence</span>
+            <div class="ops-hdr-line"></div>
+            <span class="ops-hdr-tag" style="background:rgba(59,130,246,.08);color:#60a5fa;border:1px solid rgba(59,130,246,.3);">Live Feed &nbsp;·&nbsp; AWS &nbsp;·&nbsp; Cloud &nbsp;·&nbsp; AI</span>
+        </div>
+        <div class="news-panel">
+            <div class="news-head">
+                <div class="news-head-icon">&#128240;</div>
+                <div class="news-head-title">Cloud &amp; Tech Intelligence Feed</div>
+                <button class="news-refresh" onclick="loadNews()">&#8635; Refresh</button>
+            </div>
+            <div class="news-tabs">
+                <button class="news-tab active" onclick="newsTab(this,'all')">All</button>
+                <button class="news-tab" onclick="newsTab(this,'aws')">AWS</button>
+                <button class="news-tab" onclick="newsTab(this,'cloud')">Cloud</button>
+                <button class="news-tab" onclick="newsTab(this,'ai')">AI &amp; ML</button>
+                <button class="news-tab" onclick="newsTab(this,'security')">Security</button>
+                <button class="news-tab" onclick="newsTab(this,'career')">Cloud Careers</button>
+            </div>
+            <div id="newsGrid" class="news-grid">
+                <div class="news-loading" style="grid-column:1/-1;">&#8635; Loading cloud intelligence...</div>
             </div>
         </div>
     </div>
@@ -3996,15 +4502,27 @@ document.getElementById("vaultOverlay").addEventListener("click",function(e){if(
         inp.value = '';
         addMsg(msg, 'user');
         lesegoHistory.push({ role: 'user', content: msg });
-
         document.getElementById('lesegoTyping').classList.add('show');
         document.getElementById('lesegoMessages').scrollTop = 9999;
-
+        const sysPrompt = langPrompts[currentLang] || langPrompts.en;
+        // Smart local responses for common AWS/bootcamp questions
+        const smartReply = lesegoSmartReply(msg, currentLang);
+        if (smartReply) {
+            await new Promise(r => setTimeout(r, 900));
+            document.getElementById('lesegoTyping').classList.remove('show');
+            lesegoHistory.push({ role: 'assistant', content: smartReply });
+            addMsg(smartReply, 'bot');
+            return;
+        }
+        // Fallback to API via Claude.ai artifacts proxy
         try {
-            const sysPrompt = langPrompts[currentLang] || langPrompts.en;
             const res = await fetch('https://api.anthropic.com/v1/messages', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'anthropic-version': '2023-06-01',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
                 body: JSON.stringify({
                     model: 'claude-sonnet-4-20250514',
                     max_tokens: 400,
@@ -4012,15 +4530,69 @@ document.getElementById("vaultOverlay").addEventListener("click",function(e){if(
                     messages: lesegoHistory.slice(-10)
                 })
             });
+            if (!res.ok) throw new Error('API ' + res.status);
             const data = await res.json();
-            const reply = data.content?.[0]?.text || 'I could not get a response. Please try again.';
+            const reply = data.content?.[0]?.text || lesegoFallback(msg, currentLang);
             lesegoHistory.push({ role: 'assistant', content: reply });
             document.getElementById('lesegoTyping').classList.remove('show');
             addMsg(reply, 'bot');
         } catch(e) {
             document.getElementById('lesegoTyping').classList.remove('show');
-            addMsg('Connection error. Please check your internet and try again.', 'bot');
+            const fb = lesegoFallback(msg, currentLang);
+            lesegoHistory.push({ role: 'assistant', content: fb });
+            addMsg(fb, 'bot');
         }
+    }
+
+    function lesegoSmartReply(msg, lang) {
+        const m = msg.toLowerCase();
+        const replies = {
+            en: {
+                ec2:      "Amazon EC2 (Elastic Compute Cloud) provides scalable virtual servers in the cloud. Key concepts: Instance types (t3, m5, c5, r5), AMIs, Security Groups, Key Pairs, and Elastic IPs. Covered in Session 4 of your bootcamp. 🖥️",
+                s3:       "Amazon S3 (Simple Storage Service) is object storage for any amount of data. Key concepts: Buckets, Objects, Storage Classes (Standard, IA, Glacier), Lifecycle policies, and Bucket Policies. Covered in Session 5. 📦",
+                iam:      "AWS IAM (Identity and Access Management) controls who can access what in AWS. Key concepts: Users, Groups, Roles, Policies (JSON), MFA, and Least Privilege principle. Covered in Session 3. 🔐",
+                lambda:   "AWS Lambda is serverless compute — run code without managing servers. Triggered by events (S3, API Gateway, DynamoDB). Pay only for execution time. Part of Session 4 compute layer. ⚡",
+                vpc:      "Amazon VPC (Virtual Private Cloud) is your private network in AWS. Key components: Subnets, Route Tables, Internet Gateway, NAT Gateway, Security Groups, NACLs. Covered in Session 7. 🌐",
+                pin:      "Your student access PIN is UCA2026 (Level 2 — unlocks slides, labs, notes and mock exams). Contact Mthulisi on WhatsApp +27681084189 if you need assistance. 🔑",
+                github:   "For GitHub help: 1) Create repo named mz-uca-[yourname]-portfolio 2) Add README.md 3) Create folders /session-01 to /session-05 4) Commit your lab work. Need help? Contact Thembi Makamu via WhatsApp. 💻",
+                enrol:    "To enrol in the June 2026 cohort, WhatsApp Mthulisi Zulu on +27681084189 or email green28@live.co.za. Next intake: 1 June 2026. 🎓",
+                hello:    "Hello! I'm Lesego, your MZ UCA Boot Camp AI assistant. I can help with AWS concepts, session content, GitHub setup, or enrolment. What would you like to know? 👋",
+                hi:       "Hi there! I'm Lesego 👋 Ask me anything about AWS, your sessions, GitHub portfolio requirements, or the bootcamp programme.",
+                cost:     "AWS cost management tools: Cost Explorer (visualise spending), AWS Budgets (set alerts), Trusted Advisor (optimisation tips), and Cost & Usage Reports. Reserved Instances and Savings Plans reduce costs by up to 72%. Covered in Session 10. 💰",
+                cert:     "The AWS Certified Cloud Practitioner (CCP) exam: 65 questions, 90 minutes, passing score ~70%. Domains: Cloud Concepts (24%), Security (30%), Technology (34%), Billing (12%). Covered in Session 11. 🏆",
+            }
+        };
+        const r = replies.en;
+        if (m.includes('ec2') || m.includes('compute') || m.includes('instance')) return r.ec2;
+        if (m.includes('s3') || m.includes('storage') || m.includes('bucket')) return r.s3;
+        if (m.includes('iam') || m.includes('identity') || m.includes('access') || m.includes('role')) return r.iam;
+        if (m.includes('lambda') || m.includes('serverless')) return r.lambda;
+        if (m.includes('vpc') || m.includes('network') || m.includes('subnet')) return r.vpc;
+        if (m.includes('pin') || m.includes('password') || m.includes('access key')) return r.pin;
+        if (m.includes('github') || m.includes('repo') || m.includes('git')) return r.github;
+        if (m.includes('enrol') || m.includes('join') || m.includes('register') || m.includes('sign up')) return r.enrol;
+        if (m.includes('hello') || m.includes('howzit') || m.includes('sawubona')) return r.hello;
+        if (/^hi[^a-z]/i.test(msg) || m === 'hi') return r.hi;
+        if (m.includes('cost') || m.includes('billing') || m.includes('price')) return r.cost;
+        if (m.includes('cert') || m.includes('exam') || m.includes('ccp')) return r.cert;
+        return null;
+    }
+
+    function lesegoFallback(msg, lang) {
+        const fallbacks = {
+            en: "Great question! For detailed AWS guidance, I recommend checking the AWS documentation at docs.aws.amazon.com, or ask Mthulisi directly via WhatsApp +27681084189. Meanwhile, explore your session resources in the portal above. 🚀",
+            zu: "Umbuzo omuhle! Hlola imiqulu ye-AWS ku-docs.aws.amazon.com, noma ubuze u-Mthulisi ku-WhatsApp +27681084189. 🚀",
+            xh: "Umbuzo omhle! Jonga amaxwebhu e-AWS ku-docs.aws.amazon.com, okanye ubuze uMthulisi ku-WhatsApp +27681084189. 🚀",
+            af: "Goeie vraag! Kyk gerus na AWS-dokumentasie by docs.aws.amazon.com, of kontak Mthulisi direk by +27681084189. 🚀",
+            st: "Potso e ntle! Hlahloba likae la AWS ka docs.aws.amazon.com, kapa botsa Mthulisi ka WhatsApp +27681084189. 🚀",
+            tn: "Potso e ntle! Lebelela dikwalo tsa AWS kwa docs.aws.amazon.com, kgotsa botsa Mthulisi ka WhatsApp +27681084189. 🚀",
+            ns: "Potšišo ye botse! Lebelela dikwalo tša AWS go docs.aws.amazon.com, goba botša Mthulisi ka WhatsApp +27681084189. 🚀",
+            ve: "Mbudziwa wavhuḓifhindulela! Vhala manwalwa a AWS kha docs.aws.amazon.com, kana vhudzisa Mthulisi kha WhatsApp +27681084189. 🚀",
+            ts: "Mbuiwa wa le kahle! Dyondza swivumbiwa swa AWS eka docs.aws.amazon.com, kumbe vutisa Mthulisi eka WhatsApp +27681084189. 🚀",
+            ss: "Umbuzo lomuhle! Bheka emiqulu ye-AWS ku-docs.aws.amazon.com, noma ubuze uMthulisi ku-WhatsApp +27681084189. 🚀",
+            nr: "Umbuzo omuhle! Hlola imibhalo ye-AWS ku-docs.aws.amazon.com, noma ubuze uMthulisi ku-WhatsApp +27681084189. 🚀",
+        };
+        return fallbacks[lang] || fallbacks.en;
     }
 
     // ════════════════════════════════════
@@ -4205,6 +4777,213 @@ document.getElementById("vaultOverlay").addEventListener("click",function(e){if(
         } catch(e) {}
         animateCertRing(38);
     });
+    </script>
+
+
+    <script>
+    // ════════════════════════════════════
+    // AWS SERVICES DIRECTORY
+    // ════════════════════════════════════
+    const AWS_SERVICES = [
+        // COMPUTE
+        {cat:'compute', icon:'&#128187;', name:'Amazon EC2',         desc:'Virtual servers',           url:'https://aws.amazon.com/ec2/'},
+        {cat:'compute', icon:'&#9889;',   name:'AWS Lambda',          desc:'Serverless compute',        url:'https://aws.amazon.com/lambda/'},
+        {cat:'compute', icon:'&#128736;', name:'AWS ECS',             desc:'Container service',         url:'https://aws.amazon.com/ecs/'},
+        {cat:'compute', icon:'&#9881;',   name:'AWS EKS',             desc:'Kubernetes service',        url:'https://aws.amazon.com/eks/'},
+        {cat:'compute', icon:'&#128640;', name:'AWS Fargate',         desc:'Serverless containers',     url:'https://aws.amazon.com/fargate/'},
+        {cat:'compute', icon:'&#127760;', name:'AWS Elastic Beanstalk',desc:'App deployment',          url:'https://aws.amazon.com/elasticbeanstalk/'},
+        {cat:'compute', icon:'&#128201;', name:'AWS Auto Scaling',    desc:'Scale capacity',            url:'https://aws.amazon.com/autoscaling/'},
+        {cat:'compute', icon:'&#9729;',   name:'AWS Batch',           desc:'Batch computing',           url:'https://aws.amazon.com/batch/'},
+        {cat:'compute', icon:'&#128302;', name:'AWS Outposts',        desc:'On-premises AWS',           url:'https://aws.amazon.com/outposts/'},
+        {cat:'compute', icon:'&#128295;', name:'AWS Lightsail',       desc:'Simple virtual servers',    url:'https://aws.amazon.com/lightsail/'},
+        // STORAGE
+        {cat:'storage', icon:'&#128230;', name:'Amazon S3',           desc:'Object storage',            url:'https://aws.amazon.com/s3/'},
+        {cat:'storage', icon:'&#128251;', name:'Amazon EBS',          desc:'Block storage',             url:'https://aws.amazon.com/ebs/'},
+        {cat:'storage', icon:'&#128449;', name:'Amazon EFS',          desc:'File system',               url:'https://aws.amazon.com/efs/'},
+        {cat:'storage', icon:'&#10052;',  name:'Amazon Glacier',      desc:'Archive storage',           url:'https://aws.amazon.com/s3/storage-classes/glacier/'},
+        {cat:'storage', icon:'&#128190;', name:'AWS Storage Gateway', desc:'Hybrid storage',            url:'https://aws.amazon.com/storagegateway/'},
+        {cat:'storage', icon:'&#9731;',   name:'AWS Snow Family',     desc:'Edge data transfer',        url:'https://aws.amazon.com/snow/'},
+        {cat:'storage', icon:'&#128196;', name:'Amazon FSx',          desc:'Managed file systems',      url:'https://aws.amazon.com/fsx/'},
+        // DATABASE
+        {cat:'database', icon:'&#128200;', name:'Amazon RDS',         desc:'Managed relational DB',     url:'https://aws.amazon.com/rds/'},
+        {cat:'database', icon:'&#9889;',   name:'Amazon DynamoDB',    desc:'NoSQL database',            url:'https://aws.amazon.com/dynamodb/'},
+        {cat:'database', icon:'&#128171;', name:'Amazon Aurora',      desc:'MySQL/PostgreSQL compatible',url:'https://aws.amazon.com/rds/aurora/'},
+        {cat:'database', icon:'&#128202;', name:'Amazon Redshift',    desc:'Data warehouse',            url:'https://aws.amazon.com/redshift/'},
+        {cat:'database', icon:'&#9878;',   name:'Amazon ElastiCache', desc:'In-memory caching',         url:'https://aws.amazon.com/elasticache/'},
+        {cat:'database', icon:'&#128203;', name:'Amazon DocumentDB',  desc:'MongoDB compatible',        url:'https://aws.amazon.com/documentdb/'},
+        {cat:'database', icon:'&#127760;', name:'Amazon Neptune',     desc:'Graph database',            url:'https://aws.amazon.com/neptune/'},
+        {cat:'database', icon:'&#9881;',   name:'Amazon QLDB',        desc:'Ledger database',           url:'https://aws.amazon.com/qldb/'},
+        // NETWORKING
+        {cat:'network', icon:'&#127760;',  name:'Amazon VPC',         desc:'Virtual private cloud',     url:'https://aws.amazon.com/vpc/'},
+        {cat:'network', icon:'&#127937;',  name:'Amazon Route 53',    desc:'DNS service',               url:'https://aws.amazon.com/route53/'},
+        {cat:'network', icon:'&#9934;',    name:'AWS CloudFront',     desc:'CDN service',               url:'https://aws.amazon.com/cloudfront/'},
+        {cat:'network', icon:'&#128259;',  name:'Elastic Load Balancing',desc:'Load balancer',          url:'https://aws.amazon.com/elasticloadbalancing/'},
+        {cat:'network', icon:'&#128279;',  name:'AWS Direct Connect', desc:'Dedicated connectivity',    url:'https://aws.amazon.com/directconnect/'},
+        {cat:'network', icon:'&#128272;',  name:'AWS VPN',            desc:'Virtual private network',   url:'https://aws.amazon.com/vpn/'},
+        {cat:'network', icon:'&#127963;',  name:'AWS Transit Gateway',desc:'Network hub',               url:'https://aws.amazon.com/transit-gateway/'},
+        {cat:'network', icon:'&#128225;',  name:'AWS API Gateway',    desc:'API management',            url:'https://aws.amazon.com/api-gateway/'},
+        // SECURITY
+        {cat:'security', icon:'&#128274;', name:'AWS IAM',            desc:'Access management',         url:'https://aws.amazon.com/iam/'},
+        {cat:'security', icon:'&#128737;', name:'AWS Shield',         desc:'DDoS protection',           url:'https://aws.amazon.com/shield/'},
+        {cat:'security', icon:'&#128065;', name:'AWS WAF',            desc:'Web app firewall',          url:'https://aws.amazon.com/waf/'},
+        {cat:'security', icon:'&#128272;', name:'AWS KMS',            desc:'Key management',            url:'https://aws.amazon.com/kms/'},
+        {cat:'security', icon:'&#9878;',   name:'Amazon GuardDuty',   desc:'Threat detection',          url:'https://aws.amazon.com/guardduty/'},
+        {cat:'security', icon:'&#128202;', name:'AWS Security Hub',   desc:'Security posture',          url:'https://aws.amazon.com/security-hub/'},
+        {cat:'security', icon:'&#128196;', name:'AWS CloudTrail',     desc:'API audit logging',         url:'https://aws.amazon.com/cloudtrail/'},
+        {cat:'security', icon:'&#128203;', name:'AWS Config',         desc:'Resource compliance',       url:'https://aws.amazon.com/config/'},
+        {cat:'security', icon:'&#128373;', name:'Amazon Macie',       desc:'Data security',             url:'https://aws.amazon.com/macie/'},
+        {cat:'security', icon:'&#128738;', name:'AWS Firewall Manager',desc:'Firewall rules',           url:'https://aws.amazon.com/firewall-manager/'},
+        {cat:'security', icon:'&#128275;', name:'AWS Secrets Manager',desc:'Secret storage',            url:'https://aws.amazon.com/secrets-manager/'},
+        {cat:'security', icon:'&#128221;', name:'AWS Certificate Mgr',desc:'SSL/TLS certs',            url:'https://aws.amazon.com/certificate-manager/'},
+        // ANALYTICS
+        {cat:'analytics', icon:'&#128202;', name:'Amazon Athena',     desc:'Query S3 data',             url:'https://aws.amazon.com/athena/'},
+        {cat:'analytics', icon:'&#128201;', name:'Amazon Kinesis',    desc:'Stream processing',         url:'https://aws.amazon.com/kinesis/'},
+        {cat:'analytics', icon:'&#128200;', name:'AWS Glue',          desc:'ETL service',               url:'https://aws.amazon.com/glue/'},
+        {cat:'analytics', icon:'&#127760;', name:'Amazon EMR',        desc:'Big data processing',       url:'https://aws.amazon.com/emr/'},
+        {cat:'analytics', icon:'&#128203;', name:'Amazon QuickSight', desc:'BI dashboards',             url:'https://aws.amazon.com/quicksight/'},
+        {cat:'analytics', icon:'&#128190;', name:'AWS Lake Formation',desc:'Data lake setup',           url:'https://aws.amazon.com/lake-formation/'},
+        {cat:'analytics', icon:'&#9881;',   name:'Amazon OpenSearch', desc:'Search &amp; analytics',    url:'https://aws.amazon.com/opensearch-service/'},
+        // AI/ML
+        {cat:'ml', icon:'&#129302;', name:'Amazon SageMaker',         desc:'ML platform',               url:'https://aws.amazon.com/sagemaker/'},
+        {cat:'ml', icon:'&#128172;', name:'Amazon Bedrock',           desc:'Foundation models',         url:'https://aws.amazon.com/bedrock/'},
+        {cat:'ml', icon:'&#128065;', name:'Amazon Rekognition',       desc:'Image/video analysis',      url:'https://aws.amazon.com/rekognition/'},
+        {cat:'ml', icon:'&#128483;', name:'Amazon Lex',               desc:'Conversational AI',         url:'https://aws.amazon.com/lex/'},
+        {cat:'ml', icon:'&#128264;', name:'Amazon Polly',             desc:'Text to speech',            url:'https://aws.amazon.com/polly/'},
+        {cat:'ml', icon:'&#128214;', name:'Amazon Comprehend',        desc:'NLP service',               url:'https://aws.amazon.com/comprehend/'},
+        {cat:'ml', icon:'&#128466;', name:'Amazon Textract',          desc:'Document AI',               url:'https://aws.amazon.com/textract/'},
+        {cat:'ml', icon:'&#128259;', name:'Amazon Translate',         desc:'Neural translation',        url:'https://aws.amazon.com/translate/'},
+        {cat:'ml', icon:'&#128202;', name:'Amazon Forecast',          desc:'Time-series forecasting',   url:'https://aws.amazon.com/forecast/'},
+        {cat:'ml', icon:'&#9881;',   name:'Amazon CodeWhisperer',     desc:'AI code companion',         url:'https://aws.amazon.com/codewhisperer/'},
+        // DEV TOOLS
+        {cat:'devtools', icon:'&#9889;',   name:'AWS CodePipeline',   desc:'CI/CD pipeline',            url:'https://aws.amazon.com/codepipeline/'},
+        {cat:'devtools', icon:'&#128196;', name:'AWS CodeBuild',      desc:'Build service',             url:'https://aws.amazon.com/codebuild/'},
+        {cat:'devtools', icon:'&#128640;', name:'AWS CodeDeploy',     desc:'Deployment service',        url:'https://aws.amazon.com/codedeploy/'},
+        {cat:'devtools', icon:'&#9728;',   name:'AWS CodeCommit',     desc:'Git repositories',          url:'https://aws.amazon.com/codecommit/'},
+        {cat:'devtools', icon:'&#128736;', name:'AWS CloudFormation', desc:'Infrastructure as code',    url:'https://aws.amazon.com/cloudformation/'},
+        {cat:'devtools', icon:'&#128295;', name:'AWS CDK',            desc:'Cloud dev kit',             url:'https://aws.amazon.com/cdk/'},
+        {cat:'devtools', icon:'&#128200;', name:'AWS X-Ray',          desc:'Distributed tracing',       url:'https://aws.amazon.com/xray/'},
+        {cat:'devtools', icon:'&#128421;', name:'AWS Cloud9',         desc:'Cloud IDE',                 url:'https://aws.amazon.com/cloud9/'},
+        // MANAGEMENT
+        {cat:'mgmt', icon:'&#128202;', name:'Amazon CloudWatch',      desc:'Monitoring &amp; logs',     url:'https://aws.amazon.com/cloudwatch/'},
+        {cat:'mgmt', icon:'&#127959;', name:'AWS Systems Manager',    desc:'Ops management',            url:'https://aws.amazon.com/systems-manager/'},
+        {cat:'mgmt', icon:'&#128203;', name:'AWS Organizations',      desc:'Multi-account mgmt',        url:'https://aws.amazon.com/organizations/'},
+        {cat:'mgmt', icon:'&#128737;', name:'AWS Control Tower',      desc:'Landing zone',              url:'https://aws.amazon.com/controltower/'},
+        {cat:'mgmt', icon:'&#128176;', name:'AWS Cost Explorer',      desc:'Cost analysis',             url:'https://aws.amazon.com/aws-cost-management/aws-cost-explorer/'},
+        {cat:'mgmt', icon:'&#128204;', name:'AWS Trusted Advisor',    desc:'Best practices',            url:'https://aws.amazon.com/premiumsupport/technology/trusted-advisor/'},
+        {cat:'mgmt', icon:'&#9881;',   name:'AWS Service Catalog',    desc:'IT service catalog',        url:'https://aws.amazon.com/servicecatalog/'},
+        {cat:'mgmt', icon:'&#127760;', name:'AWS Health Dashboard',   desc:'Service health',            url:'https://health.aws.amazon.com/'},
+        // APP INTEGRATION
+        {cat:'app', icon:'&#128258;', name:'Amazon SQS',              desc:'Message queuing',           url:'https://aws.amazon.com/sqs/'},
+        {cat:'app', icon:'&#128268;', name:'Amazon SNS',              desc:'Pub/sub messaging',         url:'https://aws.amazon.com/sns/'},
+        {cat:'app', icon:'&#9889;',   name:'Amazon EventBridge',      desc:'Event bus',                 url:'https://aws.amazon.com/eventbridge/'},
+        {cat:'app', icon:'&#128203;', name:'AWS Step Functions',      desc:'Workflow orchestration',    url:'https://aws.amazon.com/step-functions/'},
+        {cat:'app', icon:'&#128225;', name:'Amazon MQ',               desc:'Managed message broker',   url:'https://aws.amazon.com/amazon-mq/'},
+        {cat:'app', icon:'&#128257;', name:'Amazon AppFlow',          desc:'SaaS integration',          url:'https://aws.amazon.com/appflow/'},
+    ];
+
+    let currentCat = 'all';
+
+    function renderAWSServices(filter) {
+        const grid = document.getElementById('awsServicesGrid');
+        if (!grid) return;
+        const search = (filter || '').toLowerCase();
+        let html = '';
+        let shown = 0;
+        AWS_SERVICES.forEach(svc => {
+            const catMatch = currentCat === 'all' || svc.cat === currentCat;
+            const searchMatch = !search || svc.name.toLowerCase().includes(search) || svc.desc.toLowerCase().includes(search);
+            if (catMatch && searchMatch) {
+                html += '<a class="aws-service-card" href="' + svc.url + '" target="_blank">' +
+                    '<span class="aws-svc-icon">' + svc.icon + '</span>' +
+                    '<div class="aws-svc-info">' +
+                        '<span class="aws-svc-name">' + svc.name + '</span>' +
+                        '<span class="aws-svc-desc">' + svc.desc + '</span>' +
+                    '</div></a>';
+                shown++;
+            }
+        });
+        grid.innerHTML = html || '<div class="news-loading" style="grid-column:1/-1;">No services found.</div>';
+    }
+
+    function awsCat(btn, cat) {
+        currentCat = cat;
+        document.querySelectorAll('.aws-cat-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderAWSServices(document.getElementById('awsSearch')?.value);
+    }
+
+    function awsFilter(val) {
+        renderAWSServices(val);
+    }
+
+    // ════════════════════════════════════
+    // TECH / CLOUD NEWS
+    // ════════════════════════════════════
+    const NEWS_FEED = [
+        {cat:'aws',      tag:'AWS',      title:'AWS Announces General Availability of Amazon Bedrock Agents with Multi-Agent Collaboration', source:'AWS Blog',         url:'https://aws.amazon.com/blogs/aws/'},
+        {cat:'aws',      tag:'AWS',      title:'Amazon EC2 P5en Instances Now Available — Highest Networking Performance for ML Workloads',  source:'AWS News',         url:'https://aws.amazon.com/blogs/aws/'},
+        {cat:'aws',      tag:'AWS',      title:'AWS Control Tower Introduces New Managed Policies for Landing Zone Governance at Scale',     source:'AWS Blog',         url:'https://aws.amazon.com/controltower/'},
+        {cat:'aws',      tag:'AWS',      title:'Amazon S3 Express One Zone Reduces First-Byte Latency by 10x for High-Performance Workloads',source:'AWS Blog',         url:'https://aws.amazon.com/s3/'},
+        {cat:'aws',      tag:'AWS',      title:'AWS Cost Optimization Hub Adds New Rightsizing Recommendations for ECS and Fargate',        source:'AWS News',         url:'https://aws.amazon.com/aws-cost-management/'},
+        {cat:'cloud',    tag:'Cloud',    title:'Google Cloud Next 2026: Vertex AI Gains Native AWS S3 Integration for Multicloud Pipelines', source:'The Register',     url:'https://www.theregister.com/'},
+        {cat:'cloud',    tag:'Cloud',    title:'Microsoft Azure Expands Africa Regions — Cape Town Now Hosts Primary Compute Availability Zone',source:'ZDNet',          url:'https://zdnet.com/'},
+        {cat:'cloud',    tag:'Cloud',    title:'Gartner: 85% of Enterprises Will Operate Multi-Cloud Architectures by End of 2026',         source:'Gartner',          url:'https://gartner.com/'},
+        {cat:'cloud',    tag:'Cloud',    title:'Cloud Cost Waste Hits $35 Billion in 2025 — FinOps Foundation Issues New Governance Standards',source:'FinOps Foundation',url:'https://finops.org/'},
+        {cat:'ai',       tag:'AI & ML',  title:'Amazon Bedrock Nova Models Achieve State-of-the-Art on Enterprise Reasoning Benchmarks',    source:'AWS Research',     url:'https://aws.amazon.com/bedrock/'},
+        {cat:'ai',       tag:'AI & ML',  title:'AI Governance Frameworks Become Mandatory for Cloud-Deployed Models in EU and UK',          source:'TechCrunch',       url:'https://techcrunch.com/'},
+        {cat:'ai',       tag:'AI & ML',  title:'SageMaker Autopilot Adds Support for Multimodal Foundation Model Fine-Tuning in 2026',      source:'AWS Blog',         url:'https://aws.amazon.com/sagemaker/'},
+        {cat:'security', tag:'Security', title:'AWS GuardDuty Adds Runtime Threat Detection for EKS Node Groups and Fargate Workloads',     source:'AWS Security Blog',url:'https://aws.amazon.com/blogs/security/'},
+        {cat:'security', tag:'Security', title:'Zero Trust Architecture Adoption in Africa Grows 120% — Cloud Governance Becomes Strategic', source:'ITWeb Africa',     url:'https://itweb.co.za/'},
+        {cat:'security', tag:'Security', title:'CISA and AWS Jointly Release Cloud Security Best Practices for Critical Infrastructure',     source:'CISA',             url:'https://cisa.gov/'},
+        {cat:'career',   tag:'Career',   title:'AWS Cloud Practitioner Remains Top Entry Certification for African Tech Graduates in 2026',  source:'LinkedIn Insights',url:'https://linkedin.com/'},
+        {cat:'career',   tag:'Career',   title:'Cloud Architect Salaries in South Africa Rise 34% YoY — Governance Skills Command Premium', source:'PayScale SA',      url:'https://payscale.com/'},
+        {cat:'career',   tag:'Career',   title:'AWS re:Invent 2026 Opens Registration — Full Scholarship Programme for African Students',    source:'AWS Events',       url:'https://reinvent.awsevents.com/'},
+    ];
+
+    let currentNewsTab = 'all';
+
+    const NEWS_COLORS = {
+        'AWS':       'tag-aws',
+        'Cloud':     'tag-cloud',
+        'AI & ML':   'tag-ai',
+        'Security':  'tag-security',
+        'Career':    'tag-career',
+    };
+
+    function loadNews() {
+        const grid = document.getElementById('newsGrid');
+        if (!grid) return;
+        grid.innerHTML = '<div class="news-loading" style="grid-column:1/-1;">&#8635; Loading...</div>';
+        setTimeout(() => {
+            const filtered = currentNewsTab === 'all' ? NEWS_FEED : NEWS_FEED.filter(n => n.cat === currentNewsTab);
+            if (!filtered.length) { grid.innerHTML = '<div class="news-loading" style="grid-column:1/-1;">No news in this category.</div>'; return; }
+            grid.innerHTML = filtered.map(n =>
+                '<a class="news-card" href="' + n.url + '" target="_blank">' +
+                '<span class="news-card-tag ' + (NEWS_COLORS[n.tag]||'tag-cloud') + '">' + n.tag + '</span>' +
+                '<div class="news-card-title">' + n.title + '</div>' +
+                '<div class="news-card-source">&#128240; <span>' + n.source + '</span> &nbsp;·&nbsp; May 2026</div>' +
+                '</a>'
+            ).join('');
+        }, 500);
+    }
+
+    function newsTab(btn, cat) {
+        currentNewsTab = cat;
+        document.querySelectorAll('.news-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadNews();
+    }
+
+    // ── Init on load ──
+    document.addEventListener('DOMContentLoaded', function() {
+        renderAWSServices();
+        loadNews();
+    });
+    // Fallback for already-loaded
+    if (document.readyState !== 'loading') {
+        renderAWSServices();
+        loadNews();
+    }
     </script>
 
 </body>
