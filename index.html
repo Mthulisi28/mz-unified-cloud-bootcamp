@@ -945,6 +945,403 @@
             border-top: 1px solid var(--border);
         }
 
+
+        /* ══════════════════════════════════════
+           STUDENT OPERATIONS DASHBOARD
+        ══════════════════════════════════════ */
+        .ops-dashboard {
+            margin: 2.5rem 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .ops-dashboard::before {
+            content: '';
+            position: absolute; top:0; left:0; right:0; height:2px;
+            background: linear-gradient(90deg, var(--gold), #10b981, #3b82f6, transparent);
+        }
+        .ops-header {
+            padding: 1.1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: .75rem;
+        }
+        .ops-header-left { display:flex; align-items:center; gap:.85rem; }
+        .ops-console-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #10b981;
+            animation: blink 2s ease-in-out infinite;
+        }
+        .ops-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem; letter-spacing:.08em;
+            color: #fff; text-transform: uppercase; line-height: 1;
+        }
+        .ops-subtitle {
+            font-size: .58rem; letter-spacing:.22em;
+            color: var(--text-muted); text-transform: uppercase; margin-top:2px;
+        }
+        .ops-session-selector {
+            display: flex; align-items: center; gap:.5rem;
+        }
+        .ops-sel-label {
+            font-size: .58rem; letter-spacing:.2em;
+            color: var(--text-muted); text-transform: uppercase;
+        }
+        .ops-select {
+            background: #040608; border: 1px solid var(--border);
+            color: var(--gold); font-family: 'Barlow Condensed',sans-serif;
+            font-size: .75rem; font-weight:700; letter-spacing:.1em;
+            padding: 4px 10px; outline:none; cursor:pointer;
+            text-transform: uppercase;
+        }
+        .ops-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            border-bottom: 1px solid var(--border);
+        }
+        @media(max-width:900px){ .ops-grid{ grid-template-columns:repeat(2,1fr); } }
+        @media(max-width:500px){ .ops-grid{ grid-template-columns:1fr; } }
+        .ops-metric {
+            padding: 1.25rem 1.5rem;
+            border-right: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 4px;
+            position: relative; overflow: hidden;
+        }
+        .ops-metric:last-child { border-right: none; }
+        .ops-metric-label {
+            font-size: .56rem; letter-spacing:.25em;
+            color: var(--text-muted); text-transform: uppercase;
+        }
+        .ops-metric-val {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem; line-height:1;
+            color: #fff;
+        }
+        .ops-metric-sub {
+            font-size: .62rem; color: var(--text-muted); line-height:1.3;
+        }
+        .ops-metric-bar {
+            height: 3px; background: var(--border);
+            margin-top: 6px; position:relative; overflow:hidden;
+        }
+        .ops-metric-bar-fill {
+            position:absolute; top:0; left:0; height:100%;
+            transition: width 1.2s cubic-bezier(.25,1,.5,1);
+        }
+
+        /* OPS BOTTOM PANELS */
+        .ops-bottom {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media(max-width:900px){ .ops-bottom{ grid-template-columns:1fr; } }
+        .ops-panel {
+            padding: 1.1rem 1.5rem;
+            border-right: 1px solid var(--border);
+        }
+        .ops-panel:last-child { border-right:none; }
+        .ops-panel-title {
+            font-size:.6rem; font-weight:700; letter-spacing:.3em;
+            text-transform:uppercase; color:var(--gold);
+            margin-bottom:.85rem; display:flex; align-items:center; gap:.5rem;
+        }
+        .ops-panel-title::before { content:'◈'; }
+        .ops-check-item {
+            display:flex; align-items:center; gap:.6rem;
+            padding:.35rem 0; border-bottom:1px solid var(--border);
+            font-size:.7rem; color:var(--text-dim); line-height:1.3;
+        }
+        .ops-check-item:last-child { border-bottom:none; }
+        .ops-chk {
+            width:16px; height:16px; border-radius:2px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:.6rem; flex-shrink:0;
+        }
+        .ops-chk.done { background:rgba(16,185,129,.15); border:1px solid #10b981; color:#10b981; }
+        .ops-chk.pend { background:rgba(245,158,11,.1); border:1px solid #f59e0b; color:#f59e0b; }
+        .ops-chk.lock { background:var(--border); border:1px solid var(--border); color:var(--text-muted); }
+        .ops-obj-item {
+            display:flex; align-items:flex-start; gap:.6rem;
+            padding:.4rem 0; border-bottom:1px solid var(--border);
+            font-size:.68rem; color:var(--text-dim);
+        }
+        .ops-obj-item:last-child { border-bottom:none; }
+        .ops-obj-num {
+            font-family:'Bebas Neue',sans-serif; font-size:.9rem;
+            color:var(--gold); line-height:1; flex-shrink:0; width:18px;
+        }
+        .ops-streak { display:flex; gap:4px; flex-wrap:wrap; margin-top:.5rem; }
+        .ops-streak-day {
+            width:22px; height:22px; border:1px solid var(--border);
+            display:flex; align-items:center; justify-content:center;
+            font-size:.48rem; letter-spacing:.05em; color:var(--text-muted);
+            text-transform:uppercase;
+        }
+        .ops-streak-day.active { background:rgba(212,175,55,.15); border-color:var(--gold-dim); color:var(--gold); }
+        .ops-streak-day.today { background:var(--gold); color:#000; border-color:var(--gold); }
+
+        /* ══════════════════════════════════════
+           UCA PROGRESSION SYSTEM
+        ══════════════════════════════════════ */
+        .progression-section { margin-bottom: 3rem; }
+        .prog-grid {
+            display: grid; grid-template-columns: repeat(6,1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border);
+        }
+        @media(max-width:1000px){ .prog-grid{ grid-template-columns:repeat(3,1fr); } }
+        @media(max-width:560px){  .prog-grid{ grid-template-columns:repeat(2,1fr); } }
+        .prog-card {
+            background: var(--surface); padding:1.25rem 1rem;
+            display:flex; flex-direction:column; gap:.5rem;
+            position:relative; overflow:hidden;
+            transition: background .2s;
+        }
+        .prog-card.unlocked { cursor:default; }
+        .prog-card.unlocked:hover { background:#0a0f1a; }
+        .prog-card.prog-locked { opacity:.35; filter:grayscale(.8); }
+        .prog-card.current::after {
+            content:'CURRENT';
+            position:absolute; top:6px; right:6px;
+            font-size:.42rem; font-weight:900; letter-spacing:.2em;
+            text-transform:uppercase; padding:2px 6px;
+            background:var(--gold); color:#000;
+        }
+        .prog-level-num {
+            font-family:'Bebas Neue',sans-serif;
+            font-size:2.4rem; line-height:1; margin-bottom:.15rem;
+        }
+        .prog-level-tag {
+            font-size:.52rem; font-weight:700; letter-spacing:.2em;
+            text-transform:uppercase; padding:2px 7px;
+            align-self:flex-start; margin-bottom:.4rem;
+        }
+        .prog-level-name {
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:1rem; font-weight:900; letter-spacing:.06em;
+            text-transform:uppercase; color:#fff; line-height:1.1;
+        }
+        .prog-level-desc {
+            font-size:.62rem; color:var(--text-muted);
+            line-height:1.45; flex:1;
+        }
+        .prog-bar-wrap { margin-top:.5rem; }
+        .prog-bar-label {
+            display:flex; justify-content:space-between;
+            font-size:.52rem; color:var(--text-muted);
+            letter-spacing:.1em; margin-bottom:4px;
+        }
+        .prog-bar-track {
+            height:3px; background:var(--border); position:relative; overflow:hidden;
+        }
+        .prog-bar-fill {
+            position:absolute; top:0; left:0; height:100%;
+            transition: width 1.4s cubic-bezier(.25,1,.5,1);
+        }
+        .prog-badge {
+            font-size:1.4rem; margin-bottom:.25rem; display:block;
+        }
+        .prog-sessions {
+            font-size:.56rem; letter-spacing:.15em; color:var(--text-muted);
+            text-transform:uppercase; margin-top:3px;
+        }
+
+        /* ══════════════════════════════════════
+           GOVERNANCE CENTER
+        ══════════════════════════════════════ */
+        .gov-section { margin-bottom:3rem; }
+        .gov-grid {
+            display:grid; grid-template-columns:repeat(3,1fr);
+            gap:1px; background:var(--border);
+            border:1px solid var(--border);
+        }
+        @media(max-width:900px){ .gov-grid{ grid-template-columns:repeat(2,1fr); } }
+        @media(max-width:560px){ .gov-grid{ grid-template-columns:1fr; } }
+        .gov-card {
+            background:var(--surface); padding:1.5rem;
+            display:flex; flex-direction:column; gap:.75rem;
+            position:relative; overflow:hidden;
+            transition:background .2s;
+        }
+        .gov-card:hover { background:#0a0f1a; }
+        .gov-card-icon {
+            width:40px; height:40px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.2rem; flex-shrink:0;
+        }
+        .gov-card-tag {
+            font-size:.52rem; font-weight:700; letter-spacing:.22em;
+            text-transform:uppercase; padding:2px 8px;
+            align-self:flex-start;
+        }
+        .gov-card-title {
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:1.1rem; font-weight:900; letter-spacing:.06em;
+            text-transform:uppercase; color:#fff; line-height:1.1;
+        }
+        .gov-card-desc {
+            font-size:.72rem; color:var(--text-dim); line-height:1.6; flex:1;
+        }
+        .gov-principles {
+            display:flex; flex-direction:column; gap:.3rem; margin-top:.25rem;
+        }
+        .gov-principle {
+            display:flex; align-items:flex-start; gap:.5rem;
+            font-size:.65rem; color:var(--text-muted); line-height:1.4;
+        }
+        .gov-pr-dot {
+            width:5px; height:5px; border-radius:50%;
+            flex-shrink:0; margin-top:5px;
+        }
+        .gov-card-link {
+            display:inline-flex; align-items:center; gap:.5rem;
+            font-size:.62rem; font-weight:700; letter-spacing:.18em;
+            text-transform:uppercase; text-decoration:none;
+            padding:.55rem 1rem; margin-top:auto;
+            transition:all .14s;
+        }
+
+        /* ══════════════════════════════════════
+           ARCHITECTURE VAULT
+        ══════════════════════════════════════ */
+        .vault-section { margin-bottom:3rem; }
+        .arch-vault-grid {
+            display:grid; grid-template-columns:repeat(4,1fr);
+            gap:1px; background:var(--border);
+            border:1px solid var(--border);
+        }
+        @media(max-width:900px){ .arch-vault-grid{ grid-template-columns:repeat(2,1fr); } }
+        @media(max-width:500px){ .arch-vault-grid{ grid-template-columns:1fr; } }
+        .av-card {
+            background:var(--surface); padding:1.25rem;
+            display:flex; flex-direction:column; gap:.6rem;
+            position:relative; cursor:pointer;
+            transition:background .2s;
+        }
+        .av-card:hover { background:#0a0f1a; }
+        .av-card::before {
+            content:'';
+            position:absolute; top:0; left:0; right:0; height:2px;
+            background:linear-gradient(90deg,#e53e3e,transparent);
+        }
+        .av-lock-badge {
+            display:inline-flex; align-items:center; gap:4px;
+            font-size:.5rem; font-weight:700; letter-spacing:.2em;
+            text-transform:uppercase; padding:2px 8px;
+            background:rgba(229,62,62,.08);
+            border:1px solid rgba(229,62,62,.25);
+            color:#e53e3e; align-self:flex-start;
+        }
+        .av-icon { font-size:1.5rem; display:block; }
+        .av-title {
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:1rem; font-weight:900; letter-spacing:.06em;
+            text-transform:uppercase; color:#fff; line-height:1.1;
+        }
+        .av-desc {
+            font-size:.65rem; color:var(--text-muted); line-height:1.5; flex:1;
+        }
+        .av-unlock-hint {
+            font-size:.56rem; letter-spacing:.15em; color:#e53e3e;
+            text-transform:uppercase; margin-top:auto;
+        }
+
+        /* ══════════════════════════════════════
+           SIMULATION ENGINE BANNER
+        ══════════════════════════════════════ */
+        .sim-banner {
+            background:var(--surface);
+            border:1px solid var(--border);
+            border-left:4px solid #10b981;
+            padding:1.75rem 2rem;
+            display:grid; grid-template-columns:1fr auto;
+            gap:2rem; align-items:center;
+            margin-bottom:2.5rem; position:relative; overflow:hidden;
+        }
+        .sim-banner::after {
+            content:'SIMULATION';
+            position:absolute; right:-5px; top:50%;
+            transform:translateY(-50%);
+            font-family:'Bebas Neue',sans-serif; font-size:5rem;
+            color:rgba(16,185,129,.04); pointer-events:none; letter-spacing:.1em;
+        }
+        @media(max-width:700px){ .sim-banner{ grid-template-columns:1fr; } }
+        .sim-eyebrow {
+            font-size:.58rem; letter-spacing:.35em; color:#10b981;
+            text-transform:uppercase; font-weight:700; margin-bottom:.5rem;
+        }
+        .sim-title {
+            font-family:'Bebas Neue',sans-serif; font-size:1.8rem;
+            letter-spacing:.04em; color:#fff; text-transform:uppercase;
+            line-height:1; margin-bottom:.5rem;
+        }
+        .sim-title span { color:#10b981; }
+        .sim-desc {
+            font-size:.78rem; color:var(--text-dim); line-height:1.6;
+            max-width:580px;
+        }
+        .sim-scenarios {
+            display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.85rem;
+        }
+        .sim-tag {
+            font-size:.55rem; letter-spacing:.12em; text-transform:uppercase;
+            padding:2px 8px; border:1px solid rgba(16,185,129,.2);
+            color:#10b981; background:rgba(16,185,129,.05);
+        }
+        .sim-cta {
+            display:inline-flex; align-items:center; gap:7px;
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:.8rem; font-weight:900; letter-spacing:.22em;
+            text-transform:uppercase; text-decoration:none;
+            padding:12px 28px; background:#10b981; color:#000;
+            transition:background .14s; white-space:nowrap;
+            position:relative; z-index:1; border:none; cursor:pointer;
+        }
+        .sim-cta:hover { background:#0d9668; }
+
+        /* ══════════════════════════════════════
+           SUCCESS SHOWCASE
+        ══════════════════════════════════════ */
+        .showcase-section { margin-bottom:3rem; }
+        .showcase-grid {
+            display:grid; grid-template-columns:repeat(3,1fr);
+            gap:1px; background:var(--border);
+            border:1px solid var(--border);
+        }
+        @media(max-width:700px){ .showcase-grid{ grid-template-columns:1fr; } }
+        .showcase-card {
+            background:var(--surface); padding:1.5rem;
+            display:flex; flex-direction:column; gap:.6rem;
+        }
+        .sc-avatar {
+            width:44px; height:44px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:1.1rem; font-weight:900; color:#000; flex-shrink:0;
+        }
+        .sc-name {
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:.95rem; font-weight:900; letter-spacing:.06em;
+            text-transform:uppercase; color:#fff; line-height:1;
+        }
+        .sc-role {
+            font-size:.58rem; letter-spacing:.18em;
+            color:var(--gold); text-transform:uppercase;
+        }
+        .sc-quote {
+            font-size:.74rem; color:var(--text-dim); line-height:1.6;
+            font-style:italic; border-left:2px solid var(--gold-dim);
+            padding-left:.75rem; margin:.25rem 0;
+        }
+        .sc-badges { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:auto; }
+        .sc-badge {
+            font-size:.5rem; font-weight:700; letter-spacing:.15em;
+            text-transform:uppercase; padding:2px 7px;
+            border:1px solid var(--border); color:var(--text-muted);
+        }
+        .sc-badge.gold { border-color:var(--gold-dim); color:var(--gold); }
+
     </style>
 </head>
 <body>
@@ -995,6 +1392,101 @@
             </div>
         </div>
     </section>
+
+    <!-- ══════════════════════════════
+         STUDENT OPERATIONS DASHBOARD
+    ══════════════════════════════ -->
+    <div class="ops-dashboard">
+        <div class="ops-header">
+            <div class="ops-header-left">
+                <div class="ops-console-dot"></div>
+                <div>
+                    <div class="ops-title">Student Operations Dashboard</div>
+                    <div class="ops-subtitle">UCA Academy &nbsp;·&nbsp; Live Session Tracker &nbsp;·&nbsp; 2026 Cohort</div>
+                </div>
+            </div>
+            <div class="ops-session-selector">
+                <span class="ops-sel-label">Tracking:</span>
+                <select class="ops-select" id="opsSessionSel" onchange="opsSwitchSession(this.value)">
+                    <option value="1">S1 — Cloud Foundations</option>
+                    <option value="2">S2 — Shared Responsibility</option>
+                    <option value="3">S3 — IAM Masterclass</option>
+                    <option value="4" selected>S4 — Compute Layer</option>
+                    <option value="5">S5 — Storage Layer</option>
+                </select>
+            </div>
+        </div>
+        <div class="ops-grid">
+            <div class="ops-metric">
+                <span class="ops-metric-label">Completion</span>
+                <span class="ops-metric-val" id="opsCompletion">42%</span>
+                <span class="ops-metric-sub">5 of 12 sessions active</span>
+                <div class="ops-metric-bar"><div class="ops-metric-bar-fill" id="opsCompletionBar" style="width:42%;background:var(--gold);"></div></div>
+            </div>
+            <div class="ops-metric">
+                <span class="ops-metric-label">Current Level</span>
+                <span class="ops-metric-val" style="color:#10b981;">L2</span>
+                <span class="ops-metric-sub">Cloud Operator &nbsp;·&nbsp; Associate track</span>
+                <div class="ops-metric-bar"><div class="ops-metric-bar-fill" style="width:33%;background:#10b981;"></div></div>
+            </div>
+            <div class="ops-metric">
+                <span class="ops-metric-label">Cert Readiness</span>
+                <span class="ops-metric-val" style="color:#3b82f6;" id="opsCertReady">38%</span>
+                <span class="ops-metric-sub" id="opsCertMsg">Complete mocks to increase</span>
+                <div class="ops-metric-bar"><div class="ops-metric-bar-fill" id="opsCertBar" style="width:38%;background:#3b82f6;"></div></div>
+            </div>
+            <div class="ops-metric">
+                <span class="ops-metric-label">GitHub Status</span>
+                <span class="ops-metric-val" style="color:#f59e0b;">Pending</span>
+                <span class="ops-metric-sub">Portfolio not yet submitted</span>
+                <div class="ops-metric-bar"><div class="ops-metric-bar-fill" style="width:20%;background:#f59e0b;"></div></div>
+            </div>
+        </div>
+        <div class="ops-bottom">
+            <div class="ops-panel">
+                <div class="ops-panel-title">Session Checklist</div>
+                <div id="opsChecklist">
+                    <div class="ops-check-item"><div class="ops-chk done">&#10003;</div>S1 — Cloud Foundations</div>
+                    <div class="ops-check-item"><div class="ops-chk done">&#10003;</div>S2 — Shared Responsibility</div>
+                    <div class="ops-check-item"><div class="ops-chk done">&#10003;</div>S3 — IAM Masterclass</div>
+                    <div class="ops-check-item"><div class="ops-chk pend">&#8250;</div>S4 — Compute Layer <em style="font-size:.6rem;color:#f59e0b;">&nbsp;In Progress</em></div>
+                    <div class="ops-check-item"><div class="ops-chk pend">&#8250;</div>S5 — Storage Layer <em style="font-size:.6rem;color:#f59e0b;">&nbsp;Unlocked</em></div>
+                    <div class="ops-check-item"><div class="ops-chk lock">&#128274;</div>S6–S12 &nbsp;<em style="font-size:.6rem;">Locked</em></div>
+                </div>
+            </div>
+            <div class="ops-panel" style="border-left:1px solid var(--border);border-right:1px solid var(--border);">
+                <div class="ops-panel-title">Weekly Objectives</div>
+                <div class="ops-obj-item"><span class="ops-obj-num">01</span><span>Complete S4 Compute Layer slides &amp; GitHub lab</span></div>
+                <div class="ops-obj-item"><span class="ops-obj-num">02</span><span>Attempt S4 Mock Exam (target &ge;70%)</span></div>
+                <div class="ops-obj-item"><span class="ops-obj-num">03</span><span>Document EC2 instance setup in GitHub README</span></div>
+                <div class="ops-obj-item"><span class="ops-obj-num">04</span><span>Begin S5 Storage slides before next session</span></div>
+                <div class="ops-obj-item"><span class="ops-obj-num">05</span><span>Review AWS EC2 official documentation</span></div>
+            </div>
+            <div class="ops-panel">
+                <div class="ops-panel-title">Attendance Streak</div>
+                <div style="font-size:.68rem;color:var(--text-dim);margin-bottom:.6rem;">Current streak: <strong style="color:var(--gold);">3 sessions</strong> &nbsp;·&nbsp; Keep going.</div>
+                <div class="ops-streak">
+                    <div class="ops-streak-day active">S1</div>
+                    <div class="ops-streak-day active">S2</div>
+                    <div class="ops-streak-day active">S3</div>
+                    <div class="ops-streak-day today">S4</div>
+                    <div class="ops-streak-day">S5</div>
+                    <div class="ops-streak-day">S6</div>
+                    <div class="ops-streak-day">S7</div>
+                    <div class="ops-streak-day">S8</div>
+                    <div class="ops-streak-day">S9</div>
+                    <div class="ops-streak-day">S10</div>
+                    <div class="ops-streak-day">S11</div>
+                    <div class="ops-streak-day">S12</div>
+                </div>
+                <div style="margin-top:1rem;">
+                    <div class="ops-panel-title" style="margin-bottom:.6rem;">Upcoming</div>
+                    <div class="ops-check-item"><div class="ops-chk pend">&#9670;</div>S5 Storage Layer &nbsp;&#8212;&nbsp; Next session</div>
+                    <div class="ops-check-item"><div class="ops-chk lock">&#128274;</div>S6 Databases &nbsp;&#8212;&nbsp; Locked</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- CLEARANCE OVERVIEW -->
     <div class="section-hdr"><span class="section-hdr-label">◈ Clearance Architecture</span><div class="section-hdr-line"></div><span class="section-hdr-count">4 Divisions &nbsp;·&nbsp; 2 Clearance Levels</span></div>
@@ -1077,6 +1569,91 @@
         <div class="th-actions">
             <a href="https://wa.me/27792873250?text=Hi%20Thembi%2C%20I%20need%20help%20with%20GitHub%20for%20the%20MZ%20UCA%20Bootcamp" target="_blank" class="th-btn th-btn-wa">&#128172; WhatsApp Thembi</a>
             <a href="https://paypal.me" target="_blank" class="th-btn th-btn-tip">&#9733; Tip Thembi</a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         UCA PROGRESSION SYSTEM
+    ══════════════════════════════ -->
+    <div class="progression-section">
+        <div class="section-hdr">
+            <span class="section-hdr-label">◈ UCA Progression Architecture</span>
+            <div class="section-hdr-line"></div>
+            <span class="section-hdr-count">L1 &#8594; L6 &nbsp;·&nbsp; Earn Your Clearance</span>
+        </div>
+        <div class="prog-grid">
+            <div class="prog-card unlocked current" style="--pc:#3b82f6;">
+                <span class="prog-badge">&#127381;</span>
+                <span class="prog-level-num" style="color:#3b82f6;">L1</span>
+                <span class="prog-level-tag" style="background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.3);color:#3b82f6;">Foundations</span>
+                <span class="prog-level-name">Cloud Fundamentals</span>
+                <span class="prog-level-desc">AWS global infra, cloud models, shared responsibility, IAM basics. The entry point to the architecture.</span>
+                <div class="prog-bar-wrap">
+                    <div class="prog-bar-label"><span>Progress</span><span style="color:#3b82f6;">100%</span></div>
+                    <div class="prog-bar-track"><div class="prog-bar-fill" style="width:100%;background:#3b82f6;"></div></div>
+                </div>
+                <span class="prog-sessions">Sessions 1 – 3 &nbsp;·&nbsp; Completed</span>
+            </div>
+            <div class="prog-card unlocked" style="--pc:#10b981;">
+                <span class="prog-badge">&#9889;</span>
+                <span class="prog-level-num" style="color:#10b981;">L2</span>
+                <span class="prog-level-tag" style="background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);color:#10b981;">Associate</span>
+                <span class="prog-level-name">Cloud Operator</span>
+                <span class="prog-level-desc">Compute, storage, databases. You operate cloud infrastructure and understand service trade-offs.</span>
+                <div class="prog-bar-wrap">
+                    <div class="prog-bar-label"><span>Progress</span><span style="color:#10b981;">67%</span></div>
+                    <div class="prog-bar-track"><div class="prog-bar-fill" style="width:67%;background:#10b981;"></div></div>
+                </div>
+                <span class="prog-sessions">Sessions 4 – 6 &nbsp;·&nbsp; In Progress</span>
+            </div>
+            <div class="prog-card prog-locked">
+                <span class="prog-badge">&#127760;</span>
+                <span class="prog-level-num" style="color:#f59e0b;">L3</span>
+                <span class="prog-level-tag" style="background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:#f59e0b;">Professional</span>
+                <span class="prog-level-name">Infrastructure Engineer</span>
+                <span class="prog-level-desc">Networking, VPC design, security groups, WAF, Shield. You build and secure production environments.</span>
+                <div class="prog-bar-wrap">
+                    <div class="prog-bar-label"><span>Progress</span><span style="color:#f59e0b;">0%</span></div>
+                    <div class="prog-bar-track"><div class="prog-bar-fill" style="width:0%;background:#f59e0b;"></div></div>
+                </div>
+                <span class="prog-sessions">Sessions 7 – 9 &nbsp;·&nbsp; Locked</span>
+            </div>
+            <div class="prog-card prog-locked">
+                <span class="prog-badge">&#127963;</span>
+                <span class="prog-level-num" style="color:#8b5cf6;">L4</span>
+                <span class="prog-level-tag" style="background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:#8b5cf6;">Architect</span>
+                <span class="prog-level-name">Cloud Architect</span>
+                <span class="prog-level-desc">Well-Architected Framework, HA design, DR strategies. You design resilient enterprise systems.</span>
+                <div class="prog-bar-wrap">
+                    <div class="prog-bar-label"><span>Progress</span><span style="color:#8b5cf6;">0%</span></div>
+                    <div class="prog-bar-track"><div class="prog-bar-fill" style="width:0%;background:#8b5cf6;"></div></div>
+                </div>
+                <span class="prog-sessions">Session 9 &nbsp;·&nbsp; Locked</span>
+            </div>
+            <div class="prog-card prog-locked">
+                <span class="prog-badge">&#128737;</span>
+                <span class="prog-level-num" style="color:#e53e3e;">L5</span>
+                <span class="prog-level-tag" style="background:rgba(229,62,62,.12);border:1px solid rgba(229,62,62,.3);color:#e53e3e;">Governance</span>
+                <span class="prog-level-name">Governance Engineer</span>
+                <span class="prog-level-desc">FinOps, tagging standards, multi-account governance, audit frameworks, compliance baselines.</span>
+                <div class="prog-bar-wrap">
+                    <div class="prog-bar-label"><span>Progress</span><span style="color:#e53e3e;">0%</span></div>
+                    <div class="prog-bar-track"><div class="prog-bar-fill" style="width:0%;background:#e53e3e;"></div></div>
+                </div>
+                <span class="prog-sessions">Sessions 10 – 11 &nbsp;·&nbsp; Locked</span>
+            </div>
+            <div class="prog-card prog-locked">
+                <span class="prog-badge">&#127941;</span>
+                <span class="prog-level-num" style="color:var(--gold);">L6</span>
+                <span class="prog-level-tag" style="background:rgba(212,175,55,.12);border:1px solid var(--gold-dim);color:var(--gold);">Elite</span>
+                <span class="prog-level-name">UCA Specialist</span>
+                <span class="prog-level-desc">Full programme completion. Certified AWS Cloud Practitioner path. Portfolio submitted. Architecture defended.</span>
+                <div class="prog-bar-wrap">
+                    <div class="prog-bar-label"><span>Progress</span><span style="color:var(--gold);">0%</span></div>
+                    <div class="prog-bar-track"><div class="prog-bar-fill" style="width:0%;background:var(--gold);"></div></div>
+                </div>
+                <span class="prog-sessions">Session 12 &nbsp;·&nbsp; Locked</span>
+            </div>
         </div>
     </div>
 
@@ -1876,6 +2453,211 @@
         </div>
     </div>
 
+    <!-- ══════════════════════════════
+         GOVERNANCE CENTER
+    ══════════════════════════════ -->
+    <div class="gov-section">
+        <div class="section-hdr">
+            <span class="section-hdr-label">◈ Governance Center</span>
+            <div class="section-hdr-line"></div>
+            <span class="section-hdr-count">Enterprise Methodology &nbsp;·&nbsp; Architect Mindset</span>
+        </div>
+        <div class="gov-grid">
+            <div class="gov-card">
+                <div class="gov-card-icon" style="background:rgba(212,175,55,.08);border:1px solid var(--gold-dim);">&#128737;</div>
+                <span class="gov-card-tag" style="background:rgba(212,175,55,.1);border:1px solid var(--gold-dim);color:var(--gold);">IAM Governance</span>
+                <div class="gov-card-title">Identity &amp; Access Control Standards</div>
+                <div class="gov-card-desc">Enterprise IAM is not about creating users. It is about enforcing least-privilege architecture across every AWS resource you touch.</div>
+                <div class="gov-principles">
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:var(--gold);"></div>Never use root credentials in production</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:var(--gold);"></div>Enforce MFA on all human identities</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:var(--gold);"></div>Use IAM roles, never long-term access keys</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:var(--gold);"></div>Audit permissions with AWS Access Analyzer</div>
+                </div>
+                <a href="https://aws.amazon.com/iam/features/analyze-access/" target="_blank" class="gov-card-link" style="background:rgba(212,175,55,.08);border:1px solid var(--gold-dim);color:var(--gold);">&#9670; AWS IAM Analyzer &#8594;</a>
+            </div>
+            <div class="gov-card">
+                <div class="gov-card-icon" style="background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);">&#128200;</div>
+                <span class="gov-card-tag" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#10b981;">FinOps</span>
+                <div class="gov-card-title">Cloud Cost Governance</div>
+                <div class="gov-card-desc">Cloud architects who cannot control spend are console operators. FinOps is the discipline of financial accountability in cloud environments.</div>
+                <div class="gov-principles">
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#10b981;"></div>Tag every resource with cost center, env, owner</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#10b981;"></div>Set budget alerts at 50%, 80%, 100% thresholds</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#10b981;"></div>Right-size instances monthly using Cost Explorer</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#10b981;"></div>Use Reserved Instances for predictable workloads</div>
+                </div>
+                <a href="https://aws.amazon.com/aws-cost-management/" target="_blank" class="gov-card-link" style="background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);color:#10b981;">&#9670; AWS Cost Management &#8594;</a>
+            </div>
+            <div class="gov-card">
+                <div class="gov-card-icon" style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);">&#127991;</div>
+                <span class="gov-card-tag" style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:#3b82f6;">Tagging Standards</span>
+                <div class="gov-card-title">Resource Tagging Architecture</div>
+                <div class="gov-card-desc">Untagged resources are invisible infrastructure. Every enterprise cloud environment requires a mandatory tagging policy enforced at deployment.</div>
+                <div class="gov-principles">
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#3b82f6;"></div>Environment: dev / staging / prod</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#3b82f6;"></div>Owner: team or individual responsible</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#3b82f6;"></div>CostCenter: linked to budget allocation</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#3b82f6;"></div>Project: business initiative identifier</div>
+                </div>
+                <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html" target="_blank" class="gov-card-link" style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);color:#3b82f6;">&#9670; AWS Tagging Best Practices &#8594;</a>
+            </div>
+            <div class="gov-card">
+                <div class="gov-card-icon" style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);">&#128218;</div>
+                <span class="gov-card-tag" style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#f59e0b;">Multi-Account</span>
+                <div class="gov-card-title">Multi-Account Governance</div>
+                <div class="gov-card-desc">A single AWS account is a governance anti-pattern. Enterprise architectures use AWS Organizations to enforce policy boundaries across accounts.</div>
+                <div class="gov-principles">
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#f59e0b;"></div>Separate accounts: dev, staging, prod, security</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#f59e0b;"></div>Use SCPs to enforce guardrails org-wide</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#f59e0b;"></div>Centralize logging in a dedicated log archive account</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#f59e0b;"></div>Apply AWS Control Tower for landing zone governance</div>
+                </div>
+                <a href="https://aws.amazon.com/organizations/" target="_blank" class="gov-card-link" style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);color:#f59e0b;">&#9670; AWS Organizations &#8594;</a>
+            </div>
+            <div class="gov-card">
+                <div class="gov-card-icon" style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.3);">&#128274;</div>
+                <span class="gov-card-tag" style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3);color:#8b5cf6;">Security Baseline</span>
+                <div class="gov-card-title">Security Posture Standards</div>
+                <div class="gov-card-desc">Security is not a feature. It is an operational baseline. Every deployment must meet a minimum security posture before it is considered production-ready.</div>
+                <div class="gov-principles">
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#8b5cf6;"></div>Enable AWS CloudTrail in all regions</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#8b5cf6;"></div>Enable GuardDuty for threat detection</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#8b5cf6;"></div>Block all public S3 access by default</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#8b5cf6;"></div>Enable Security Hub for compliance scoring</div>
+                </div>
+                <a href="https://aws.amazon.com/security-hub/" target="_blank" class="gov-card-link" style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.3);color:#8b5cf6;">&#9670; AWS Security Hub &#8594;</a>
+            </div>
+            <div class="gov-card">
+                <div class="gov-card-icon" style="background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.3);">&#128101;</div>
+                <span class="gov-card-tag" style="background:rgba(229,62,62,.1);border:1px solid rgba(229,62,62,.3);color:#e53e3e;">Operational Resilience</span>
+                <div class="gov-card-title">Resilience &amp; Audit Thinking</div>
+                <div class="gov-card-desc">Architects design for failure. Resilience is the ability to detect, respond, and recover from infrastructure events without business interruption.</div>
+                <div class="gov-principles">
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#e53e3e;"></div>Design for multi-AZ by default, multi-region for DR</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#e53e3e;"></div>Define RTO and RPO for every critical workload</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#e53e3e;"></div>Test recovery procedures — not just backup existence</div>
+                    <div class="gov-principle"><div class="gov-pr-dot" style="background:#e53e3e;"></div>Conduct quarterly architecture reviews</div>
+                </div>
+                <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" class="gov-card-link" style="background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.3);color:#e53e3e;">&#9670; Well-Architected Framework &#8594;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         ARCHITECTURE VAULT
+    ══════════════════════════════ -->
+    <div class="vault-section">
+        <div class="section-hdr">
+            <span class="section-hdr-label">◈ Architecture Vault</span>
+            <div class="section-hdr-line"></div>
+            <span class="section-hdr-count">L3 Clearance Required &nbsp;·&nbsp; PIN: ARCH9900</span>
+        </div>
+        <div class="arch-vault-grid">
+            <div class="av-card" onclick="vaultOpen('#','Enterprise VPC Blueprint','L3')">
+                <span class="av-lock-badge">&#128274; L3 Required</span>
+                <span class="av-icon">&#127760;</span>
+                <div class="av-title">Enterprise VPC Blueprint</div>
+                <div class="av-desc">Multi-tier VPC with public/private subnets, NAT gateways, Transit Gateway, and flow logs. Production-ready architecture diagram.</div>
+                <div class="av-unlock-hint">&#9670; Unlock with ARCH9900</div>
+            </div>
+            <div class="av-card" onclick="vaultOpen('#','Terraform Governance Module','L3')">
+                <span class="av-lock-badge">&#128274; L3 Required</span>
+                <span class="av-icon">&#9881;</span>
+                <div class="av-title">Terraform Governance Module</div>
+                <div class="av-desc">Pre-built Terraform modules enforcing tagging standards, IAM boundaries, S3 encryption, and CloudTrail activation at deployment.</div>
+                <div class="av-unlock-hint">&#9670; Unlock with ARCH9900</div>
+            </div>
+            <div class="av-card" onclick="vaultOpen('#','Multi-Account Landing Zone','L3')">
+                <span class="av-lock-badge">&#128274; L3 Required</span>
+                <span class="av-icon">&#127963;</span>
+                <div class="av-title">Multi-Account Landing Zone</div>
+                <div class="av-desc">AWS Control Tower architecture with account vending, SCP guardrails, centralized logging, and Security Hub aggregation across all OUs.</div>
+                <div class="av-unlock-hint">&#9670; Unlock with ARCH9900</div>
+            </div>
+            <div class="av-card" onclick="vaultOpen('#','FinTech DR Architecture','L3')">
+                <span class="av-lock-badge">&#128274; L3 Required</span>
+                <span class="av-icon">&#128200;</span>
+                <div class="av-title">FinTech DR Architecture</div>
+                <div class="av-desc">Disaster recovery architecture for a financial workload: active-passive multi-region, RTO &lt;15min, RPO &lt;1min, compliance-mapped.</div>
+                <div class="av-unlock-hint">&#9670; Unlock with ARCH9900</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         REAL-WORLD SIMULATION ENGINE
+    ══════════════════════════════ -->
+    <div class="sim-banner">
+        <div>
+            <div class="sim-eyebrow">◈ Real-World Simulation Engine &nbsp;·&nbsp; Coming Soon</div>
+            <h2 class="sim-title">You Are The <span>Architect</span></h2>
+            <p class="sim-desc">Move beyond launching EC2 instances. In the Simulation Engine, you operate live infrastructure scenarios as a working cloud architect. You make scaling decisions, justify cost strategy, defend security posture, and document your architecture under real-world constraints.</p>
+            <div class="sim-scenarios">
+                <span class="sim-tag">FinTech Peak Traffic</span>
+                <span class="sim-tag">Multi-Region Failover</span>
+                <span class="sim-tag">Security Incident Response</span>
+                <span class="sim-tag">Cost Optimization Audit</span>
+                <span class="sim-tag">IAM Breach Remediation</span>
+                <span class="sim-tag">S3 Data Governance</span>
+            </div>
+        </div>
+        <a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20early%20access%20to%20the%20UCA%20Simulation%20Engine" target="_blank" class="sim-cta">
+            &#9670; &nbsp; Request Early Access
+        </a>
+    </div>
+
+    <!-- ══════════════════════════════
+         SUCCESS SHOWCASE
+    ══════════════════════════════ -->
+    <div class="showcase-section">
+        <div class="section-hdr">
+            <span class="section-hdr-label">◈ Student Success Showcase</span>
+            <div class="section-hdr-line"></div>
+            <span class="section-hdr-count">Real Students &nbsp;·&nbsp; Real Results</span>
+        </div>
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <div class="sc-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">TM</div>
+                <div>
+                    <div class="sc-name">Thembi Makamu</div>
+                    <div class="sc-role">GitHub Mentor &nbsp;·&nbsp; Cohort 17</div>
+                </div>
+                <div class="sc-quote">The governance methodology changed how I think about infrastructure. I no longer just click — I architect.</div>
+                <div class="sc-badges">
+                    <span class="sc-badge gold">&#127941; L2 Certified</span>
+                    <span class="sc-badge">GitHub Portfolio</span>
+                    <span class="sc-badge">IAM Specialist</span>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="sc-avatar" style="background:linear-gradient(135deg,#10b981,#065f46);">YS</div>
+                <div>
+                    <div class="sc-name">Your Story Here</div>
+                    <div class="sc-role">Future Cohort 17 Graduate</div>
+                </div>
+                <div class="sc-quote">Complete the programme, submit your GitHub portfolio, earn your certification, and your story will be showcased here for the next cohort to see.</div>
+                <div class="sc-badges">
+                    <span class="sc-badge">Portfolio Pending</span>
+                    <span class="sc-badge">In Progress</span>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="sc-avatar" style="background:linear-gradient(135deg,var(--gold-dim),var(--gold));">MZ</div>
+                <div>
+                    <div class="sc-name">Mthulisi Zulu</div>
+                    <div class="sc-role">Lead Architect &nbsp;·&nbsp; Instructor</div>
+                </div>
+                <div class="sc-quote">I built this academy because I believe Africa produces world-class cloud architects. This programme is the proof of that belief.</div>
+                <div class="sc-badges">
+                    <span class="sc-badge gold">&#9733; Lead Architect</span>
+                    <span class="sc-badge gold">AWS Practitioner</span>
+                    <span class="sc-badge">Cloud Governance</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- COHORT BANNER -->
     <div class="cohort-banner">
         <p class="co-eyebrow">◈ Now Enrolling &nbsp;·&nbsp; Limited Seats</p>
@@ -2102,6 +2884,26 @@ document.getElementById("vaultOverlay").addEventListener("click",function(e){if(
 
         sendBtn.disabled = false;
         msgs.scrollTop = msgs.scrollHeight;
+    }
+    </script>
+
+
+    <script>
+    // Student Operations Dashboard
+    const OPS_SESSION_DATA = {
+        1: { comp: 100, cert: 55, label: "S1 Complete", objectives: ["Review Cloud Foundations notes","Revisit Shared Responsibility model","Confirm S1 mock exam score","Push S1 lab to GitHub","Read AWS Global Infra docs"] },
+        2: { comp: 100, cert: 60, label: "S2 Complete", objectives: ["Review Shared Responsibility PDF","Complete S2 mock exam","Push lab evidence to GitHub repo","Read AWS Compliance docs","Prepare S3 IAM questions"] },
+        3: { comp: 100, cert: 70, label: "S3 Complete", objectives: ["Master IAM policies vs roles","Complete IAM Mock Exam (target ≥75%)","Build IAM lab in GitHub","Enable MFA on your AWS account","Review AWS IAM Analyzer"] },
+        4: { comp: 42,  cert: 38, label: "S4 In Progress", objectives: ["Complete S4 Compute Layer slides & lab","Attempt S4 Mock Exam (target ≥70%)","Document EC2 setup in GitHub README","Begin S5 Storage slides","Review AWS EC2 official documentation"] },
+        5: { comp: 25,  cert: 30, label: "S5 Unlocked",   objectives: ["Open S5 slide deck","Complete S5 GitHub lab","Take S5 Mock Exam","Document S3 bucket creation","Review AWS S3 Getting Started"] },
+    };
+    function opsSwitchSession(sn) {
+        const d = OPS_SESSION_DATA[parseInt(sn)] || OPS_SESSION_DATA[4];
+        document.getElementById("opsCompletion").textContent = d.comp + "%";
+        document.getElementById("opsCompletionBar").style.width = d.comp + "%";
+        document.getElementById("opsCertReady").textContent = d.cert + "%";
+        document.getElementById("opsCertBar").style.width = d.cert + "%";
+        document.getElementById("opsCertMsg").textContent = d.cert >= 70 ? "On track for certification" : "Complete mocks to increase";
     }
     </script>
 
