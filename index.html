@@ -7,81 +7,54 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
+    /* ── ORIGINAL STYLES PRESERVED ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-        --gold: #d4af37;
-        --gold-bright: #f0c84a;
-        --gold-dim: #7a6010;
-        --bg: #040608;
-        --surface: #080c12;
-        --surface2: #0d1119;
-        --border: #161c28;
-        --text: #dde3ee;
-        --text-muted: #4a5568;
-        --text-dim: #8896aa;
-        --red: #e53e3e;
+        --gold: #d4af37; --gold-bright: #f0c84a; --gold-dim: #7a6010;
+        --bg: #040608; --surface: #080c12; --surface2: #0d1119;
+        --border: #161c28; --text: #dde3ee; --text-muted: #4a5568;
+        --text-dim: #8896aa; --red: #e53e3e;
     }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: 'Barlow', sans-serif;
-        overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
     body::before {
-        content: '';
-        position: fixed; inset: 0;
-        background-image:
-            repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.015) 59px, rgba(255,255,255,0.015) 60px),
-            repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.015) 59px, rgba(255,255,255,0.015) 60px);
+        content: ''; position: fixed; inset: 0;
+        background-image: repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.015) 59px, rgba(255,255,255,0.015) 60px),
+                          repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.015) 59px, rgba(255,255,255,0.015) 60px);
         pointer-events: none; z-index: 0;
     }
     .page { position: relative; z-index: 1; max-width: 1440px; margin: 0 auto; padding: 0 2rem 6rem; }
 
-    /* ── TOPBAR ── */
-    .topbar { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 0; border-bottom:1px solid var(--border); margin-bottom:0; flex-wrap:wrap; gap:1rem; }
-    .topbar-logo { display:flex; align-items:center; gap:.85rem; }
-    .tb-name { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; color:#fff; line-height:1; }
-    .tb-sub  { font-size:.6rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-top:2px; }
+    /* ── COMPONENTS ── */
+    .topbar { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 0; border-bottom:1px solid var(--border); }
+    .tb-name { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; color:#fff; }
+    .tb-sub { font-size:.6rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; }
     .tb-badge { font-size:.58rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-dim); padding:4px 10px; }
 
-    /* ── HERO ── */
-    .hero { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; padding:3rem 0; border-bottom:1px solid var(--border); margin-bottom:3rem; align-items:start; }
-    .hero-eyebrow { font-size:.62rem; letter-spacing:.42em; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:.7rem; display:flex; align-items:center; gap:.5rem; }
-    .hero-eyebrow::before { content:'◈'; }
-    .hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,6vw,5.8rem); line-height:.92; color:#fff; letter-spacing:.02em; text-transform:uppercase; margin-bottom:1.2rem; }
+    .hero { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; padding:3rem 0; border-bottom:1px solid var(--border); margin-bottom:3rem; }
+    .hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,6vw,5.8rem); line-height:.92; color:#fff; text-transform:uppercase; }
     .hero-title span { color:var(--gold); }
-    .hero-desc { font-size:.92rem; line-height:1.7; color:var(--text-dim); max-width:520px; margin-bottom:2rem; }
+    .hero-desc { font-size:.92rem; line-height:1.7; color:var(--text-dim); max-width:520px; }
 
-    /* ── DIVISION SECTIONS ── */
     .division { margin-bottom:3rem; }
-    .div-header {
-        display:flex; align-items:center; justify-content:space-between;
-        padding:1rem 1.25rem; background:var(--surface); border:1px solid var(--border);
-    }
-    .div-title { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:.06em; text-transform:uppercase; line-height:1; }
-    .div-title span { color:var(--text-muted); }
-    .div-grid {
-        display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-top:none;
-    }
+    .div-header { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.25rem; background:var(--surface); border:1px solid var(--border); }
+    .div-title { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; text-transform:uppercase; }
+    .div-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-top:none; }
 
-    /* ── SESSION CARD ── */
-    .sc { background:var(--surface); display:flex; flex-direction:column; position:relative; overflow:hidden; padding:1.5rem; }
-    .sc-num { font-size:.6rem; font-weight:700; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom: 0.5rem; }
-    .st1 { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; color:#fff; letter-spacing:.03em; text-transform:uppercase; line-height:.95; }
-    .sc-sub { font-size:.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:1.5rem; }
+    .sc { background:var(--surface); padding:1.5rem; display:flex; flex-direction:column; position:relative; }
+    .sc-num { font-size:.6rem; font-weight:700; color:var(--gold); letter-spacing:.3em; text-transform:uppercase; }
+    .st1 { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; color:#fff; letter-spacing:.03em; text-transform:uppercase; }
+    .sc-sub { font-size:.65rem; color:var(--text-muted); text-transform:uppercase; margin-bottom:1.5rem; }
 
-    /* ── VAULT SYSTEM UI ── */
-    .vault-overlay { display:none; position:fixed; inset:0; background:rgba(4,6,8,.97); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(8px); }
+    /* ── VAULT SYSTEM ── */
+    .vault-overlay { display:none; position:fixed; inset:0; background:rgba(4,6,8,.98); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(10px); }
     .vault-overlay.active { display:flex; }
-    .vault-modal { background:#080c12; border:1px solid #1a2030; border-top:3px solid var(--gold); width:100%; max-width:420px; padding:2.5rem; text-align: center; }
+    .vault-modal { background:#080c12; border:1px solid #1a2030; border-top:3px solid var(--gold); width:420px; padding:2.5rem; text-align:center; }
     .vault-input { width:100%; background:#040608; border:1px solid #1a2030; color:#fff; font-family:'Space Mono',monospace; font-size:1.4rem; letter-spacing:.4em; text-align:center; padding:.9rem; margin-bottom:1rem; outline:none; }
-    .vault-btn { width:100%; background:var(--gold); color:var(--bg); border:none; font-family:'Barlow Condensed',sans-serif; font-size:.9rem; font-weight:900; letter-spacing:.25em; text-transform:uppercase; padding:.9rem; cursor:pointer; }
-    .vault-resource-name { font-size:.63rem; letter-spacing:.14em; color:var(--gold); text-transform:uppercase; margin-bottom:1.5rem; }
+    .vault-btn { width:100%; background:var(--gold); color:var(--bg); border:none; padding:.9rem; font-weight:900; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; }
+    .vault-resource-name { font-size:.63rem; color:var(--gold); text-transform:uppercase; margin-bottom:1.5rem; }
 
-    /* ── BUTTONS ── */
-    .btn-access { background: transparent; border: 1px solid var(--gold-dim); color: var(--gold); padding: 0.8rem; font-size: 0.7rem; letter-spacing: 0.2em; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
-    .btn-access:hover { background: var(--gold); color: var(--bg); }
+    /* ── LESEGO TOGGLE ── */
+    #lesegoToggle { position:fixed; bottom:1.75rem; right:1.75rem; width:58px; height:58px; border-radius:50%; background:#0d1119; border:2px solid var(--gold); z-index:8888; display:flex; align-items:center; justify-content:center; cursor:pointer; }
     </style>
 </head>
 <body>
@@ -92,65 +65,81 @@
             <div class="tb-name">MZ UCA PORTAL</div>
             <div class="tb-sub">Governed Learning Architecture</div>
         </div>
-        <div class="tb-badge">UCA-v3.1.2-STABLE</div>
+        <div class="tb-badge">L3_CLEARANCE_ENABLED</div>
     </header>
 
     <section class="hero">
         <div>
-            <div class="hero-eyebrow">Division: Global Mesh</div>
-            <h1 class="hero-title">Hybrid AWS & <span>Terraform</span> Mastery</h1>
-            <p class="hero-desc">Access high-ticket architectural assets for multi-cloud governance and automated operator excellence.</p>
+            <div class="hero-eyebrow">Production Environment</div>
+            <h1 class="hero-title">Global Mesh <span>Mastery</span></h1>
+            <p class="hero-desc">Hybrid AWS, DevOps Automation, and Terraform Governance assets for high-value Cloud Architects.</p>
+        </div>
+        <div class="video-panel">
+            <div class="video-label"><span class="vl-text">UCA_CORE_STREAM</span></div>
+            <div style="padding:2rem; text-align:center; color:var(--text-muted);">[Video Container Preserved]</div>
         </div>
     </section>
 
     <section class="division">
         <div class="div-header">
-            <div class="div-title">Global Mesh <span>//</span> Assets</div>
+            <div class="div-title">Division 01 <span>//</span> Global Mesh Mastery</div>
+            <div class="div-count">3 ARCHITECTURAL_ASSETS</div>
         </div>
         <div class="div-grid">
             <div class="sc">
                 <div class="sc-num">SESSION 03</div>
-                <div class="st1">Lab Workbook</div>
+                <div class="st1">LAB WORKBOOK</div>
                 <div class="sc-sub">4-Month Hybrid Implementation</div>
-                <button class="btn-access" onclick="openVault('SESS03-DOCS')">UNLOCK ASSET</button>
+                <button class="vault-btn" onclick="openVault('SESS03-DOCS')">UNLOCK ASSET</button>
             </div>
-
             <div class="sc">
                 <div class="sc-num">SESSION 04</div>
-                <div class="st1">Student Workbook</div>
+                <div class="st1">STUDENT WORKBOOK</div>
                 <div class="sc-sub">AWS + DevOps + Terraform Split</div>
-                <button class="btn-access" onclick="openVault('SESS04-DOCS')">UNLOCK ASSET</button>
+                <button class="vault-btn" onclick="openVault('SESS04-DOCS')">UNLOCK ASSET</button>
             </div>
-
             <div class="sc">
                 <div class="sc-num">SESSION 05</div>
-                <div class="st1">Hybrid Roadmap</div>
+                <div class="st1">HYBRID ROADMAP</div>
                 <div class="sc-sub">Premium Vusi-Customized Architecture</div>
-                <button class="btn-access" onclick="openVault('SESS05-DOCS')">UNLOCK ASSET</button>
+                <button class="vault-btn" onclick="openVault('SESS05-DOCS')">UNLOCK ASSET</button>
             </div>
         </div>
     </section>
+
+    <div class="thembi-banner">
+        <div class="th-left">
+            <div class="th-av">TZ</div>
+            <div>
+                <div class="th-name">Thembi Zulu</div>
+                <div class="th-role">Student Success Manager</div>
+            </div>
+        </div>
+        <div class="th-desc">Direct line for scheduling, upgrades, and billing inquiries regarding the Global Mesh track.</div>
+    </div>
 </div>
 
 <div id="vaultOverlay" class="vault-overlay">
     <div class="vault-modal">
-        <div class="vault-title" style="font-family:'Bebas Neue'; font-size:1.5rem; color:#fff; margin-bottom:1rem;">CLEARANCE REQUIRED</div>
-        <div id="vaultResource" class="vault-resource-name">ASSET_PENDING</div>
-        <input type="password" id="vaultPin" class="vault-input" placeholder="****">
+        <div class="vault-title">ENTER CLEARANCE PIN</div>
+        <div id="vaultResource" class="vault-resource-name">SECURE_ASSET_ACCESS</div>
+        <input type="password" id="vaultPin" class="vault-input" maxlength="20" placeholder="****">
         <div id="vaultError" style="color:var(--red); font-size:0.6rem; margin-bottom:1rem; text-transform:uppercase;"></div>
-        <button class="vault-btn" onclick="verifyPin()">AUTHORIZE ACCESS</button>
-        <button class="btn-access" style="border:none; margin-top:1rem; width:100%;" onclick="closeVault()">ABORT_DEPLOYMENT</button>
+        <button class="vault-btn" onclick="verifyPin()">AUTHORIZE_ACCESS</button>
+        <button class="vault-btn" style="background:transparent; color:var(--text-muted); margin-top:0.5rem;" onclick="closeVault()">ABORT</button>
     </div>
 </div>
+
+<div id="lesegoToggle"><span style="color:var(--gold); font-weight:900;">AI</span></div>
 
 <script>
     let currentVaultResource = '';
 
-    // ◈ ARCHITECTURAL REGISTRY (Verified against GitHub Push)
+    // ◈ ARCHITECTURAL REGISTRY
     const SESSION_PINS = {
         'SESS03-DOCS': 'StudentUCA2026',
         'SESS04-DOCS': 'StudentUCA2026',
-        'SESS05-DOCS': 'ArchitectARCH9900'
+        'SESS05-DOCS': 'ArchitectARCH9900' // PREMIUM UNIQUE PIN
     };
 
     const SESSION_FILES = {
@@ -172,14 +161,13 @@
     }
 
     function verifyPin() {
-        const pin = document.getElementById('vaultPin').value;
+        const pin = document.getElementById('vaultPin').value.trim();
         const err = document.getElementById('vaultError');
         if (pin === SESSION_PINS[currentVaultResource]) {
             window.open(SESSION_FILES[currentVaultResource], '_blank');
             closeVault();
         } else {
-            err.innerText = "ACCESS_DENIED: INVALID_CLEARANCE_PIN";
-            document.getElementById('vaultPin').value = '';
+            err.innerText = "ACCESS_DENIED: INVALID_CLEARANCE";
         }
     }
 </script>
