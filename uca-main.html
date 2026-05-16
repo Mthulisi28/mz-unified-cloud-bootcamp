@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UCA Roadmap | Mthulisi Zulu</title>
     <style>
         :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
@@ -11,42 +12,58 @@
         main { display: flex; flex: 1; overflow: hidden; }
         #sidebar { width: 300px; background: #111827; padding: 20px; border-right: 1px solid #334155; overflow-y: auto; }
         #content { flex: 1; padding: 40px; overflow-y: auto; }
-        .session-btn { display: block; width: 100%; padding: 15px; margin-bottom: 10px; background: var(--card); color: white; border: none; text-align: left; cursor: pointer; border-radius: 8px; border: 1px solid transparent; }
+        .session-btn { display: block; width: 100%; padding: 15px; margin-bottom: 10px; background: var(--card); color: white; border: 1px solid #334155; text-align: left; cursor: pointer; border-radius: 8px; font-weight: 500; transition: all 0.2s ease; }
+        .session-btn:hover { background: #2d3748; border-color: var(--primary); }
         .session-btn.active { border-color: var(--primary); background: #2d3748; font-weight: bold; }
         .session-btn:disabled { opacity: 0.3; cursor: not-allowed; }
         .uca-card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; }
-        .action-btn { padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; border: none; color: white; text-decoration: none; display: inline-block; }
+        .action-btn { padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; border: none; color: white; text-decoration: none; display: inline-block; transition: all 0.3s ease; }
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .action-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        h1 { margin: 0 0 20px 0; font-size: 2rem; }
+        h3 { margin: 0 0 15px 0; color: var(--primary); }
+        pre { color: #94a3b8; font-family: inherit; white-space: pre-wrap; margin: 0; }
     </style>
 </head>
 <body>
     <header>
-        <div><img src="assets/mz-logo.png" style="height:40px;" onerror="this.style.display='none'"> <strong>UCA BOOTCAMP</strong></div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="assets/mz-logo.png" style="height:40px;" alt="Logo" onerror="this.style.display='none'">
+            <strong>UCA ROADMAP</strong>
+        </div>
         <div style="display:flex; align-items:center; gap:12px;">
-            <div style="text-align:right;"><small>Instructor</small><br><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
-            <img src="assets/mthulisi.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
+            <div style="text-align:right;">
+                <small>Instructor</small><br>
+                <strong>Mthulisi Zulu</strong><br>
+                <small style="color:var(--primary)">Cloud Governance Architect</small>
+            </div>
+            <img src="assets/mthulisi.jpg" class="profile-img" alt="Profile" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
         </div>
     </header>
     <main>
         <div id="sidebar"><div id="sessionList"></div></div>
         <div id="content">
-            <h1 id="sessionTitle">Initializing UCA...</h1>
-            <p id="overview"></p>
-            <div class="uca-card"><h3>Lab Outcomes</h3><pre id="outcomes" style="color:#94a3b8; font-family:inherit; white-space:pre-wrap;"></pre></div>
+            <h1 id="sessionTitle">Loading UCA Roadmap...</h1>
+            <p id="overview" style="font-size:1.1rem; opacity:0.8;"></p>
+            <div class="uca-card">
+                <h3>Lab Outcomes</h3>
+                <pre id="outcomes">Loading outcomes...</pre>
+            </div>
             <div id="pdfArea" style="margin-bottom:20px;"></div>
-            <div style="display:flex; gap:15px;">
+            <div style="display:flex; gap:15px; flex-wrap:wrap;">
                 <button id="awsLink" class="action-btn" style="background:var(--primary)">Lab Docs</button>
                 <button id="completeBtn" class="action-btn" style="background:#10b981">Complete & Unlock</button>
             </div>
-            <p style="margin-top:50px; opacity:0.5; font-size:0.8rem;">© 2022 Mthulisi Zulu. Global Cloud Business Operations.</p>
+            <p style="margin-top:50px; opacity:0.5; font-size:0.8rem;">© 2026 Mthulisi Zulu. Enterprise Cloud Governance Platform.</p>
         </div>
     </main>
 
     <script>
         const sessions = [
-            { id: 1, title: "Session 1: Foundations", overview: "AWS Global Infrastructure & High Availability.", outcomes: "✔ AZ Isolation\n✔ Region Selection Strategy", aws: "sessions/session-1-cloud-foundations.html", pdf: "assets/session1.pdf" },
-            { id: 2, title: "Session 2: IAM Governance", overview: "Identity as the Perimeter.", outcomes: "✔ Least Privilege\n✔ Role-Based Access", aws: "sessions/session-2-iam.html", pdf: "assets/session2.pdf" },
-            { id: 3, title: "Session 3: Shared Responsibility", overview: "Defining Architect Boundaries.", outcomes: "✔ Security OF vs IN the Cloud", aws: "sessions/session-3-shared-responsibility.html", pdf: "assets/session3.pdf" },
-            { id: 4, title: "Session 4: VPC Networking", overview: "Global Network Mesh.", outcomes: "✔ VPC Peering\n✔ Transit Gateway", aws: "sessions/session-4-vpc-networking.html", pdf: "assets/session4.pdf" }
+            { id: 1, title: "Session 1: Foundations", overview: "AWS Global Infrastructure & High Availability.", outcomes: "✔ AZ Isolation\n✔ Region Selection Strategy\n✔ Availability Concepts", aws: "sessions/session-1-cloud-foundations.html", pdf: null },
+            { id: 2, title: "Session 2: IAM Governance", overview: "Identity as the Perimeter.", outcomes: "✔ Least Privilege\n✔ Role-Based Access\n✔ Policy Management", aws: "sessions/session-2-iam.html", pdf: null },
+            { id: 3, title: "Session 3: Shared Responsibility", overview: "Defining Architect Boundaries.", outcomes: "✔ Security OF vs IN the Cloud\n✔ Compliance Mapping\n✔ Audit Strategy", aws: "sessions/session-3-shared-responsibility.html", pdf: null },
+            { id: 4, title: "Session 4: VPC Networking", overview: "Global Network Mesh.", outcomes: "✔ VPC Peering\n✔ Transit Gateway\n✔ Security Groups", aws: "sessions/session-4-vpc-networking.html", pdf: null }
         ];
 
         let progress = JSON.parse(localStorage.getItem('uca_p')) || [1];
@@ -72,23 +89,34 @@
             document.getElementById('sessionTitle').innerText = s.title;
             document.getElementById('overview').innerText = s.overview;
             document.getElementById('outcomes').innerText = s.outcomes;
-            document.getElementById('awsLink').onclick = () => window.open(s.aws, '_blank');
+            document.getElementById('awsLink').onclick = () => {
+                if (s.aws) {
+                    window.open(s.aws, '_blank');
+                } else {
+                    alert('Lab session not yet available. Please check back soon.');
+                }
+            };
             
             const pdfArea = document.getElementById('pdfArea');
-            pdfArea.innerHTML = s.pdf ? <a href="\" target="_blank" style="color:var(--primary); text-decoration:none;">📥 Download Session Playbook</a> : '';
+            if (s.pdf) {
+                pdfArea.innerHTML = `<a href="${s.pdf}" target="_blank" style="color:var(--primary); text-decoration:none; font-weight:bold;">📥 Download Session Playbook</a>`;
+            } else {
+                pdfArea.innerHTML = '<p style="color:#94a3b8; font-size:0.9rem;">📄 Session playbook coming soon</p>';
+            }
             
             document.getElementById('completeBtn').onclick = () => {
                 if (!progress.includes(s.id)) progress.push(s.id);
                 localStorage.setItem('uca_p', JSON.stringify(progress));
                 const next = sessions.find(x => x.id == s.id + 1);
                 if (next) render(next.id);
+                else alert('🎉 All sessions completed! Congratulations on completing the UCA Roadmap!');
                 renderSidebar();
             };
             renderSidebar();
         }
 
         window.onload = () => {
-            console.log("UCA Engine Started.");
+            console.log('UCA Roadmap Engine Started');
             render(localStorage.getItem('uca_last') || 1);
         };
     </script>
