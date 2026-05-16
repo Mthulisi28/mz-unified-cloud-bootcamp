@@ -2,99 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UCA BOOTCAMP | MTHULISI ZULU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCA Bootcamp</title>
     <style>
-        :root { --primary: #3b82f6; --bg: #030712; --card: #111827; --text: #f9fafb; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
-        header { height: 80px; background: var(--card); border-bottom: 2px solid #1f2937; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
-        .p-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
-        main { display: flex; flex: 1; overflow: hidden; }
-        #sidebar { width: 320px; background: #000; border-right: 1px solid #1f2937; padding: 25px; overflow-y: auto; }
-        #content { flex: 1; padding: 60px; overflow-y: auto; }
-        .btn { display: block; width: 100%; padding: 18px; margin-bottom: 12px; background: #1f2937; color: #fff; border: 1px solid transparent; text-align: left; cursor: pointer; border-radius: 8px; font-weight: 500; transition: all 0.2s ease; }
-        .btn:hover { background: #2d3748; border-color: var(--primary); }
-        .btn.active { border-color: var(--primary); background: #1e3a8a; }
-        .btn:disabled { opacity: 0.2; cursor: not-allowed; }
-        .card { background: #111827; padding: 30px; border-radius: 12px; border: 1px solid #374151; }
-        .action { padding: 16px 32px; border-radius: 8px; font-weight: 800; cursor: pointer; border: none; color: white; background: var(--primary); text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
-        .action:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); }
-        .action:disabled { opacity: 0.5; cursor: not-allowed; }
-        h1 { font-size: 2.5rem; margin: 0 0 20px 0; }
-        h4 { margin: 0; }
-        pre { margin: 0; }
-        p { margin: 15px 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0e27; color: #fff; font-family: Arial, sans-serif; height: 100vh; display: flex; }
+        .sidebar { width: 300px; background: #0f1229; border-right: 1px solid #333; padding: 20px; overflow-y: auto; }
+        .content { flex: 1; padding: 30px; overflow-y: auto; }
+        .session-btn { width: 100%; padding: 15px; margin: 10px 0; background: #1a2341; color: #fff; border: 1px solid #333; border-radius: 6px; cursor: pointer; text-align: left; transition: all 0.2s; }
+        .session-btn:hover { background: #243456; }
+        .session-btn.active { background: #3b82f6; border-color: #3b82f6; }
+        .session-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .card { background: #1a2341; padding: 20px; border-radius: 6px; margin: 20px 0; border: 1px solid #333; }
+        .btn { padding: 12px 24px; margin: 5px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; color: #fff; }
+        .btn-primary { background: #3b82f6; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-success { background: #059669; }
+        .btn-success:hover { background: #047857; }
+        h1 { margin: 20px 0; font-size: 2rem; }
+        h3 { margin: 15px 0 10px 0; color: #3b82f6; }
+        pre { background: #0f1229; padding: 15px; border-radius: 6px; overflow-x: auto; white-space: pre-wrap; }
     </style>
 </head>
 <body>
-    <header>
-        <div style="font-size:1.5rem; font-weight:900;">UCA <span style="color:var(--primary)">BOOTCAMP</span></div>
-        <div style="display:flex; align-items:center; gap:15px; text-align:right;">
-            <div><strong>Mthulisi Zulu</strong><br><small style="color:var(--primary)">Cloud Governance Architect</small></div>
-            <img src="assets/mthulisi.jpg" class="p-img" alt="Profile" onerror="this.src='https://via.placeholder.com/50?text=MZ'">
+    <div class="sidebar">
+        <h3 style="margin-top: 0;">Sessions</h3>
+        <div id="sessionList"></div>
+    </div>
+
+    <div class="content">
+        <h1 id="title">Loading...</h1>
+        <p id="overview" style="font-size: 1.1rem; color: #aaa; margin: 15px 0;"></p>
+        <div class="card">
+            <h3>Outcomes</h3>
+            <pre id="outcomes">Loading...</pre>
         </div>
-    </header>
-    <main>
-        <div id="sidebar"><div id="sList"></div></div>
-        <div id="content">
-            <h1 id="sTitle">BOOTCAMP SESSIONS</h1>
-            <p id="sOver" style="font-size:1.2rem; opacity:0.7;">Select a session to begin</p>
-            <div class="card">
-                <h4 style="margin:0 0 15px 0; color:var(--primary)">STRATEGIC OUTCOMES</h4>
-                <pre id="sOut" style="white-space:pre-wrap; font-family:inherit; margin:0; line-height:1.6;">Loading outcomes...</pre>
-            </div>
-            <div style="margin-top:30px; display:flex; gap:20px; flex-wrap:wrap;">
-                <button id="lLink" class="action">Access Lab</button>
-                <button id="cBtn" class="action" style="background:#059669">Complete Session</button>
-            </div>
-            <p style="margin-top:60px; opacity:0.3; font-size:0.8rem;">© 2026 Mthulisi Zulu | Enterprise Cloud Governance | UCA-v2.0</p>
+        <div>
+            <button class="btn btn-primary" onclick="accessLab()">Access Lab</button>
+            <button class="btn btn-success" onclick="complete()">Complete Session</button>
         </div>
-    </main>
+        <p style="margin-top: 40px; color: #666; font-size: 0.9rem;">© 2026 Mthulisi Zulu | UCA Bootcamp v2.0</p>
+    </div>
+
     <script>
-        const data = [
-            { id: 1, t: "Session 1: Foundations", o: "AWS Global Infrastructure & Isolation.", c: "✔ AZ Separation\n✔ Regional Latency Audit\n✔ Infrastructure Design", l: "sessions/session-1-cloud-foundations.html" },
-            { id: 2, t: "Session 2: IAM Governance", o: "Identity Perimeter Security.", c: "✔ Least Privilege Enforcement\n✔ Role Assumption Logic\n✔ Permission Boundaries", l: "sessions/session-2-iam.html" },
-            { id: 3, t: "Session 3: VPC Mesh", o: "Global Network Interconnect.", c: "✔ Transit Gateway Patterns\n✔ Subnet Isolation\n✔ Security Groups", l: "sessions/session-3-vpc-networking.html" },
-            { id: 4, t: "Session 4: Shared Responsibility", o: "Architect Boundaries & Security.", c: "✔ Security OF vs IN Cloud\n✔ Compliance Framework\n✔ Audit Trails", l: "sessions/session-4-shared-responsibility.html" }
+        const sessions = [
+            { id: 1, title: "Session 1: Foundations", overview: "AWS Global Infrastructure & Isolation", outcomes: "✓ AZ Separation\n✓ Regional Latency Audit\n✓ Infrastructure Design", link: "sessions/session-1-cloud-foundations.html" },
+            { id: 2, title: "Session 2: IAM Governance", overview: "Identity Perimeter Security", outcomes: "✓ Least Privilege\n✓ Role Assumption\n✓ Permission Boundaries", link: "sessions/session-2-iam.html" },
+            { id: 3, title: "Session 3: VPC Networking", overview: "Global Network Interconnect", outcomes: "✓ Transit Gateway\n✓ Subnet Isolation\n✓ Security Groups", link: "sessions/session-3-vpc-networking.html" },
+            { id: 4, title: "Session 4: Shared Responsibility", overview: "Defining Architect Boundaries", outcomes: "✓ Security OF vs IN Cloud\n✓ Compliance\n✓ Audit Trails", link: "sessions/session-4-shared-responsibility.html" }
         ];
-        let prog = JSON.parse(localStorage.getItem('uca_p')) || [1];
-        function draw() {
-            const list = document.getElementById('sList');
+
+        let progress = JSON.parse(localStorage.getItem('uca_p')) || [1];
+        let current = localStorage.getItem('uca_id') || 1;
+
+        function renderSessions() {
+            const list = document.getElementById('sessionList');
             list.innerHTML = '';
-            data.forEach(s => {
-                const lock = s.id !== 1 && !prog.includes(s.id - 1);
-                const b = document.createElement('button');
-                b.className = 'btn' + (localStorage.getItem('uca_id') == s.id ? ' active' : '');
-                b.disabled = lock;
-                b.innerHTML = (lock ? '🔒 ' : '✅ ') + s.t;
-                b.onclick = () => show(s.id);
-                list.appendChild(b);
+            sessions.forEach(s => {
+                const isLocked = s.id !== 1 && !progress.includes(s.id - 1);
+                const btn = document.createElement('button');
+                btn.className = 'session-btn' + (current == s.id ? ' active' : '');
+                btn.disabled = isLocked;
+                btn.innerHTML = (isLocked ? '🔒' : '✓') + ' ' + s.title;
+                btn.onclick = () => show(s.id);
+                list.appendChild(btn);
             });
         }
+
         function show(id) {
-            const s = data.find(x => x.id == id);
+            const s = sessions.find(x => x.id == id);
             if (!s) return;
+            current = id;
             localStorage.setItem('uca_id', id);
-            document.getElementById('sTitle').innerText = s.t;
-            document.getElementById('sOver').innerText = s.o;
-            document.getElementById('sOut').innerText = s.c;
-            document.getElementById('lLink').onclick = () => {
-                if (s.l) {
-                    window.open(s.l, '_blank');
-                } else {
-                    alert('Lab session not yet available. Please check back soon.');
-                }
-            };
-            document.getElementById('cBtn').onclick = () => {
-                if(!prog.includes(s.id)) prog.push(s.id);
-                localStorage.setItem('uca_p', JSON.stringify(prog));
-                const next = data.find(x => x.id == s.id + 1);
-                if(next) show(next.id);
-                else alert('🎉 All sessions completed! Congratulations!');
-                draw();
-            };
-            draw();
+            document.getElementById('title').innerText = s.title;
+            document.getElementById('overview').innerText = s.overview;
+            document.getElementById('outcomes').innerText = s.outcomes;
+            renderSessions();
         }
-        window.onload = () => show(localStorage.getItem('uca_id') || 1);
+
+        function accessLab() {
+            const s = sessions.find(x => x.id == current);
+            if (s && s.link) window.open(s.link, '_blank');
+            else alert('Lab not available');
+        }
+
+        function complete() {
+            if (!progress.includes(current)) progress.push(current);
+            localStorage.setItem('uca_p', JSON.stringify(progress));
+            const next = sessions.find(x => x.id == current + 1);
+            if (next) show(next.id);
+            else alert('🎉 All sessions completed!');
+            renderSessions();
+        }
+
+        show(current);
     </script>
 </body>
 </html>
