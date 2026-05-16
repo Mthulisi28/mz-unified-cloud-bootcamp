@@ -3,201 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ UCA Boot Camp | Enterprise Cloud Governance</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    <title>MZ UCA Bootcamp</title>
     <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-        --gold: #d4af37;
-        --gold-bright: #f0c84a;
-        --gold-dim: #7a6010;
-        --bg: #040608;
-        --surface: #080c12;
-        --surface2: #0d1119;
-        --border: #161c28;
-        --text: #dde3ee;
-        --text-muted: #4a5568;
-        --text-dim: #8896aa;
-        --red: #e53e3e;
-    }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: 'Barlow', sans-serif;
-        overflow-x: hidden;
-    }
-    body::before {
-        content: '';
-        position: fixed; inset: 0;
-        background-image:
-            repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.015) 59px, rgba(255,255,255,0.015) 60px),
-            repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.015) 59px, rgba(255,255,255,0.015) 60px);
-        pointer-events: none; z-index: 0;
-    }
-    .page { position: relative; z-index: 1; max-width: 1440px; margin: 0 auto; padding: 0 2rem 6rem; }
-
-    /* ── TOPBAR ── */
-    .topbar { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 0; border-bottom:1px solid var(--border); margin-bottom:0; flex-wrap:wrap; gap:1rem; }
-    .topbar-logo { display:flex; align-items:center; gap:.85rem; }
-    .topbar-logo img { width:48px; height:48px; object-fit:contain; }
-    .tb-name { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; color:#fff; line-height:1; }
-    .tb-sub  { font-size:.6rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-top:2px; }
-    .topbar-right { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
-    .tb-instructor { display:flex; align-items:center; gap:.7rem; }
-    .tb-instructor img { width:40px; height:40px; border-radius:50%; border:2px solid var(--gold-dim); object-fit:cover; }
-    .tb-iname { font-family:'Barlow Condensed',sans-serif; font-size:.88rem; font-weight:900; letter-spacing:.06em; color:#fff; text-transform:uppercase; line-height:1; }
-    .tb-ititle { font-size:.6rem; letter-spacing:.18em; color:var(--gold); text-transform:uppercase; }
-    .tb-badge { font-size:.58rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-dim); padding:4px 10px; }
-
-    /* ── HERO ── */
-    .hero { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; padding:3rem 0; border-bottom:1px solid var(--border); margin-bottom:3rem; align-items:start; }
-    @media(max-width:900px){ .hero { grid-template-columns:1fr; } }
-    .hero-eyebrow { font-size:.62rem; letter-spacing:.42em; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:.7rem; display:flex; align-items:center; gap:.5rem; }
-    .hero-eyebrow::before { content:'◈'; }
-    .hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,6vw,5.8rem); line-height:.92; color:#fff; letter-spacing:.02em; text-transform:uppercase; margin-bottom:1.2rem; }
-    .hero-title span { color:var(--gold); }
-    .hero-desc { font-size:.92rem; line-height:1.7; color:var(--text-dim); max-width:520px; margin-bottom:2rem; }
-    .hero-stats { display:flex; gap:2.5rem; padding-top:1.5rem; border-top:1px solid var(--border); flex-wrap:wrap; }
-    .stat { display:flex; flex-direction:column; gap:3px; }
-    .stat-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--gold); line-height:1; }
-    .stat-label { font-size:.58rem; letter-spacing:.22em; color:var(--text-muted); text-transform:uppercase; }
-
-    /* ── SESSION CARD ── */
-    .sc {
-        background:var(--surface);
-        display:flex; flex-direction:column;
-        position:relative; overflow:hidden;
-        transition:background .2s;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-    }
-    .sc.active { cursor:default; }
-    .sc.active:hover { background:#0a0f1a; }
-    .sc.active::after {
-        content:'';
-        position:absolute; top:0; left:0; right:0;
-        height:2px;
-        background:linear-gradient(90deg, var(--dcol,#d4af37), transparent 70%);
-    }
-    .sc.locked { opacity:.32; filter:grayscale(.9); }
-
-    /* Lock overlay */
-    .sc-lock {
-        position:absolute; inset:0;
-        background:rgba(4,6,8,.88);
-        display:flex; align-items:center; justify-content:center;
-        z-index:5; backdrop-filter:blur(2px);
-    }
-    .sc-lock-inner { text-align:center; padding:1.5rem; }
-    .sc-lock-icon { font-size:1.6rem; margin-bottom:.5rem; }
-    .sc-lock-div { font-family:'Barlow Condensed',sans-serif; font-size:.75rem; font-weight:900; letter-spacing:.3em; text-transform:uppercase; margin-bottom:.25rem; }
-    .sc-lock-msg { font-size:.65rem; letter-spacing:.2em; color:var(--text-muted); text-transform:uppercase; margin-bottom:.6rem; font-style:italic; }
-    .sc-lock-cl { font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; padding:3px 10px; border:1px solid; display:inline-block; }
-
-    .sc-head { padding:1.25rem 1.25rem .75rem; }
-    .sc-meta { display:flex; align-items:center; gap:.5rem; margin-bottom:.6rem; }
-    .sc-num { font-size:.6rem; font-weight:700; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; }
-    .sc-div { font-size:.5rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; padding:2px 7px; }
-    .sc-title-block { display:flex; flex-direction:column; margin-bottom:.4rem; }
-    .st1 { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; color:#fff; letter-spacing:.03em; text-transform:uppercase; line-height:.95; }
-    .st2 { font-family:'Barlow Condensed',sans-serif; font-size:.95rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; line-height:1.1; margin-top:1px; }
-    .sc-sub { font-size:.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.75rem; }
-    .sc-pills { display:flex; flex-wrap:wrap; gap:3px; }
-    .sp { font-size:.52rem; letter-spacing:.12em; text-transform:uppercase; padding:2px 6px; border:1px solid var(--border); color:var(--text-muted); background:rgba(255,255,255,.02); }
-
-    /* Resource links */
-    .sc-resources { margin-top:auto; border-top:1px solid var(--border); }
-    .rl {
-        display:flex; align-items:center; gap:.55rem;
-        padding:.5rem 1.25rem;
-        font-size:.67rem; letter-spacing:.12em; text-transform:uppercase;
-        color:var(--text-muted); text-decoration:none;
-        border-bottom:1px solid var(--border);
-        transition:color .12s, background .12s;
-    }
-    .rl:last-child { border-bottom:none; }
-    .rl:hover { color:#fff; background:rgba(212,175,55,.04); }
-    .rl:hover .ri { color:var(--gold); }
-    .ri { font-size:.72rem; color:var(--text-muted); width:14px; text-align:center; transition:color .12s; flex-shrink:0; }
-
-    /* ── FOOTER ── */
-    footer { margin-top:4rem; padding-top:2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
-    .ft-brand { display:flex; align-items:center; gap:.7rem; }
-    .ft-brand img { width:30px; height:30px; object-fit:contain; opacity:.7; }
-    .ft-text { font-size:.62rem; letter-spacing:.18em; color:var(--text-muted); text-transform:uppercase; }
-    .ft-text span { color:var(--gold); }
-
-    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; margin: 2rem 0; }
-    .nav-link { color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .nav-link:hover { text-decoration: underline; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0e27; color: #fff; font-family: Arial, sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        header { padding: 20px 0; border-bottom: 1px solid #333; margin-bottom: 40px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { color: #aaa; font-size: 1.1rem; }
+        .nav-section { margin: 40px 0; }
+        .nav-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .nav-card { background: #1a2341; padding: 30px; border-radius: 8px; border-left: 4px solid #3b82f6; text-decoration: none; color: #fff; transition: all 0.3s; }
+        .nav-card:hover { background: #243456; transform: translateX(10px); }
+        .nav-card h3 { margin-bottom: 10px; }
+        .nav-card p { color: #aaa; font-size: 0.9rem; }
+        footer { margin-top: 80px; padding-top: 40px; border-top: 1px solid #333; color: #666; text-align: center; }
     </style>
 </head>
 <body>
-    <div class="page">
-        <!-- ── TOPBAR ── -->
-        <div class="topbar">
-            <div class="topbar-logo">
-                <img src="assets/mz-logo.png" alt="MZ Logo" onerror="this.style.display='none'">
-                <div>
-                    <div class="tb-name">MZ UCA</div>
-                    <div class="tb-sub">Bootcamp</div>
-                </div>
-            </div>
-            <div class="topbar-right">
-                <div class="tb-instructor">
-                    <div>
-                        <div class="tb-iname">Mthulisi Zulu</div>
-                        <div class="tb-ititle">Cloud Governance Architect</div>
-                    </div>
-                    <img src="assets/mthulisi.jpg" alt="Mthulisi" onerror="this.src='https://via.placeholder.com/40?text=MZ'">
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <header>
+            <h1>MZ UCA <span style="color: #3b82f6;">Bootcamp</span></h1>
+            <p class="subtitle">Mthulisi Zulu | Cloud Governance Architect</p>
+        </header>
 
-        <!-- ── HERO ── -->
-        <div class="hero">
-            <div>
-                <div class="hero-eyebrow">Enterprise Learning</div>
-                <h1 class="hero-title">Unified Cloud <span>Architecture</span></h1>
-                <p class="hero-desc">Enterprise-focused AWS cloud training platform covering cloud foundations, governance, security awareness, DevOps concepts, and real-world infrastructure learning.</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-num">4+</div>
-                        <div class="stat-label">Core Sessions</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num">15+</div>
-                        <div class="stat-label">Lab Scenarios</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num">100%</div>
-                        <div class="stat-label">Hands-On</div>
-                    </div>
-                </div>
+        <div class="nav-section">
+            <h2 style="margin-bottom: 20px;">📚 Learning Portals</h2>
+            <div class="nav-links">
+                <a href="bootcamp.html" class="nav-card">
+                    <h3>🎓 Bootcamp Sessions</h3>
+                    <p>4 core sessions with progressive unlocking, labs, and hands-on exercises</p>
+                </a>
+                <a href="uca-main.html" class="nav-card">
+                    <h3>🗺️ UCA Roadmap</h3>
+                    <p>Complete learning roadmap with session management and tracking</p>
+                </a>
+                <a href="https://github.com/Mthulisi28/mz-unified-cloud-bootcamp" class="nav-card" target="_blank">
+                    <h3>💻 GitHub Repository</h3>
+                    <p>Source code, assets, and all bootcamp materials</p>
+                </a>
             </div>
         </div>
 
-        <!-- ── NAVIGATION ── -->
-        <div class="nav-links">
-            <a href="bootcamp.html" class="nav-link">📚 Bootcamp</a>
-            <a href="uca-main.html" class="nav-link">🗺️ UCA Roadmap</a>
-            <a href="https://github.com/Mthulisi28/mz-unified-cloud-bootcamp" class="nav-link" target="_blank">💻 GitHub</a>
+        <div style="background: #1a2341; padding: 30px; border-radius: 8px; margin: 40px 0;">
+            <h3 style="margin-bottom: 15px;">✨ What You'll Learn</h3>
+            <ul style="list-style: none; color: #aaa;">
+                <li>✓ AWS Global Infrastructure & Availability</li>
+                <li>✓ Identity & Access Management (IAM)</li>
+                <li>✓ Shared Responsibility Model</li>
+                <li>✓ VPC Networking & Security</li>
+                <li>✓ Enterprise Cloud Governance</li>
+            </ul>
         </div>
 
-        <!-- ── FOOTER ── -->
         <footer>
-            <div class="ft-brand">
-                <img src="assets/mz-logo.png" alt="Logo" onerror="this.style.display='none'">
-                <span class="ft-text">MZ UCA <span>Platform</span></span>
-            </div>
-            <div class="ft-text">© 2026 Mthulisi Zulu | Enterprise Cloud Governance</div>
+            <p>© 2026 Mthulisi Zulu | Enterprise Cloud Governance Platform</p>
         </footer>
     </div>
-
-    <script>
-        console.log('MZ UCA Platform loaded successfully');
-    </script>
 </body>
 </html>
