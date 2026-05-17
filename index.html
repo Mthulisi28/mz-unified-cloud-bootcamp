@@ -295,6 +295,145 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 .lesego-send{background:var(--gold);border:none;color:#000;font-size:.85rem;width:34px;height:34px;cursor:pointer;transition:background .14s;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .lesego-send:hover{background:var(--gold-bright);}
 .lesego-disclaimer{padding:.4rem .85rem;font-size:.5rem;color:var(--muted);text-align:center;letter-spacing:.07em;border-top:1px solid var(--border);}
+
+/* ── SESSION VIDEO EMBED ── */
+.sc-video { margin: 0; border-top: 1px solid var(--border); }
+.sc-video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; }
+.sc-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.sc-video-label { padding: .4rem .9rem; font-size: .52rem; letter-spacing: .18em; color: var(--gold); text-transform: uppercase; border-top: 1px solid var(--border); background: var(--surface2); }
+
+
+/* ── CLOUD ENGINEER TRACK ── */
+.cet-banner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid #7c3aed;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.cet-banner::after {
+    content: 'ENGINEER';
+    position: absolute;
+    right: -10px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 9rem;
+    color: rgba(124,58,237,.04);
+    pointer-events: none;
+    letter-spacing: .1em;
+}
+.cet-head {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
+}
+.cet-icon {
+    width: 42px; height: 42px;
+    background: rgba(124,58,237,.12);
+    border: 1px solid rgba(124,58,237,.35);
+    display: flex; align-items: center;
+    justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+}
+.cet-eyebrow {
+    font-size: .56rem; letter-spacing: .34em;
+    color: #a78bfa; text-transform: uppercase;
+    font-weight: 700; display: block; margin-bottom: 3px;
+}
+.cet-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; letter-spacing: .04em;
+    color: #fff; text-transform: uppercase; line-height: 1;
+}
+.cet-title span { color: #a78bfa; }
+.cet-badge {
+    font-size: .54rem; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; padding: 3px 10px;
+    background: rgba(124,58,237,.1);
+    border: 1px solid rgba(124,58,237,.3);
+    color: #a78bfa; margin-left: auto;
+}
+.cet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+}
+@media(max-width:900px){ .cet-grid{ grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px){ .cet-grid{ grid-template-columns: 1fr; } }
+.cet-card {
+    background: var(--surface);
+    padding: 1.25rem;
+    display: flex; flex-direction: column; gap: .6rem;
+    position: relative; overflow: hidden;
+    transition: background .2s;
+}
+.cet-card:hover { background: #0a0f1a; }
+.cet-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #7c3aed, transparent 70%);
+}
+.cet-card-icon { font-size: 1.6rem; display: block; margin-bottom: .15rem; }
+.cet-card-num {
+    font-size: .56rem; font-weight: 700; letter-spacing: .28em;
+    color: #a78bfa; text-transform: uppercase;
+}
+.cet-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.55rem; color: #fff;
+    letter-spacing: .03em; text-transform: uppercase; line-height: .95;
+}
+.cet-card-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .88rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: #a78bfa; line-height: 1.1;
+}
+.cet-card-desc {
+    font-size: .7rem; color: var(--dim);
+    line-height: 1.6; flex: 1;
+}
+.cet-pills {
+    display: flex; flex-wrap: wrap; gap: 3px; margin-top: .25rem;
+}
+.cet-pill {
+    font-size: .5rem; letter-spacing: .12em; text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid rgba(124,58,237,.25);
+    color: #a78bfa;
+    background: rgba(124,58,237,.05);
+}
+.cet-coming {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: .56rem; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; padding: 4px 10px; margin-top: auto;
+    background: rgba(124,58,237,.08);
+    border: 1px solid rgba(124,58,237,.25);
+    color: #a78bfa; align-self: flex-start;
+}
+.cet-footer {
+    padding: .85rem 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: .75rem;
+}
+.cet-footer-text {
+    font-size: .65rem; color: var(--dim); line-height: 1.5;
+}
+.cet-footer-text strong { color: #fff; }
+.cet-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .76rem; font-weight: 900; letter-spacing: .2em;
+    text-transform: uppercase; text-decoration: none;
+    padding: 9px 20px;
+    background: #7c3aed; color: #fff;
+    transition: background .14s;
+}
+.cet-cta:hover { background: #6d28d9; }
+
 </style>
 </head>
 <body>
@@ -404,7 +543,7 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201%20mock.pdf','Mock Exam','L2');return false;" class="rl">
   <span class="ri">✏</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
 </a>
-    <a href="https://www.youtube.com/watch?v=a9__D53WsMs" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 1 Recording — Cloud Foundations</a>
+    <div class="sc-video"><div class="sc-video-wrap"><iframe src="https://www.youtube.com/embed/a9__D53WsMs?rel=0&modestbranding=1" title="Session 1 — Cloud Foundations" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div><span class="sc-video-label">&#9654; Session 1 — Cloud Foundations</span>
   </div>
   <div class="sc-week">Week 1 &nbsp;·&nbsp; FOUNDATION Division</div>
 </div><div class="sc active" style="--dcol:#3b82f6;--ddim:#1e3a5f;">
@@ -426,7 +565,7 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202%20MOCK%20EXAM.docx','Mock Exam','L2');return false;" class="rl">
   <span class="ri">✏</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
 </a>
-    <a href="https://www.youtube.com/watch?v=tgMFHCyKSmk" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 2 Recording — Shared Responsibility</a>
+    <div class="sc-video"><div class="sc-video-wrap"><iframe src="https://www.youtube.com/embed/tgMFHCyKSmk?rel=0&modestbranding=1" title="Session 2 — Shared Responsibility" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div><span class="sc-video-label">&#9654; Session 2 — Shared Responsibility</span>
   </div>
   <div class="sc-week">Week 1 &nbsp;·&nbsp; FOUNDATION Division</div>
 </div><div class="sc active" style="--dcol:#3b82f6;--ddim:#1e3a5f;">
@@ -448,7 +587,7 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/AWS%20IAM%20MOCK%20EXAM%20%E2%80%94%20SESSION%203.docx','Mock Exam','L2');return false;" class="rl">
   <span class="ri">✏</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
 </a>
-    <a href="https://www.youtube.com/watch?v=SXSqhTn2DuE" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 3 Recording — IAM Masterclass</a>
+    <div class="sc-video"><div class="sc-video-wrap"><iframe src="https://www.youtube.com/embed/SXSqhTn2DuE?rel=0&modestbranding=1" title="Session 3 — IAM Masterclass" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div><span class="sc-video-label">&#9654; Session 3 — IAM Masterclass</span>
   </div>
   <div class="sc-week">Week 1 &nbsp;·&nbsp; FOUNDATION Division</div>
 </div>
@@ -485,7 +624,7 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204mockexams.pdf','Mock Exam','L2');return false;" class="rl">
   <span class="ri">✏</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
 </a>
-    <a href="https://www.youtube.com/watch?v=8TlukLu11Yo" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 4 Recording — Compute Layer</a>
+    <div class="sc-video"><div class="sc-video-wrap"><iframe src="https://www.youtube.com/embed/8TlukLu11Yo?rel=0&modestbranding=1" title="Session 4 — Compute Layer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div><span class="sc-video-label">&#9654; Session 4 — Compute Layer</span>
   </div>
   <div class="sc-week">Week 2 &nbsp;·&nbsp; ASSOCIATE Division</div>
 </div><div class="sc active" style="--dcol:#10b981;--ddim:#064e3b;">
@@ -507,7 +646,7 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S5%20mock%20exam.docx','Mock Exam','L2');return false;" class="rl">
   <span class="ri">✏</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
 </a>
-    <a href="https://www.youtube.com/watch?v=77lMCiiMilo" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 5 Recording — Storage Layer</a>
+    <div class="sc-video"><div class="sc-video-wrap"><iframe src="https://www.youtube.com/embed/77lMCiiMilo?rel=0&modestbranding=1" title="Session 5 — Storage Layer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div><span class="sc-video-label">&#9654; Session 5 — Storage Layer</span>
   </div>
   <div class="sc-week">Week 2 &nbsp;·&nbsp; ASSOCIATE Division</div>
 </div><div class="sc active" style="--dcol:#10b981;--ddim:#064e3b;">
@@ -529,7 +668,7 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%206%20MOCK%20EXAM.docx','Mock Exam','L2');return false;" class="rl">
   <span class="ri">✏</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
 </a>
-    <a href="https://www.youtube.com/watch?v=eMzCI7S1P9M" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 6 Recording — Databases</a>
+    <div class="sc-video"><div class="sc-video-wrap"><iframe src="https://www.youtube.com/embed/eMzCI7S1P9M?rel=0&modestbranding=1" title="Session 6 — Databases" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div><span class="sc-video-label">&#9654; Session 6 — Databases</span>
   </div>
   <div class="sc-week">Week 2 &nbsp;·&nbsp; ASSOCIATE Division</div>
 </div>
@@ -651,6 +790,141 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 </div>
 
 <!-- ═══════════ QUICK RESOURCES ═══════════ -->
+
+<!-- ═══════════ CLOUD ENGINEER TRACK ═══════════ -->
+<div class="section-hdr" style="margin-top:1rem;">
+  <span class="section-hdr-label">◈ Bonus Track</span>
+  <div class="section-hdr-line"></div>
+  <span class="section-hdr-count" style="color:#a78bfa;">AWS + DevOps + Terraform</span>
+</div>
+
+<div class="cet-banner" id="div-cloud-engineer">
+  <div class="cet-head">
+    <div class="cet-icon">⚙️</div>
+    <div>
+      <span class="cet-eyebrow">◈ Advanced Track &nbsp;·&nbsp; Beyond the Practitioner</span>
+      <h2 class="cet-title">Cloud <span>Engineer</span> Accelerator</h2>
+      <p style="font-size:.65rem;color:var(--dim);margin-top:3px;letter-spacing:.1em;text-transform:uppercase;">AWS · DevOps · Terraform · Infrastructure as Code</p>
+    </div>
+    <span class="cet-badge">&#128640; Coming Soon</span>
+  </div>
+
+  <div class="cet-grid">
+
+    <!-- Module 1: AWS Architecture Pro -->
+    <div class="cet-card">
+      <span class="cet-card-icon">☁️</span>
+      <span class="cet-card-num">MODULE 01</span>
+      <div class="cet-card-title">AWS Architecture Pro</div>
+      <div class="cet-card-sub">Multi-Region &amp; High Availability</div>
+      <p class="cet-card-desc">Go beyond the practitioner level. Design production-grade multi-region architectures using VPC peering, Transit Gateway, Route 53 failover, and the AWS Well-Architected Framework in a real enterprise context.</p>
+      <div class="cet-pills">
+        <span class="cet-pill">VPC Design</span>
+        <span class="cet-pill">Transit Gateway</span>
+        <span class="cet-pill">Route 53</span>
+        <span class="cet-pill">Well-Architected</span>
+        <span class="cet-pill">HA Patterns</span>
+      </div>
+      <span class="cet-coming">&#128274; Enrol to Unlock</span>
+    </div>
+
+    <!-- Module 2: DevOps on AWS -->
+    <div class="cet-card">
+      <span class="cet-card-icon">🔁</span>
+      <span class="cet-card-num">MODULE 02</span>
+      <div class="cet-card-title">DevOps on AWS</div>
+      <div class="cet-card-sub">CI/CD · Containers · Automation</div>
+      <p class="cet-card-desc">Build automated deployment pipelines using CodePipeline, CodeBuild and CodeDeploy. Run containerised workloads on ECS and EKS. Implement blue/green deployments and rollback strategies used by enterprise engineering teams.</p>
+      <div class="cet-pills">
+        <span class="cet-pill">CodePipeline</span>
+        <span class="cet-pill">CodeBuild</span>
+        <span class="cet-pill">ECS / EKS</span>
+        <span class="cet-pill">Docker</span>
+        <span class="cet-pill">Blue/Green Deploy</span>
+      </div>
+      <span class="cet-coming">&#128274; Enrol to Unlock</span>
+    </div>
+
+    <!-- Module 3: Terraform Mastery -->
+    <div class="cet-card">
+      <span class="cet-card-icon">🏗️</span>
+      <span class="cet-card-num">MODULE 03</span>
+      <div class="cet-card-title">Terraform Mastery</div>
+      <div class="cet-card-sub">Infrastructure as Code · State Management</div>
+      <p class="cet-card-desc">Provision, manage and destroy AWS infrastructure using Terraform. Write reusable modules for VPC, IAM, EC2 and RDS. Manage remote state with S3 and DynamoDB locking. Deploy full landing zones with a single command.</p>
+      <div class="cet-pills">
+        <span class="cet-pill">HCL</span>
+        <span class="cet-pill">Modules</span>
+        <span class="cet-pill">Remote State</span>
+        <span class="cet-pill">Workspaces</span>
+        <span class="cet-pill">Terragrunt</span>
+      </div>
+      <span class="cet-coming">&#128274; Enrol to Unlock</span>
+    </div>
+
+    <!-- Module 4: Security Engineering -->
+    <div class="cet-card">
+      <span class="cet-card-icon">🔒</span>
+      <span class="cet-card-num">MODULE 04</span>
+      <div class="cet-card-title">Security Engineering</div>
+      <div class="cet-card-sub">Zero Trust · Compliance · GuardDuty</div>
+      <p class="cet-card-desc">Implement enterprise security baselines: CIS Benchmarks, AWS Security Hub, GuardDuty threat detection, KMS encryption, Secrets Manager, and compliance automation for SOC2 and ISO 27001 environments.</p>
+      <div class="cet-pills">
+        <span class="cet-pill">GuardDuty</span>
+        <span class="cet-pill">Security Hub</span>
+        <span class="cet-pill">KMS</span>
+        <span class="cet-pill">SCPs</span>
+        <span class="cet-pill">CIS Benchmarks</span>
+      </div>
+      <span class="cet-coming">&#128274; Enrol to Unlock</span>
+    </div>
+
+    <!-- Module 5: Monitoring & Observability -->
+    <div class="cet-card">
+      <span class="cet-card-icon">📊</span>
+      <span class="cet-card-num">MODULE 05</span>
+      <div class="cet-card-title">Monitoring &amp; Observability</div>
+      <div class="cet-card-sub">CloudWatch · X-Ray · Dashboards</div>
+      <p class="cet-card-desc">Build operational intelligence dashboards using CloudWatch Metrics, Logs and Alarms. Implement distributed tracing with X-Ray. Create auto-remediation runbooks with Systems Manager and EventBridge.</p>
+      <div class="cet-pills">
+        <span class="cet-pill">CloudWatch</span>
+        <span class="cet-pill">X-Ray</span>
+        <span class="cet-pill">EventBridge</span>
+        <span class="cet-pill">Systems Manager</span>
+        <span class="cet-pill">Dashboards</span>
+      </div>
+      <span class="cet-coming">&#128274; Enrol to Unlock</span>
+    </div>
+
+    <!-- Module 6: Capstone Project -->
+    <div class="cet-card">
+      <span class="cet-card-icon">🏆</span>
+      <span class="cet-card-num">MODULE 06</span>
+      <div class="cet-card-title">Capstone Project</div>
+      <div class="cet-card-sub">Real Client Brief · Live Architecture</div>
+      <p class="cet-card-desc">Deliver a complete cloud engineering solution for a real-world brief: Terraform-provisioned infrastructure, CI/CD pipeline, security baseline, monitoring dashboard, and a documented architecture review presented to Mthulisi.</p>
+      <div class="cet-pills">
+        <span class="cet-pill">Full Stack IaC</span>
+        <span class="cet-pill">Live Pipeline</span>
+        <span class="cet-pill">Architecture Review</span>
+        <span class="cet-pill">GitHub Portfolio</span>
+      </div>
+      <span class="cet-coming">&#128274; Enrol to Unlock</span>
+    </div>
+
+  </div>
+
+  <div class="cet-footer">
+    <div class="cet-footer-text">
+      <strong>Cloud Engineer Accelerator</strong> — the next step after AWS Cloud Practitioner.<br>
+      Prerequisites: Complete MZ UCA Foundation + Associate divisions &nbsp;·&nbsp; Limited seats per cohort.
+    </div>
+    <a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Cloud%20Engineer%20Accelerator%20track" target="_blank" class="cet-cta">
+      &#9654; &nbsp; Express Interest
+    </a>
+  </div>
+</div>
+
 <div class="quick-bar">
   <span class="qb-label">◈ Resources</span>
   <a href="https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/CHEAT%20SHEET%201%20%E2%80%94%20CORE%20AWS%20SERVICES.pdf" target="_blank" class="qb-link">📄 Cheat Sheet</a>
