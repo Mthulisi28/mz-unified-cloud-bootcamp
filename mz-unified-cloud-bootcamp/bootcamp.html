@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCA Bootcamp</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0e27; color: #fff; font-family: Arial, sans-serif; height: 100vh; display: flex; }
+        .sidebar { width: 300px; background: #0f1229; border-right: 1px solid #333; padding: 20px; overflow-y: auto; }
+        .content { flex: 1; padding: 30px; overflow-y: auto; }
+        .session-btn { width: 100%; padding: 15px; margin: 10px 0; background: #1a2341; color: #fff; border: 1px solid #333; border-radius: 6px; cursor: pointer; text-align: left; transition: all 0.2s; }
+        .session-btn:hover { background: #243456; }
+        .session-btn.active { background: #3b82f6; border-color: #3b82f6; }
+        .session-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .card { background: #1a2341; padding: 20px; border-radius: 6px; margin: 20px 0; border: 1px solid #333; }
+        .btn { padding: 12px 24px; margin: 5px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; color: #fff; }
+        .btn-primary { background: #3b82f6; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-success { background: #059669; }
+        .btn-success:hover { background: #047857; }
+        h1 { margin: 20px 0; font-size: 2rem; }
+        h3 { margin: 15px 0 10px 0; color: #3b82f6; }
+        pre { background: #0f1229; padding: 15px; border-radius: 6px; overflow-x: auto; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3 style="margin-top: 0;">Sessions</h3>
+        <div id="sessionList"></div>
+    </div>
+
+    <div class="content">
+        <h1 id="title">Loading...</h1>
+        <p id="overview" style="font-size: 1.1rem; color: #aaa; margin: 15px 0;"></p>
+        <div class="card">
+            <h3>Outcomes</h3>
+            <pre id="outcomes">Loading...</pre>
+        </div>
+        <div>
+            <button class="btn btn-primary" onclick="accessLab()">Access Lab</button>
+            <button class="btn btn-success" onclick="complete()">Complete Session</button>
+        </div>
+        <p style="margin-top: 40px; color: #666; font-size: 0.9rem;">© 2026 Mthulisi Zulu | UCA Bootcamp v2.0</p>
+    </div>
+
+    <script>
+        const sessions = [
+            { id: 1, title: "Session 1: Foundations", overview: "AWS Global Infrastructure & Isolation", outcomes: "✓ AZ Separation\n✓ Regional Latency Audit\n✓ Infrastructure Design", link: "sessions/session-1-cloud-foundations.html" },
+            { id: 2, title: "Session 2: IAM Governance", overview: "Identity Perimeter Security", outcomes: "✓ Least Privilege\n✓ Role Assumption\n✓ Permission Boundaries", link: "sessions/session-2-iam.html" },
+            { id: 3, title: "Session 3: VPC Networking", overview: "Global Network Interconnect", outcomes: "✓ Transit Gateway\n✓ Subnet Isolation\n✓ Security Groups", link: "sessions/session-3-vpc-networking.html" },
+            { id: 4, title: "Session 4: Shared Responsibility", overview: "Defining Architect Boundaries", outcomes: "✓ Security OF vs IN Cloud\n✓ Compliance\n✓ Audit Trails", link: "sessions/session-4-shared-responsibility.html" }
+        ];
+
+        let progress = JSON.parse(localStorage.getItem('uca_p')) || [1];
+        let current = localStorage.getItem('uca_id') || 1;
+
+        function renderSessions() {
+            const list = document.getElementById('sessionList');
+            list.innerHTML = '';
+            sessions.forEach(s => {
+                const isLocked = s.id !== 1 && !progress.includes(s.id - 1);
+                const btn = document.createElement('button');
+                btn.className = 'session-btn' + (current == s.id ? ' active' : '');
+                btn.disabled = isLocked;
+                btn.innerHTML = (isLocked ? '🔒' : '✓') + ' ' + s.title;
+                btn.onclick = () => show(s.id);
+                list.appendChild(btn);
+            });
+        }
+
+        function show(id) {
+            const s = sessions.find(x => x.id == id);
+            if (!s) return;
+            current = id;
+            localStorage.setItem('uca_id', id);
+            document.getElementById('title').innerText = s.title;
+            document.getElementById('overview').innerText = s.overview;
+            document.getElementById('outcomes').innerText = s.outcomes;
+            renderSessions();
+        }
+
+        function accessLab() {
+            const s = sessions.find(x => x.id == current);
+            if (s && s.link) window.open(s.link, '_blank');
+            else alert('Lab not available');
+        }
+
+        function complete() {
+            if (!progress.includes(current)) progress.push(current);
+            localStorage.setItem('uca_p', JSON.stringify(progress));
+            const next = sessions.find(x => x.id == current + 1);
+            if (next) show(next.id);
+            else alert('🎉 All sessions completed!');
+            renderSessions();
+        }
+
+        show(current);
+    </script>
+</body>
+</html>
