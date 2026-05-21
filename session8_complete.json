@@ -1,0 +1,260 @@
+{
+  "Artifacts": {
+    "GitHubLab": {
+      "RepoName": "network-security-lab",
+      "Structure": [
+        "scenarios/scenario-1-public-ssh.md",
+        "scenarios/scenario-2-public-database.md",
+        "notes/sg-vs-nacl.md",
+        "notes/open-port-risks.md",
+        "answers/remediation-notes.md"
+      ]
+    },
+    "StudentNotes": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/slides/week3_SESSION_8_SECURITY_IN_NETWORKING_slides.pdf"
+  },
+  "Metadata": {
+    "Week": 3,
+    "CoreFocus": [
+      "Security Groups",
+      "NACLs",
+      "Open Port Risks",
+      "Misconfiguration Scenarios"
+    ],
+    "Title": "Security in Networking",
+    "Division": "PROFESSIONAL",
+    "SessionID": "S-08"
+  },
+  "MockExam": [
+    {
+      "Id": 1,
+      "Q": "Which AWS service acts as a virtual firewall for EC2 instances?",
+      "Ans": "B",
+      "Opts": [
+        "Route Table",
+        "Security Group",
+        "NAT Gateway",
+        "Internet Gateway"
+      ]
+    },
+    {
+      "Id": 2,
+      "Q": "At which level does a NACL operate?",
+      "Ans": "C",
+      "Opts": [
+        "Instance Level",
+        "Region Level",
+        "Subnet Level",
+        "Availability Zone Level"
+      ]
+    },
+    {
+      "Id": 3,
+      "Q": "Which statement about Security Groups is TRUE?",
+      "Ans": "C",
+      "Opts": [
+        "They are stateless",
+        "They support deny rules",
+        "They are stateful",
+        "They only control outbound traffic"
+      ]
+    },
+    {
+      "Id": 4,
+      "Q": "What does this source mean? 0.0.0.0/0",
+      "Ans": "C",
+      "Opts": [
+        "One specific device",
+        "Private subnet only",
+        "Entire internet",
+        "Localhost only"
+      ]
+    },
+    {
+      "Id": 5,
+      "Q": "Which port is commonly used for SSH?",
+      "Ans": "C",
+      "Opts": [
+        "80",
+        "443",
+        "22",
+        "3389"
+      ]
+    },
+    {
+      "Id": 6,
+      "Q": "Which port is commonly used for HTTPS traffic?",
+      "Ans": "B",
+      "Opts": [
+        "22",
+        "443",
+        "3306",
+        "25"
+      ]
+    },
+    {
+      "Id": 7,
+      "Q": "Which AWS networking control supports BOTH allow and deny rules?",
+      "Ans": "B",
+      "Opts": [
+        "Security Group",
+        "NACL",
+        "Route Table",
+        "Elastic IP"
+      ]
+    },
+    {
+      "Id": 8,
+      "Q": "Which configuration is MOST dangerous?",
+      "Ans": "B",
+      "Opts": [
+        "HTTPS -> Port 443 -> 0.0.0.0/0",
+        "SSH -> Port 22 -> 0.0.0.0/0",
+        "HTTPS -> Port 443 -> Trusted IP",
+        "SSH -> Port 22 -> Internal VPN"
+      ]
+    },
+    {
+      "Id": 9,
+      "Q": "What is the primary risk of exposing Port 22 publicly?",
+      "Ans": "B",
+      "Opts": [
+        "Increased website speed",
+        "Brute-force attacks",
+        "DNS failures",
+        "Storage corruption"
+      ]
+    },
+    {
+      "Id": 10,
+      "Q": "Which AWS networking component protects an entire subnet?",
+      "Ans": "B",
+      "Opts": [
+        "Security Group",
+        "NACL",
+        "Elastic Load Balancer",
+        "Auto Scaling Group"
+      ]
+    },
+    {
+      "Id": 11,
+      "Q": "A database exposed publicly may lead to:",
+      "Ans": "C",
+      "Opts": [
+        "Faster backups",
+        "Lower latency only",
+        "Data breaches",
+        "Improved governance"
+      ]
+    },
+    {
+      "Id": 12,
+      "Q": "Which statement about NACLs is TRUE?",
+      "Ans": "C",
+      "Opts": [
+        "They are stateful",
+        "They automatically allow return traffic",
+        "They operate at subnet level",
+        "They only protect EC2 instances"
+      ]
+    },
+    {
+      "Id": 13,
+      "Q": "What is layered security?",
+      "Ans": "B",
+      "Opts": [
+        "Using only Security Groups",
+        "Using multiple security controls together",
+        "Removing firewalls",
+        "Allowing all traffic internally"
+      ]
+    },
+    {
+      "Id": 14,
+      "Q": "Which of the following is a BEST PRACTICE?",
+      "Ans": "C",
+      "Opts": [
+        "Open all ports publicly",
+        "Use 0.0.0.0/0 for databases",
+        "Restrict administrative access",
+        "Disable monitoring"
+      ]
+    },
+    {
+      "Id": 15,
+      "Q": "Which port is commonly associated with RDP?",
+      "Ans": "D",
+      "Opts": [
+        "21",
+        "53",
+        "443",
+        "3389"
+      ]
+    },
+    {
+      "Id": 16,
+      "Q": "What does 'stateful' mean in Security Groups?",
+      "Ans": "B",
+      "Opts": [
+        "They deny all traffic",
+        "They remember connections",
+        "They operate at subnet level",
+        "They remove outbound traffic"
+      ]
+    },
+    {
+      "Id": 17,
+      "Q": "Which AWS component controls traffic routing?",
+      "Ans": "A",
+      "Opts": [
+        "Route Table",
+        "Security Group",
+        "NACL",
+        "IAM User"
+      ]
+    },
+    {
+      "Id": 18,
+      "Q": "What is the safest location for production databases?",
+      "Ans": "C",
+      "Opts": [
+        "Public subnet",
+        "Internet Gateway",
+        "Private subnet",
+        "Public EC2 instance"
+      ]
+    },
+    {
+      "Id": 19,
+      "Q": "What is a common purpose of Port 443?",
+      "Ans": "B",
+      "Opts": [
+        "Database traffic",
+        "Secure web traffic",
+        "FTP traffic",
+        "Remote desktop access"
+      ]
+    },
+    {
+      "Id": 20,
+      "Q": "Which statement best describes cloud governance?",
+      "Ans": "B",
+      "Opts": [
+        "Allowing unrestricted access",
+        "Managing and controlling cloud environments securely",
+        "Disabling security controls",
+        "Opening all ports for convenience"
+      ]
+    },
+    {
+      "Id": 21,
+      "Q": "BONUS: A company creates a rule with Port 3389 open to 0.0.0.0/0. What is the MAIN risk?",
+      "Ans": "C",
+      "Opts": [
+        "Improved security",
+        "Faster web access",
+        "Public RDP exposure",
+        "Reduced attack surface"
+      ]
+    }
+  ]
+}
