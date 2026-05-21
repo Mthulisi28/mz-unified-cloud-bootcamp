@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1596,7 +1596,30 @@ function renderQuestion(){
     +'<div class="quiz-options">'+q.opts.map((opt,i)=>'<button class="quiz-opt" id="opt'+i+'" onclick="quizAnswer('+i+')">'+'<span class="quiz-opt-letter">'+letters[i]+'</span>'+opt+'</button>').join('')+'</div>'
     +'<div class="quiz-feedback" id="quizFeedback"></div>'
     +'<div class="quiz-nav"><button class="quiz-btn quiz-btn-next" id="quizNextBtn" onclick="quizNext()" disabled>'+(currentQ+1<total?"Next →":"See Results")+'</button></div>'
-    +'</div>';
+    +'
+        <div class="sc active" style="--dcol: var(--gold);">
+            <div class="sc-head">
+                <div class="sc-meta">
+                    <span class="sc-num">Session 08</span>
+                    <span class="sc-div" style="background: rgba(212, 175, 55, 0.1); color: var(--gold); border: 1px solid var(--gold-dim);">UCA Security</span>
+                </div>
+                <div class="sc-title-block">
+                    <span class="st1">Network Security & Governance</span>
+                    <span class="st2">Security Groups, NACLs & Zero Trust Protection</span>
+                </div>
+                <p class="sc-sub">Deep dive into enterprise boundary filtering: mitigating open port vulnerabilities, enforcing firewalls, and managing compromise isolation metrics.</p>
+                <div class="sc-pills">
+                    <span class="sp">Security Groups</span><span class="sp">NACLs</span><span class="sp">Zero Trust</span><span class="sp">Port Controls</span>
+                </div>
+            </div>
+            <div class="sc-resources">
+                <a href="slides/week3_SESSION_8_COMPUTE_STORAGE_slides.pdf" class="rl" download target="_blank">
+                    <span>⤓ Download Session 8 Slides (PDF)</span>
+                    <span class="rtier" style="color: #ff9900;">L1 Core</span>
+                </a>
+            </div>
+            <div class="sc-week">Schedule: Week 3 Delivery</div>
+        </div></div>';
 }
 function quizAnswer(sel){
   if(answered) return;answered=true;
