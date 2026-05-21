@@ -1,0 +1,69 @@
+{
+  "Division": "PROFESSIONAL",
+  "SlidesUrl": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/slides/week3_SESSION_8_SECURITY_IN_NETWORKING_slides.pdf",
+  "Title": "Security in Networking",
+  "QuizQuestions": [
+    {
+      "Id": 1,
+      "Feedback": "Security Groups operate at the instance level to secure resources like EC2 instances directly.",
+      "Question": "Which AWS service acts as a virtual firewall for EC2 instances?",
+      "Answer": "B",
+      "Options": [
+        "Route Table",
+        "Security Group",
+        "NAT Gateway",
+        "Internet Gateway"
+      ]
+    },
+    {
+      "Id": 2,
+      "Feedback": "Network Access Control Lists (NACLs) operate at the subnet level to guard entire boundaries.",
+      "Question": "At which level does a NACL operate?",
+      "Answer": "C",
+      "Options": [
+        "Instance Level",
+        "Region Level",
+        "Subnet Level",
+        "Availability Zone Level"
+      ]
+    },
+    {
+      "Id": 3,
+      "Feedback": "Security Groups are stateful firewalls, meaning return traffic is automatically allowed.",
+      "Question": "Which statement about Security Groups is TRUE?",
+      "Answer": "C",
+      "Options": [
+        "They are stateless",
+        "They support deny rules",
+        "They are stateful",
+        "They only control outbound traffic"
+      ]
+    },
+    {
+      "Id": 4,
+      "Feedback": "0.0.0.0/0 represents the entire public internet, maximizing attack surfaces if misconfigured.",
+      "Question": "What does the source network definition 0.0.0.0/0 mean?",
+      "Answer": "C",
+      "Options": [
+        "One specific device",
+        "Private subnet only",
+        "Entire internet",
+        "Localhost only"
+      ]
+    },
+    {
+      "Id": 5,
+      "Feedback": "Opening administrative ports like SSH (Port 22) directly to the public internet leaves the system vulnerable to brute-force attacks.",
+      "Question": "Which configuration represents the HIGHEST security risk to an enterprise deployment?",
+      "Answer": "B",
+      "Options": [
+        "HTTPS -> Port 443 -> 0.0.0.0/0",
+        "SSH -> Port 22 -> 0.0.0.0/0",
+        "HTTPS -> Port 443 -> Trusted IP",
+        "SSH -> Port 22 -> Internal VPN"
+      ]
+    }
+  ],
+  "Week": 3,
+  "Session": "S-08"
+}
