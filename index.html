@@ -894,8 +894,10 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
   
 <!-- ═══════════ MULTI-TRACK ACADEMY NAV ═══════════ -->
 <style>
-.prog-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:2.5rem; }
-@media(max-width:900px){ .prog-nav{ grid-template-columns:repeat(2,1fr); } }
+.prog-nav { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:2.5rem; }
+@media(max-width:1100px){ .prog-nav{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:700px){ .prog-nav{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:450px){ .prog-nav{ grid-template-columns:1fr; } }
 @media(max-width:560px){ .prog-nav{ grid-template-columns:1fr; } }
 .prog-nav-item { background:var(--surface); padding:1.1rem 1.25rem; display:flex; flex-direction:column; gap:.4rem; cursor:pointer; transition:background .18s; position:relative; overflow:hidden; text-decoration:none; }
 .prog-nav-item::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
@@ -949,15 +951,15 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
   <a class="prog-nav-item" onclick="switchProg('devops')" href="#">
     <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#8b5cf6;"></div>
     <span class="prog-nav-eyebrow" style="color:#8b5cf6;">Programme 03</span>
-    <span class="prog-nav-title">Cloud DevOps Engineering</span>
-    <span class="prog-nav-desc">CI/CD · Containers · Automation · Observability</span>
+    <span class="prog-nav-title">Hybrid Cloud Architecture &amp; DevOps</span>
+    <span class="prog-nav-desc">VPC Design · EC2 Operations · CI/CD · Automation · Delivery</span>
     <span class="prog-nav-badge" style="border-color:#4c1d95;color:#8b5cf6;">&#128640; Enrolling</span>
   </a>
   <a class="prog-nav-item" onclick="switchProg('terraform')" href="#">
     <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#f59e0b;"></div>
     <span class="prog-nav-eyebrow" style="color:#f59e0b;">Programme 04</span>
-    <span class="prog-nav-title">Terraform IaC</span>
-    <span class="prog-nav-desc">Infrastructure as Code · State · Modules · Governance</span>
+    <span class="prog-nav-title">UCA Infrastructure Engineering</span>
+    <span class="prog-nav-desc">Terraform IaC · AWS Provider · State Management · Governance</span>
     <span class="prog-nav-badge" style="border-color:#78350f;color:#f59e0b;">&#9733; 1 June Open</span>
   </a>
 </div>
@@ -993,20 +995,111 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
 
 <!-- ══ PROGRAMME: DEVOPS ══ -->
 <div class="prog-section" id="prog-devops">
+
   <div class="prog-outcome">
     <span style="font-size:1.5rem;">&#9881;</span>
     <div class="prog-outcome-text">
-      <strong>Outcome: Operate and Automate Production Cloud Systems</strong><br>
-      Build CI/CD pipelines, run containers on ECS/EKS, implement blue/green deployments, and automate infrastructure using AWS-native DevOps tooling. The highest-value career track.
+      <strong style="color:#fff;">Outcome: Design, Deploy and Automate Production Cloud Systems</strong><br>
+      Master AWS VPC deployment, EC2 deep operations, EBS architecture, automation patterns and cloud delivery pipelines. The bridge between cloud practitioner and cloud engineer.
     </div>
   </div>
-  <div class="track-hdr"><div class="track-hdr-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6;">&#128640;</div><div><div class="track-hdr-title" style="color:#8b5cf6;">CI/CD Pipelines</div><div class="track-hdr-desc">CodePipeline · CodeBuild · CodeDeploy · GitHub Actions</div></div></div>
-  <div class="track-coming"><div class="track-coming-title">Track Content Loading</div><div class="track-coming-desc">Build fully automated deployment pipelines. End-to-end CI/CD from commit to production.</div><a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Cloud%20DevOps%20Engineering%20Path" target="_blank" class="track-enrol" style="background:#8b5cf6;color:#fff;">&#9654; &nbsp;Enrol in DevOps Path</a></div>
-  <div class="track-hdr" style="margin-top:1px;"><div class="track-hdr-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6;">&#128736;</div><div><div class="track-hdr-title" style="color:#8b5cf6;">Containers &amp; Orchestration</div><div class="track-hdr-desc">Docker · ECS · EKS · Fargate · Container Governance</div></div></div>
-  <div class="track-coming"><div class="track-coming-title">Track Content Loading</div><div class="track-coming-desc">Containerise workloads, deploy to ECS/EKS, implement blue/green strategies and manage container governance.</div><a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Cloud%20DevOps%20Engineering%20Path" target="_blank" class="track-enrol" style="background:#8b5cf6;color:#fff;">&#9654; &nbsp;Enrol Now</a></div>
-  <div class="track-hdr" style="margin-top:1px;"><div class="track-hdr-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6;">&#128202;</div><div><div class="track-hdr-title" style="color:#8b5cf6;">Monitoring &amp; Observability</div><div class="track-hdr-desc">CloudWatch · X-Ray · EventBridge · Systems Manager</div></div></div>
-  <div class="track-coming"><div class="track-coming-title">Track Content Loading</div><div class="track-coming-desc">Build operational dashboards, distributed tracing, auto-remediation runbooks and alerting systems.</div><a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Cloud%20DevOps%20Engineering%20Path" target="_blank" class="track-enrol" style="background:#8b5cf6;color:#fff;">&#9654; &nbsp;Enrol Now</a></div>
-</div>
+
+  <!-- TRACK 1: VPC & NETWORKING -->
+  <div class="track-hdr">
+    <div class="track-hdr-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6;">&#127760;</div>
+    <div><div class="track-hdr-title" style="color:#8b5cf6;">Track 1 — VPC &amp; Cloud Networking</div>
+    <div class="track-hdr-desc">VPC Design · Subnets · Internet Gateway · Route Tables · Security Groups</div></div>
+  </div>
+  <div class="div-grid" style="border:1px solid var(--border);border-top:none;">
+    <div class="sc active" style="--dcol:#8b5cf6;--ddim:#4c1d95;">
+      <div class="sc-head">
+        <div class="sc-meta"><span class="sc-num">Module 1</span><span class="sc-div" style="background:#4c1d95;color:#8b5cf6;">DEVOPS</span></div>
+        <div class="sc-title-block"><span class="st1">AWS VPC</span><span class="st2" style="color:#8b5cf6;">Deployment</span></div>
+        <p class="sc-sub">VPC Architecture · Subnets · IGW · Route Tables</p>
+      </div>
+      <div class="sc-resources">
+            <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/AWS%20VPC%20DEPLOYMENT.pdf','VPC Deployment Guide','L2');return false;" class="rl">
+      <span class="ri">&#128196;</span>VPC Deployment Guide<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
+    </a>
+      </div>
+      <div class="sc-week">Hybrid Cloud &amp; DevOps Programme</div>
+    </div>
+    <div class="sc active" style="--dcol:#8b5cf6;--ddim:#4c1d95;">
+      <div class="sc-head">
+        <div class="sc-meta"><span class="sc-num">Module 2</span><span class="sc-div" style="background:#4c1d95;color:#8b5cf6;">DEVOPS</span></div>
+        <div class="sc-title-block"><span class="st1">Cloud</span><span class="st2" style="color:#8b5cf6;">Delivery</span></div>
+        <p class="sc-sub">Deployment Strategies · Release Management · Pipeline Patterns</p>
+      </div>
+      <div class="sc-resources">
+            <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/cloud%20delivery.pdf','Cloud Delivery Guide','L2');return false;" class="rl">
+      <span class="ri">&#128640;</span>Cloud Delivery Guide<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
+    </a>
+      </div>
+      <div class="sc-week">Hybrid Cloud &amp; DevOps Programme</div>
+    </div>
+  </div>
+
+  <!-- TRACK 2: EC2 OPERATIONS -->
+  <div class="track-hdr" style="margin-top:1.5rem;">
+    <div class="track-hdr-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6;">&#128187;</div>
+    <div><div class="track-hdr-title" style="color:#8b5cf6;">Track 2 — EC2 Deep Operations</div>
+    <div class="track-hdr-desc">EC2 Architecture · EBS Storage · Automation · Instance Management</div></div>
+  </div>
+  <div class="div-grid" style="border:1px solid var(--border);border-top:none;">
+    <div class="sc active" style="--dcol:#8b5cf6;--ddim:#4c1d95;">
+      <div class="sc-head">
+        <div class="sc-meta"><span class="sc-num">Module 3</span><span class="sc-div" style="background:#4c1d95;color:#8b5cf6;">DEVOPS</span></div>
+        <div class="sc-title-block"><span class="st1">EC2</span><span class="st2" style="color:#8b5cf6;">Deep Dive</span></div>
+        <p class="sc-sub">Instance Types · AMIs · Launch Templates · Placement Groups</p>
+      </div>
+      <div class="sc-resources">
+            <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/EC2%20Deep%20Dive.pdf','EC2 Deep Dive','L2');return false;" class="rl">
+      <span class="ri">&#128196;</span>EC2 Deep Dive<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
+    </a>
+      </div>
+      <div class="sc-week">Hybrid Cloud &amp; DevOps Programme</div>
+    </div>
+    <div class="sc active" style="--dcol:#8b5cf6;--ddim:#4c1d95;">
+      <div class="sc-head">
+        <div class="sc-meta"><span class="sc-num">Module 4</span><span class="sc-div" style="background:#4c1d95;color:#8b5cf6;">DEVOPS</span></div>
+        <div class="sc-title-block"><span class="st1">EC2 + EBS</span><span class="st2" style="color:#8b5cf6;">Architecture</span></div>
+        <p class="sc-sub">Block Storage · Snapshots · Volume Types · Architecture Patterns</p>
+      </div>
+      <div class="sc-resources">
+            <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/EC2%20%2B%20EBS%20(Architecture).pdf','EC2 + EBS Architecture','L2');return false;" class="rl">
+      <span class="ri">&#128196;</span>EC2 + EBS Architecture<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
+    </a>
+      </div>
+      <div class="sc-week">Hybrid Cloud &amp; DevOps Programme</div>
+    </div>
+    <div class="sc active" style="--dcol:#8b5cf6;--ddim:#4c1d95;">
+      <div class="sc-head">
+        <div class="sc-meta"><span class="sc-num">Module 5</span><span class="sc-div" style="background:#4c1d95;color:#8b5cf6;">DEVOPS</span></div>
+        <div class="sc-title-block"><span class="st1">EC2 +</span><span class="st2" style="color:#8b5cf6;">Automation</span></div>
+        <p class="sc-sub">User Data · Systems Manager · Auto Scaling · Launch Configs</p>
+      </div>
+      <div class="sc-resources">
+            <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/EC2%20%2B%20Automation.pdf','EC2 + Automation','L2');return false;" class="rl">
+      <span class="ri">&#128196;</span>EC2 + Automation<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
+    </a>
+      </div>
+      <div class="sc-week">Hybrid Cloud &amp; DevOps Programme</div>
+    </div>
+  </div>
+
+  <!-- TRACK 3: CI/CD & CONTAINERS -->
+  <div class="track-hdr" style="margin-top:1.5rem;">
+    <div class="track-hdr-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6;">&#128640;</div>
+    <div><div class="track-hdr-title" style="color:#8b5cf6;">Track 3 — CI/CD &amp; Containers</div>
+    <div class="track-hdr-desc">CodePipeline · ECS · EKS · Docker · Blue/Green Deploy</div></div>
+  </div>
+  <div class="track-coming">
+    <div class="track-coming-title">Track Content Loading</div>
+    <div class="track-coming-desc">CI/CD pipeline design, container orchestration, ECS/EKS deployment and blue/green deployment strategies.</div>
+    <a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Hybrid%20Cloud%20Architecture%20%26%20DevOps%20Programme" target="_blank" class="track-enrol" style="background:#8b5cf6;color:#fff;">&#9654; &nbsp;Enrol in DevOps Programme</a>
+  </div>
+
+</div></div>
 
 <!-- ══ PROGRAMME: TERRAFORM ══ -->
 <div class="prog-section" id="prog-terraform">
@@ -1037,184 +1130,40 @@ footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
     </div>
   </div>
 
-  <div class="track-hdr"><div class="track-hdr-icon" style="background:rgba(245,158,11,.1);color:#f59e0b;">&#128196;</div><div><div class="track-hdr-title" style="color:#f59e0b;">Track 1 — IaC Foundations</div><div class="track-hdr-desc">What is Terraform · HCL Syntax · Plan · Apply · Destroy</div></div></div>
-  <div class="track-coming"><div class="track-coming-title">Starts 1 June 2026</div><div class="track-coming-desc">Introduction to Infrastructure as Code, Terraform workflow, provider configuration and first AWS resource deployment.</div><a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Terraform%20IaC%20Boot%20Camp" target="_blank" class="track-enrol" style="background:#f59e0b;color:#000;">&#9654; &nbsp;Secure Early Bird — R1400</a></div>
-  <div class="track-hdr" style="margin-top:1px;"><div class="track-hdr-icon" style="background:rgba(245,158,11,.1);color:#f59e0b;">&#9729;</div><div><div class="track-hdr-title" style="color:#f59e0b;">Track 2 — AWS Provider &amp; Resources</div><div class="track-hdr-desc">VPC · EC2 · S3 · IAM · RDS via Terraform</div></div></div>
-  <div class="track-coming"><div class="track-coming-title">Starts 1 June 2026</div><div class="track-coming-desc">Provision full AWS infrastructure using the AWS Terraform provider. Build VPCs, subnets, EC2 instances, S3 buckets and IAM roles with code.</div><a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Terraform%20IaC%20Boot%20Camp" target="_blank" class="track-enrol" style="background:#f59e0b;color:#000;">&#9654; &nbsp;Enrol Now</a></div>
-  <div class="track-hdr" style="margin-top:1px;"><div class="track-hdr-icon" style="background:rgba(245,158,11,.1);color:#f59e0b;">&#128203;</div><div><div class="track-hdr-title" style="color:#f59e0b;">Track 3 — Modules &amp; State Management</div><div class="track-hdr-desc">Reusable Modules · Remote State · S3 Backend · DynamoDB Locking</div></div></div>
-  <div class="track-coming"><div class="track-coming-title">Starts 1 June 2026</div><div class="track-coming-desc">Build reusable Terraform modules. Manage remote state in S3 with DynamoDB locking. Deploy full landing zones with a single command.</div><a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Terraform%20IaC%20Boot%20Camp" target="_blank" class="track-enrol" style="background:#f59e0b;color:#000;">&#9654; &nbsp;Enrol Now</a></div>
-  <div class="track-hdr" style="margin-top:1px;"><div class="track-hdr-icon" style="background:rgba(245,158,11,.1);color:#f59e0b;">&#128737;</div><div><div class="track-hdr-title" style="color:#f59e0b;">Track 4 — Governance &amp; Policy-as-Code</div><div class="track-hdr-desc">Sentinel · OPA · Compliance Automation · Enterprise Standards</div></div></div>
-  <div class="track-coming"><div class="track-coming-title">Starts 1 June 2026</div><div class="track-coming-desc">Enforce governance policies across all Terraform deployments. Implement tagging standards, cost controls and compliance as code.</div><a href="https://wa.me/27681084189?text=Hi%20Mthulisi%2C%20I%20want%20to%20enrol%20in%20the%20Terraform%20IaC%20Boot%20Camp" target="_blank" class="track-enrol" style="background:#f59e0b;color:#000;">&#9654; &nbsp;Enrol Now</a></div>
-</div>
-
-<!-- ═══ SHARED FOUNDATION NOTE ═══ -->
-<div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);padding:.85rem 1.25rem;margin-bottom:2rem;display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;">
-  <span style="font-size:1rem;">&#9670;</span>
-  <span style="font-size:.68rem;color:var(--dim);line-height:1.6;"><strong style="color:#fff;">Shared Foundation Core</strong> — Cloud Practitioner content (Sessions 1–6) is the prerequisite for all four programmes. All paths build on this foundation.</span>
-</div>
-
-<script>
-function switchProg(id) {
-  document.querySelectorAll('.prog-section').forEach(s => s.classList.remove('prog-active'));
-  document.querySelectorAll('.prog-nav-item').forEach(n => n.classList.remove('active-prog'));
-  document.getElementById('prog-' + id).classList.add('prog-active');
-  event.currentTarget.classList.add('active-prog');
-  // scroll to programmes section
-  document.getElementById('prog-' + id).scrollIntoView({behavior:'smooth', block:'start'});
-  return false;
-}
-</script>
-
-<div class="section-hdr"><span class="section-hdr-label">◈ Cloud Practitioner Path</span><div class="section-hdr-line"></div><span class="section-hdr-count">Shared Foundation · All Programmes Start Here</span></div>
-  <div class="division" id="div-foundation">
-  <div class="div-header">
-    <div class="div-header-left">
-      <span class="div-icon" style="background:#1e3a5f;color:#3b82f6;">&#9650;</span>
-      <div><h2 class="div-title" style="color:#3b82f6;">FOUNDATION <span>Division</span></h2>
-      <p class="div-desc">Cloud Basics · IAM · Security Model &nbsp;·&nbsp; S1–S3</p></div>
+  <div class="track-hdr"><div class="track-hdr-icon" style="background:rgba(245,158,11,.1);color:#f59e0b;">&#128196;</div><div><div class="track-hdr-title" style="color:#f59e0b;">Track 1 — IaC Foundations &nbsp;<span style="font-size:.52rem;letter-spacing:.18em;background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.3);padding:2px 8px;">&#9650; LIVE</span></div><div class="track-hdr-desc">What is Terraform · HCL Syntax · Plan · Apply · Destroy · First AWS Resource</div></div></div>
+  <div class="div-grid" style="border:1px solid var(--border);border-top:none;">
+    <div class="sc active" style="--dcol:#f59e0b;--ddim:#78350f;">
+      <div class="sc-head">
+        <div class="sc-meta"><span class="sc-num">Week 1</span><span class="sc-div" style="background:#78350f;color:#f59e0b;">IaC</span></div>
+        <div class="sc-title-block"><span class="st1">Terraform</span><span class="st2" style="color:#f59e0b;">Introduction</span></div>
+        <p class="sc-sub">What is IaC · Terraform Workflow · HCL · Plan · Apply</p>
+      </div>
+      <div class="sc-resources">
+            <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20TERRAFORM%20INTRODUCTION.pdf','Week 1 Slides','L2');return false;" class="rl">
+      <span class="ri">&#128196;</span>Week 1 Slides<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
+    </a>
+            <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/Week%20Day%201%20NOTESInfrastructure%20as%20Code%20Foundations.pdf','Day 1 Notes','L2');return false;" class="rl">
+      <span class="ri">&#128221;</span>Day 1 Notes<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
+    </a>
+      </div>
+      <div class="sc-week">Week 1 &nbsp;·&nbsp; UCA Infrastructure Engineering Academy</div>
     </div>
-  </div>
-  <div class="div-grid"><div class="sc active" style="--dcol:#3b82f6;--ddim:#1e3a5f;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-01</span><span class="sc-div" style="background:#1e3a5f;color:#3b82f6;">FOUNDATION</span></div>
-    <div class="sc-title-block"><span class="st1">Cloud</span><span class="st2" style="color:#3b82f6;">Foundations</span></div>
-    <p class="sc-sub">Cloud Models · AWS Global Infra · IaaS/PaaS/SaaS</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201sld.pdf','View Slides','L2');return false;" class="rl"><span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201%20REVISION%20PACK.pdf','Revision Pack','L3');return false;" class="rl"><span class="ri">&#128218;</span>Revision Pack<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week1AWS%20CLOUD%20PRACTITIONER%20BOOTCAMPstudentnotes.pdf','Student Notes','L2');return false;" class="rl"><span class="ri">&#128221;</span>Student Notes<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%201%20%E2%80%94%20SESSION%201%20mock.pdf','Mock Exam','L2');return false;" class="rl"><span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="https://www.youtube.com/watch?v=3hLmDS179YE" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>FreeCodeCamp — AWS Cloud Practitioner Full Course</a>
-  </div>
-  <div class="sc-week">Week 1 &nbsp;·&nbsp; FOUNDATION Division</div>
-</div><div class="sc active" style="--dcol:#3b82f6;--ddim:#1e3a5f;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-02</span><span class="sc-div" style="background:#1e3a5f;color:#3b82f6;">FOUNDATION</span></div>
-    <div class="sc-title-block"><span class="st1">Shared</span><span class="st2" style="color:#3b82f6;">Responsibility</span></div>
-    <p class="sc-sub">AWS Model · Customer Scope · Compliance</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/session2sharedrespsld.pdf','View Slides','L2');return false;" class="rl"><span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202%20LABS.pdf','GitHub Lab','L2');return false;" class="rl"><span class="ri">&#128187;</span>GitHub Lab<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202Student%20Learning%20Notes%20.pdf','Session Notes','L2');return false;" class="rl"><span class="ri">&#128221;</span>Session Notes<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%202%20MOCK%20EXAM.docx','Mock Exam','L2');return false;" class="rl"><span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="https://www.youtube.com/watch?v=B7GTRT7Jhtc" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 2 — Shared Responsibility Model</a><a href="https://aws.amazon.com/compliance/shared-responsibility-model/" target="_blank" class="rl"><span class="ri">&#128196;</span>AWS Official Documentation</a>
-  </div>
-  <div class="sc-week">Week 1 &nbsp;·&nbsp; FOUNDATION Division</div>
-</div><div class="sc active" style="--dcol:#3b82f6;--ddim:#1e3a5f;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-03</span><span class="sc-div" style="background:#1e3a5f;color:#3b82f6;">FOUNDATION</span></div>
-    <div class="sc-title-block"><span class="st1">IAM</span><span class="st2" style="color:#3b82f6;">Masterclass</span></div>
-    <p class="sc-sub">Users & Roles · Policies · MFA</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION3%20Identity%20%26%20Access%20Management%20(IAM)sld.pdf','View Slides','L2');return false;" class="rl"><span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/IAM%20SESSION%203%20%E2%80%94%20HANDS-ON%20LABS.pdf','GitHub Lab','L2');return false;" class="rl"><span class="ri">&#128187;</span>GitHub Lab<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/IAM%20SESSION%203%20%E2%80%94%20PREMIUM%20STUDENT%20NOTES.pdf','Premium Notes','L3');return false;" class="rl"><span class="ri">&#128221;</span>Premium Notes<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/AWS%20IAM%20MOCK%20EXAM%20%E2%80%94%20SESSION%203.docx','Mock Exam','L2');return false;" class="rl"><span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="https://www.youtube.com/watch?v=KngM5bfpttA" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 3 — IAM Masterclass</a><a href="https://www.youtube.com/watch?v=4jLwjylseXA" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Lab — IAM Practical Hands-On</a>
-  </div>
-  <div class="sc-week">Week 1 &nbsp;·&nbsp; FOUNDATION Division</div>
-</div></div>
-</div>
-<div class="division" id="div-associate">
-  <div class="div-header">
-    <div class="div-header-left">
-      <span class="div-icon" style="background:#064e3b;color:#10b981;">&#9651;</span>
-      <div><h2 class="div-title" style="color:#10b981;">ASSOCIATE <span>Division</span></h2>
-      <p class="div-desc">Compute · Storage · Databases &nbsp;·&nbsp; S4–S6</p></div>
-    </div>
-  </div>
-  <div class="div-grid"><div class="sc active" style="--dcol:#10b981;--ddim:#064e3b;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-04</span><span class="sc-div" style="background:#064e3b;color:#10b981;">ASSOCIATE</span></div>
-    <div class="sc-title-block"><span class="st1">Compute</span><span class="st2" style="color:#10b981;">Layer</span></div>
-    <p class="sc-sub">EC2 · Lambda · Auto Scaling</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20CORE%20SERVICES%20(COMPUTE%20+%20STORAGE%20+%20DATABASES)sld.pdf','View Slides','L2');return false;" class="rl"><span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204labs.pdf','GitHub Lab','L2');return false;" class="rl"><span class="ri">&#128187;</span>GitHub Lab<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S4%20notes.pdf','Session Notes','L2');return false;" class="rl"><span class="ri">&#128221;</span>Session Notes<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%204mockexams.pdf','Mock Exam','L2');return false;" class="rl"><span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="https://www.youtube.com/watch?v=eEdYyGWLFYo" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 4 — Compute Layer</a><a href="https://www.youtube.com/watch?v=7FEuKTFq0DU" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Lab — Hands-On Practice with EC2</a>
-  </div>
-  <div class="sc-week">Week 2 &nbsp;·&nbsp; ASSOCIATE Division</div>
-</div><div class="sc active" style="--dcol:#10b981;--ddim:#064e3b;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-05</span><span class="sc-div" style="background:#064e3b;color:#10b981;">ASSOCIATE</span></div>
-    <div class="sc-title-block"><span class="st1">Storage</span><span class="st2" style="color:#10b981;">Layer</span></div>
-    <p class="sc-sub">S3 · EBS · EFS · Glacier</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205SLIDES.pdf','View Slides','L2');return false;" class="rl"><span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205GITHUBLAB.pdf','GitHub Lab','L2');return false;" class="rl"><span class="ri">&#128187;</span>GitHub Lab<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%202%20%E2%80%94%20SESSION%205NOTES.pdf','Session Notes','L2');return false;" class="rl"><span class="ri">&#128221;</span>Session Notes<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/S5%20mock%20exam.docx','Mock Exam','L2');return false;" class="rl"><span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span></a><a href="https://www.youtube.com/watch?v=e6w9LwZJFIA" target="_blank" class="rl"><span class="ri" style="color:#e53e3e;">&#9654;</span>Session 5 — Storage Layer</a>
-  </div>
-  <div class="sc-week">Week 2 &nbsp;·&nbsp; ASSOCIATE Division</div>
-</div><div class="sc active" style="--dcol:#10b981;--ddim:#064e3b;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-06</span><span class="sc-div" style="background:#064e3b;color:#10b981;">ASSOCIATE</span></div>
-    <div class="sc-title-block"><span class="st1">Databases</span><span class="st2" style="color:#10b981;"></span></div>
-    <p class="sc-sub">RDS · DynamoDB · Aurora · ElastiCache</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%206%20%E2%80%94%20DATABASES.pdf','View Slides','L2');return false;" class="rl">
-      <span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
-    </a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%206%20GitHub%20Lab.pdf','GitHub Lab','L2');return false;" class="rl">
-      <span class="ri">&#128187;</span>GitHub Lab<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
-    </a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%206%20SESSION%20NOTES.pdf','Session Notes','L2');return false;" class="rl">
-      <span class="ri">&#128221;</span>Session Notes<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
-    </a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%206%20MOCK%20EXAM.docx','Mock Exam','L2');return false;" class="rl">
-      <span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#d4af37;color:#d4af37;">L2</span>
-    </a>
-    <a href="https://www.youtube.com/watch?v=eMzCI7S1P9M" target="_blank" class="rl">
-      <span class="ri" style="color:#e53e3e;">&#9654;</span>Session 6 Recording — Databases
-    </a>
-  </div>
-  <div class="sc-week">Week 2 &nbsp;·&nbsp; ASSOCIATE Division</div>
-</div></div>
-</div>
-<div class="division" id="div-professional">
-  <div class="div-header">
-    <div class="div-header-left">
-      <span class="div-icon" style="background:#78350f;color:#f59e0b;">&#9670;</span>
-      <div><h2 class="div-title" style="color:#f59e0b;">PROFESSIONAL <span>Division</span></h2>
-      <p class="div-desc">Networking · Security · Architecture &nbsp;·&nbsp; S7–S9</p></div>
-    </div>
-    <div class="div-header-right"><span class="div-pin-note" style="border-color:#78350f;color:#f59e0b;">&#128274; L3 Clearance Required</span></div>
-  </div>
-  <div class="div-grid"><div class="sc active" style="--dcol:#f59e0b;--ddim:#78350f;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-07</span><span class="sc-div" style="background:#78350f;color:#f59e0b;">PROFESSIONAL</span></div>
-    <div class="sc-title-block"><span class="st1">Networking</span><span class="st2" style="color:#f59e0b;">Fundamentals</span></div>
-    <p class="sc-sub">VPC · Subnets · Internet Gateway · Route Tables</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week3%20SESSION%207%20%E2%80%94%20NETWORKING%20FUNDAMENTALS%20slides.pdf','View Slides','L3');return false;" class="rl"><span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span></a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/WEEK%203%20%E2%80%94%20SESSION%207%20GITHUB%20LAB%20%E2%80%94%20NETWORKING%20FUNDAMENTALS.pdf','GitHub Lab','L3');return false;" class="rl"><span class="ri">&#128187;</span>GitHub Lab<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span></a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week%203%20SESSION%207Notes%20%E2%80%94%20NETWORKING%20FUNDAMENTALS.pdf','Session Notes','L3');return false;" class="rl"><span class="ri">&#128221;</span>Session Notes<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span></a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week%203%20session%207%20MOCK%20EXAM%20%E2%80%94%20NETWORKING%20FUNDAMENTALS.docx','Mock Exam','L3');return false;" class="rl"><span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span></a>
-  </div>
-  <div class="sc-week">Week 3 &nbsp;·&nbsp; PROFESSIONAL Division</div>
-</div><div class="sc active" style="--dcol:#f59e0b;--ddim:#78350f;">
-  <div class="sc-head">
-    <div class="sc-meta"><span class="sc-num">S-08</span><span class="sc-div" style="background:#78350f;color:#f59e0b;">PROFESSIONAL</span></div>
-    <div class="sc-title-block"><span class="st1">Security in</span><span class="st2" style="color:#f59e0b;">Networking</span></div>
-    <p class="sc-sub">Security Groups · NACLs · WAF · Shield</p>
-  </div>
-  <div class="sc-resources">
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/slides/week3_SESSION_8_SECURITY_IN_NETWORKING_slides.pdf','View Slides','L3');return false;" class="rl">
-      <span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span>
-    </a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20%E2%80%94%20GITHUB%20LAB.pdf','GitHub Lab','L3');return false;" class="rl">
-      <span class="ri">&#128187;</span>GitHub Lab<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span>
-    </a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20%E2%80%94%20STUDENT%20NOTESSecurity%20in%20Networking.pdf','Student Notes','L3');return false;" class="rl">
-      <span class="ri">&#128221;</span>Student Notes<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span>
-    </a>
-    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20%E2%80%94%20MOCK%20EXAM.docx','Mock Exam','L3');return false;" class="rl">
-      <span class="ri">&#9998;</span>Mock Exam<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span>
-    </a>
-  </div>
-  <div class="sc-week">Week 3 &nbsp;·&nbsp; PROFESSIONAL Division</div>
-</div><div class="sc locked" style="--dcol:#f59e0b;--ddim:#78350f;">
-  <div class="sc-lock">
-    <div class="sc-lock-inner">
-      <div class="sc-lock-icon">&#128274;</div>
-      <div class="sc-lock-div" style="color:#f59e0b;">PROFESSIONAL</div>
-      <div class="sc-lock-cl" style="border-color:#78350f;color:#f59e0b;">Clearance Required</div>
-    </div>
-  </div>
+    <div class="sc active" style="--dcol:#f59e0b;--ddim:#78350f;">
   <div class="sc-head">
     <div class="sc-meta"><span class="sc-num">S-09</span><span class="sc-div" style="background:#78350f;color:#f59e0b;">PROFESSIONAL</span></div>
-    <div class="sc-title-block"><span class="st1">Architecture Design</span></div>
-    <p class="sc-sub">Well-Architected Framework</p>
+    <div class="sc-title-block"><span class="st1">Cloud Migration</span><span class="st2" style="color:#f59e0b;">& Modernization</span></div>
+    <p class="sc-sub">Migration Concepts · Strategies · Modernization Patterns</p>
+  </div>
+  <div class="sc-resources">
+    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20CLOUD%20MIGRATION%20CONCEPTS%20%26%20MODERNIZATION.pdf','Cloud Migration Concepts','L3');return false;" class="rl">
+      <span class="ri">&#128196;</span>View Slides<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span>
+    </a>
+    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20GITHUB%20LABS.pdf','GitHub Labs','L3');return false;" class="rl">
+      <span class="ri">&#128187;</span>GitHub Labs<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span>
+    </a>
+    <a href="#" onclick="vaultOpen('https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20FINAL%20LAB.pdf','Final Lab','L3');return false;" class="rl">
+      <span class="ri">&#127941;</span>Final Lab<span class="rtier" style="border-color:#e53e3e;color:#e53e3e;">L3</span>
+    </a>
   </div>
   <div class="sc-week">Week 3 &nbsp;·&nbsp; PROFESSIONAL Division</div>
 </div></div>
