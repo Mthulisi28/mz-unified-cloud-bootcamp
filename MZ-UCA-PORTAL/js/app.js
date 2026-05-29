@@ -1,62 +1,45 @@
 /**
- * Master Enterprise Orchestrator & Dynamic Rendering Engine
- * Fetches decoupled resource modules and hydrates the viewport presentation layers.
+ * MZ-UCA Portal Interaction Engine — Hardened Production Accordion & Card Toggle
+ * Binds robust click handlers to session cards to dynamically reveal nested resources.
  */
 
-const MZ_APP_CORE = {
-    version: "2026.1.2",
-    environment: "Production-StaticEdge",
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("■ MZ-UCA Interaction Engine Active: Monitoring session card nodes.");
 
-    initializeSystem: function() {
-        console.log("■ MZ-UCA Core Engine Active.");
-        this.loadSessionData();
-    },
+    // Delegate click events globally across the document body to survive asynchronous rendering
+    document.body.addEventListener("click", (event) => {
+        // Track if the click originated from or inside a session card header/trigger
+        const cardElement = event.target.closest(".sc");
+        
+        // Prevent event fire if clicking directly on an active resource hyperlink
+        if (event.target.closest("a") || event.target.closest(".sc-resources")) {
+            return;
+        }
 
-    loadSessionData: function() {
-        const containerGov = document.getElementById('track-governance');
-        const containerEng = document.getElementById('track-engineering');
-
-        fetch('./data/sessions.json')
-            .then(res => res.json())
-            .then(data => {
-                // Clear out hardcoded shell components safely
-                if(containerGov) containerGov.innerHTML = '<div class="div-grid"></div>';
-                if(containerEng) containerEng.innerHTML = '<div class="cet-grid"></div>';
-
-                const gridGov = containerGov ? containerGov.querySelector('.div-grid') : null;
-                const gridEng = containerEng ? containerEng.querySelector('.cet-grid') : null;
-
-                data.forEach(session => {
-                    const cardHtml = `
-                        <div class="sc">
-                            <div class="card-tag">${session.sessionNum} — ${session.division}</div>
-                            <h3>${session.title}</h3>
-                            <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.8rem;">${session.subtitle}</p>
-                            <div class="sc-resources" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
-                                ${session.resources.map(res => `
-                                    <a href="${res.url}" class="nav-item" style="font-size: 0.8rem; text-transform: none; display: flex; align-items: center; gap: 0.5rem;" target="_blank">
-                                        <span>${res.icon}</span> ${res.label}
-                                    </a>
-                                `).join('')}
-                            </div>
-                            <div class="sc-week" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-gold); text-transform: uppercase;">
-                                ${session.week}
-                            </div>
-                        </div>
-                    `;
-
-                    if (session.track === 'governance' && gridGov) {
-                        gridGov.innerHTML += cardHtml;
-                    } else if (session.track === 'engineering' && gridEng) {
-                        gridEng.innerHTML += cardHtml;
-                    }
-                });
-
-                // Re-trigger hardware-accelerated animations after rendering complete
-                if (window.MZ_Animate_Init) window.MZ_Animate_Init();
-            })
-            .catch(err => console.error("▲ Content data plane hydration failure:", err));
-    }
-};
-
-document.addEventListener('DOMContentLoaded', () => { MZ_APP_CORE.initializeSystem(); });
+        if (cardElement) {
+            console.log("■ Session card interaction intercepted:", cardElement);
+            
+            // Toggle active expansion layout state
+            cardElement.classList.toggle("expanded");
+            
+            // Locate the underlying hidden resources section within this specific card
+            const resourcesBlock = cardElement.querySelector(".sc-resources");
+            if (resourcesBlock) {
+                if (cardElement.classList.contains("expanded")) {
+                    resourcesBlock.style.display = "flex";
+                    resourcesBlock.style.maxHeight = "500px";
+                    resourcesBlock.style.opacity = "1";
+                    resourcesBlock.style.marginTop = "1rem";
+                } else {
+                    resourcesBlock.style.maxHeight = "0px";
+                    resourcesBlock.style.opacity = "0";
+                    setTimeout(() => { 
+                        if(!cardElement.classList.contains("expanded")) {
+                            resourcesBlock.style.display = "none"; 
+                        }
+                    }, 200);
+                }
+            }
+        }
+    });
+});
