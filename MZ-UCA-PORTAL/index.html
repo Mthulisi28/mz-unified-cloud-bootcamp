@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZ Unified Control Architecture (UCA) Portal</title>
+    <link rel="stylesheet" href="./css/core.css">
+    <link rel="stylesheet" href="./css/topbar.css">
+    <link rel="stylesheet" href="./css/hero.css">
+    <link rel="stylesheet" href="./css/cards.css">
+    <link rel="stylesheet" href="./css/calendar.css">
+    <link rel="stylesheet" href="./css/engineering.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="logo-container">
+            <span class="logo-icon">◆</span>
+            <span class="logo-text">MZ-UCA</span>
+        </div>
+        <nav class="main-nav">
+            <a href="#" class="nav-item active">Dashboard</a>
+            <a href="#governance" class="nav-item">Governance</a>
+            <a href="#labs" class="nav-item">Labs</a>
+            <a href="#resources" class="nav-item">Resources</a>
+            <a href="#calendar" class="nav-item">Calendar</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">■ Enterprise Security Domain</span>
+                <h1 class="hero-title">Unified Control Architecture</h1>
+                <p class="hero-desc">Automated landing zone governance, multi-account policy orchestration, and deterministic zero-trust guardrails engineered for global multi-region compliance infrastructure.</p>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span class="stat-num">0$</span>
+                        <span class="stat-label">Cloud Operating Cost</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-label">Automated Enforcement</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="video-panel">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/YOUR_INTRO_VIDEO_ID" title="UCA Architecture System Walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <div class="track-switcher">
+            <button class="ts-btn active" data-track="governance" onclick="switchProg('governance')">▲ Governance Architect Track</button>
+            <button class="ts-btn" data-track="engineering" onclick="switchProg('engineering')">▲ Automated Operator Track</button>
+        </div>
+
+        <div id="track-governance" class="program-track-content active">
+            <div class="div-grid">
+                <div class="sc">
+                    <div class="card-tag">UCA-01</div>
+                    <h3>Multi-Account Landing Zone Guardrails</h3>
+                    <p>Programmatic validation of AWS Organizations Service Control Policies (SCPs) and decoupled decentralized IAM permission boundaries.</p>
+                </div>
+                <div class="sc">
+                    <div class="card-tag">UCA-02</div>
+                    <h3>Deterministic Cloud Financial Visibility</h3>
+                    <p>FinOps data engines checking runtime resource tags natively via headless cron logic backends without operational dependencies.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="track-engineering" class="program-track-content">
+            <div class="cet-grid">
+                <div class="cet-card">
+                    <div class="card-tag">OPS-01</div>
+                    <h3>PowerShell Automated Infrastructure Pipelines</h3>
+                    <p>Zero-manual intervention scripting models enforcing state synchronizations and deterministic API deployments across multi-region nodes.</p>
+                </div>
+                <div class="cet-card">
+                    <div class="card-tag">OPS-02</div>
+                    <h3>Static Edge Deployment Automation</h3>
+                    <p>GitHub workflows optimized specifically for decentralized content systems and high-availability global static edge distribution configurations.</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="calendar" class="calendar-section">
+            <h2 class="section-title">■ Operational Delivery Ledger</h2>
+            <div class="cal-grid">
+                <div class="cal-day">
+                    <span class="day-num">W01</span>
+                    <p class="day-desc">Core Control Base & Identity Center Rewire</p>
+                </div>
+                <div class="cal-day">
+                    <span class="day-num">W02</span>
+                    <p class="day-desc">Automated Scopes & Deterministic Scoring Triggers</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 MZ-UCA Global Machine Infrastructure. Engineered for Sovereign Scale. Authorized Operations Only.</p>
+    </footer>
+
+    <script src="./js/track-switcher.js"></script>
+    <script src="./js/animations.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
