@@ -1,115 +1,369 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ Unified Control Architecture (UCA) Portal</title>
-    <link rel="stylesheet" href="./css/core.css">
-    <link rel="stylesheet" href="./css/topbar.css">
-    <link rel="stylesheet" href="./css/hero.css">
-    <link rel="stylesheet" href="./css/cards.css">
-    <link rel="stylesheet" href="./css/calendar.css">
-    <link rel="stylesheet" href="./css/engineering.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/responsive.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MZ UCA Cloud Academy 2026 | Unified Cloud Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#d4af37;--gold-bright:#f0c84a;--gold-dim:#7a6010;
+  --bg:#040608;--surface:#080c12;--surface2:#0d1119;
+  --border:#161c28;--text:#dde3ee;--muted:#4a5568;--dim:#8896aa;
+  --red:#e53e3e;--purple:#7c3aed;--purple-light:#a78bfa;
+}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.014) 59px,rgba(255,255,255,.014) 60px),
+  repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.014) 59px,rgba(255,255,255,.014) 60px);
+  pointer-events:none;z-index:0;}
+.page{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 2rem 6rem;}
+
+/* ── TOPBAR ── */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:.75rem;}
+.topbar-logo{display:flex;align-items:center;gap:.75rem;}
+.topbar-logo img{width:44px;height:44px;object-fit:contain;}
+.tb-name{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#fff;line-height:1;}
+.tb-sub{font-size:.58rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:2px;}
+.topbar-right{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.tb-instructor{display:flex;align-items:center;gap:.6rem;}
+.tb-instructor img{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold-dim);object-fit:cover;}
+.tb-iname{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:900;letter-spacing:.06em;color:#fff;text-transform:uppercase;line-height:1;}
+.tb-ititle{font-size:.58rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;}
+.tb-badge{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:4px 10px;}
+
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;padding:2.5rem 0;border-bottom:1px solid var(--border);margin-bottom:2.5rem;align-items:start;}
+@media(max-width:900px){.hero{grid-template-columns:1fr;}}
+.hero-eyebrow{font-size:.6rem;letter-spacing:.4em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem;}
+.hero-eyebrow::before{content:'◈';}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5.5rem);line-height:.92;color:#fff;letter-spacing:.02em;text-transform:uppercase;margin-bottom:1rem;}
+.hero-title span{color:var(--gold);}
+.hero-desc{font-size:.9rem;line-height:1.7;color:var(--dim);max-width:500px;margin-bottom:1.75rem;}
+.hero-stats{display:flex;gap:2rem;padding-top:1.25rem;border-top:1px solid var(--border);flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;gap:2px;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--gold);line-height:1;}
+.stat-label{font-size:.56rem;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;}
+.video-panel{background:var(--surface);border:1px solid var(--border);position:relative;overflow:hidden;}
+.video-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-bright),transparent);}
+.video-label{padding:.65rem 1.1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.vl-text{font-size:.58rem;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;font-weight:700;}
+.vl-live{display:flex;align-items:center;gap:5px;font-size:.54rem;letter-spacing:.16em;color:var(--red);text-transform:uppercase;}
+.vl-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.video-wrapper{position:relative;width:100%;padding-bottom:56.25%;background:#000;}
+.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+
+/* ── TRACK SWITCHER BUTTONS ── */
+.track-switcher{display:flex;gap:1rem;margin-bottom:2rem;}
+.ts-btn{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;padding:10px 20px;border:1px solid var(--border);background:var(--surface);color:var(--dim);cursor:pointer;transition:all .15s;}
+.ts-btn.active[data-track="governance"]{border-color:var(--gold);color:#fff;background:rgba(212,175,55,0.05);}
+.ts-btn.active[data-track="engineering"]{border-color:var(--purple);color:#fff;background:rgba(124,58,237,0.05);}
+.ts-btn:hover{border-color:var(--muted);color:#fff;}
+
+/* ── CLEARANCE BAR ── */
+.clearance-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2.5rem;}
+@media(max-width:700px){.clearance-bar{grid-template-columns:repeat(2,1fr);}}
+.cb-item{background:var(--surface);padding:.9rem 1.1rem;display:flex;flex-direction:column;gap:3px;position:relative;overflow:hidden;}
+.cb-num{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;line-height:1;}
+.cb-label{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;}
+.cb-desc{font-size:.6rem;color:var(--muted);line-height:1.4;margin-top:2px;}
+.cb-pin{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;margin-top:3px;color:var(--muted);}
+
+/* ── SECTION HEADER ── */
+.section-hdr{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;}
+.section-hdr-label{font-size:.6rem;letter-spacing:.36em;color:var(--muted);text-transform:uppercase;white-space:nowrap;}
+.section-hdr-line{flex:1;height:1px;background:var(--border);}
+.section-hdr-count{font-size:.56rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;white-space:nowrap;}
+
+/* ── PROGRAM CONTAINER TRACKS ── */
+.program-track-content{display:none;}
+.program-track-content.active{display:block;}
+
+/* ── DIVISION / SESSION CARDS ── */
+.division{margin-bottom:2.5rem;}
+.div-header{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-bottom:none;flex-wrap:wrap;gap:.5rem;}
+.div-header-left{display:flex;align-items:center;gap:.85rem;}
+.div-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.div-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.06em;text-transform:uppercase;line-height:1;}
+.div-title span{color:var(--muted);}
+.div-desc{font-size:.62rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.div-header-right{display:flex;align-items:center;gap:.6rem;}
+.div-pin-note{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border:1px solid;}
+.div-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-top:none;}
+@media(max-width:900px){.div-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.div-grid{grid-template-columns:1fr;}}
+
+.sc{background:var(--surface);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background .2s;}
+.sc.active:hover{background:#0a0f1a;}
+.sc.active::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--dcol,#d4af37),transparent 70%);}
+.sc.locked{opacity:.3;filter:grayscale(.9);}
+.sc-lock{position:absolute;inset:0;background:rgba(4,6,8,.9);display:flex;align-items:center;justify-content:center;z-index:5;backdrop-filter:blur(2px);}
+.sc-lock-inner{text-align:center;padding:1.25rem;}
+.sc-lock-icon{font-size:1.5rem;margin-bottom:.4rem;}
+.sc-lock-div{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.2rem;}
+.sc-lock-cl{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border:1px solid;display:inline-block;}
+.sc-head{padding:1.1rem 1.1rem .65rem;}
+.sc-meta{display:flex;align-items:center;gap:.45rem;margin-bottom:.5rem;}
+.sc-num{font-size:.58rem;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;}
+.sc-div{font-size:.48rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:2px 6px;}
+.st1{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;color:#fff;letter-spacing:.03em;text-transform:uppercase;line-height:.95;}
+.sc-sub{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;}
+.sc-resources{margin-top:auto;border-top:1px solid var(--border);}
+.rl{display:flex;align-items:center;gap:.5rem;padding:.45rem 1.1rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);transition:color .12s,background .12s;}
+.rl:last-child{border-bottom:none;}
+.rl:hover{color:#fff;background:rgba(212,175,55,.04);}
+.ri{font-size:.7rem;width:13px;text-align:center;flex-shrink:0;}
+.rtier{font-size:.46rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:1px 5px;border:1px solid;margin-left:auto;flex-shrink:0;}
+.sc-week{padding:.45rem 1.1rem;font-size:.54rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;border-top:1px solid var(--border);}
+
+/* ── CLOUD ENGINEER TRACK SPECIFICS ── */
+.cet-banner { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--purple); margin-bottom: 2.5rem; position: relative; overflow: hidden; }
+.cet-banner::after { content: 'ENGINEER'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); font-family: 'Bebas Neue', sans-serif; font-size: 9rem; color: rgba(124,58,237,.04); pointer-events: none; letter-spacing: .1em; }
+.cet-head { padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.cet-icon { width: 42px; height: 42px; background: rgba(124,58,237,.12); border: 1px solid rgba(124,58,237,.35); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.cet-eyebrow { font-size: .56rem; letter-spacing: .34em; color: var(--purple-light); text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 3px; }
+.cet-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .04em; color:#fff; text-transform: uppercase; line-height: 1; }
+.cet-title span { color: var(--purple-light); }
+.cet-badge { font-size: .54rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; padding: 3px 10px; background: rgba(124,58,237,.1); border: 1px solid rgba(124,58,237,.3); color: var(--purple-light); margin-left: auto; }
+.cet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+@media(max-width:900px){ .cet-grid{ grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px){ .cet-grid{ grid-template-columns: 1fr; } }
+.cet-card { background: var(--surface); padding: 1.25rem; display: flex; flex-direction: column; gap: .6rem; position: relative; overflow: hidden; transition: background .2s; }
+.cet-card:hover { background: #0a0f1a; }
+.cet-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--purple), transparent 70%); }
+.cet-card-num { font-size: .56rem; font-weight: 700; letter-spacing: .28em; color: var(--purple-light); text-transform: uppercase; }
+.cet-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; color: #fff; letter-spacing: .03em; text-transform: uppercase; line-height: .95; }
+.cet-card-sub { font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--purple-light); line-height: 1.1; }
+.cet-card-desc { font-size: .7rem; color: var(--dim); line-height: 1.6; flex: 1; }
+.cet-pills { display: flex; flex-wrap: wrap; gap: 3px; margin-top: .25rem; }
+.cet-pill { font-size: .5rem; letter-spacing: .12em; text-transform: uppercase; padding: 2px 7px; border: 1px solid rgba(124,58,237,.25); color: var(--purple-light); background: rgba(124,58,237,.05); }
+.cet-coming { display: inline-flex; align-items: center; gap: 5px; font-size: .56rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; padding: 4px 10px; margin-top: auto; background: rgba(124,58,237,.08); border: 1px solid rgba(124,58,237,.25); color: var(--purple-light); align-self: flex-start; }
+.cet-footer { padding: .85rem 1.25rem; background: var(--surface2); border-top: 1px solid var(--border); font-size: .65rem; color: var(--muted); letter-spacing: .05em; }
+
+/* ── CALENDAR ── */
+.cal-grid{background:var(--surface);border:1px solid var(--border);overflow:hidden;margin-bottom:2.5rem;}
+.cal-header{padding:.75rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.cal-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#fff;letter-spacing:.05em;text-transform:uppercase;}
+.cal-title span{color:var(--gold);}
+.cal-legend{display:flex;gap:.65rem;flex-wrap:wrap;}
+.cal-legend-item{display:flex;align-items:center;gap:5px;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.cal-legend-dot{width:7px;height:7px;border-radius:2px;}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--border);}
+.cal-day-name{padding:.45rem;font-size:.52rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:center;border-right:1px solid var(--border);}
+.cal-day-name:last-child{border-right:none;}
+.cal-week{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--border);}
+.cal-week:last-child{border-bottom:none;}
+.cal-cell{min-height:52px;padding:.35rem .45rem;border-right:1px solid var(--border);position:relative;}
+.cal-cell:last-child{border-right:none;}
+.cal-cell.empty{background:rgba(0,0,0,.18);}
+.cal-cell.session-done{background:rgba(212,175,55,.05);}
+.cal-cell.session-next{background:rgba(16,185,129,.05);}
+.cal-cell.session-upcoming{background:rgba(99,102,241,.04);}
+.cal-cell.last-day{background:rgba(229,62,62,.06);}
+.cal-date{font-size:.6rem;font-weight:700;color:var(--muted);letter-spacing:.08em;display:block;margin-bottom:2px;}
+.cal-cell.session-done .cal-date{color:var(--gold);}
+.cal-cell.session-next .cal-date{color:#10b981;}
+.cal-session-tag{font-size:.48rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:1px 4px;display:inline-block;line-height:1.4;}
+.tag-done{background:rgba(212,175,55,.14);color:var(--gold);}
+.tag-next{background:rgba(16,185,129,.14);color:#10b981;}
+.tag-upcoming{background:rgba(99,102,241,.12);color:#818cf8;}
+.tag-end{background:rgba(229,62,62,.14);color:#e53e3e;}
+.cal-session-name{font-size:.5rem;color:var(--dim);line-height:1.3;margin-top:1px;display:block;}
+
+/* ── FOOTER ── */
+footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.85rem;}
+.ft-brand{display:flex;align-items:center;gap:.6rem;}
+.ft-brand img{width:28px;height:28px;object-fit:contain;opacity:.65;}
+.ft-text{font-size:.6rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;}
+.ft-text span{color:var(--gold);}
+.ft-right{font-size:.58rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;}
+.ft-right span{color:var(--gold);}
+</style>
 </head>
 <body>
 
-    <header class="topbar">
-        <div class="logo-container">
-            <span class="logo-icon">◆</span>
-            <span class="logo-text">MZ-UCA</span>
+<div class="page">
+  <header class="topbar">
+    <div class="topbar-logo">
+      <div>
+        <div class="tb-name">MZ UCA Academy 2026</div>
+        <div class="tb-sub">Unified Control Architecture</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="tb-instructor">
+        <div>
+          <div class="tb-iname">Mthulisi Zulu</div>
+          <div class="tb-ititle">Principal Cloud Governance Architect</div>
         </div>
-        <nav class="main-nav">
-            <a href="#" class="nav-item active">Dashboard</a>
-            <a href="#governance" class="nav-item">Governance</a>
-            <a href="#labs" class="nav-item">Labs</a>
-            <a href="#resources" class="nav-item">Resources</a>
-            <a href="#calendar" class="nav-item">Calendar</a>
-        </nav>
-    </header>
+      </div>
+      <div class="tb-badge">Clearance Level: UCA Admin</div>
+    </div>
+  </header>
 
-    <main class="page">
-        <section class="hero">
-            <div class="hero-content">
-                <span class="hero-badge">■ Enterprise Security Domain</span>
-                <h1 class="hero-title">Unified Control Architecture</h1>
-                <p class="hero-desc">Automated landing zone governance, multi-account policy orchestration, and deterministic zero-trust guardrails engineered for global multi-region compliance infrastructure.</p>
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <span class="stat-num">0$</span>
-                        <span class="stat-label">Cloud Operating Cost</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-num">100%</span>
-                        <span class="stat-label">Automated Enforcement</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="video-panel">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/YOUR_INTRO_VIDEO_ID" title="UCA Architecture System Walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow">Enterprise Cloud Optimization</div>
+      <h1 class="hero-title">The Global <span>Machine</span> Portal</h1>
+      <p class="hero-desc">Zero-trust, deterministic governance architecture engines orchestrating multi-region landing zones and automated compliance controls across hybrid clusters.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">$0</span><span class="stat-label">Google Cloud Cost</span></div>
+        <div class="stat"><span class="stat-num">UCA v1</span><span class="stat-label">Framework Build</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">IaC Orchestrated</span></div>
+      </div>
+    </div>
+    <div class="video-panel">
+      <div class="video-label">
+        <span class="vl-text">Orchestration System Active</span>
+        <span class="vl-live">Telemetry Feed</span>
+      </div>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
 
-        <div class="track-switcher">
-            <button class="ts-btn active" data-track="governance" onclick="switchProg('governance')">▲ Governance Architect Track</button>
-            <button class="ts-btn" data-track="engineering" onclick="switchProg('engineering')">▲ Automated Operator Track</button>
+  <div class="track-switcher">
+    <button class="ts-btn active" data-track="governance" onclick="switchProg('governance')">UCA Governance Track</button>
+    <button class="ts-btn" data-track="engineering" onclick="switchProg('engineering')">Automated Operations Track</button>
+  </div>
+
+  <div id="track-governance" class="program-track-content active">
+    <div class="section-hdr">
+      <span class="section-hdr-label">Active Structural Frameworks</span>
+      <div class="section-hdr-line"></div>
+      <span class="section-hdr-count">03 Active Blocks</span>
+    </div>
+
+    <div class="division">
+      <div class="div-header" style="border-top: 3px solid var(--gold);">
+        <div class="div-header-left">
+          <div class="div-title">Division 03 <span>//</span> Core Network Engineering</div>
         </div>
-
-        <div id="track-governance" class="program-track-content active">
-            <div class="div-grid">
-                <div class="sc">
-                    <div class="card-tag">UCA-01</div>
-                    <h3>Multi-Account Landing Zone Guardrails</h3>
-                    <p>Programmatic validation of AWS Organizations Service Control Policies (SCPs) and decoupled decentralized IAM permission boundaries.</p>
-                </div>
-                <div class="sc">
-                    <div class="card-tag">UCA-02</div>
-                    <h3>Deterministic Cloud Financial Visibility</h3>
-                    <p>FinOps data engines checking runtime resource tags natively via headless cron logic backends without operational dependencies.</p>
-                </div>
-            </div>
+        <div class="div-header-right">
+          <span class="div-pin-note" style="color:var(--gold); border-color:var(--gold-dim);">Injected Assets</span>
         </div>
-
-        <div id="track-engineering" class="program-track-content">
-            <div class="cet-grid">
-                <div class="cet-card">
-                    <div class="card-tag">OPS-01</div>
-                    <h3>PowerShell Automated Infrastructure Pipelines</h3>
-                    <p>Zero-manual intervention scripting models enforcing state synchronizations and deterministic API deployments across multi-region nodes.</p>
-                </div>
-                <div class="cet-card">
-                    <div class="card-tag">OPS-02</div>
-                    <h3>Static Edge Deployment Automation</h3>
-                    <p>GitHub workflows optimized specifically for decentralized content systems and high-availability global static edge distribution configurations.</p>
-                </div>
-            </div>
+      </div>
+      <div class="div-grid">
+        <div class="sc active">
+          <div class="sc-head">
+            <div class="sc-meta"><span class="sc-num">Session 07</span></div>
+            <div class="st1">Networking Fundamentals</div>
+            <div class="sc-sub">Multi-Region Enterprise Architectures</div>
+          </div>
+          <div class="sc-resources">
+            <a href="./week-03/session-07-github-lab/networking-fundamentals-lab.pdf" class="rl">
+              <span class="ri">📁</span> Lab Document [PDF]
+              <span class="rtier" style="color:var(--gold); border-color:var(--gold-dim);">L1 Asset</span>
+            </a>
+            <a href="./week-03/session-07-github-lab/" class="rl">
+              <span class="ri">🛠️</span> Git Workspace Context
+              <span class="rtier" style="color:var(--gold); border-color:var(--gold-dim);">Repo Portal</span>
+            </a>
+          </div>
+          <div class="sc-week">Week 03 Execution Engine</div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <section id="calendar" class="calendar-section">
-            <h2 class="section-title">■ Operational Delivery Ledger</h2>
-            <div class="cal-grid">
-                <div class="cal-day">
-                    <span class="day-num">W01</span>
-                    <p class="day-desc">Core Control Base & Identity Center Rewire</p>
-                </div>
-                <div class="cal-day">
-                    <span class="day-num">W02</span>
-                    <p class="day-desc">Automated Scopes & Deterministic Scoring Triggers</p>
-                </div>
-            </div>
-        </section>
-    </main>
+  <div id="track-engineering" class="program-track-content">
+    <div class="cet-banner">
+      <div class="cet-head">
+        <div class="cet-icon">⚙️</div>
+        <div>
+          <span class="cet-eyebrow">Production-Grade Infrastructure</span>
+          <h2 class="cet-title">Automated Operators & <span>Hybrid Migration</span></h2>
+        </div>
+        <div class="cet-badge">Execution Track Active</div>
+      </div>
+      <div class="cet-grid">
+        <div class="cet-card">
+          <span class="cet-card-icon">🚀</span>
+          <span class="cet-card-num">Prog 01</span>
+          <h3 class="cet-card-title">Hybrid Migration Engines</h3>
+          <div class="cet-card-sub">Legacy to Cloud Native</div>
+          <p class="cet-card-desc">Advanced data-sync pipelines, cross-cloud VM mapping, and immutable multi-region continuous migration controls using decoupled infrastructure engines.</p>
+          <div class="cet-pills">
+            <span class="cet-pill">Sync Matrix</span>
+            <span class="cet-pill">Migration IaC</span>
+          </div>
+        </div>
+        <div class="cet-card">
+          <span class="cet-card-icon">🤖</span>
+          <span class="cet-card-num">Prog 02</span>
+          <h3 class="cet-card-title">Automated IaC Operators</h3>
+          <div class="cet-card-sub">Deterministic Run-Execution</div>
+          <p class="cet-card-desc">Zero-human manual intervention automation runtimes mapping drift state evaluation parameters and enforcing compliance policies deterministically via PowerShell runbooks.</p>
+          <div class="cet-pills">
+            <span class="cet-pill">Drift Policy</span>
+            <span class="cet-pill">PowerShell Core</span>
+          </div>
+        </div>
+      </div>
+      <div class="cet-footer">Automated Operator Systems // Zero Manual Support Framework Execution Matrix.</div>
+    </div>
+  </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 MZ-UCA Global Machine Infrastructure. Engineered for Sovereign Scale. Authorized Operations Only.</p>
-    </footer>
+  <div class="section-hdr">
+    <span class="section-hdr-label">Sprint Calendars</span>
+    <div class="section-hdr-line"></div>
+    <span class="section-hdr-count">Target: 16 June 2026</span>
+  </div>
 
-    <script src="./js/track-switcher.js"></script>
-    <script src="./js/animations.js"></script>
-    <script src="./js/app.js"></script>
+  <div class="cal-grid">
+    <div class="cal-header">
+      <div class="cal-title">AWS Solutions Architect Sprint <span>//</span> Delivery Engine</div>
+      <div class="cal-legend">
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--gold);"></div>Done</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#10b981;"></div>Next Track</div>
+      </div>
+    </div>
+    <div class="cal-days-header">
+      <div class="cal-day-name">Mon</div><div class="cal-day-name">Tue</div><div class="cal-day-name">Wed</div><div class="cal-day-name">Thu</div><div class="cal-day-name">Fri</div><div class="cal-day-name">Sat</div><div class="cal-day-name">Sun</div>
+    </div>
+    <div class="cal-week">
+      <div class="cal-cell session-done"><span class="cal-date">01</span><span class="cal-session-tag tag-done">UCA Core</span><span class="cal-session-name">Governance Fundamentals</span></div>
+      <div class="cal-cell session-done"><span class="cal-date">02</span><span class="cal-session-tag tag-done">UCA Core</span><span class="cal-session-name">Landing Zones</span></div>
+      <div class="cal-cell session-done"><span class="cal-date">03</span><span class="cal-session-tag tag-done">UCA Core</span><span class="cal-session-name">VPC Engineering</span></div>
+      <div class="cal-cell session-next"><span class="cal-date">04</span><span class="cal-session-tag tag-next">Active</span><span class="cal-session-name">This Lab Live Deployment</span></div>
+      <div class="cal-cell"><span class="cal-date">05</span></div><div class="cal-cell"><span class="cal-date">06</span></div><div class="cal-cell"><span class="cal-date">07</span></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-brand">
+      <div class="ft-text">System Core <span>BrayTech Global Platform</span></div>
+    </div>
+    <div class="ft-right">Domain Engine: <span>quickreserve.co.za</span></div>
+  </footer>
+</div>
+
+<script>
+function switchProg(trackName) {
+  // 1. Reset all programmatic layout containers
+  document.querySelectorAll('.program-track-content').forEach(el => {
+    el.classList.remove('active');
+  });
+  // 2. Clear out active styling parameters from buttons
+  document.querySelectorAll('.ts-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // 3. Mount visible active states dynamically
+  const targetContainer = document.getElementById('track-' + trackName);
+  const targetButton = document.querySelector(`.ts-btn[data-track="${trackName}"]`);
+  
+  if (targetContainer && targetButton) {
+    targetContainer.classList.add('active');
+    targetButton.classList.add('active');
+  }
+}
+</script>
+
 </body>
 </html>
