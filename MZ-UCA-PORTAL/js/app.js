@@ -43,3 +43,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+/**
+ * Global Enterprise Resource Vault Engine
+ * Hydrates legacy monolithic onclick bindings and handles premium document delivery.
+ */
+window.vaultOpen = function(assetUrl, assetTitle, requiredTier) {
+    console.log(`■ Vault access request intercepted | Asset: ${assetTitle} | Required Tier: ${requiredTier}`);
+    
+    if (!assetUrl || assetUrl === "#") {
+        console.error("▲ Vault delivery blocked: Asset reference is empty or invalid.");
+        return false;
+    }
+
+    try {
+        const targetWindow = window.open(assetUrl, '_blank');
+        if (targetWindow) {
+            targetWindow.focus();
+        } else {
+            window.location.href = assetUrl;
+        }
+    } catch (error) {
+        console.error("▲ Critical exception inside vault delivery loop:", error);
+    }
+    
+    return false;
+};
