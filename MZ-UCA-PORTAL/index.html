@@ -1663,5 +1663,36 @@ function quizNextSession(){const keys=Object.keys(QUIZ_DATA).map(Number);const n
 document.addEventListener("DOMContentLoaded",quizInit);
 </script>
 
+    <script>
+        /**
+         * Global Inline Asset Vault Engine Polyfill
+         * Resolves legacy monolithic onclick bindings directly from the window context.
+         */
+        window.vaultOpen = function(assetUrl, assetTitle, requiredTier) {
+            console.log("■ Vault access execution intercept:", { assetTitle, requiredTier, assetUrl });
+            
+            if (!assetUrl || assetUrl === "#" || assetUrl.trim() === "") {
+                console.warn("▲ Vault intercept blocked: Empty or invalid asset link.");
+                return false;
+            }
+
+            try {
+                // Force open the premium curriculum PDF asset in a secure detached tab
+                const assetWindow = window.open(assetUrl, '_blank');
+                if (assetWindow) {
+                    assetWindow.focus();
+                } else {
+                    // Fallback configuration if aggressive pop-up blockers intercept the browser thread
+                    window.location.href = assetUrl;
+                }
+            } catch (err) {
+                console.error("▲ Critical failure inside asset vault execution chain:", err);
+            }
+            
+            return false; // Prevent the default anchor href="#" jump to top behavior
+        };
+        console.log("■ Core Vault Polyfill Engine successfully attached to global window instance.");
+    </script>
 </body>
 </html>
+
