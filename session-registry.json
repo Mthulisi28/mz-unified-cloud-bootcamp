@@ -1,0 +1,31 @@
+{
+  "S8": {
+    "title": "Network Security",
+    "subtitle": "Governance",
+    "week": "Week 3 · PROFESSIONAL Division",
+    "theme": {
+      "primary": "#f59e0b",
+      "secondary": "#78350f"
+    },
+    "assets": {
+      "View Slides": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week3_SESSION_8_SECURITY_IN_NETWORKING_slides.pdf",
+      "GitHub Lab": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20—%20GITHUB%20LAB.pdf",
+      "Session Notes": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20—%20STUDENT%20NOTESSecurity%20in%20Networking.pdf",
+      "Mock Exam": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20—%20MOCK%20EXAM.docx"
+    }
+  },
+  "S9": {
+    "title": "Cloud Migration",
+    "subtitle": "Strategy & Modernization",
+    "week": "Week 3 · PROFESSIONAL Division",
+    "theme": {
+      "primary": "#3b82f6",
+      "secondary": "#1e3a8a"
+    },
+    "assets": {
+      "View Slides": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20CLOUD%20MIGRATION%20CONCEPTS%20%26%20MODERNIZATION.pdf",
+      "GitHub Lab": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20GITHUB%20LABS.pdf",
+      "Final Lab": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20FINAL%20LAB.pdf"
+    }
+  }
+}
