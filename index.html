@@ -93,25 +93,22 @@
     </div>
 
     <script>
-        // Production Video Routing Engine Map
+        // Auto-Generated Video Routing Engine Map
         const videoMap = {
-            "1": "dQw4w9WgXcQ", // Update with your actual YouTube ID strings
-            "2": "dQw4w9WgXcQ",
-            "3": "dQw4w9WgXcQ",
-            "5": "dQw4w9WgXcQ",
-            "6": "dQw4w9WgXcQ",
-            "9": "dQw4w9WgXcQ"
+            "1": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_1",
+            "2": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_2",
+            "3": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_3",
+            "5": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_5",
+            "6": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_6",
+            "9": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_9"
         };
 
         function loadVideo(sessionId) {
-            // Remove active classes from all session cards
             document.querySelectorAll('.sc').forEach(card => card.classList.remove('active'));
             
-            // Set current card to active
             const clickedCard = event.currentTarget;
             if (clickedCard) clickedCard.classList.add('active');
             
-            // Inject localized iframe into target container
             const target = document.getElementById('video-target');
             const videoId = videoMap[sessionId];
             

@@ -12,10 +12,13 @@ if (-not (Test-Path $registryPath)) {
 $jsonRaw = Get-Content -Path $registryPath -Raw -Encoding UTF-8
 $targetSessions = ConvertFrom-Json -InputObject $jsonRaw
 
-# 3. Compile the Dynamic Component Payload
+# 3. Compile the Dynamic Component Payload and Javascript Map Objects
 $compiledPayload = ""
+$jsMapEntries = @()
+
 foreach ($session in $targetSessions) {
     $isActive = if ($session.active) { "active" } else { "" }
+    # Inject onclick parameter pointing natively to the session database mapping
     $compiledPayload += @"
         <div class="sc $isActive" style="--dcol: $($session.color); --ddim: $($session.dimColor);" onclick="loadVideo('$($session.id)')">
             <div class="sc-head">
@@ -25,9 +28,13 @@ foreach ($session in $targetSessions) {
             </div>
         </div>`n
 "@
+    # Dynamically build the JS dictionary keys from data rows
+    $jsMapEntries += "            `"$($session.id)`": `"$($session.youtubeId)`""
 }
 
-# 4. Generate the Full Production Structural Template with Video Player Layout
+$jsMapString = $jsMapEntries -join ",`n"
+
+# 4. Generate the Fixed Presentation Structural Template
 $templateHtml = @"
 <!DOCTYPE html>
 <html lang="en">
@@ -82,25 +89,17 @@ $compiledPayload
     </div>
 
     <script>
-        // Production Video Routing Engine Map
+        // Auto-Generated Video Routing Engine Map
         const videoMap = {
-            "1": "dQw4w9WgXcQ", // Update with your actual YouTube ID strings
-            "2": "dQw4w9WgXcQ",
-            "3": "dQw4w9WgXcQ",
-            "5": "dQw4w9WgXcQ",
-            "6": "dQw4w9WgXcQ",
-            "9": "dQw4w9WgXcQ"
+$jsMapString
         };
 
         function loadVideo(sessionId) {
-            // Remove active classes from all session cards
             document.querySelectorAll('.sc').forEach(card => card.classList.remove('active'));
             
-            // Set current card to active
             const clickedCard = event.currentTarget;
             if (clickedCard) clickedCard.classList.add('active');
             
-            // Inject localized iframe into target container
             const target = document.getElementById('video-target');
             const videoId = videoMap[sessionId];
             
@@ -115,4 +114,4 @@ $compiledPayload
 
 # 5. Flush Securely to Production Target Node
 Set-Content -Path $htmlPath -Value $templateHtml -Encoding UTF-8
-Write-Host "◈ [SUCCESS] Production portal successfully compiled with video player layout ($($targetSessions.Count) elements)." -ForegroundColor Green
+Write-Host "◈ [SUCCESS] Production portal compiled with fully mapped data streams ($($targetSessions.Count) elements)." -ForegroundColor Green

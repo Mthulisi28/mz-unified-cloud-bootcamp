@@ -1,31 +1,56 @@
-{
-  "S8": {
-    "title": "Network Security",
-    "subtitle": "Governance",
-    "week": "Week 3 · PROFESSIONAL Division",
-    "theme": {
-      "primary": "#f59e0b",
-      "secondary": "#78350f"
-    },
-    "assets": {
-      "View Slides": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/week3_SESSION_8_SECURITY_IN_NETWORKING_slides.pdf",
-      "GitHub Lab": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20—%20GITHUB%20LAB.pdf",
-      "Session Notes": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20—%20STUDENT%20NOTESSecurity%20in%20Networking.pdf",
-      "Mock Exam": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%208%20—%20MOCK%20EXAM.docx"
-    }
+﻿[
+  {
+    "id": "1",
+    "title": "LET'S GET STARTED & CORE RUNTIME FOUNDATIONS",
+    "duration": "43min",
+    "color": "#3b82f6",
+    "dimColor": "#1e3a8a",
+    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_1",
+    "active": true
   },
-  "S9": {
-    "title": "Cloud Migration",
-    "subtitle": "Strategy & Modernization",
-    "week": "Week 3 · PROFESSIONAL Division",
-    "theme": {
-      "primary": "#3b82f6",
-      "secondary": "#1e3a8a"
-    },
-    "assets": {
-      "View Slides": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20CLOUD%20MIGRATION%20CONCEPTS%20%26%20MODERNIZATION.pdf",
-      "GitHub Lab": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20GITHUB%20LABS.pdf",
-      "Final Lab": "https://mthulisi28.github.io/mz-unified-cloud-bootcamp/assets/SESSION%209%20FINAL%20LAB.pdf"
-    }
+  {
+    "id": "2",
+    "title": "DETERMINISTIC GOVERNANCE & ACCOUNT IDENTITY (IAM)",
+    "duration": "1hr 11min",
+    "color": "#10b981",
+    "dimColor": "#064e3b",
+    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_2",
+    "active": false
+  },
+  {
+    "id": "3",
+    "title": "COMPUTE FABRIC & SEGREGATED NETWORKING (EC2)",
+    "duration": "2hr 38min",
+    "color": "#f59e0b",
+    "dimColor": "#78350f",
+    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_3",
+    "active": false
+  },
+  {
+    "id": "5",
+    "title": "MULTI-ACCOUNT LANDING ZONES (CONTROL TOWER)",
+    "duration": "1hr 19min",
+    "color": "#ef4444",
+    "dimColor": "#7f1d1d",
+    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_5",
+    "active": false
+  },
+  {
+    "id": "6",
+    "title": "ENTERPRISE SEGREGATED NETWORKS (VPC DEEP DIVE)",
+    "duration": "2hr 28min",
+    "color": "#8b5cf6",
+    "dimColor": "#4c1d95",
+    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_6",
+    "active": false
+  },
+  {
+    "id": "9",
+    "title": "CLOUD MIGRATION CONCEPTS & MODERNIZATION",
+    "duration": "1hr 23min",
+    "color": "#ec4899",
+    "dimColor": "#701a75",
+    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_9",
+    "active": false
   }
-}
+]
