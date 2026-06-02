@@ -70,12 +70,10 @@ $templateHtml = @"
     <div class="container">
         <div class="player-pane">
             <h2>◈ BROADCAST RUNTIME CONTROLLER</h2>
-            <div class="video-wrapper">
-                <div id="video-container">
-                    <div id="video-target" class="placeholder">
-                        <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
-                        <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
-                    </div>
+            <div class="video-wrapper" id="video-wrapper-node">
+                <div class="placeholder">
+                    <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
+                    <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
                 </div>
             </div>
         </div>
@@ -99,12 +97,12 @@ $jsMapString
             const clickedCard = event.currentTarget;
             if (clickedCard) clickedCard.classList.add('active');
             
-            const container = document.getElementById('video-container');
+            const wrapper = document.getElementById('video-wrapper-node');
             const videoId = videoMap[sessionId];
             
             if (videoId) {
-                // Fixed escaping logic to pass pure variable instantiation directly to browser runtime
-                container.innerHTML = '<iframe id="video-target" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                // Targeted swap safely updates video stream context within template container frames
+                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             }
         }
     </script>
@@ -114,4 +112,4 @@ $jsMapString
 
 # 5. Flush Securely to Production Target Node
 Set-Content -Path $htmlPath -Value $templateHtml -Encoding UTF-8
-Write-Host "◈ [SUCCESS] Script escaping logic corrected." -ForegroundColor Green
+Write-Host "◈ [SUCCESS] DOM component targets updated to keep layout containers safe." -ForegroundColor Green
