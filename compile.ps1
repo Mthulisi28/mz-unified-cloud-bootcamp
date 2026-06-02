@@ -1,4 +1,35 @@
-﻿<!DOCTYPE html>
+﻿# 1. Environment Configurations
+$htmlPath     = "C:\bootcamp\mz-unified-cloud-bootcamp\index.html"
+$registryPath = "C:\bootcamp\mz-unified-cloud-bootcamp\session-registry.json"
+$startMarker  = ""
+$endMarker    = ""
+
+# 2. Ingest Data Elements
+if (-not (Test-Path $registryPath)) {
+    Write-Error "CRITICAL: session-registry.json not found."
+    return
+}
+$jsonRaw = Get-Content -Path $registryPath -Raw -Encoding UTF-8
+$targetSessions = ConvertFrom-Json -InputObject $jsonRaw
+
+# 3. Compile the Dynamic Component Payload
+$compiledPayload = ""
+foreach ($session in $targetSessions) {
+    $isActive = if ($session.active) { "active" } else { "" }
+    $compiledPayload += @"
+        <div class="sc $isActive" style="--dcol: $($session.color); --ddim: $($session.dimColor);" onclick="loadVideo('$($session.id)')">
+            <div class="sc-head">
+                <span class="sc-number">◆ Session $($session.id)</span>
+                <span class="sc-title">$($session.title)</span>
+                <span class="sc-duration">◈ $($session.duration)</span>
+            </div>
+        </div>`n
+"@
+}
+
+# 4. Generate the Full Production Structural Template with Video Player Layout
+$templateHtml = @"
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,51 +75,9 @@
 
         <div class="session-pane">
             <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
-            
-        <div class="sc active" style="--dcol: #3b82f6; --ddim: #1e3a8a;" onclick="loadVideo('1')">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 1</span>
-                <span class="sc-title">LET'S GET STARTED & CORE RUNTIME FOUNDATIONS</span>
-                <span class="sc-duration">◈ 43min</span>
-            </div>
-        </div>
-        <div class="sc " style="--dcol: #10b981; --ddim: #064e3b;" onclick="loadVideo('2')">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 2</span>
-                <span class="sc-title">DETERMINISTIC GOVERNANCE & ACCOUNT IDENTITY (IAM)</span>
-                <span class="sc-duration">◈ 1hr 11min</span>
-            </div>
-        </div>
-        <div class="sc " style="--dcol: #f59e0b; --ddim: #78350f;" onclick="loadVideo('3')">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 3</span>
-                <span class="sc-title">COMPUTE FABRIC & SEGREGATED NETWORKING (EC2)</span>
-                <span class="sc-duration">◈ 2hr 38min</span>
-            </div>
-        </div>
-        <div class="sc " style="--dcol: #ef4444; --ddim: #7f1d1d;" onclick="loadVideo('5')">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 5</span>
-                <span class="sc-title">MULTI-ACCOUNT LANDING ZONES (CONTROL TOWER)</span>
-                <span class="sc-duration">◈ 1hr 19min</span>
-            </div>
-        </div>
-        <div class="sc " style="--dcol: #8b5cf6; --ddim: #4c1d95;" onclick="loadVideo('6')">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 6</span>
-                <span class="sc-title">ENTERPRISE SEGREGATED NETWORKS (VPC DEEP DIVE)</span>
-                <span class="sc-duration">◈ 2hr 28min</span>
-            </div>
-        </div>
-        <div class="sc " style="--dcol: #ec4899; --ddim: #701a75;" onclick="loadVideo('9')">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 9</span>
-                <span class="sc-title">CLOUD MIGRATION CONCEPTS & MODERNIZATION</span>
-                <span class="sc-duration">◈ 1hr 23min</span>
-            </div>
-        </div>
-
-            
+            $startMarker
+$compiledPayload
+            $endMarker
         </div>
     </div>
 
@@ -116,9 +105,14 @@
             const videoId = videoMap[sessionId];
             
             if (videoId) {
-                target.outerHTML = <iframe id="video-target" src="https://www.youtube.com/embed/\?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>;
+                target.outerHTML = `<iframe id="video-target" src="https://www.youtube.com/embed/\${videoId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             }
         }
     </script>
 </body>
 </html>
+"@
+
+# 5. Flush Securely to Production Target Node
+Set-Content -Path $htmlPath -Value $templateHtml -Encoding UTF-8
+Write-Host "◈ [SUCCESS] Production portal successfully compiled with video player layout ($($targetSessions.Count) elements)." -ForegroundColor Green
