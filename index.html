@@ -24,7 +24,7 @@
         .sc { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--dcol); margin-bottom: 1rem; border-radius: 6px; padding: 1.25rem; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
         .sc:hover { transform: translateX(4px); border-color: var(--dcol); }
         .sc.active { background: var(--ddim); border-color: var(--dcol); box-shadow: 0 0 20px -5px var(--dcol); }
-        .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; pointer-events: none; }
         .sc-number { font-weight: 700; color: var(--dcol); font-size: 0.875rem; text-transform: uppercase; }
         .sc-title { flex: 1; font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: #e2e8f0; }
         .sc-duration { color: #64748b; font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -41,6 +41,7 @@
                 </div>
             </div>
         </div>
+
         <div class="session-pane">
             <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
             
@@ -90,6 +91,7 @@
             
         </div>
     </div>
+
     <script>
         const videoMap = {
             "1": "aBcD1234XyZ",
@@ -99,20 +101,22 @@
             "6": "aBcD1234XyZ",
             "9": "aBcD1234XyZ"
         };
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.sc').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
-                    const currentCard = e.currentTarget;
-                    currentCard.classList.add('active');
-                    const sessionId = currentCard.getAttribute('data-session-id');
-                    const videoId = videoMap[sessionId];
-                    const wrapper = document.getElementById('video-wrapper-node');
-                    if (videoId && wrapper) {
-                        wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                    }
-                });
-            });
+
+        // Global Event Delegation Engine - Catching events at the root body plane
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('.sc');
+            if (!card) return;
+
+            document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            
+            const sessionId = card.getAttribute('data-session-id');
+            const videoId = videoMap[sessionId];
+            const wrapper = document.getElementById('video-wrapper-node');
+            
+            if (videoId && wrapper) {
+                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
         });
     </script>
 </body>

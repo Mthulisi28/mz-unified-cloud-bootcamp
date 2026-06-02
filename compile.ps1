@@ -1,8 +1,10 @@
-﻿$htmlPath     = "C:\bootcamp\mz-unified-cloud-bootcamp\index.html"
+﻿# 1. Environment Configurations
+$htmlPath     = "C:\bootcamp\mz-unified-cloud-bootcamp\index.html"
 $registryPath = "C:\bootcamp\mz-unified-cloud-bootcamp\session-registry.json"
 $startMarker  = ""
 $endMarker    = ""
 
+# 2. Ingest Data Elements
 if (-not (Test-Path $registryPath)) {
     Write-Error "CRITICAL: session-registry.json not found."
     return
@@ -10,6 +12,7 @@ if (-not (Test-Path $registryPath)) {
 $jsonRaw = Get-Content -Path $registryPath -Raw -Encoding UTF-8
 $targetSessions = ConvertFrom-Json -InputObject $jsonRaw
 
+# 3. Compile the Dynamic Component Payload and Javascript Map Objects
 $compiledPayload = ""
 $jsMapEntries = @()
 
@@ -29,6 +32,7 @@ foreach ($session in $targetSessions) {
 
 $jsMapString = $jsMapEntries -join ",`n"
 
+# 4. Generate the Fixed Presentation Structural Template
 $templateHtml = @"
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +60,7 @@ $templateHtml = @"
         .sc { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--dcol); margin-bottom: 1rem; border-radius: 6px; padding: 1.25rem; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
         .sc:hover { transform: translateX(4px); border-color: var(--dcol); }
         .sc.active { background: var(--ddim); border-color: var(--dcol); box-shadow: 0 0 20px -5px var(--dcol); }
-        .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; pointer-events: none; }
         .sc-number { font-weight: 700; color: var(--dcol); font-size: 0.875rem; text-transform: uppercase; }
         .sc-title { flex: 1; font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: #e2e8f0; }
         .sc-duration { color: #64748b; font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -73,6 +77,7 @@ $templateHtml = @"
                 </div>
             </div>
         </div>
+
         <div class="session-pane">
             <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
             $startMarker
@@ -80,29 +85,33 @@ $compiledPayload
             $endMarker
         </div>
     </div>
+
     <script>
         const videoMap = {
 $jsMapString
         };
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.sc').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
-                    const currentCard = e.currentTarget;
-                    currentCard.classList.add('active');
-                    const sessionId = currentCard.getAttribute('data-session-id');
-                    const videoId = videoMap[sessionId];
-                    const wrapper = document.getElementById('video-wrapper-node');
-                    if (videoId && wrapper) {
-                        wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                    }
-                });
-            });
+
+        // Global Event Delegation Engine - Catching events at the root body plane
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('.sc');
+            if (!card) return;
+
+            document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            
+            const sessionId = card.getAttribute('data-session-id');
+            const videoId = videoMap[sessionId];
+            const wrapper = document.getElementById('video-wrapper-node');
+            
+            if (videoId && wrapper) {
+                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
         });
     </script>
 </body>
 </html>
 "@
 
+# 5. Flush Securely to Production Target Node
 Set-Content -Path $htmlPath -Value $templateHtml -Encoding UTF-8
-Write-Host "◈ [SUCCESS] Compiling production layout artifacts." -ForegroundColor Green
+Write-Host "◈ [SUCCESS] Portal compiled with global event delegation framework." -ForegroundColor Green
