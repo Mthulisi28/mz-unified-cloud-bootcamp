@@ -5,7 +5,7 @@
     "duration": "43min",
     "color": "#3b82f6",
     "dimColor": "#1e3a8a",
-    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_1",
+    "youtubeId": "aBcD1234XyZ",
     "active": true
   },
   {
@@ -14,7 +14,7 @@
     "duration": "1hr 11min",
     "color": "#10b981",
     "dimColor": "#064e3b",
-    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_2",
+    "youtubeId": "aBcD1234XyZ",
     "active": false
   },
   {
@@ -23,7 +23,7 @@
     "duration": "2hr 38min",
     "color": "#f59e0b",
     "dimColor": "#78350f",
-    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_3",
+    "youtubeId": "aBcD1234XyZ",
     "active": false
   },
   {
@@ -32,7 +32,7 @@
     "duration": "1hr 19min",
     "color": "#ef4444",
     "dimColor": "#7f1d1d",
-    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_5",
+    "youtubeId": "aBcD1234XyZ",
     "active": false
   },
   {
@@ -41,16 +41,16 @@
     "duration": "2hr 28min",
     "color": "#8b5cf6",
     "dimColor": "#4c1d95",
-    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_6",
+    "youtubeId": "aBcD1234XyZ",
     "active": false
   },
   {
     "id": "9",
     "title": "CLOUD MIGRATION CONCEPTS & MODERNIZATION",
-    "duration": "1hr 23min",
+    "duration": "1hr 14min",
     "color": "#ec4899",
     "dimColor": "#701a75",
-    "youtubeId": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_9",
+    "youtubeId": "aBcD1234XyZ",
     "active": false
   }
 ]
