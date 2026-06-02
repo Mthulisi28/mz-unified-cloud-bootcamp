@@ -18,8 +18,9 @@ $jsMapEntries = @()
 
 foreach ($session in $targetSessions) {
     $isActive = if ($session.active) { "active" } else { "" }
+    # Utilizing HTML5 data attributes to safely pass data downstream without quote issues
     $compiledPayload += @"
-        <div class="sc $isActive" style="--dcol: $($session.color); --ddim: $($session.dimColor);" onclick="loadVideo('$($session.id)')">
+        <div class="sc $isActive" data-session-id="$($session.id)" style="--dcol: $($session.color); --ddim: $($session.dimColor);">
             <div class="sc-head">
                 <span class="sc-number">◆ Session $($session.id)</span>
                 <span class="sc-title">$($session.title)</span>
@@ -91,20 +92,25 @@ $compiledPayload
 $jsMapString
         };
 
-        function loadVideo(sessionId) {
-            document.querySelectorAll('.sc').forEach(card => card.classList.remove('active'));
-            
-            const clickedCard = event.currentTarget;
-            if (clickedCard) clickedCard.classList.add('active');
-            
-            const wrapper = document.getElementById('video-wrapper-node');
-            const videoId = videoMap[sessionId];
-            
-            if (videoId) {
-                // Targeted swap safely updates video stream context within template container frames
-                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-            }
-        }
+        // Modern, decoupled event listeners to avoid innerHTML quote clipping
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.sc').forEach(card => {
+                card.addEventListener('click', (event) => {
+                    document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
+                    
+                    const currentCard = event.currentTarget;
+                    currentCard.classList.add('active');
+                    
+                    const sessionId = currentCard.getAttribute('data-session-id');
+                    const videoId = videoMap[sessionId];
+                    const wrapper = document.getElementById('video-wrapper-node');
+                    
+                    if (videoId && wrapper) {
+                        wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
@@ -112,4 +118,4 @@ $jsMapString
 
 # 5. Flush Securely to Production Target Node
 Set-Content -Path $htmlPath -Value $templateHtml -Encoding UTF-8
-Write-Host "◈ [SUCCESS] DOM component targets updated to keep layout containers safe." -ForegroundColor Green
+Write-Host "◈ [SUCCESS] Event listeners decoupled from markup attributes." -ForegroundColor Green

@@ -45,42 +45,42 @@
         <div class="session-pane">
             <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
             
-        <div class="sc active" style="--dcol: #3b82f6; --ddim: #1e3a8a;" onclick="loadVideo('1')">
+        <div class="sc active" data-session-id="1" style="--dcol: #3b82f6; --ddim: #1e3a8a;">
             <div class="sc-head">
                 <span class="sc-number">◆ Session 1</span>
                 <span class="sc-title">LET'S GET STARTED & CORE RUNTIME FOUNDATIONS</span>
                 <span class="sc-duration">◈ 43min</span>
             </div>
         </div>
-        <div class="sc " style="--dcol: #10b981; --ddim: #064e3b;" onclick="loadVideo('2')">
+        <div class="sc " data-session-id="2" style="--dcol: #10b981; --ddim: #064e3b;">
             <div class="sc-head">
                 <span class="sc-number">◆ Session 2</span>
                 <span class="sc-title">DETERMINISTIC GOVERNANCE & ACCOUNT IDENTITY (IAM)</span>
                 <span class="sc-duration">◈ 1hr 11min</span>
             </div>
         </div>
-        <div class="sc " style="--dcol: #f59e0b; --ddim: #78350f;" onclick="loadVideo('3')">
+        <div class="sc " data-session-id="3" style="--dcol: #f59e0b; --ddim: #78350f;">
             <div class="sc-head">
                 <span class="sc-number">◆ Session 3</span>
                 <span class="sc-title">COMPUTE FABRIC & SEGREGATED NETWORKING (EC2)</span>
                 <span class="sc-duration">◈ 2hr 38min</span>
             </div>
         </div>
-        <div class="sc " style="--dcol: #ef4444; --ddim: #7f1d1d;" onclick="loadVideo('5')">
+        <div class="sc " data-session-id="5" style="--dcol: #ef4444; --ddim: #7f1d1d;">
             <div class="sc-head">
                 <span class="sc-number">◆ Session 5</span>
                 <span class="sc-title">MULTI-ACCOUNT LANDING ZONES (CONTROL TOWER)</span>
                 <span class="sc-duration">◈ 1hr 19min</span>
             </div>
         </div>
-        <div class="sc " style="--dcol: #8b5cf6; --ddim: #4c1d95;" onclick="loadVideo('6')">
+        <div class="sc " data-session-id="6" style="--dcol: #8b5cf6; --ddim: #4c1d95;">
             <div class="sc-head">
                 <span class="sc-number">◆ Session 6</span>
                 <span class="sc-title">ENTERPRISE SEGREGATED NETWORKS (VPC DEEP DIVE)</span>
                 <span class="sc-duration">◈ 2hr 28min</span>
             </div>
         </div>
-        <div class="sc " style="--dcol: #ec4899; --ddim: #701a75;" onclick="loadVideo('9')">
+        <div class="sc " data-session-id="9" style="--dcol: #ec4899; --ddim: #701a75;">
             <div class="sc-head">
                 <span class="sc-number">◆ Session 9</span>
                 <span class="sc-title">CLOUD MIGRATION CONCEPTS & MODERNIZATION</span>
@@ -102,20 +102,25 @@
             "9": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_9"
         };
 
-        function loadVideo(sessionId) {
-            document.querySelectorAll('.sc').forEach(card => card.classList.remove('active'));
-            
-            const clickedCard = event.currentTarget;
-            if (clickedCard) clickedCard.classList.add('active');
-            
-            const wrapper = document.getElementById('video-wrapper-node');
-            const videoId = videoMap[sessionId];
-            
-            if (videoId) {
-                // Targeted swap safely updates video stream context within template container frames
-                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-            }
-        }
+        // Modern, decoupled event listeners to avoid innerHTML quote clipping
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.sc').forEach(card => {
+                card.addEventListener('click', (event) => {
+                    document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
+                    
+                    const currentCard = event.currentTarget;
+                    currentCard.classList.add('active');
+                    
+                    const sessionId = currentCard.getAttribute('data-session-id');
+                    const videoId = videoMap[sessionId];
+                    const wrapper = document.getElementById('video-wrapper-node');
+                    
+                    if (videoId && wrapper) {
+                        wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
