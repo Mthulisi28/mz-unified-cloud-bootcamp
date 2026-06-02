@@ -18,7 +18,6 @@ $jsMapEntries = @()
 
 foreach ($session in $targetSessions) {
     $isActive = if ($session.active) { "active" } else { "" }
-    # Inject onclick parameter pointing natively to the session database mapping
     $compiledPayload += @"
         <div class="sc $isActive" style="--dcol: $($session.color); --ddim: $($session.dimColor);" onclick="loadVideo('$($session.id)')">
             <div class="sc-head">
@@ -28,7 +27,6 @@ foreach ($session in $targetSessions) {
             </div>
         </div>`n
 "@
-    # Dynamically build the JS dictionary keys from data rows
     $jsMapEntries += "            `"$($session.id)`": `"$($session.youtubeId)`""
 }
 
@@ -73,9 +71,11 @@ $templateHtml = @"
         <div class="player-pane">
             <h2>◈ BROADCAST RUNTIME CONTROLLER</h2>
             <div class="video-wrapper">
-                <div id="video-target" class="placeholder">
-                    <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
-                    <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
+                <div id="video-container">
+                    <div id="video-target" class="placeholder">
+                        <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
+                        <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,7 +89,6 @@ $compiledPayload
     </div>
 
     <script>
-        // Auto-Generated Video Routing Engine Map
         const videoMap = {
 $jsMapString
         };
@@ -100,11 +99,12 @@ $jsMapString
             const clickedCard = event.currentTarget;
             if (clickedCard) clickedCard.classList.add('active');
             
-            const target = document.getElementById('video-target');
+            const container = document.getElementById('video-container');
             const videoId = videoMap[sessionId];
             
             if (videoId) {
-                target.outerHTML = `<iframe id="video-target" src="https://www.youtube.com/embed/\${videoId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                // Fixed escaping logic to pass pure variable instantiation directly to browser runtime
+                container.innerHTML = '<iframe id="video-target" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             }
         }
     </script>
@@ -114,4 +114,4 @@ $jsMapString
 
 # 5. Flush Securely to Production Target Node
 Set-Content -Path $htmlPath -Value $templateHtml -Encoding UTF-8
-Write-Host "◈ [SUCCESS] Production portal compiled with fully mapped data streams ($($targetSessions.Count) elements)." -ForegroundColor Green
+Write-Host "◈ [SUCCESS] Script escaping logic corrected." -ForegroundColor Green

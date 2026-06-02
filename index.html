@@ -35,9 +35,11 @@
         <div class="player-pane">
             <h2>◈ BROADCAST RUNTIME CONTROLLER</h2>
             <div class="video-wrapper">
-                <div id="video-target" class="placeholder">
-                    <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
-                    <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
+                <div id="video-container">
+                    <div id="video-target" class="placeholder">
+                        <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
+                        <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,7 +95,6 @@
     </div>
 
     <script>
-        // Auto-Generated Video Routing Engine Map
         const videoMap = {
             "1": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_1",
             "2": "YOUR_ACTUAL_YOUTUBE_ID_FOR_SESSION_2",
@@ -109,11 +110,12 @@
             const clickedCard = event.currentTarget;
             if (clickedCard) clickedCard.classList.add('active');
             
-            const target = document.getElementById('video-target');
+            const container = document.getElementById('video-container');
             const videoId = videoMap[sessionId];
             
             if (videoId) {
-                target.outerHTML = <iframe id="video-target" src="https://www.youtube.com/embed/\?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>;
+                // Fixed escaping logic to pass pure variable instantiation directly to browser runtime
+                container.innerHTML = '<iframe id="video-target" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             }
         }
     </script>
