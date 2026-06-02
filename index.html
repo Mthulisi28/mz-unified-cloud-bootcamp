@@ -41,7 +41,6 @@
                 </div>
             </div>
         </div>
-
         <div class="session-pane">
             <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
             
@@ -91,7 +90,6 @@
             
         </div>
     </div>
-
     <script>
         const videoMap = {
             "1": "aBcD1234XyZ",
@@ -101,20 +99,15 @@
             "6": "aBcD1234XyZ",
             "9": "aBcD1234XyZ"
         };
-
-        // Modern, decoupled event listeners to avoid innerHTML quote clipping
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.sc').forEach(card => {
-                card.addEventListener('click', (event) => {
+                card.addEventListener('click', (e) => {
                     document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
-                    
-                    const currentCard = event.currentTarget;
+                    const currentCard = e.currentTarget;
                     currentCard.classList.add('active');
-                    
                     const sessionId = currentCard.getAttribute('data-session-id');
                     const videoId = videoMap[sessionId];
                     const wrapper = document.getElementById('video-wrapper-node');
-                    
                     if (videoId && wrapper) {
                         wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     }
