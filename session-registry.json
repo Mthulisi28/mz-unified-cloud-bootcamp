@@ -1,56 +1,57 @@
-﻿[
-  {
-    "id": "1",
-    "title": "LET'S GET STARTED & CORE RUNTIME FOUNDATIONS",
-    "duration": "43min",
-    "color": "#3b82f6",
-    "dimColor": "#1e3a8a",
-    "youtubeId": "CHANGE_TO_ACTUAL_ID_1",
-    "active": true
-  },
-  {
-    "id": "2",
-    "title": "DETERMINISTIC GOVERNANCE & ACCOUNT IDENTITY (IAM)",
-    "duration": "1hr 11min",
-    "color": "#10b981",
-    "dimColor": "#064e3b",
-    "youtubeId": "CHANGE_TO_ACTUAL_ID_2",
-    "active": false
-  },
-  {
-    "id": "3",
-    "title": "COMPUTE FABRIC & SEGREGATED NETWORKING (EC2)",
-    "duration": "2hr 38min",
-    "color": "#f59e0b",
-    "dimColor": "#78350f",
-    "youtubeId": "CHANGE_TO_ACTUAL_ID_3",
-    "active": false
-  },
-  {
-    "id": "5",
-    "title": "MULTI-ACCOUNT LANDING ZONES (CONTROL TOWER)",
-    "duration": "1hr 19min",
-    "color": "#ef4444",
-    "dimColor": "#7f1d1d",
-    "youtubeId": "CHANGE_TO_ACTUAL_ID_5",
-    "active": false
-  },
-  {
-    "id": "6",
-    "title": "ENTERPRISE SEGREGATED NETWORKS (VPC DEEP DIVE)",
-    "duration": "2hr 28min",
-    "color": "#8b5cf6",
-    "dimColor": "#4c1d95",
-    "youtubeId": "CHANGE_TO_ACTUAL_ID_6",
-    "active": false
-  },
-  {
-    "id": "9",
-    "title": "CLOUD MIGRATION CONCEPTS & MODERNIZATION",
-    "duration": "1hr 14min",
-    "color": "#ec4899",
-    "dimColor": "#701a75",
-    "youtubeId": "CHANGE_TO_ACTUAL_ID_9",
-    "active": false
-  }
+[
+{"id":"01","title":"Program Orientation & Success Framework","duration":"60min","youtubeId":"TBD","color":"#3b82f6","dimColor":"#1e3a8a","active":true},
+
+{"id":"02","title":"Identity, Governance & AWS Account Architecture","duration":"60min","youtubeId":"TBD","color":"#10b981","dimColor":"#064e3b","active":false},
+{"id":"03","title":"Access Control & IAM Governance","duration":"60min","youtubeId":"TBD","color":"#10b981","dimColor":"#064e3b","active":false},
+{"id":"04","title":"Enterprise Multi-Account Strategy","duration":"60min","youtubeId":"TBD","color":"#10b981","dimColor":"#064e3b","active":false},
+
+{"id":"05","title":"Compute Fabric Fundamentals","duration":"60min","youtubeId":"TBD","color":"#f59e0b","dimColor":"#78350f","active":false},
+{"id":"06","title":"Advanced Compute Operations","duration":"60min","youtubeId":"TBD","color":"#f59e0b","dimColor":"#78350f","active":false},
+{"id":"07","title":"High Availability Compute Design","duration":"60min","youtubeId":"TBD","color":"#f59e0b","dimColor":"#78350f","active":false},
+
+{"id":"08","title":"Virtual Private Cloud Design","duration":"60min","youtubeId":"TBD","color":"#8b5cf6","dimColor":"#4c1d95","active":false},
+{"id":"09","title":"Enterprise Network Security","duration":"60min","youtubeId":"TBD","color":"#8b5cf6","dimColor":"#4c1d95","active":false},
+{"id":"10","title":"Traffic Visibility & Hybrid Connectivity","duration":"60min","youtubeId":"TBD","color":"#8b5cf6","dimColor":"#4c1d95","active":false},
+
+{"id":"11","title":"Elastic Load Balancing & Auto Scaling","duration":"60min","youtubeId":"TBD","color":"#ec4899","dimColor":"#701a75","active":false},
+{"id":"12","title":"Global Performance Optimization","duration":"60min","youtubeId":"TBD","color":"#ec4899","dimColor":"#701a75","active":false},
+{"id":"13","title":"Architecture Review Workshop","duration":"60min","youtubeId":"TBD","color":"#ec4899","dimColor":"#701a75","active":false},
+
+{"id":"14","title":"Object Storage Architecture","duration":"60min","youtubeId":"TBD","color":"#14b8a6","dimColor":"#134e4a","active":false},
+{"id":"15","title":"Block & File Storage Engineering","duration":"60min","youtubeId":"TBD","color":"#14b8a6","dimColor":"#134e4a","active":false},
+{"id":"16","title":"Storage Governance & Data Protection","duration":"60min","youtubeId":"TBD","color":"#14b8a6","dimColor":"#134e4a","active":false},
+
+{"id":"17","title":"Relational Database Architecture","duration":"60min","youtubeId":"TBD","color":"#f97316","dimColor":"#7c2d12","active":false},
+{"id":"18","title":"NoSQL & Performance Acceleration","duration":"60min","youtubeId":"TBD","color":"#f97316","dimColor":"#7c2d12","active":false},
+{"id":"19","title":"Analytics & Data Lake Foundations","duration":"60min","youtubeId":"TBD","color":"#f97316","dimColor":"#7c2d12","active":false},
+
+{"id":"20","title":"Containerization Fundamentals","duration":"60min","youtubeId":"TBD","color":"#06b6d4","dimColor":"#164e63","active":false},
+{"id":"21","title":"Container Orchestration on AWS","duration":"60min","youtubeId":"TBD","color":"#06b6d4","dimColor":"#164e63","active":false},
+{"id":"22","title":"Kubernetes & Microservices Architecture","duration":"60min","youtubeId":"TBD","color":"#06b6d4","dimColor":"#164e63","active":false},
+
+{"id":"23","title":"Serverless Compute Foundations","duration":"60min","youtubeId":"TBD","color":"#84cc16","dimColor":"#365314","active":false},
+{"id":"24","title":"API Architecture & Integration Patterns","duration":"60min","youtubeId":"TBD","color":"#84cc16","dimColor":"#365314","active":false},
+{"id":"25","title":"Messaging & Workflow Orchestration","duration":"60min","youtubeId":"TBD","color":"#84cc16","dimColor":"#365314","active":false},
+
+{"id":"26","title":"Infrastructure as Code Foundations","duration":"60min","youtubeId":"TBD","color":"#6366f1","dimColor":"#312e81","active":false},
+{"id":"27","title":"Terraform Engineering","duration":"60min","youtubeId":"TBD","color":"#6366f1","dimColor":"#312e81","active":false},
+{"id":"28","title":"Deployment Automation & Governance","duration":"60min","youtubeId":"TBD","color":"#6366f1","dimColor":"#312e81","active":false},
+
+{"id":"29","title":"Monitoring & Operational Visibility","duration":"60min","youtubeId":"TBD","color":"#a855f7","dimColor":"#581c87","active":false},
+{"id":"30","title":"Compliance, Auditing & Governance","duration":"60min","youtubeId":"TBD","color":"#a855f7","dimColor":"#581c87","active":false},
+{"id":"31","title":"Enterprise Observability Architecture","duration":"60min","youtubeId":"TBD","color":"#a855f7","dimColor":"#581c87","active":false},
+
+{"id":"32","title":"Encryption & Secrets Governance","duration":"60min","youtubeId":"TBD","color":"#ef4444","dimColor":"#7f1d1d","active":false},
+{"id":"33","title":"Threat Detection & Security Operations","duration":"60min","youtubeId":"TBD","color":"#ef4444","dimColor":"#7f1d1d","active":false},
+{"id":"34","title":"Edge Security & Compliance Enforcement","duration":"60min","youtubeId":"TBD","color":"#ef4444","dimColor":"#7f1d1d","active":false},
+
+{"id":"35","title":"Migration Architecture Strategies","duration":"60min","youtubeId":"TBD","color":"#eab308","dimColor":"#713f12","active":false},
+{"id":"36","title":"FinOps & Cloud Cost Governance","duration":"60min","youtubeId":"TBD","color":"#eab308","dimColor":"#713f12","active":false},
+{"id":"37","title":"Enterprise Capstone Architecture Project","duration":"60min","youtubeId":"TBD","color":"#eab308","dimColor":"#713f12","active":false},
+
+{"id":"38","title":"Mock Solutions Architect Interview","duration":"60min","youtubeId":"TBD","color":"#ffffff","dimColor":"#334155","active":false},
+{"id":"39","title":"Architecture Defense Review","duration":"60min","youtubeId":"TBD","color":"#ffffff","dimColor":"#334155","active":false},
+{"id":"40","title":"GitHub Portfolio Assessment","duration":"60min","youtubeId":"TBD","color":"#ffffff","dimColor":"#334155","active":false},
+{"id":"41","title":"Capstone Presentation Submission","duration":"60min","youtubeId":"TBD","color":"#ffffff","dimColor":"#334155","active":false},
+{"id":"42","title":"Graduation & Professional Roadmap","duration":"60min","youtubeId":"TBD","color":"#ffffff","dimColor":"#334155","active":false}
 ]
