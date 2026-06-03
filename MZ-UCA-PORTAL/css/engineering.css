@@ -1,6 +1,0 @@
-.track-switcher { display: flex; gap: 1rem; background: var(--bg-surface); border: 1px solid var(--border-color); padding: 0.5rem; margin-bottom: 2.5rem; }
-.ts-btn { flex: 1; background: transparent; border: 1px solid transparent; color: var(--text-secondary); font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 1rem; cursor: pointer; transition: all 0.2s ease; }
-.ts-btn:hover { color: var(--text-primary); background: rgba(255, 255, 255, 0.02); }
-.ts-btn.active { background: var(--bg-primary); border-color: var(--border-color); color: var(--accent-cyan); box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-.program-track-content { display: none; opacity: 0; transition: opacity 0.25s ease-in-out; }
-.program-track-content.active { display: block; opacity: 1; }

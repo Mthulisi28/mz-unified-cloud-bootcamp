@@ -1,6 +1,0 @@
-.div-grid, .cet-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-.sc, .cet-card { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 8px 24px rgba(0, 0, 0, 0.35); transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
-.sc:hover, .cet-card:hover { transform: translateY(-4px); border-color: rgba(102, 252, 241, 0.25); background: var(--bg-surface-elevated); }
-.card-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-purple); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
-.sc h3, .cet-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
-.sc p, .cet-card p { font-size: 0.85rem; color: var(--text-secondary); }
