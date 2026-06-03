@@ -1,24 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>MZ UCA Portal V2</title>
-<style>
-body { font-family: Arial; background:#0b1220; color:white; padding:40px; }
-.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:700px; margin:auto; }
-.card { background:#162033; padding:20px; text-align:center; border-radius:10px; cursor:pointer; }
-.card:hover { background:#22314d; }
-</style>
-</head>
-<body>
+<!DOCTYPE html><html><head>  <title>MZ UCA Portal V2</title>  <style>    body {      font-family: Arial;      background: #0b1220;      color: white;      padding: 40px;      margin: 0;    }    h1 {      text-align: center;      margin-bottom: 20px;    }    #status {      text-align: center;      margin-bottom: 15px;      font-size: 14px;      color: #aab4c0;    }    .grid {      display: grid;      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));      gap: 20px;      max-width: 900px;      margin: auto;    }    .card {      background: #162033;      padding: 20px;      border-radius: 10px;      text-align: center;      cursor: pointer;      transition: 0.2s ease-in-out;      border: 1px solid transparent;    }    .card:hover {      background: #22314d;      border-color: #2f4a75;      transform: translateY(-2px);    }    #message {      text-align: center;      margin-top: 40px;      color: #8892a6;    }    .error {      color: #ff6b6b;    }  </style></head><body><h1>MZ UCA Portal V2</h1><div id="status">Initializing...</div><div class="grid" id="grid"></div><div id="message">Loading sessions...</div><div id="dashboard" style="max-width:800px;margin:20px auto;padding:20px;background:#162033;border-radius:12px;">  <div id="progressText">    Overall Progress: 0%</div>  <div style="height:12px;background:#0b1220;border-radius:8px;margin-top:12px;overflow:hidden;">    <div id="progressBar"         style="height:12px;width:0%;background:#4ade80;">    </div>  </div>  <button id="resumeBtn"          style="display:none;margin-top:15px;padding:10px 15px;border:none;border-radius:6px;background:#7aa2ff;cursor:pointer;">      Continue Learning  </button></div><script>
+async function loadSessions() {
+  const grid = document.getElementById("grid");
+  const status = document.getElementById("status");
 
-<h1>MZ UCA Portal V2</h1>
+  try {
+    if (status) status.innerText = "Loading sessions...";
 
-<div class="grid">
-<div class="card" onclick="location.href='MZ-UCA-PORTAL-V2/sessions/session01.html'">Session 01</div>
-<div class="card" onclick="location.href='MZ-UCA-PORTAL-V2/sessions/session02.html'">Session 02</div>
-<div class="card" onclick="location.href='MZ-UCA-PORTAL-V2/sessions/session03.html'">Session 03</div>
-<div class="card" onclick="location.href='MZ-UCA-PORTAL-V2/sessions/session04.html'">Session 04</div>
-</div>
+    const res = await fetch("session-registry.json");
+    const data = await res.json();
 
-</body>
-</html>
+    grid.innerHTML = "";
+
+    data.forEach(session => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <div style="font-weight:600;">${session.title}</div>
+        <small style="color:#9aa4b2;">Click to open</small>
+      `;
+
+      card.addEventListener("click", () => {
+        window.location.href = "../session.html?id=" + session.id;
+      });
+
+      grid.appendChild(card);
+    });
+
+    if (status) status.innerText = "Loaded " + data.length + " sessions";
+
+  } catch (e) {
+    console.error(e);
+    grid.innerHTML = "<p style='color:red'>Registry Load Failed</p>";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadSessions);
+</script>  <script src="engine.js"></script>`n</body></html>
+
+
+

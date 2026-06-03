@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Session Viewer</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #0b1220;
+      color: white;
+      padding: 40px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #162033;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      color: #9aa4b2;
+      margin-bottom: 20px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #7aa2ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 id="title">Loading session...</h1>
+  <div class="meta" id="meta"></div>
+
+  <div id="content">
+    Session content will be loaded dynamically.
+  </div>
+
+  <button onclick="markComplete()" style="margin-top:20px;padding:10px 15px;background:#4ade80;border:none;border-radius:6px;cursor:pointer;">Mark as Complete</button>
+<a class="back" href="index.html">← Back to Portal</a>
+</div>
+
+<script>
+function getSessionId() {
+  const params = new URLSearchParams(window.location.search);
+  return parseInt(params.get('id'));
+}
+
+async function loadSession() {
+  const id = getSessionId();
+
+  if (!id) {
+    document.getElementById('title').innerText = "Invalid Session";
+    return;
+  }
+
+  const res = await fetch('session-registry.json');
+  const data = await res.json();
+
+  const session = data.find(s => s.id === id);
+
+  if (!session) {
+    document.getElementById('title').innerText = "Session Not Found";
+    return;
+  }
+
+  document.getElementById('title').innerText = session.title;
+  document.getElementById('meta').innerText = "Session ID: " + session.id;
+
+  document.getElementById('content').innerHTML = `
+    <p>This is dynamically loaded content for <b>${session.title}</b>.</p>
+    <p>You can now replace this with videos, labs, or modules.</p>
+  `;
+}
+
+loadSession();
+</script>
+
+</body>
+</html>
+<script>
+function markComplete() {
+  const id = new URLSearchParams(window.location.search).get("id");
+  localStorage.setItem("session_" + id, "done");
+  alert("Session marked complete");
+}
+</script>
+
