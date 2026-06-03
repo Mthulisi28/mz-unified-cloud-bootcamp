@@ -95,7 +95,7 @@ h2{
     <h2>◆ LIVE ARCHITECTURE PLAYER</h2>
     <div class="video" id="player">
       <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;">
-        Select a session
+        Loading session architecture...
       </div>
     </div>
   </div>
@@ -103,7 +103,9 @@ h2{
   <!-- SESSIONS -->
   <div>
     <h2>◈ 42-SESSION ARCHITECTURE TRACK</h2>
-    <div id="sessions"></div>
+    <div id="sessions">
+      <div style="color:#64748b;">Initializing governance layer...</div>
+    </div>
   </div>
 
 </div>
@@ -111,17 +113,46 @@ h2{
 <script>
 let sessions = [];
 
+// ◆ SAFE LOAD ENGINE (GitHub Pages resilient)
 async function loadSessions(){
-  const res = await fetch("session-registry.json");
-  sessions = await res.json();
-  render();
+  try {
+    const res = await fetch("session-registry.json", { cache: "no-store" });
+
+    if (!res.ok) {
+      throw new Error("HTTP Error: " + res.status);
+    }
+
+    sessions = await res.json();
+
+    console.log("◈ Sessions loaded:", sessions.length);
+
+    render();
+
+    // auto-resume last session
+    const last = localStorage.getItem("session_progress");
+    if (last) {
+      const found = sessions.find(s => s.id === last);
+      if (found) selectSession(found);
+    }
+
+  } catch (err) {
+    console.error("LOAD FAILED:", err);
+
+    document.getElementById("sessions").innerHTML = `
+      <div style="color:#f87171;padding:1rem;border:1px solid #7f1d1d;">
+        ⚠ Session registry failed to load.<br/>
+        Check session-registry.json deployment path.
+      </div>
+    `;
+  }
 }
 
+// ◆ RENDER ENGINE
 function render(){
   const container = document.getElementById("sessions");
   container.innerHTML = "";
 
-  sessions.forEach(s => {
+  sessions.forEach((s, index) => {
     const div = document.createElement("div");
     div.className = "session" + (s.active ? " active" : "");
 
@@ -130,23 +161,29 @@ function render(){
       <div class="meta">◈ ${s.duration}</div>
     `;
 
-    div.onclick = () => selectSession(s);
+    div.onclick = () => selectSession(s, index);
     container.appendChild(div);
   });
 }
 
-function selectSession(session){
-  document.querySelectorAll(".session").forEach(x => x.classList.remove("active"));
+// ◆ SESSION SELECTOR (stable DOM mapping)
+function selectSession(session, index){
 
-  const index = sessions.findIndex(s => s.id === session.id);
-  document.querySelectorAll(".session")[index].classList.add("active");
+  document.querySelectorAll(".session")
+    .forEach(x => x.classList.remove("active"));
+
+  const nodes = document.querySelectorAll(".session");
+  if (nodes[index]) nodes[index].classList.add("active");
 
   const player = document.getElementById("player");
+
+  // save progress
+  localStorage.setItem("session_progress", session.id);
 
   if(session.youtubeId && session.youtubeId !== "TBD"){
     player.innerHTML = `
       <iframe width="100%" height="100%"
-      src="https://www.youtube.com/embed/${session.youtubeId}?autoplay=1"
+      src="https://www.youtube.com/embed/${session.youtubeId}?autoplay=1&rel=0"
       frameborder="0"
       allowfullscreen></iframe>
     `;
@@ -159,7 +196,8 @@ function selectSession(session){
   }
 }
 
-loadSessions();
+// ◆ BOOTSTRAP
+document.addEventListener("DOMContentLoaded", loadSessions);
 </script>
 
 </body>
