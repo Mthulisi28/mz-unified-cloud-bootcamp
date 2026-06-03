@@ -1,204 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MZ UCA | Solutions Architect Portal</title>
-
-<style>
-:root{
-  --bg:#060913;
-  --card:#0b1120;
-  --border:#1e293b;
-  --text:#f3f4f6;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:system-ui,-apple-system,sans-serif;
-}
-
-.container{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2rem;
-  max-width:1200px;
-  margin:0 auto;
-  padding:2rem;
-}
-
-@media(max-width:900px){
-  .container{grid-template-columns:1fr;}
-}
-
-.player{
-  position:sticky;
-  top:2rem;
-}
-
-.video{
-  width:100%;
-  aspect-ratio:16/9;
-  background:#000;
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.session{
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:1rem;
-  margin-bottom:1rem;
-  border-radius:8px;
-  cursor:pointer;
-  transition:0.2s;
-}
-
-.session:hover{
-  transform:translateX(4px);
-  border-color:#38bdf8;
-}
-
-.session.active{
-  border-color:#38bdf8;
-  box-shadow:0 0 15px rgba(56,189,248,0.3);
-}
-
-.title{
-  font-weight:600;
-  font-size:0.95rem;
-}
-
-.meta{
-  font-size:0.8rem;
-  opacity:0.7;
-}
-
-h2{
-  font-size:1.1rem;
-  margin-bottom:1rem;
-  border-bottom:1px solid var(--border);
-  padding-bottom:0.5rem;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-  <!-- PLAYER -->
-  <div class="player">
-    <h2>◆ LIVE ARCHITECTURE PLAYER</h2>
-    <div class="video" id="player">
-      <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;">
-        Loading session architecture...
-      </div>
-    </div>
-  </div>
-
-  <!-- SESSIONS -->
-  <div>
-    <h2>◈ 42-SESSION ARCHITECTURE TRACK</h2>
-    <div id="sessions">
-      <div style="color:#64748b;">Initializing governance layer...</div>
-    </div>
-  </div>
-
-</div>
-
 <script>
 let sessions = [];
 
-// ◆ SAFE LOAD ENGINE (GitHub Pages resilient)
-async function loadSessions(){
+async function loadSessions() {
+
   try {
-    const res = await fetch("session-registry.json", { cache: "no-store" });
 
-    if (!res.ok) {
-      throw new Error("HTTP Error: " + res.status);
-    }
-
+    const res = await fetch("session-registry.json");
     sessions = await res.json();
-
-    console.log("◈ Sessions loaded:", sessions.length);
 
     render();
 
-    // auto-resume last session
-    const last = localStorage.getItem("session_progress");
-    if (last) {
-      const found = sessions.find(s => s.id === last);
-      if (found) selectSession(found);
+    const saved =
+      localStorage.getItem("session_progress");
+
+    if (saved) {
+
+      const found =
+        sessions.find(
+          x => x.id === saved
+        );
+
+      if (found) {
+        selectSession(found);
+        return;
+      }
+    }
+
+    if (sessions.length > 0) {
+      selectSession(sessions[0]);
     }
 
   } catch (err) {
-    console.error("LOAD FAILED:", err);
+
+    console.error(err);
 
     document.getElementById("sessions").innerHTML = `
-      <div style="color:#f87171;padding:1rem;border:1px solid #7f1d1d;">
-        ⚠ Session registry failed to load.<br/>
-        Check session-registry.json deployment path.
+      <div style="
+        padding:20px;
+        color:#ef4444;
+        border:1px solid #ef4444;
+        border-radius:8px;">
+        Failed to load session-registry.json
       </div>
     `;
   }
 }
 
-// ◆ RENDER ENGINE
-function render(){
-  const container = document.getElementById("sessions");
+function render() {
+
+  const container =
+    document.getElementById("sessions");
+
   container.innerHTML = "";
 
-  sessions.forEach((s, index) => {
-    const div = document.createElement("div");
-    div.className = "session" + (s.active ? " active" : "");
+  sessions.forEach(session => {
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "session" +
+      (session.active ? " active" : "");
 
     div.innerHTML = `
-      <div class="title">◆ Session ${s.id} — ${s.title}</div>
-      <div class="meta">◈ ${s.duration}</div>
+      <div class="title">
+        ◆ Session ${session.id}
+        — ${session.title}
+      </div>
+
+      <div class="meta">
+        ◈ ${session.duration}
+      </div>
     `;
 
-    div.onclick = () => selectSession(s, index);
+    div.onclick = () =>
+      selectSession(session);
+
     container.appendChild(div);
+
   });
 }
 
-// ◆ SESSION SELECTOR (stable DOM mapping)
-function selectSession(session, index){
+function selectSession(session) {
 
-  document.querySelectorAll(".session")
-    .forEach(x => x.classList.remove("active"));
+  document
+    .querySelectorAll(".session")
+    .forEach(x =>
+      x.classList.remove("active")
+    );
 
-  const nodes = document.querySelectorAll(".session");
-  if (nodes[index]) nodes[index].classList.add("active");
+  const index =
+    sessions.findIndex(
+      s => s.id === session.id
+    );
 
-  const player = document.getElementById("player");
+  if (index >= 0) {
 
-  // save progress
-  localStorage.setItem("session_progress", session.id);
-
-  if(session.youtubeId && session.youtubeId !== "TBD"){
-    player.innerHTML = `
-      <iframe width="100%" height="100%"
-      src="https://www.youtube.com/embed/${session.youtubeId}?autoplay=1&rel=0"
-      frameborder="0"
-      allowfullscreen></iframe>
-    `;
-  } else {
-    player.innerHTML = `
-      <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;">
-        No video assigned for this session
-      </div>
-    `;
+    document
+      .querySelectorAll(".session")[index]
+      .classList.add("active");
   }
+
+  localStorage.setItem(
+    "session_progress",
+    session.id
+  );
+
+  const player =
+    document.getElementById("player");
+
+  if (session.slideFile) {
+
+    player.innerHTML = `
+      <iframe
+        src="${session.slideFile}"
+        width="100%"
+        height="100%"
+        style="
+          border:none;
+          background:white;
+          min-height:600px;
+        ">
+      </iframe>
+    `;
+
+    return;
+  }
+
+  if (
+    session.youtubeId &&
+    session.youtubeId !== "TBD"
+  ) {
+
+    player.innerHTML = `
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/${session.youtubeId}?autoplay=1"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    `;
+
+    return;
+  }
+
+  player.innerHTML = `
+    <div style="
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+      color:#64748b;
+      font-size:16px;">
+      Slide deck not yet assigned
+    </div>
+  `;
 }
 
-// ◆ BOOTSTRAP
-document.addEventListener("DOMContentLoaded", loadSessions);
+loadSessions();
 </script>
-
-</body>
-</html>

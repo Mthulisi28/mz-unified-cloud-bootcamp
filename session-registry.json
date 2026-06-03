@@ -1,4 +1,3 @@
-[
 {
 "id":"01",
 "title":"Program Orientation & Success Framework",
@@ -42,14 +41,3 @@
 "dimColor":"#064e3b",
 "active":false
 },
-
-{
-"id":"05",
-"title":"Compute Fabric Fundamentals",
-"duration":"60min",
-"youtubeId":"TBD",
-"color":"#f59e0b",
-"dimColor":"#78350f",
-"active":false
-}
-]
