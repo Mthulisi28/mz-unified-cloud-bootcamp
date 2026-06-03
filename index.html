@@ -1,411 +1,166 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Solutions Architect Associate Master Portal</title>
-    <style>
-        :root { --bg: #060913; --card: #0b1120; --border: #1e293b; --text: #f3f4f6; }
-        body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; padding: 2rem; margin: 0; }
-        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        @media (max-width: 968px) { .container { grid-template-columns: 1fr; } }
-        
-        .player-pane { position: sticky; top: 2rem; height: fit-content; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
-        .video-wrapper iframe, .video-wrapper .placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-wrapper .placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #64748b; background: #020617; text-align: center; padding: 2rem; box-sizing: border-box; }
-        
-        .session-pane { height: calc(100vh - 4rem); overflow-y: auto; padding-right: 0.5rem; }
-        .session-pane::-webkit-scrollbar { width: 6px; }
-        .session-pane::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-        
-        h2 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
-        
-        .sc { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--dcol); margin-bottom: 1rem; border-radius: 6px; padding: 1.25rem; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
-        .sc:hover { transform: translateX(4px); border-color: var(--dcol); }
-        .sc.active { background: var(--ddim); border-color: var(--dcol); box-shadow: 0 0 20px -5px var(--dcol); }
-        .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; pointer-events: none; }
-        .sc-number { font-weight: 700; color: var(--dcol); font-size: 0.875rem; text-transform: uppercase; }
-        .sc-title { flex: 1; font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: #e2e8f0; }
-        .sc-duration { color: #64748b; font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MZ UCA | Solutions Architect Portal</title>
+
+<style>
+:root{
+  --bg:#060913;
+  --card:#0b1120;
+  --border:#1e293b;
+  --text:#f3f4f6;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,sans-serif;
+}
+
+.container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  max-width:1200px;
+  margin:0 auto;
+  padding:2rem;
+}
+
+@media(max-width:900px){
+  .container{grid-template-columns:1fr;}
+}
+
+.player{
+  position:sticky;
+  top:2rem;
+}
+
+.video{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.session{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:1rem;
+  margin-bottom:1rem;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.session:hover{
+  transform:translateX(4px);
+  border-color:#38bdf8;
+}
+
+.session.active{
+  border-color:#38bdf8;
+  box-shadow:0 0 15px rgba(56,189,248,0.3);
+}
+
+.title{
+  font-weight:600;
+  font-size:0.95rem;
+}
+
+.meta{
+  font-size:0.8rem;
+  opacity:0.7;
+}
+
+h2{
+  font-size:1.1rem;
+  margin-bottom:1rem;
+  border-bottom:1px solid var(--border);
+  padding-bottom:0.5rem;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="player-pane">
-            <h2>◈ BROADCAST RUNTIME CONTROLLER</h2>
-            <div class="video-wrapper" id="video-wrapper-node">
-                <div class="placeholder">
-                    <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
-                    <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="session-pane">
-            <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
-            
-        <div class="sc active" data-session-id="01" style="--dcol: #3b82f6; --ddim: #1e3a8a;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 01</span>
-                <span class="sc-title">Program Orientation & Success Framework</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="02" style="--dcol: #10b981; --ddim: #064e3b;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 02</span>
-                <span class="sc-title">Identity, Governance & AWS Account Architecture</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="03" style="--dcol: #10b981; --ddim: #064e3b;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 03</span>
-                <span class="sc-title">Access Control & IAM Governance</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="04" style="--dcol: #10b981; --ddim: #064e3b;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 04</span>
-                <span class="sc-title">Enterprise Multi-Account Strategy</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="05" style="--dcol: #f59e0b; --ddim: #78350f;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 05</span>
-                <span class="sc-title">Compute Fabric Fundamentals</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="06" style="--dcol: #f59e0b; --ddim: #78350f;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 06</span>
-                <span class="sc-title">Advanced Compute Operations</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="07" style="--dcol: #f59e0b; --ddim: #78350f;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 07</span>
-                <span class="sc-title">High Availability Compute Design</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="08" style="--dcol: #8b5cf6; --ddim: #4c1d95;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 08</span>
-                <span class="sc-title">Virtual Private Cloud Design</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="09" style="--dcol: #8b5cf6; --ddim: #4c1d95;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 09</span>
-                <span class="sc-title">Enterprise Network Security</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="10" style="--dcol: #8b5cf6; --ddim: #4c1d95;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 10</span>
-                <span class="sc-title">Traffic Visibility & Hybrid Connectivity</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="11" style="--dcol: #ec4899; --ddim: #701a75;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 11</span>
-                <span class="sc-title">Elastic Load Balancing & Auto Scaling</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="12" style="--dcol: #ec4899; --ddim: #701a75;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 12</span>
-                <span class="sc-title">Global Performance Optimization</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="13" style="--dcol: #ec4899; --ddim: #701a75;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 13</span>
-                <span class="sc-title">Architecture Review Workshop</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="14" style="--dcol: #14b8a6; --ddim: #134e4a;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 14</span>
-                <span class="sc-title">Object Storage Architecture</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="15" style="--dcol: #14b8a6; --ddim: #134e4a;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 15</span>
-                <span class="sc-title">Block & File Storage Engineering</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="16" style="--dcol: #14b8a6; --ddim: #134e4a;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 16</span>
-                <span class="sc-title">Storage Governance & Data Protection</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="17" style="--dcol: #f97316; --ddim: #7c2d12;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 17</span>
-                <span class="sc-title">Relational Database Architecture</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="18" style="--dcol: #f97316; --ddim: #7c2d12;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 18</span>
-                <span class="sc-title">NoSQL & Performance Acceleration</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="19" style="--dcol: #f97316; --ddim: #7c2d12;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 19</span>
-                <span class="sc-title">Analytics & Data Lake Foundations</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="20" style="--dcol: #06b6d4; --ddim: #164e63;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 20</span>
-                <span class="sc-title">Containerization Fundamentals</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="21" style="--dcol: #06b6d4; --ddim: #164e63;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 21</span>
-                <span class="sc-title">Container Orchestration on AWS</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="22" style="--dcol: #06b6d4; --ddim: #164e63;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 22</span>
-                <span class="sc-title">Kubernetes & Microservices Architecture</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="23" style="--dcol: #84cc16; --ddim: #365314;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 23</span>
-                <span class="sc-title">Serverless Compute Foundations</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="24" style="--dcol: #84cc16; --ddim: #365314;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 24</span>
-                <span class="sc-title">API Architecture & Integration Patterns</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="25" style="--dcol: #84cc16; --ddim: #365314;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 25</span>
-                <span class="sc-title">Messaging & Workflow Orchestration</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="26" style="--dcol: #6366f1; --ddim: #312e81;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 26</span>
-                <span class="sc-title">Infrastructure as Code Foundations</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="27" style="--dcol: #6366f1; --ddim: #312e81;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 27</span>
-                <span class="sc-title">Terraform Engineering</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="28" style="--dcol: #6366f1; --ddim: #312e81;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 28</span>
-                <span class="sc-title">Deployment Automation & Governance</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="29" style="--dcol: #a855f7; --ddim: #581c87;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 29</span>
-                <span class="sc-title">Monitoring & Operational Visibility</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="30" style="--dcol: #a855f7; --ddim: #581c87;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 30</span>
-                <span class="sc-title">Compliance, Auditing & Governance</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="31" style="--dcol: #a855f7; --ddim: #581c87;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 31</span>
-                <span class="sc-title">Enterprise Observability Architecture</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="32" style="--dcol: #ef4444; --ddim: #7f1d1d;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 32</span>
-                <span class="sc-title">Encryption & Secrets Governance</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="33" style="--dcol: #ef4444; --ddim: #7f1d1d;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 33</span>
-                <span class="sc-title">Threat Detection & Security Operations</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="34" style="--dcol: #ef4444; --ddim: #7f1d1d;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 34</span>
-                <span class="sc-title">Edge Security & Compliance Enforcement</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="35" style="--dcol: #eab308; --ddim: #713f12;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 35</span>
-                <span class="sc-title">Migration Architecture Strategies</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="36" style="--dcol: #eab308; --ddim: #713f12;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 36</span>
-                <span class="sc-title">FinOps & Cloud Cost Governance</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="37" style="--dcol: #eab308; --ddim: #713f12;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 37</span>
-                <span class="sc-title">Enterprise Capstone Architecture Project</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="38" style="--dcol: #ffffff; --ddim: #334155;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 38</span>
-                <span class="sc-title">Mock Solutions Architect Interview</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="39" style="--dcol: #ffffff; --ddim: #334155;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 39</span>
-                <span class="sc-title">Architecture Defense Review</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="40" style="--dcol: #ffffff; --ddim: #334155;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 40</span>
-                <span class="sc-title">GitHub Portfolio Assessment</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="41" style="--dcol: #ffffff; --ddim: #334155;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 41</span>
-                <span class="sc-title">Capstone Presentation Submission</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="42" style="--dcol: #ffffff; --ddim: #334155;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 42</span>
-                <span class="sc-title">Graduation & Professional Roadmap</span>
-                <span class="sc-duration">◈ 60min</span>
-            </div>
-        </div>
+<div class="container">
 
-            
-        </div>
+  <!-- PLAYER -->
+  <div class="player">
+    <h2>◆ LIVE ARCHITECTURE PLAYER</h2>
+    <div class="video" id="player">
+      <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;">
+        Select a session
+      </div>
     </div>
+  </div>
 
-    <script>
-        const videoMap = {
-            "01": "TBD",
-            "02": "TBD",
-            "03": "TBD",
-            "04": "TBD",
-            "05": "TBD",
-            "06": "TBD",
-            "07": "TBD",
-            "08": "TBD",
-            "09": "TBD",
-            "10": "TBD",
-            "11": "TBD",
-            "12": "TBD",
-            "13": "TBD",
-            "14": "TBD",
-            "15": "TBD",
-            "16": "TBD",
-            "17": "TBD",
-            "18": "TBD",
-            "19": "TBD",
-            "20": "TBD",
-            "21": "TBD",
-            "22": "TBD",
-            "23": "TBD",
-            "24": "TBD",
-            "25": "TBD",
-            "26": "TBD",
-            "27": "TBD",
-            "28": "TBD",
-            "29": "TBD",
-            "30": "TBD",
-            "31": "TBD",
-            "32": "TBD",
-            "33": "TBD",
-            "34": "TBD",
-            "35": "TBD",
-            "36": "TBD",
-            "37": "TBD",
-            "38": "TBD",
-            "39": "TBD",
-            "40": "TBD",
-            "41": "TBD",
-            "42": "TBD"
-        };
+  <!-- SESSIONS -->
+  <div>
+    <h2>◈ 42-SESSION ARCHITECTURE TRACK</h2>
+    <div id="sessions"></div>
+  </div>
 
-        // Global Event Delegation Engine - Catching events at the root body plane
-        document.addEventListener('click', (e) => {
-            const card = e.target.closest('.sc');
-            if (!card) return;
+</div>
 
-            document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            
-            const sessionId = card.getAttribute('data-session-id');
-            const videoId = videoMap[sessionId];
-            const wrapper = document.getElementById('video-wrapper-node');
-            
-            if (videoId && wrapper) {
-                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-            }
-        });
-    </script>
+<script>
+let sessions = [];
+
+async function loadSessions(){
+  const res = await fetch("session-registry.json");
+  sessions = await res.json();
+  render();
+}
+
+function render(){
+  const container = document.getElementById("sessions");
+  container.innerHTML = "";
+
+  sessions.forEach(s => {
+    const div = document.createElement("div");
+    div.className = "session" + (s.active ? " active" : "");
+
+    div.innerHTML = `
+      <div class="title">◆ Session ${s.id} — ${s.title}</div>
+      <div class="meta">◈ ${s.duration}</div>
+    `;
+
+    div.onclick = () => selectSession(s);
+    container.appendChild(div);
+  });
+}
+
+function selectSession(session){
+  document.querySelectorAll(".session").forEach(x => x.classList.remove("active"));
+
+  const index = sessions.findIndex(s => s.id === session.id);
+  document.querySelectorAll(".session")[index].classList.add("active");
+
+  const player = document.getElementById("player");
+
+  if(session.youtubeId && session.youtubeId !== "TBD"){
+    player.innerHTML = `
+      <iframe width="100%" height="100%"
+      src="https://www.youtube.com/embed/${session.youtubeId}?autoplay=1"
+      frameborder="0"
+      allowfullscreen></iframe>
+    `;
+  } else {
+    player.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;">
+        No video assigned for this session
+      </div>
+    `;
+  }
+}
+
+loadSessions();
+</script>
+
 </body>
 </html>
