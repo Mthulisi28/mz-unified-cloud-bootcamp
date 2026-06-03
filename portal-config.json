@@ -1,0 +1,11 @@
+{
+  "TargetPersona": "Mentorship_Students",
+  "ExamDomains": {
+    "Domain_3_High_Performing": 0.24,
+    "Domain_4_Cost_Optimized": 0.2,
+    "Domain_2_Resilient_Architectures": 0.26,
+    "Domain_1_Secure_Architectures": 0.3
+  },
+  "TargetPassingScore": 720,
+  "PortalTier": "Solutions_Architect_Associate_Bootcamp"
+}

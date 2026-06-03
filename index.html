@@ -1,162 +1,42 @@
-<script>
-let sessions = [];
-
+<!DOCTYPE html><html><head>  <title>MZ UCA Portal V2</title>  <style>    body {      font-family: Arial;      background: #0b1220;      color: white;      padding: 40px;      margin: 0;    }    h1 {      text-align: center;      margin-bottom: 20px;    }    #status {      text-align: center;      margin-bottom: 15px;      font-size: 14px;      color: #aab4c0;    }    .grid {      display: grid;      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));      gap: 20px;      max-width: 900px;      margin: auto;    }    .card {      background: #162033;      padding: 20px;      border-radius: 10px;      text-align: center;      cursor: pointer;      transition: 0.2s ease-in-out;      border: 1px solid transparent;    }    .card:hover {      background: #22314d;      border-color: #2f4a75;      transform: translateY(-2px);    }    #message {      text-align: center;      margin-top: 40px;      color: #8892a6;    }    .error {      color: #ff6b6b;    }  </style></head><body><h1>MZ UCA Portal V2</h1><div id="status">Initializing...</div><div class="grid" id="grid"></div><div id="message">Loading sessions...</div><div id="dashboard" style="max-width:800px;margin:20px auto;padding:20px;background:#162033;border-radius:12px;">  <div id="progressText">    Overall Progress: 0%</div>  <div style="height:12px;background:#0b1220;border-radius:8px;margin-top:12px;overflow:hidden;">    <div id="progressBar"         style="height:12px;width:0%;background:#4ade80;">    </div>  </div>  <button id="resumeBtn"          style="display:none;margin-top:15px;padding:10px 15px;border:none;border-radius:6px;background:#7aa2ff;cursor:pointer;">      Continue Learning  </button></div><script>
 async function loadSessions() {
+  const grid = document.getElementById("grid");
+  const status = document.getElementById("status");
 
   try {
+    if (status) status.innerText = "Loading sessions...";
 
     const res = await fetch("session-registry.json");
-    sessions = await res.json();
+    const data = await res.json();
 
-    render();
+    grid.innerHTML = "";
 
-    const saved =
-      localStorage.getItem("session_progress");
+    data.forEach(session => {
+      const card = document.createElement("div");
+      card.className = "card";
 
-    if (saved) {
+      card.innerHTML = `
+        <div style="font-weight:600;">${session.title}</div>
+        <small style="color:#9aa4b2;">Click to open</small>
+      `;
 
-      const found =
-        sessions.find(
-          x => x.id === saved
-        );
+      card.addEventListener("click", () => {
+        window.location.href = "../session.html?id=" + session.id;
+      });
 
-      if (found) {
-        selectSession(found);
-        return;
-      }
-    }
+      grid.appendChild(card);
+    });
 
-    if (sessions.length > 0) {
-      selectSession(sessions[0]);
-    }
+    if (status) status.innerText = "Loaded " + data.length + " sessions";
 
-  } catch (err) {
-
-    console.error(err);
-
-    document.getElementById("sessions").innerHTML = `
-      <div style="
-        padding:20px;
-        color:#ef4444;
-        border:1px solid #ef4444;
-        border-radius:8px;">
-        Failed to load session-registry.json
-      </div>
-    `;
+  } catch (e) {
+    console.error(e);
+    grid.innerHTML = "<p style='color:red'>Registry Load Failed</p>";
   }
 }
 
-function render() {
+document.addEventListener("DOMContentLoaded", loadSessions);
+</script>  <script src="engine.js"></script>`n</body></html>
 
-  const container =
-    document.getElementById("sessions");
 
-  container.innerHTML = "";
 
-  sessions.forEach(session => {
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "session" +
-      (session.active ? " active" : "");
-
-    div.innerHTML = `
-      <div class="title">
-        ◆ Session ${session.id}
-        — ${session.title}
-      </div>
-
-      <div class="meta">
-        ◈ ${session.duration}
-      </div>
-    `;
-
-    div.onclick = () =>
-      selectSession(session);
-
-    container.appendChild(div);
-
-  });
-}
-
-function selectSession(session) {
-
-  document
-    .querySelectorAll(".session")
-    .forEach(x =>
-      x.classList.remove("active")
-    );
-
-  const index =
-    sessions.findIndex(
-      s => s.id === session.id
-    );
-
-  if (index >= 0) {
-
-    document
-      .querySelectorAll(".session")[index]
-      .classList.add("active");
-  }
-
-  localStorage.setItem(
-    "session_progress",
-    session.id
-  );
-
-  const player =
-    document.getElementById("player");
-
-  if (session.slideFile) {
-
-    player.innerHTML = `
-      <iframe
-        src="${session.slideFile}"
-        width="100%"
-        height="100%"
-        style="
-          border:none;
-          background:white;
-          min-height:600px;
-        ">
-      </iframe>
-    `;
-
-    return;
-  }
-
-  if (
-    session.youtubeId &&
-    session.youtubeId !== "TBD"
-  ) {
-
-    player.innerHTML = `
-      <iframe
-        width="100%"
-        height="100%"
-        src="https://www.youtube.com/embed/${session.youtubeId}?autoplay=1"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    `;
-
-    return;
-  }
-
-  player.innerHTML = `
-    <div style="
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      height:100%;
-      color:#64748b;
-      font-size:16px;">
-      Slide deck not yet assigned
-    </div>
-  `;
-}
-
-loadSessions();
-</script>

@@ -1,0 +1,43 @@
+{
+"id":"01",
+"title":"Program Orientation & Success Framework",
+"duration":"60min",
+"slideFile":"sessions/session-1-cloud-foundations.html",
+"youtubeId":"TBD",
+"color":"#3b82f6",
+"dimColor":"#1e3a8a",
+"active":true
+},
+
+{
+"id":"02",
+"title":"Identity, Governance & AWS Account Architecture",
+"duration":"60min",
+"slideFile":"sessions/session-2-iam.html",
+"youtubeId":"TBD",
+"color":"#10b981",
+"dimColor":"#064e3b",
+"active":false
+},
+
+{
+"id":"03",
+"title":"Access Control & IAM Governance",
+"duration":"60min",
+"slideFile":"sessions/session-3-shared-responsibility.html",
+"youtubeId":"TBD",
+"color":"#10b981",
+"dimColor":"#064e3b",
+"active":false
+},
+
+{
+"id":"04",
+"title":"Enterprise Multi-Account Strategy",
+"duration":"60min",
+"slideFile":"sessions/session-4-vpc-networking.html",
+"youtubeId":"TBD",
+"color":"#10b981",
+"dimColor":"#064e3b",
+"active":false
+},
