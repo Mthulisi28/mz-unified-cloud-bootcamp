@@ -1,0 +1,40 @@
+name: MZ-UCA Student Auto-Registration
+
+on:
+  workflow_dispatch:
+    inputs:
+      student_name:
+        description: 'Enter your Full Name'
+        required: true
+      student_email:
+        description: 'Enter your Email Address'
+        required: true
+
+jobs:
+  register-student:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Initialize or Append to Roster Database
+      run: |
+        FILE="04-Student-Portal/roster_database.csv"
+        mkdir -p 04-Student-Portal
+        
+        if [ ! -f "$FILE" ]; then
+          echo "Timestamp,Full Name,Email,GitHub Repository,Status" > "$FILE"
+        fi
+        
+        TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+        STUDENT_REPO="https://github.com/${{ github.repository_owner }}/mz-unified-cloud-bootcamp"
+        
+        echo "$TIMESTAMP,${{ github.event.inputs.student_name }},${{ github.event.inputs.student_email }},$STUDENT_REPO,Active" >> "$FILE"
+
+    - name: Commit & Push to Main Tracking Branch
+      run: |
+        git config --global user.name "MZ UCA Bot"
+        git config --global user.email "bot@mz-uca.academy"
+        git add 04-Student-Portal/roster_database.csv
+        git commit -m "automation: successfully registered student ${{ github.event.inputs.student_name }}"
+        git push origin HEAD
