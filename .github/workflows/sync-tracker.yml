@@ -1,0 +1,24 @@
+name: Sync Architecture Tracker to Google Docs
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  update-tracking-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Architecture
+        uses: actions/checkout@v3
+
+      - name: Validate Solutions Architect Deliverables
+        run: |
+          echo "Verifying Week-2 and Week-3 SAA deliverables exist..."
+          if [ -d "Week-2-Compute" ]; then echo "Compute path verified."; fi
+          if [ -d "Week-3-Networking" ]; then echo "Network path verified."; fi
+
+      - name: Execute Google Docs Sync Automation
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_DOCS_SERVICE_ACCOUNT }}
+          DOCUMENT_ID: ${{ secrets.MASTER_TRACKER_DOC_ID }}
+        run: |
+          python scripts/sync_links.py
