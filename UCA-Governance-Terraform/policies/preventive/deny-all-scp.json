@@ -1,1 +1,35 @@
-{\n  "Version": "2012-10-17",\n  "Statement": []\n}
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EnforceUCAImmutability",
+      "Effect": "Deny",
+      "Action": [
+        "logging.sinks.delete",
+        "logging.sinks.update",
+        "iam.roles.delete",
+        "iam.roles.update"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:PrincipalARN": "arn:aws:iam::*:role/UCA_Automated_Operator_*"
+        }
+      }
+    },
+    {
+      "Sid": "RestrictRegions",
+      "Effect": "Deny",
+      "Action": [
+        "compute.networks.create",
+        "compute.subnetworks.create"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "gcp:RequestedRegion": "europe-west1"
+        }
+      }
+    }
+  ]
+}
