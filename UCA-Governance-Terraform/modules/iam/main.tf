@@ -6,7 +6,7 @@ variable "environment" {
 
 # High-Value Execution Role used by the Automated Operator
 resource "google_project_iam_custom_role" "uca_automated_operator" {
-  role_id     = "UCA_Automated_Operator_\"
+  role_id     = "UCA_Automated_Operator_${var.environment}"
   title       = "UCA Automated Operator Role"
   description = "Deterministic rule-based execution role with zero manual access"
   permissions = [
