@@ -1,1 +1,24 @@
-{\n  "Environment": ["dev", "test", "prod"],\n  "Owner": "",\n  "GovernanceFramework": "UCA-2026"\n}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UCAMetadataTaggingSchema",
+  "type": "object",
+  "required": ["Environment", "Owner", "GovernanceFramework", "AutomatedOperatorControlled"],
+  "properties": {
+    "Environment": {
+      "type": "string",
+      "enum": ["dev", "test", "prod"]
+    },
+    "Owner": {
+      "type": "string",
+      "const": "Mthulisi Zulu"
+    },
+    "GovernanceFramework": {
+      "type": "string",
+      "const": "Unified Control Architecture"
+    },
+    "AutomatedOperatorControlled": {
+      "type": "string",
+      "const": "true"
+    }
+  }
+}
