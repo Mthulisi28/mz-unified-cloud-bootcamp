@@ -1,24 +1,25 @@
-# Central Platform Orchestration - Organization Root Baseline
-# Manages top-level Landing Zone variables and cross-account validation states
-
-variable "organization_id" {
-  type        = string
-  description = "The target root enterprise organization identity"
-  default     = "uca-global-org-2026"
+resource "google_compute_network" "vpc" {
+  name                    = "uca-global-vpc"
+  auto_create_subnetworks = false
 }
 
-variable "billing_account_id" {
-  type        = string
-  description = "Central billing identity for automated FinOps reconciliation"
-  default     = "billing-uca-enterprise"
+resource "google_compute_subnetwork" "web-tier" {
+  name          = "web-tier"
+  ip_cidr_range = "10.0.1.0/24"
+  region        = "us-central1"
+  network       = google_compute_network.vpc.id
 }
 
-locals {
-  governance_framework = "Unified Control Architecture"
-  last_audit_epoch     = "1773414000" # June 2026 Deterministic Target
+resource "google_compute_subnetwork" "app-tier" {
+  name          = "app-tier"
+  ip_cidr_range = "10.0.2.0/24"
+  region        = "us-central1"
+  network       = google_compute_network.vpc.id
 }
 
-output "uca_org_status" {
-  value       = "INITIALIZED"
-  description = "Platform baseline readiness status flag"
+resource "google_compute_subnetwork" "db-tier" {
+  name          = "db-tier"
+  ip_cidr_range = "10.0.3.0/24"
+  region        = "us-central1"
+  network       = google_compute_network.vpc.id
 }
