@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "EventFilter": {
+    "Source": "cloudaudit.googleapis.com",
+    "RuleSet": "UCADetectiveRemediationMatrix",
+    "Triggers": [
+      {
+        "EventName": "compute.networks.create",
+        "TargetPolicy": "EnforceRegionalIsolation",
+        "Action": "AUTOMATED_TRIGGER_DESTROY",
+        "Condition": {
+          "LocationNotEquals": "europe-west1"
+        }
+      },
+      {
+        "EventName": "logging.sinks.delete",
+        "TargetPolicy": "EnforceSinksImmutability",
+        "Action": "AUTOMATED_TRIGGER_RECONCILE",
+        "Condition": {
+          "PrincipalNotMatches": "arn:aws:iam::*:role/UCA_Automated_Operator_*"
+        }
+      }
+    ]
+  },
+  "RemediationPipeline": {
+    "ExecutionMode": "DeterministicRulesetOnly",
+    "HumanInTheLoopRequired": false,
+    "ParkingActionThreshold": "Immediate"
+  }
+}
