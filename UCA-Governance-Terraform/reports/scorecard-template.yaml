@@ -1,0 +1,15 @@
+pilot_domains:
+  identity:
+    name: "Identity Governance"
+    metrics:
+      - id: "least_privilege"
+        threshold: "100%"
+      - id: "sa_hygiene"
+        threshold: "0"
+  finops:
+    name: "FinOps Governance"
+    metrics:
+      - id: "tagging_compliance"
+        threshold: "100%"
+      - id: "budget_alignment"
+        threshold: ">90%"

@@ -1,0 +1,52 @@
+name: "Terraform Infrastructure Deployment"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: "read"
+  id-token: "write"
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: "ubuntu-latest"
+    env:
+      PROJECT_ID: "uca-infra-001"
+      WORKLOAD_IDENTITY_PROVIDER: "projects/925317254428/locations/global/workloadIdentityPools/uca-github-pool/providers/uca-github-provider"
+      SERVICE_ACCOUNT: "uca-cicd-deployer@uca-infra-001.iam.gserviceaccount.com"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+
+      - name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v2"
+        with:
+          workload_identity_provider: ${{ env.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.SERVICE_ACCOUNT }}
+
+      - name: "Setup Terraform"
+        uses: hashicorp/setup-terraform@v3
+
+      - name: "Terraform Init"
+        run: terraform -chdir=environments/mgmt init
+
+      - name: "Terraform Plan"
+        run: terraform -chdir=environments/mgmt plan
+
+      - name: "Terraform Apply"
+        if: "github.ref == 'refs/heads/main' && github.event_name == 'push'"
+        run: terraform -chdir=environments/mgmt apply -auto-approve
+
+      - name: "Run Governance Audit"
+        run: pwsh scripts/evaluate-governance.ps1
+
+      - name: "Upload Governance Scorecard"
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Governance-Scorecard"
+          path: "reports/Governance_Scorecard.md"

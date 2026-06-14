@@ -1,0 +1,17 @@
+# Local Terraform directories
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+# Crash logs and CLI buffers
+crash.log
+*.log
+
+# Sensitive variable inputs (just in case)
+*.tfvars
+*.tfvars.json
+
+# Local OS files
+.DS_Store
+Thumbs.db

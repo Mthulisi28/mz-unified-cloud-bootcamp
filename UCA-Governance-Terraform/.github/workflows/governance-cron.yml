@@ -1,0 +1,33 @@
+name: "UCA Governance Watchdog"
+
+on:
+  schedule:
+    - cron: "0 8 * * *" # Runs daily at 08:00 UTC
+  workflow_dispatch: # Allows manual trigger for testing
+
+permissions:
+  contents: "read"
+  id-token: "write"
+
+jobs:
+  audit:
+    name: "Automated Daily Audit"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+
+      - name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v2"
+        with:
+          workload_identity_provider: "projects/925317254428/locations/global/workloadIdentityPools/uca-github-pool/providers/uca-github-provider"
+          service_account: "uca-cicd-deployer@uca-infra-001.iam.gserviceaccount.com"
+
+      - name: "Run Governance Audit"
+        run: pwsh scripts/evaluate-governance.ps1
+
+      - name: "Upload Governance Scorecard"
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Daily-Governance-Scorecard"
+          path: "reports/Governance_Scorecard.md"
