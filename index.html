@@ -1,42 +1,99 @@
-<!DOCTYPE html><html><head>  <title>MZ UCA Portal V2</title>  <style>    body {      font-family: Arial;      background: #0b1220;      color: white;      padding: 40px;      margin: 0;    }    h1 {      text-align: center;      margin-bottom: 20px;    }    #status {      text-align: center;      margin-bottom: 15px;      font-size: 14px;      color: #aab4c0;    }    .grid {      display: grid;      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));      gap: 20px;      max-width: 900px;      margin: auto;    }    .card {      background: #162033;      padding: 20px;      border-radius: 10px;      text-align: center;      cursor: pointer;      transition: 0.2s ease-in-out;      border: 1px solid transparent;    }    .card:hover {      background: #22314d;      border-color: #2f4a75;      transform: translateY(-2px);    }    #message {      text-align: center;      margin-top: 40px;      color: #8892a6;    }    .error {      color: #ff6b6b;    }  </style></head><body><h1>MZ UCA Portal V2</h1><div id="status">Initializing...</div><div class="grid" id="grid"></div><div id="message">Loading sessions...</div><div id="dashboard" style="max-width:800px;margin:20px auto;padding:20px;background:#162033;border-radius:12px;">  <div id="progressText">    Overall Progress: 0%</div>  <div style="height:12px;background:#0b1220;border-radius:8px;margin-top:12px;overflow:hidden;">    <div id="progressBar"         style="height:12px;width:0%;background:#4ade80;">    </div>  </div>  <button id="resumeBtn"          style="display:none;margin-top:15px;padding:10px 15px;border:none;border-radius:6px;background:#7aa2ff;cursor:pointer;">      Continue Learning  </button></div><script>
-async function loadSessions() {
-  const grid = document.getElementById("grid");
-  const status = document.getElementById("status");
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Solutions Architect Associate Master Portal</title>
+    <style>
+        :root { --bg: #060913; --card: #0b1120; --border: #1e293b; --text: #f3f4f6; }
+        body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; padding: 2rem; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 968px) { .container { grid-template-columns: 1fr; } }
+        
+        .player-pane { position: sticky; top: 2rem; height: fit-content; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
+        .video-wrapper iframe, .video-wrapper .placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-wrapper .placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #64748b; background: #020617; text-align: center; padding: 2rem; box-sizing: border-box; }
+        
+        .session-pane { height: calc(100vh - 4rem); overflow-y: auto; padding-right: 0.5rem; }
+        .session-pane::-webkit-scrollbar { width: 6px; }
+        .session-pane::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        
+        h2 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+        
+        .sc { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--dcol); margin-bottom: 1rem; border-radius: 6px; padding: 1.25rem; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .sc:hover { transform: translateX(4px); border-color: var(--dcol); }
+        .sc.active { background: var(--ddim); border-color: var(--dcol); box-shadow: 0 0 20px -5px var(--dcol); }
+        .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; pointer-events: none; }
+        .sc-number { font-weight: 700; color: var(--dcol); font-size: 0.875rem; text-transform: uppercase; }
+        .sc-title { flex: 1; font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: #e2e8f0; }
+        .sc-duration { color: #64748b; font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="player-pane">
+            <h2>◈ BROADCAST RUNTIME CONTROLLER</h2>
+            <div class="video-wrapper" id="video-wrapper-node">
+                <div class="placeholder">
+                    <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
+                    <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
+                </div>
+            </div>
+        </div>
 
-  try {
-    if (status) status.innerText = "Loading sessions...";
+        <div class="session-pane">
+            <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
+            
+        <div class="sc active" data-session-id="1" style="--dcol: #3b82f6; --ddim: #1e3a8a;">
+            <div class="sc-head">
+                <span class="sc-number">◆ Session 1</span>
+                <span class="sc-title">GOVERNANCE FOUNDATION & CORE MATURITY TRACKING</span>
+                <span class="sc-duration">◈ 43min</span>
+            </div>
+        </div>
+        <div class="sc " data-session-id="2" style="--dcol: #10b981; --ddim: #064e3b;">
+            <div class="sc-head">
+                <span class="sc-number">◆ Session 2</span>
+                <span class="sc-title">IDENTITY GOVERNANCE: ENFORCING IMMUTABLE ORGANIZATIONAL SCPs</span>
+                <span class="sc-duration">◈ 1hr 11min</span>
+            </div>
+        </div>
+        <div class="sc " data-session-id="3" style="--dcol: #f59e0b; --ddim: #78350f;">
+            <div class="sc-head">
+                <span class="sc-number">◆ Session 3</span>
+                <span class="sc-title">INFRASTRUCTURE GOVERNANCE: TRANSLATING POLICY INTO AUTOMATED TERRAFORM</span>
+                <span class="sc-duration">◈ 2hr 38min</span>
+            </div>
+        </div>
 
-    const res = await fetch("session-registry.json");
-    const data = await res.json();
+            
+        </div>
+    </div>
 
-    grid.innerHTML = "";
+    <script>
+        const videoMap = {
+            "1": "YOUR_VALID_ID_1",
+            "2": "YOUR_VALID_ID_2",
+            "3": "YOUR_VALID_ID_3"
+        };
 
-    data.forEach(session => {
-      const card = document.createElement("div");
-      card.className = "card";
+        // Global Event Delegation Engine - Catching events at the root body plane
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('.sc');
+            if (!card) return;
 
-      card.innerHTML = `
-        <div style="font-weight:600;">${session.title}</div>
-        <small style="color:#9aa4b2;">Click to open</small>
-      `;
-
-      card.addEventListener("click", () => {
-        window.location.href = "../session.html?id=" + session.id;
-      });
-
-      grid.appendChild(card);
-    });
-
-    if (status) status.innerText = "Loaded " + data.length + " sessions";
-
-  } catch (e) {
-    console.error(e);
-    grid.innerHTML = "<p style='color:red'>Registry Load Failed</p>";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", loadSessions);
-</script>  <script src="engine.js"></script>`n</body></html>
-
-
-
+            document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            
+            const sessionId = card.getAttribute('data-session-id');
+            const videoId = videoMap[sessionId];
+            const wrapper = document.getElementById('video-wrapper-node');
+            
+            if (videoId && wrapper) {
+                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
+        });
+    </script>
+</body>
+</html>

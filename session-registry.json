@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "title": "GOVERNANCE FOUNDATION & CORE RUNTIME ENFORCEMENT",
+    "title": "GOVERNANCE FOUNDATION & CORE MATURITY TRACKING",
     "duration": "43min",
     "color": "#3b82f6",
     "dimColor": "#1e3a8a",
@@ -10,7 +10,7 @@
   },
   {
     "id": "2",
-    "title": "IDENTITY GOVERNANCE & DETERMINISTIC ACCOUNT POLICY (IAM)",
+    "title": "IDENTITY GOVERNANCE: ENFORCING IMMUTABLE ORGANIZATIONAL SCPs",
     "duration": "1hr 11min",
     "color": "#10b981",
     "dimColor": "#064e3b",
@@ -19,7 +19,7 @@
   },
   {
     "id": "3",
-    "title": "INFRASTRUCTURE GOVERNANCE: CODIFIED COMPLIANCE VIA TERRAFORM",
+    "title": "INFRASTRUCTURE GOVERNANCE: TRANSLATING POLICY INTO AUTOMATED TERRAFORM",
     "duration": "2hr 38min",
     "color": "#f59e0b",
     "dimColor": "#78350f",
