@@ -1,147 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MZ UCA Session Viewer</title>
-
-<style>
-
-body{
-    margin:0;
-    background:#0b1220;
-    color:white;
-    font-family:Arial, sans-serif;
-}
-
-.header{
-    padding:20px;
-    background:#162033;
-}
-
-.viewer{
-    width:100%;
-    height:85vh;
-    border:none;
-}
-
-.btn{
-    display:inline-block;
-    padding:10px 16px;
-    margin-top:10px;
-    background:#4ade80;
-    color:#000;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
-}
-
-.back{
-    color:#7aa2ff;
-    text-decoration:none;
-    margin-left:20px;
-}
-
-.message{
-    padding:40px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="header">
-
-    <h1 id="title">Loading...</h1>
-
-    <div id="meta"></div>
-
-    <a id="downloadBtn"
-       class="btn"
-       target="_blank"
-       style="display:none;">
-       Download PDF
-    </a>
-
-    <a class="back" href="index.html">
-       ← Back to Portal
-    </a>
-
-</div>
-
-<div id="content" class="message">
-    Loading session...
-</div>
-
-<script>
-
-function getSessionId() {
-    const params =
-        new URLSearchParams(window.location.search);
-
-    return parseInt(params.get("id"));
-}
-
-async function loadSession() {
-
-    const id = getSessionId();
-
-    const res =
-        await fetch("session-registry.json");
-
-    const data =
-        await res.json();
-
-    const session =
-        data.find(s => s.id === id);
-
-    if (!session) {
-
-        document.getElementById("title")
-            .innerText = "Session Not Found";
-
-        return;
-    }
-
-    document.getElementById("title")
-        .innerText = session.title;
-
-    document.getElementById("meta")
-        .innerText = "Session ID: " + session.id;
-
-    localStorage.setItem(
-        "last_session",
-        session.id
-    );
-
-    if (session.pdf) {
-
-        const btn =
-            document.getElementById("downloadBtn");
-
-        btn.style.display = "inline-block";
-        btn.href = session.pdf;
-
-        document.getElementById("content")
-            .innerHTML =
-            '<iframe class="viewer" src="' +
-            session.pdf +
-            '"></iframe>';
-
-    }
-    else {
-
-        document.getElementById("content")
-            .innerHTML =
-            "<h2>Coming Soon</h2>" +
-            "<p>Content has not yet been uploaded.</p>";
-    }
-}
-
-loadSession();
-
-</script>
-
-</body>
-</html>
+[
+  {
+    "id": "1",
+    "title": "GOVERNANCE FOUNDATION & CORE RUNTIME ENFORCEMENT",
+    "duration": "43min",
+    "color": "#3b82f6",
+    "dimColor": "#1e3a8a",
+    "youtubeId": "YOUR_VALID_ID_1",
+    "active": true
+  },
+  {
+    "id": "2",
+    "title": "IDENTITY GOVERNANCE & DETERMINISTIC ACCOUNT POLICY (IAM)",
+    "duration": "1hr 11min",
+    "color": "#10b981",
+    "dimColor": "#064e3b",
+    "youtubeId": "YOUR_VALID_ID_2",
+    "active": false
+  },
+  {
+    "id": "3",
+    "title": "INFRASTRUCTURE GOVERNANCE: CODIFIED COMPLIANCE VIA TERRAFORM",
+    "duration": "2hr 38min",
+    "color": "#f59e0b",
+    "dimColor": "#78350f",
+    "youtubeId": "YOUR_VALID_ID_3",
+    "active": false
+  }
+]
