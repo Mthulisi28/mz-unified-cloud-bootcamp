@@ -1,0 +1,47 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "UCARootAndMFAContainment",
+      "Effect": "Deny",
+      "NotAction": [
+        "iam:*",
+        "organizations:*",
+        "route53:*",
+        "support:*",
+        "awsportal:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "Bool": {
+          "aws:MultiFactorAuthPresent": "false"
+        },
+        "ArnLike": {
+          "aws:PrincipalArn": [
+            "arn:aws:iam::*:root"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "UCAGeographicPerimeterEnforcement",
+      "Effect": "Deny",
+      "NotAction": [
+        "iam:*",
+        "organizations:*",
+        "route53:*",
+        "support:*",
+        "cloudfront:*",
+        "waf:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "af-south-1"
+          ]
+        }
+      }
+    }
+  ]
+}

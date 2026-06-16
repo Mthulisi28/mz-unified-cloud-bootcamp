@@ -1,0 +1,56 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "UCAEnforcePipelineIAMTagging",
+      "Effect": "Deny",
+      "Action": [
+        "iam:CreateUser",
+        "iam:CreateRole",
+        "iam:CreatePolicy"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Owner": "true"
+        }
+      }
+    },
+    {
+      "Sid": "UCABlockUnmanagedAdminPropagation",
+      "Effect": "Deny",
+      "Action": [
+        "iam:AttachUserPolicy",
+        "iam:AttachGroupPolicy",
+        "iam:PutUserPolicy",
+        "iam:PutGroupPolicy"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ArnEquals": {
+          "iam:PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        },
+        "StringNotLike": {
+          "aws:PrincipalArn": [
+            "arn:aws:iam::*:role/UCA-Automation-Pipeline-*"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "UCALateralMovementContainment",
+      "Effect": "Deny",
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:PrincipalAccount": [
+            "arn:aws:iam::*:root"
+          ]
+        }
+      }
+    }
+  ]
+}

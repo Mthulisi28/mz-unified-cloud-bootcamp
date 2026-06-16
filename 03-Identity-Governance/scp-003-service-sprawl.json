@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "UCAServiceSprawlContainment",
+      "Effect": "Deny",
+      "Action": [
+        "sagemaker:*",
+        "braket:*",
+        "macie:*",
+        "guardduty:Delete*",
+        "securityhub:Disable*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
