@@ -1,1 +1,115 @@
-﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MZ UCA - Governance Operations Dashboard</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;600&family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet"><style>:root { --bg-matte-black: #0d0f12; --bg-deep-navy: #131722; --accent-gold: #cca43b; --border-glow: #1f293d; --text-muted: #788296; --text-light: #e2e8f0; --status-green: #00e676; } * { margin: 0; padding: 0; box-sizing: border-box; } body { background-color: var(--bg-matte-black); color: var(--text-light); font-family: "Barlow", sans-serif; letter-spacing: 0.5px; overflow-x: hidden; } .topbar { background-color: #080a0d; border-bottom: 1px solid var(--border-glow); padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--text-muted); text-transform: uppercase; } .topbar-branding span { color: var(--accent-gold); font-weight: 700; } .dashboard-container { max-width: 1600px; margin: 0 auto; padding: 24px; } header { margin-bottom: 24px; border-left: 4px solid var(--accent-gold); padding-left: 20px; } h1 { font-family: "Bebas Neue", sans-serif; font-size: 56px; line-height: 1; letter-spacing: 2px; color: var(--text-light); } .sub-tagline { font-family: "Barlow Condensed", sans-serif; font-size: 16px; color: var(--accent-gold); text-transform: uppercase; font-weight: 600; margin-top: 4px; } .status-terminal { background-color: #06080a; border: 1px solid var(--border-glow); border-radius: 4px; padding: 12px 18px; font-family: "Share Tech Mono", monospace; font-size: 13px; color: var(--status-green); margin-bottom: 24px; display: flex; gap: 20px; } .pulse { animation: blink 1.5s infinite; } .progression-rail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 32px; font-family: "Barlow Condensed", sans-serif; text-align: center; text-transform: uppercase; font-size: 14px; } .rail-node { background: var(--bg-deep-navy); border: 1px solid var(--border-glow); padding: 12px; font-weight: 600; color: var(--text-muted); } .rail-node.active { border-color: var(--accent-gold); color: var(--text-light); background: linear-gradient(180deg, #161c2b 0%, #131722 100%); } .main-grid { display: grid; grid-template-columns: 1fr 380px; gap: 24px; } .panel-header { font-family: "Barlow Condensed", sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; color: var(--text-light); border-bottom: 1px solid var(--border-glow); padding-bottom: 8px; margin-bottom: 16px; display: flex; justify-content: space-between; } .governance-panel { background-color: var(--bg-deep-navy); border: 1px solid var(--border-glow); padding: 20px; border-radius: 4px; margin-bottom: 24px; } .clearance-row { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #192030; font-size: 14px; } .clearance-badge { font-family: "Share Tech Mono", monospace; background-color: #1c2336; color: var(--accent-gold); padding: 2px 8px; font-size: 12px; border: 1px solid #2d3854; } .session-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; } .session-card { background-color: #171d2a; border: 1px solid var(--border-glow); padding: 16px; border-radius: 4px; position: relative; } .uca-verified { position: absolute; top: 16px; right: 16px; font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 1px 6px; border-radius: 2px; } .session-meta { font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 4px; } .session-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; } .session-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; } @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } } @media(max-width: 1024px) { .main-grid { grid-template-columns: 1fr; } .session-grid { grid-template-columns: 1fr; } } </style></head><body><div class="topbar"><div class="topbar-branding">SYSTEM: <span>MZ-UCA CORE</span> // OPERATIONS GATE</div><div>REGION: AF-SOUTH-1 (CAPE TOWN) // LATENCY: NOMINAL</div></div><div class="dashboard-container"><header><h1>MZ UCA CLOUD ACADEMY</h1><div class="sub-tagline">Pan-African Enterprise Cloud Leadership Network</div></header><div class="status-terminal"><div><span class="pulse">●</span> [ SYSTEM STATUS ] UCA GOVERNANCE GRID ONLINE</div><div>[ BOOTCAMP OPERATIONS ACTIVE ]</div><div>[ AWS TRACK SYNCHRONIZED ]</div></div><div class="progression-rail"><div class="rail-node active">FOUNDATION (CL-1)</div><div class="rail-node">OPERATIONS (CL-2)</div><div class="rail-node">SECURITY (CL-3)</div><div class="rail-node">INFRASTRUCTURE AS CODE (CL-4)</div><div class="rail-node">GOVERNANCE AUTHORITY (CL-5)</div></div><div class="main-grid"><div class="content-space"><div class="governance-panel"><div class="panel-header"><div>TRACK A: AWS CLOUD PRACTITIONER BOOTCAMP</div><div style="color: var(--accent-gold)">4-WEEK PROOF OF WORK</div></div><div class="session-grid"><div class="session-card"><div class="uca-verified">UCA VERIFIED</div><div class="session-meta">Module 01 // Foundations</div><div class="session-title">Cloud Computing Foundations</div><div class="session-desc">Real-world business case deployment mechanics vs marketing terminology. Regions, AZs, and Edge layout matrices.</div></div><div class="session-card"><div class="uca-verified">UCA VERIFIED</div><div class="session-meta">Module 02 // Governance</div><div class="session-title">Shared Responsibility Framework</div><div class="session-desc">Enterprise liability demarcation. Evaluating guest operating systems versus cloud perimeter data compliance boundaries.</div></div></div></div></div><div class="sidebar-space"><div class="governance-panel"><div class="panel-header">UCA CLEARANCE LEVELS</div><div class="clearance-row"><span>Foundation Operators</span> <span class="clearance-badge">CL-1</span></div><div class="clearance-row"><span>Cloud Infrastructure Operations</span> <span class="clearance-badge">CL-2</span></div><div class="clearance-row"><span>Advanced Security Engineering</span> <span class="clearance-badge">CL-3</span></div><div class="clearance-row"><span>Enterprise IaC Architects</span> <span class="clearance-badge">CL-4</span></div><div class="clearance-row"><span>Governance Authority Council</span> <span class="clearance-badge">CL-5</span></div></div><div class="governance-panel"><div class="panel-header">EXECUTIVE METRICS</div><div class="clearance-row" style="border:none"><span>Operational Modules:</span> <span style="color:var(--accent-gold); font-weight:700">24 Active</span></div><div class="clearance-row" style="border:none"><span>Governance Validation Labs:</span> <span style="color:var(--accent-gold); font-weight:700">08 Deployed</span></div></div></div></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZ UCA - Governance Operations Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;600&family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-matte-black: #0d0f12; --bg-deep-navy: #131722; --accent-gold: #cca43b; --border-glow: #1f293d; --text-muted: #788296; --text-light: #e2e8f0; --status-green: #00e676; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-matte-black); color: var(--text-light); font-family: "Barlow", sans-serif; letter-spacing: 0.5px; overflow-x: hidden; }
+        .topbar { background-color: #080a0d; border-bottom: 1px solid var(--border-glow); padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--text-muted); text-transform: uppercase; }
+        .topbar-branding span { color: var(--accent-gold); font-weight: 700; }
+        .dashboard-container { max-width: 1600px; margin: 0 auto; padding: 24px; }
+        header { margin-bottom: 24px; border-left: 4px solid var(--accent-gold); padding-left: 20px; }
+        h1 { font-family: "Bebas Neue", sans-serif; font-size: 56px; line-height: 1; letter-spacing: 2px; color: var(--text-light); }
+        .sub-tagline { font-family: "Barlow Condensed", sans-serif; font-size: 16px; color: var(--accent-gold); text-transform: uppercase; font-weight: 600; margin-top: 4px; }
+        .status-terminal { background-color: #06080a; border: 1px solid var(--border-glow); border-radius: 4px; padding: 12px 18px; font-family: "Share Tech Mono", monospace; font-size: 13px; color: var(--status-green); margin-bottom: 24px; display: flex; gap: 20px; }
+        .pulse { animation: blink 1.5s infinite; }
+        .progression-rail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 32px; font-family: "Barlow Condensed", sans-serif; text-align: center; text-transform: uppercase; font-size: 14px; }
+        .rail-node { background: var(--bg-deep-navy); border: 1px solid var(--border-glow); padding: 12px; font-weight: 600; color: var(--text-muted); }
+        .rail-node.active { border-color: var(--accent-gold); color: var(--text-light); background: linear-gradient(180deg, #161c2b 0%, #131722 100%); }
+        .main-grid { display: grid; grid-template-columns: 1fr 380px; gap: 24px; }
+        .panel-header { font-family: "Barlow Condensed", sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; color: var(--text-light); border-bottom: 1px solid var(--border-glow); padding-bottom: 8px; margin-bottom: 16px; display: flex; justify-content: space-between; }
+        .governance-panel { background-color: var(--bg-deep-navy); border: 1px solid var(--border-glow); padding: 20px; border-radius: 4px; margin-bottom: 24px; }
+        .clearance-row { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #192030; font-size: 14px; }
+        .clearance-badge { font-family: "Share Tech Mono", monospace; background-color: #1c2336; color: var(--accent-gold); padding: 2px 8px; font-size: 12px; border: 1px solid #2d3854; }
+        .session-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .session-link { text-decoration: none; color: inherit; display: block; transition: transform 0.2s; }
+        .session-link:hover { transform: translateY(-2px); }
+        .session-card { background-color: #171d2a; border: 1px solid var(--border-glow); padding: 16px; border-radius: 4px; position: relative; cursor: pointer; }
+        .session-link:hover .session-card { border-color: var(--accent-gold); }
+        .uca-verified { position: absolute; top: 16px; right: 16px; font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 1px 6px; border-radius: 2px; }
+        .session-meta { font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 4px; }
+        .session-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        @media(max-width: 1024px) { .main-grid { grid-template-columns: 1fr; } .session-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-branding">SYSTEM: <span>MZ-UCA CORE</span> // OPERATIONS GATE</div>
+        <div>REGION: AF-SOUTH-1 (CAPE TOWN) // LATENCY: NOMINAL</div>
+    </div>
+    <div class="dashboard-container">
+        <header>
+            <h1>MZ UCA CLOUD ACADEMY</h1>
+            <div class="sub-tagline">Pan-African Enterprise Cloud Leadership Network</div>
+        </header>
+        <div class="status-terminal">
+            <div><span class="pulse">●</span> [ SYSTEM STATUS ] UCA GOVERNANCE GRID ONLINE</div>
+            <div>[ BOOTCAMP OPERATIONS ACTIVE ]</div>
+            <div>[ AWS TRACK SYNCHRONIZED ]</div>
+        </div>
+        <div class="progression-rail">
+            <div class="rail-node active">FOUNDATION (CL-1)</div>
+            <div class="rail-node">OPERATIONS (CL-2)</div>
+            <div class="rail-node">SECURITY (CL-3)</div>
+            <div class="rail-node">INFRASTRUCTURE AS CODE (CL-4)</div>
+            <div class="rail-node">GOVERNANCE AUTHORITY (CL-5)</div>
+        </div>
+        <div class="main-grid">
+            <div class="content-space">
+                <div class="governance-panel">
+                    <div class="panel-header">
+                        <div>TRACK A: AWS CLOUD PRACTITIONER BOOTCAMP</div>
+                        <div style="color: var(--accent-gold)">12-SESSION ACTIVE SPECTRUM</div>
+                    </div>
+                    <div class="session-grid" id="dynamic-session-grid">
+                        </div>
+                </div>
+            </div>
+            <div class="sidebar-space">
+                <div class="governance-panel">
+                    <div class="panel-header">UCA CLEARANCE LEVELS</div>
+                    <div class="clearance-row"><span>Foundation Operators</span> <span class="clearance-badge">CL-1</span></div>
+                    <div class="clearance-row"><span>Cloud Infrastructure Operations</span> <span class="clearance-badge">CL-2</span></div>
+                    <div class="clearance-row"><span>Advanced Security Engineering</span> <span class="clearance-badge">CL-3</span></div>
+                    <div class="clearance-row"><span>Enterprise IaC Architects</span> <span class="clearance-badge">CL-4</span></div>
+                    <div class="clearance-row"><span>Governance Authority Council</span> <span class="clearance-badge">CL-5</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadDashboardModules() {
+            try {
+                const response = await fetch('session-registry.json');
+                const sessions = await response.json();
+                const grid = document.getElementById('dynamic-session-grid');
+                grid.innerHTML = '';
+
+                sessions.forEach((session, index) => {
+                    const paddedIndex = String(index + 1).padStart(2, '0');
+                    grid.innerHTML += `
+                        <a href="session.html?id=${session.id}" class="session-link">
+                            <div class="session-card">
+                                <div class="uca-verified">UCA VERIFIED</div>
+                                <div class="session-meta">Module ${paddedIndex} // Active Asset</div>
+                                <div class="session-title">${session.title}</div>
+                            </div>
+                        </a>
+                    `;
+                });
+            } catch (error) {
+                document.getElementById('dynamic-session-grid').innerHTML = '<p style="color:red">Error streaming content catalog metadata.</p>';
+            }
+        }
+        window.addEventListener('DOMContentLoaded', loadDashboardModules);
+    </script>
+</body>
+</html>
