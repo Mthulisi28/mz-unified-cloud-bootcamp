@@ -33,9 +33,24 @@ async function initSessionEngine() {
       return;
     }
     document.getElementById("title").innerText = session.title;
-    const targetPath = `content/${rawId.toLowerCase()}.pdf`;
-    const headCheck = await fetch(targetPath, { method: "HEAD" });
-    if (headCheck.ok) {
+    
+    // Dynamic Casing Fallback array to accommodate Linux environments
+    const pathsToTest = [
+      `content/${rawId.toLowerCase()}.pdf`,
+      `Content/${rawId.toLowerCase()}.pdf`,
+      `content/${rawId}.pdf`
+    ];
+    
+    let targetPath = null;
+    for (const path of pathsToTest) {
+      const check = await fetch(path, { method: "HEAD" });
+      if (check.ok) {
+        targetPath = path;
+        break;
+      }
+    }
+
+    if (targetPath) {
       document.getElementById("content").innerHTML = `
         <h3>Learning Material</h3>
         <iframe src="${targetPath}" width="100%" height="600px" style="border:1px solid #2c3e50;border-radius:10px;"></iframe>
@@ -43,7 +58,7 @@ async function initSessionEngine() {
       `;
     } else {
       document.getElementById("content").innerHTML = `
-        <p style='color:#9aa4b2;'>No asset located at target route path: <code>${targetPath}</code></p>
+        <p style='color:#9aa4b2;'>No asset located at target route path options: <code>${pathsToTest.join(', ')}</code></p>
       `;
     }
   } catch (error) {
