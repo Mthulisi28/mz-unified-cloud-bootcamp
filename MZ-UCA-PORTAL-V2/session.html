@@ -8,166 +8,51 @@
     .back { color:#7aa2ff; display:inline-block; margin-top:20px; }
   </style>
 </head>
-
 <body>
-
 <div class="container">
   <h1 id="title">Loading...</h1>
-
   <div id="content"></div>
-
   <a class="back" href="index.html">← Back to Portal</a>
 </div>
-
 <script>
-async function loadSession() {
-  const id = new URLSearchParams(window.location.search).get("id");
-
-  const res = await fetch("session-registry.json");
-  const data = await res.json();
-
-  const session = data.find(s => s.id == id);
-
-  document.getElementById("title").innerText = session.title;
-
-  let pdf = "";
-  if (session.id == 1) {
-    pdf = `
-      <h3>Week 1 Material</h3>
-      <iframe src="sessions/week1-saa.pdf" width="100%" height="600px"></iframe>
-      <p><a href="sessions/week1-saa.pdf" download style="color:#7aa2ff;">Download PDF</a></p>
-    `;
-  }
-
-  document.getElementById("content").innerHTML = pdf;
-}
-
-loadSession();
-</script>
-
-<script>
-function slugify(text) {
-  return text.toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-async function attachPDF(session) {
-  const file = "sessions/pdfs/" + slugify(session.title) + ".pdf";
-
-  const res = await fetch(file, { method: "HEAD" });
-
-  if (res.ok) {
-    return `
-      <div style="margin-top:25px;">
-        <h3>Learning Material</h3>
-        <iframe src="${file}" width="100%" height="600px"
-          style="border:1px solid #2c3e50;border-radius:10px;"></iframe>
-
-        <p>
-          <a href="${file}" download style="color:#7aa2ff;">
-            Download PDF
-          </a>
-        </p>
-      </div>
-    `;
-  }
-
-  return `<p style="color:#9aa4b2;margin-top:20px;">No PDF available for this session yet.</p>`;
-}
-
-async function enhanceSession(session) {
-  const container = document.getElementById("content");
-  container.innerHTML = await attachPDF(session);
-}
-</script>
-<script>
-function slugify(text) {
-  return text.toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-async function loadSessionEnhanced() {
-  const id = new URLSearchParams(window.location.search).get("id");
-
-  const res = await fetch("session-registry.json");
-  const data = await res.json();
-
-  const session = data.find(s => s.id == id);
-
-  document.getElementById("title").innerText = session.title;
-
-  const file = "sessions/pdfs/" + slugify(session.title) + ".pdf";
-
+async function initSessionEngine() {
   try {
-    const head = await fetch(file, { method: "HEAD" });
-
-    if (head.ok) {
+    const params = new URLSearchParams(window.location.search);
+    const rawId = params.get("id");
+    if (!rawId) {
+      document.getElementById("title").innerText = "Invalid Session Context";
+      document.getElementById("content").innerHTML = "<p style='color:#9aa4b2;'>No session ID provided in the platform link.</p>";
+      return;
+    }
+    const res = await fetch("session-registry.json");
+    const data = await res.json();
+    const session = data.find(s => String(s.id).toLowerCase() === String(rawId).toLowerCase());
+    if (!session) {
+      document.getElementById("title").innerText = "Session Not Found";
+      document.getElementById("content").innerHTML = `<p style='color:#9aa4b2;'>Target reference [${rawId}] does not match registration indexes.</p>`;
+      return;
+    }
+    document.getElementById("title").innerText = session.title;
+    const targetPath = `content/${rawId.toLowerCase()}.pdf`;
+    const headCheck = await fetch(targetPath, { method: "HEAD" });
+    if (headCheck.ok) {
       document.getElementById("content").innerHTML = `
         <h3>Learning Material</h3>
-        <iframe src="${file}" width="100%" height="600px"
-          style="border:1px solid #2c3e50;border-radius:10px;"></iframe>
-
-        <p>
-          <a href="${file}" download style="color:#7aa2ff;">
-            Download PDF
-          </a>
-        </p>
+        <iframe src="${targetPath}" width="100%" height="600px" style="border:1px solid #2c3e50;border-radius:10px;"></iframe>
+        <p><a href="${targetPath}" download style="color:#7aa2ff; font-weight:bold;">Download Original Framework PDF</a></p>
       `;
     } else {
-      document.getElementById("content").innerHTML =
-        "<p style='color:#9aa4b2;'>No PDF available for this session yet.</p>";
+      document.getElementById("content").innerHTML = `
+        <p style='color:#9aa4b2;'>No asset located at target route path: <code>${targetPath}</code></p>
+      `;
     }
-
-  } catch (e) {
-    console.error(e);
-    document.getElementById("content").innerHTML =
-      "<p style='color:red;'>Error loading learning material</p>";
+  } catch (error) {
+    console.error("Engine Fault:", error);
+    document.getElementById("title").innerText = "Runtime Engine Exception";
+    document.getElementById("content").innerHTML = "<p style='color:red;'>Failed to resolve assets due to an upstream fetch exception.</p>";
   }
 }
-
-loadSessionEnhanced();
-</script>
-<script>
-async function loadSessionEnhanced() {
-
-  const id = new URLSearchParams(window.location.search).get("id");
-
-  const res = await fetch("session-registry.json");
-  const data = await res.json();
-
-  const session = data.find(s => s.id == id);
-
-  document.getElementById("title").innerText = session.title;
-
-  const pdf = session.pdf;
-
-  if (pdf) {
-    document.getElementById("content").innerHTML = `
-      <h3>Learning Material</h3>
-
-      <iframe src="${pdf}" width="100%" height="600px"
-        style="border:1px solid #2c3e50;border-radius:10px;"></iframe>
-
-      <p>
-        <a href="${pdf}" download style="color:#7aa2ff;">
-          Download PDF
-        </a>
-      </p>
-    `;
-  } else {
-    document.getElementById("content").innerHTML =
-      "<p style='color:#9aa4b2;'>No PDF mapped for this session.</p>";
-  }
-}
-
-loadSessionEnhanced();
+window.addEventListener("DOMContentLoaded", initSessionEngine);
 </script>
 </body>
 </html>
-
-
-
