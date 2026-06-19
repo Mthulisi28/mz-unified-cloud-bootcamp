@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Session Viewer</title>
-  <style>
-    body { font-family: Arial; background:#0b1220; color:white; padding:40px; }
-    .container { max-width:900px; margin:auto; background:#162033; padding:30px; border-radius:12px; }
-    .back { color:#7aa2ff; display:inline-block; margin-top:20px; }
-  </style>
-</head>
+<head><title>Session Viewer</title><style>body{font-family:Arial;background:#0b1220;color:white;padding:40px;}.container{max-width:900px;margin:auto;background:#162033;padding:30px;border-radius:12px;}.back{color:#7aa2ff;display:inline-block;margin-top:20px;}</style></head>
 <body>
 <div class="container">
   <h1 id="title">Loading...</h1>
@@ -16,56 +9,15 @@
 </div>
 <script>
 async function initSessionEngine() {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const rawId = params.get("id");
-    if (!rawId) {
-      document.getElementById("title").innerText = "Invalid Session Context";
-      document.getElementById("content").innerHTML = "<p style='color:#9aa4b2;'>No session ID provided in the platform link.</p>";
-      return;
-    }
-    const res = await fetch("session-registry.json");
-    const data = await res.json();
-    const session = data.find(s => String(s.id).toLowerCase() === String(rawId).toLowerCase());
-    if (!session) {
-      document.getElementById("title").innerText = "Session Not Found";
-      document.getElementById("content").innerHTML = `<p style='color:#9aa4b2;'>Target reference [${rawId}] does not match registration indexes.</p>`;
-      return;
-    }
-    document.getElementById("title").innerText = session.title;
-    
-    // Dynamic Casing Fallback array to accommodate Linux environments
-    const pathsToTest = [
-      `content/${rawId.toLowerCase()}.pdf`,
-      `Content/${rawId.toLowerCase()}.pdf`,
-      `content/${rawId}.pdf`
-    ];
-    
-    let targetPath = null;
-    for (const path of pathsToTest) {
-      const check = await fetch(path, { method: "HEAD" });
-      if (check.ok) {
-        targetPath = path;
-        break;
-      }
-    }
-
-    if (targetPath) {
-      document.getElementById("content").innerHTML = `
-        <h3>Learning Material</h3>
-        <iframe src="${targetPath}" width="100%" height="600px" style="border:1px solid #2c3e50;border-radius:10px;"></iframe>
-        <p><a href="${targetPath}" download style="color:#7aa2ff; font-weight:bold;">Download Original Framework PDF</a></p>
-      `;
-    } else {
-      document.getElementById("content").innerHTML = `
-        <p style='color:#9aa4b2;'>No asset located at target route path options: <code>${pathsToTest.join(', ')}</code></p>
-      `;
-    }
-  } catch (error) {
-    console.error("Engine Fault:", error);
-    document.getElementById("title").innerText = "Runtime Engine Exception";
-    document.getElementById("content").innerHTML = "<p style='color:red;'>Failed to resolve assets due to an upstream fetch exception.</p>";
-  }
+  const params = new URLSearchParams(window.location.search);
+  const rawId = params.get("id");
+  if (!rawId) return;
+  // Pointing to root as per new deployment strategy
+  const targetPath = `${rawId.toLowerCase()}.pdf`; 
+  document.getElementById("content").innerHTML = `
+    <h3>Learning Material</h3>
+    <iframe src="${targetPath}" width="100%" height="600px" style="border:1px solid #2c3e50;border-radius:10px;"></iframe>
+  `;
 }
 window.addEventListener("DOMContentLoaded", initSessionEngine);
 </script>
