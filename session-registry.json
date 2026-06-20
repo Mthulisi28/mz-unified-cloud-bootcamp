@@ -1,11 +1,10 @@
 {
   "session01": {
     "title": "AWS Cloud Introduction",
-    "youtubeId": "ABC123XYZ",
     "assets": [
-      {"label": "Slides", "file": "../academy-assets/session01-slides.pdf"},
-      {"label": "Notes", "file": "../academy-assets/session01-notes.pdf"},
-      {"label": "Lab", "file": "../academy-assets/session01-lab.pdf"}
+      { "label": "Slides", "file": "academy-assets/session01-slides.pdf" },
+      { "label": "Notes", "file": "academy-assets/session01-notes.pdf" },
+      { "label": "Lab", "file": "academy-assets/session01-lab.pdf" }
     ]
   }
 }
