@@ -1,10 +1,7 @@
-{
-  "session01": {
+[
+  {
+    "id": "session01",
     "title": "AWS Cloud Introduction",
-    "assets": [
-      { "label": "Slides", "file": "academy-assets/session01-slides.pdf" },
-      { "label": "Notes", "file": "academy-assets/session01-notes.pdf" },
-      { "label": "Lab", "file": "academy-assets/session01-lab.pdf" }
-    ]
+    "file": "academy-assets/session01-slides.pdf"
   }
-}
+]
