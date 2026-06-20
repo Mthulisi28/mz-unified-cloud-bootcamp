@@ -1,1 +1,20 @@
-null
+{
+  "session01": {
+    "title": "AWS Cloud Introduction",
+    "youtubeId": "YOUR_ID",
+    "assets": [
+      {
+        "label": "Slides",
+        "file": "session01-slides.pdf"
+      },
+      {
+        "label": "Notes",
+        "file": "session01-notes.pdf"
+      },
+      {
+        "label": "Lab",
+        "file": "session01-lab.pdf"
+      }
+    ]
+  }
+}
