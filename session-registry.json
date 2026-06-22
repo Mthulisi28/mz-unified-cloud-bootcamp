@@ -3,5 +3,10 @@
     "id": "session01",
     "title": "AWS Cloud Introduction",
     "file": "academy-assets/session01-slides.pdf"
+  },
+  {
+    "id": "session06",
+    "title": "AWS Cloud Databases & RDS Deployments",
+    "file": "academy-assets/SESSION 6 — DATABASES.pdf"
   }
 ]
