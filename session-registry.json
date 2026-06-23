@@ -1,13 +1,62 @@
 [
-  { "id": "session-3june", "title": "3 JUNE UCA COHORT", "file": "academy-assets/3 JUNE UCA COHORT.pdf" },
-  { "id": "session-4week", "title": "4WEEK EXECUTION PLAN", "file": "academy-assets/4WEEK EXECUTION PLAN.pdf" },
-  { "id": "session-aws-cert", "title": "AWS Certification", "file": "academy-assets/AWS Certification .pdf" },
-  { "id": "session-cheat-sheet", "title": "CHEAT SHEET 1 — CORE AWS SERVICES", "file": "academy-assets/CHEAT SHEET 1 — CORE AWS SERVICES.pdf" },
-  { "id": "session-gov-billing", "title": "GOVERNANCE + BILLING + EXAM EXECUTION", "file": "academy-assets/GOVERNANCE + BILLING + EXAM EXECUTION.pdf" },
-  { "id": "session-iam-lab", "title": "IAM SESSION 3 — HANDS-ON LABS", "file": "academy-assets/IAM SESSION 3 — HANDS-ON LABS.pdf" },
-  { "id": "session-iam-notes", "title": "IAM SESSION 3 — PREMIUM STUDENT NOTES", "file": "academy-assets/IAM SESSION 3 — PREMIUM STUDENT NOTES.pdf" },
-  { "id": "session-modern-arch", "title": "MODERN CLOUD ARCHITECTURE", "file": "academy-assets/MODERN CLOUD ARCHITECTURE + HIGH AVAILABILITY + RESILIENCE.pdf" },
-  { "id": "session-s4-notes", "title": "S4 notes", "file": "academy-assets/S4 notes.pdf" },
-  { "id": "session-11-notes", "title": "SESSION 11 STUDENT NOTES", "file": "academy-assets/SESSION 11 STUDENT NOTES.pdf" },
-  { "id": "session-06-db", "title": "SESSION 6 — DATABASES", "file": "academy-assets/SESSION 6 — DATABASES.pdf" }
+  {
+    "id": "session01",
+    "title": "AWS Cloud Introduction",
+    "pdf": "content/session01.pdf"
+  },
+  {
+    "id": "session02",
+    "title": "AWS Shared Responsibility Model",
+    "pdf": "content/session02.pdf"
+  },
+  {
+    "id": "session03",
+    "title": "Identity & Access Management (IAM)",
+    "pdf": "content/session03.pdf"
+  },
+  {
+    "id": "session04",
+    "title": "Core Compute (EC2 & Architecture)",
+    "pdf": "content/session04.pdf"
+  },
+  {
+    "id": "session05",
+    "title": "Cloud Storage (S3) & Local Git",
+    "pdf": "content/session05.pdf"
+  },
+  {
+    "id": "session06",
+    "title": "Cloud Databases (RDS Engine)",
+    "pdf": "content/session06.pdf"
+  },
+  {
+    "id": "session07",
+    "title": "Networking Fundamentals (VPC Subnets)",
+    "pdf": "content/session07.pdf"
+  },
+  {
+    "id": "session08",
+    "title": "Elastic Load Balancing & Auto-Scaling",
+    "pdf": "content/session08.pdf"
+  },
+  {
+    "id": "session09",
+    "title": "Cloud Migration & Modernization",
+    "pdf": "content/session09.pdf"
+  },
+  {
+    "id": "session10",
+    "title": "AWS IAM Deep Dive",
+    "pdf": "content/session10.pdf"
+  },
+  {
+    "id": "session11",
+    "title": "AWS Well-Architected Framework",
+    "pdf": "content/session11.pdf"
+  },
+  {
+    "id": "session12",
+    "title": "Cloud Cost Optimization & Support",
+    "pdf": "content/session12.pdf"
+  }
 ]

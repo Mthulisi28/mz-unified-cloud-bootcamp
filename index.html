@@ -1,99 +1,115 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Solutions Architect Associate Master Portal</title>
+    <title>MZ UCA - Governance Operations Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;600&family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #060913; --card: #0b1120; --border: #1e293b; --text: #f3f4f6; }
-        body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; padding: 2rem; margin: 0; }
-        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        @media (max-width: 968px) { .container { grid-template-columns: 1fr; } }
-        
-        .player-pane { position: sticky; top: 2rem; height: fit-content; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
-        .video-wrapper iframe, .video-wrapper .placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-wrapper .placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #64748b; background: #020617; text-align: center; padding: 2rem; box-sizing: border-box; }
-        
-        .session-pane { height: calc(100vh - 4rem); overflow-y: auto; padding-right: 0.5rem; }
-        .session-pane::-webkit-scrollbar { width: 6px; }
-        .session-pane::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-        
-        h2 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
-        
-        .sc { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--dcol); margin-bottom: 1rem; border-radius: 6px; padding: 1.25rem; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
-        .sc:hover { transform: translateX(4px); border-color: var(--dcol); }
-        .sc.active { background: var(--ddim); border-color: var(--dcol); box-shadow: 0 0 20px -5px var(--dcol); }
-        .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; pointer-events: none; }
-        .sc-number { font-weight: 700; color: var(--dcol); font-size: 0.875rem; text-transform: uppercase; }
-        .sc-title { flex: 1; font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: #e2e8f0; }
-        .sc-duration { color: #64748b; font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        :root { --bg-matte-black: #0d0f12; --bg-deep-navy: #131722; --accent-gold: #cca43b; --border-glow: #1f293d; --text-muted: #788296; --text-light: #e2e8f0; --status-green: #00e676; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-matte-black); color: var(--text-light); font-family: "Barlow", sans-serif; letter-spacing: 0.5px; overflow-x: hidden; }
+        .topbar { background-color: #080a0d; border-bottom: 1px solid var(--border-glow); padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--text-muted); text-transform: uppercase; }
+        .topbar-branding span { color: var(--accent-gold); font-weight: 700; }
+        .dashboard-container { max-width: 1600px; margin: 0 auto; padding: 24px; }
+        header { margin-bottom: 24px; border-left: 4px solid var(--accent-gold); padding-left: 20px; }
+        h1 { font-family: "Bebas Neue", sans-serif; font-size: 56px; line-height: 1; letter-spacing: 2px; color: var(--text-light); }
+        .sub-tagline { font-family: "Barlow Condensed", sans-serif; font-size: 16px; color: var(--accent-gold); text-transform: uppercase; font-weight: 600; margin-top: 4px; }
+        .status-terminal { background-color: #06080a; border: 1px solid var(--border-glow); border-radius: 4px; padding: 12px 18px; font-family: "Share Tech Mono", monospace; font-size: 13px; color: var(--status-green); margin-bottom: 24px; display: flex; gap: 20px; }
+        .pulse { animation: blink 1.5s infinite; }
+        .progression-rail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 32px; font-family: "Barlow Condensed", sans-serif; text-align: center; text-transform: uppercase; font-size: 14px; }
+        .rail-node { background: var(--bg-deep-navy); border: 1px solid var(--border-glow); padding: 12px; font-weight: 600; color: var(--text-muted); }
+        .rail-node.active { border-color: var(--accent-gold); color: var(--text-light); background: linear-gradient(180deg, #161c2b 0%, #131722 100%); }
+        .main-grid { display: grid; grid-template-columns: 1fr 380px; gap: 24px; }
+        .panel-header { font-family: "Barlow Condensed", sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; color: var(--text-light); border-bottom: 1px solid var(--border-glow); padding-bottom: 8px; margin-bottom: 16px; display: flex; justify-content: space-between; }
+        .governance-panel { background-color: var(--bg-deep-navy); border: 1px solid var(--border-glow); padding: 20px; border-radius: 4px; margin-bottom: 24px; }
+        .clearance-row { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #192030; font-size: 14px; }
+        .clearance-badge { font-family: "Share Tech Mono", monospace; background-color: #1c2336; color: var(--accent-gold); padding: 2px 8px; font-size: 12px; border: 1px solid #2d3854; }
+        .session-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .session-link { text-decoration: none; color: inherit; display: block; transition: transform 0.2s; }
+        .session-link:hover { transform: translateY(-2px); }
+        .session-card { background-color: #171d2a; border: 1px solid var(--border-glow); padding: 16px; border-radius: 4px; position: relative; cursor: pointer; }
+        .session-link:hover .session-card { border-color: var(--accent-gold); }
+        .uca-verified { position: absolute; top: 16px; right: 16px; font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 700; color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 1px 6px; border-radius: 2px; }
+        .session-meta { font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 4px; }
+        .session-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        @media(max-width: 1024px) { .main-grid { grid-template-columns: 1fr; } .session-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="player-pane">
-            <h2>◈ BROADCAST RUNTIME CONTROLLER</h2>
-            <div class="video-wrapper" id="video-wrapper-node">
-                <div class="placeholder">
-                    <span style="font-size: 2rem; margin-bottom: 0.5rem;">◆</span>
-                    <p style="margin: 0; font-size: 0.95rem;">Select an active session architecture node from the track menu to initialize video broadcast.</p>
+    <div class="topbar">
+        <div class="topbar-branding">SYSTEM: <span>MZ-UCA CORE</span> // OPERATIONS GATE</div>
+        <div>REGION: AF-SOUTH-1 (CAPE TOWN) // LATENCY: NOMINAL</div>
+    </div>
+    <div class="dashboard-container">
+        <header>
+            <h1>MZ UCA CLOUD ACADEMY</h1>
+            <div class="sub-tagline">Pan-African Enterprise Cloud Leadership Network</div>
+        </header>
+        <div class="status-terminal">
+            <div><span class="pulse">●</span> [ SYSTEM STATUS ] UCA GOVERNANCE GRID ONLINE</div>
+            <div>[ BOOTCAMP OPERATIONS ACTIVE ]</div>
+            <div>[ AWS TRACK SYNCHRONIZED ]</div>
+        </div>
+        <div class="progression-rail">
+            <div class="rail-node active">FOUNDATION (CL-1)</div>
+            <div class="rail-node">OPERATIONS (CL-2)</div>
+            <div class="rail-node">SECURITY (CL-3)</div>
+            <div class="rail-node">INFRASTRUCTURE AS CODE (CL-4)</div>
+            <div class="rail-node">GOVERNANCE AUTHORITY (CL-5)</div>
+        </div>
+        <div class="main-grid">
+            <div class="content-space">
+                <div class="governance-panel">
+                    <div class="panel-header">
+                        <div>TRACK A: AWS CLOUD PRACTITIONER BOOTCAMP</div>
+                        <div style="color: var(--accent-gold)">12-SESSION ACTIVE SPECTRUM</div>
+                    </div>
+                    <div class="session-grid" id="dynamic-session-grid">
+                        </div>
                 </div>
             </div>
-        </div>
-
-        <div class="session-pane">
-            <h2>◈ UNIFIED CLOUD ARCHITECTURE TRACK</h2>
-            
-        <div class="sc active" data-session-id="1" style="--dcol: #3b82f6; --ddim: #1e3a8a;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 1</span>
-                <span class="sc-title">GOVERNANCE FOUNDATION & CORE MATURITY TRACKING</span>
-                <span class="sc-duration">◈ 43min</span>
+            <div class="sidebar-space">
+                <div class="governance-panel">
+                    <div class="panel-header">UCA CLEARANCE LEVELS</div>
+                    <div class="clearance-row"><span>Foundation Operators</span> <span class="clearance-badge">CL-1</span></div>
+                    <div class="clearance-row"><span>Cloud Infrastructure Operations</span> <span class="clearance-badge">CL-2</span></div>
+                    <div class="clearance-row"><span>Advanced Security Engineering</span> <span class="clearance-badge">CL-3</span></div>
+                    <div class="clearance-row"><span>Enterprise IaC Architects</span> <span class="clearance-badge">CL-4</span></div>
+                    <div class="clearance-row"><span>Governance Authority Council</span> <span class="clearance-badge">CL-5</span></div>
+                </div>
             </div>
-        </div>
-        <div class="sc " data-session-id="2" style="--dcol: #10b981; --ddim: #064e3b;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 2</span>
-                <span class="sc-title">IDENTITY GOVERNANCE: ENFORCING IMMUTABLE ORGANIZATIONAL SCPs</span>
-                <span class="sc-duration">◈ 1hr 11min</span>
-            </div>
-        </div>
-        <div class="sc " data-session-id="3" style="--dcol: #f59e0b; --ddim: #78350f;">
-            <div class="sc-head">
-                <span class="sc-number">◆ Session 3</span>
-                <span class="sc-title">INFRASTRUCTURE GOVERNANCE: TRANSLATING POLICY INTO AUTOMATED TERRAFORM</span>
-                <span class="sc-duration">◈ 2hr 38min</span>
-            </div>
-        </div>
-
-            
         </div>
     </div>
 
     <script>
-        const videoMap = {
-            "1": "YOUR_VALID_ID_1",
-            "2": "YOUR_VALID_ID_2",
-            "3": "YOUR_VALID_ID_3"
-        };
+        async function loadDashboardModules() {
+            try {
+                const response = await fetch('session-registry.json');
+                const sessions = await response.json();
+                const grid = document.getElementById('dynamic-session-grid');
+                grid.innerHTML = '';
 
-        // Global Event Delegation Engine - Catching events at the root body plane
-        document.addEventListener('click', (e) => {
-            const card = e.target.closest('.sc');
-            if (!card) return;
-
-            document.querySelectorAll('.sc').forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            
-            const sessionId = card.getAttribute('data-session-id');
-            const videoId = videoMap[sessionId];
-            const wrapper = document.getElementById('video-wrapper-node');
-            
-            if (videoId && wrapper) {
-                wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                sessions.forEach((session, index) => {
+                    const paddedIndex = String(index + 1).padStart(2, '0');
+                    grid.innerHTML += `
+                        <a href="session.html?id=${session.id}" class="session-link">
+                            <div class="session-card">
+                                <div class="uca-verified">UCA VERIFIED</div>
+                                <div class="session-meta">Module ${paddedIndex} // Active Asset</div>
+                                <div class="session-title">${session.title}</div>
+                            </div>
+                        </a>
+                    `;
+                });
+            } catch (error) {
+                document.getElementById('dynamic-session-grid').innerHTML = '<p style="color:red">Error streaming content catalog metadata.</p>';
             }
-        });
+        }
+        window.addEventListener('DOMContentLoaded', loadDashboardModules);
     </script>
 </body>
 </html>
