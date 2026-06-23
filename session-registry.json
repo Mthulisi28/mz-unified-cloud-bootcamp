@@ -1,242 +1,242 @@
 [
-  {
-    "id": "session-3-june-uca-cohort",
-    "title": "3 JUNE UCA COHORT",
-    "file": "academy-assets/3 JUNE UCA COHORT.pdf"
-  },
-  {
-    "id": "session-4week-execution-plan",
-    "title": "4WEEK EXECUTION PLAN",
-    "file": "academy-assets/4WEEK EXECUTION PLAN.pdf"
-  },
-  {
-    "id": "session-aws-certification-",
-    "title": "AWS Certification ",
-    "file": "academy-assets/AWS Certification .pdf"
-  },
-  {
-    "id": "session-cheat-sheet-1-—-core-aws-services",
-    "title": "CHEAT SHEET 1 — CORE AWS SERVICES",
-    "file": "academy-assets/CHEAT SHEET 1 — CORE AWS SERVICES.pdf"
-  },
-  {
-    "id": "session-governance-+-billing-+-exam-execution",
-    "title": "GOVERNANCE + BILLING + EXAM EXECUTION",
-    "file": "academy-assets/GOVERNANCE + BILLING + EXAM EXECUTION.pdf"
-  },
-  {
-    "id": "session-iam-session-3-—-hands-on-labs",
-    "title": "IAM SESSION 3 — HANDS-ON LABS",
-    "file": "academy-assets/IAM SESSION 3 — HANDS-ON LABS.pdf"
-  },
-  {
-    "id": "session-iam-session-3-—-premium-student-notes",
-    "title": "IAM SESSION 3 — PREMIUM STUDENT NOTES",
-    "file": "academy-assets/IAM SESSION 3 — PREMIUM STUDENT NOTES.pdf"
-  },
-  {
-    "id": "session-modern-cloud-architecture-+-high-availability-+-resilience",
-    "title": "MODERN CLOUD ARCHITECTURE + HIGH AVAILABILITY + RESILIENCE",
-    "file": "academy-assets/MODERN CLOUD ARCHITECTURE + HIGH AVAILABILITY + RESILIENCE.pdf"
-  },
-  {
-    "id": "session-s4-notes",
-    "title": "S4 notes",
-    "file": "academy-assets/S4 notes.pdf"
-  },
-  {
-    "id": "session-session-11-student-notes",
-    "title": "SESSION 11 STUDENT NOTES",
-    "file": "academy-assets/SESSION 11 STUDENT NOTES.pdf"
-  },
-  {
-    "id": "session-session-2-labs",
-    "title": "SESSION 2 LABS",
-    "file": "academy-assets/SESSION 2 LABS.pdf"
-  },
-  {
-    "id": "session-session-2github",
-    "title": "SESSION 2github",
-    "file": "academy-assets/SESSION 2github.pdf"
-  },
-  {
-    "id": "session-session-2student-learning-notes-",
-    "title": "SESSION 2Student Learning Notes ",
-    "file": "academy-assets/SESSION 2Student Learning Notes .pdf"
-  },
-  {
-    "id": "session-session-6-—-databases",
-    "title": "SESSION 6 — DATABASES",
-    "file": "academy-assets/SESSION 6 — DATABASES.pdf"
-  },
-  {
-    "id": "session-session-6-instructor-notes",
-    "title": "SESSION 6 INSTRUCTOR NOTES",
-    "file": "academy-assets/SESSION 6 INSTRUCTOR NOTES.pdf"
-  },
-  {
-    "id": "session-session-6-session-notes",
-    "title": "SESSION 6 SESSION NOTES",
-    "file": "academy-assets/SESSION 6 SESSION NOTES.pdf"
-  },
-  {
-    "id": "session-session-6github-lab-",
-    "title": "SESSION 6GitHub Lab ",
-    "file": "academy-assets/SESSION 6GitHub Lab .pdf"
-  },
-  {
-    "id": "session-session-8-—-github-lab",
-    "title": "SESSION 8 — GITHUB LAB",
-    "file": "academy-assets/SESSION 8 — GITHUB LAB.pdf"
-  },
-  {
-    "id": "session-session-8-—-student-notessecurity-in-networking",
-    "title": "SESSION 8 — STUDENT NOTESSecurity in Networking",
-    "file": "academy-assets/SESSION 8 — STUDENT NOTESSecurity in Networking.pdf"
-  },
-  {
-    "id": "session-session-8-slides",
-    "title": "Session 8 slides",
-    "file": "academy-assets/Session 8 slides.pdf"
-  },
-  {
-    "id": "session-session-9-cloud-migration-concepts-&-modernization",
-    "title": "SESSION 9 CLOUD MIGRATION CONCEPTS & MODERNIZATION",
-    "file": "academy-assets/SESSION 9 CLOUD MIGRATION CONCEPTS & MODERNIZATION.pdf"
-  },
-  {
-    "id": "session-session-9-final-lab",
-    "title": "SESSION 9 FINAL LAB",
-    "file": "academy-assets/SESSION 9 FINAL LAB.pdf"
-  },
-  {
-    "id": "session-session-9-github-labs",
-    "title": "SESSION 9 GITHUB LABS",
-    "file": "academy-assets/SESSION 9 GITHUB LABS.pdf"
-  },
-  {
-    "id": "session-session-9-teaching-notes",
-    "title": "SESSION 9 TEACHING NOTES",
-    "file": "academy-assets/SESSION 9 TEACHING NOTES.pdf"
-  },
-  {
-    "id": "session-session01-aws-storage-references",
-    "title": "session01-aws-storage-references",
-    "file": "academy-assets/session01-aws-storage-references.pdf"
-  },
-  {
-    "id": "session-session01-lab",
-    "title": "session01-lab",
-    "file": "academy-assets/session01-lab.pdf"
-  },
-  {
-    "id": "session-session01-notes",
-    "title": "session01-notes",
-    "file": "academy-assets/session01-notes.pdf"
-  },
-  {
-    "id": "session-session01-slides",
-    "title": "session01-slides",
-    "file": "academy-assets/session01-slides.pdf"
-  },
-  {
-    "id": "session-session01",
-    "title": "session01",
-    "file": "academy-assets/session01.pdf"
-  },
-  {
-    "id": "session-session2sharedrespsld",
-    "title": "session2sharedrespsld",
-    "file": "academy-assets/session2sharedrespsld.pdf"
-  },
-  {
-    "id": "session-session3-identity-&-access-management-(iam)sld",
-    "title": "SESSION3 Identity & Access Management (IAM)sld",
-    "file": "academy-assets/SESSION3 Identity & Access Management (IAM)sld.pdf"
-  },
-  {
-    "id": "session-student-github-portfolio-expectations",
-    "title": "STUDENT GITHUB PORTFOLIO EXPECTATIONS",
-    "file": "academy-assets/STUDENT GITHUB PORTFOLIO EXPECTATIONS.pdf"
-  },
-  {
-    "id": "session-week-1-—-session-1-mock",
-    "title": "WEEK 1 — SESSION 1 mock",
-    "file": "academy-assets/WEEK 1 — SESSION 1 mock.pdf"
-  },
-  {
-    "id": "session-week-1-—-session-1-revision-pack",
-    "title": "WEEK 1 — SESSION 1 REVISION PACK",
-    "file": "academy-assets/WEEK 1 — SESSION 1 REVISION PACK.pdf"
-  },
-  {
-    "id": "session-week-1-—-session-1instructor-script",
-    "title": "WEEK 1 — SESSION 1Instructor Script",
-    "file": "academy-assets/WEEK 1 — SESSION 1Instructor Script.pdf"
-  },
-  {
-    "id": "session-week-1-—-session-1sld",
-    "title": "WEEK 1 — SESSION 1sld",
-    "file": "academy-assets/WEEK 1 — SESSION 1sld.pdf"
-  },
-  {
-    "id": "session-week-2-—-session-4labs",
-    "title": "WEEK 2 — SESSION 4labs",
-    "file": "academy-assets/WEEK 2 — SESSION 4labs.pdf"
-  },
-  {
-    "id": "session-week-2-—-session-4mockexams",
-    "title": "WEEK 2 — SESSION 4mockexams",
-    "file": "academy-assets/WEEK 2 — SESSION 4mockexams.pdf"
-  },
-  {
-    "id": "session-week-2-—-session-5githublab",
-    "title": "WEEK 2 — SESSION 5GITHUBLAB",
-    "file": "academy-assets/WEEK 2 — SESSION 5GITHUBLAB.pdf"
-  },
-  {
-    "id": "session-week-2-—-session-5notes",
-    "title": "WEEK 2 — SESSION 5NOTES",
-    "file": "academy-assets/WEEK 2 — SESSION 5NOTES.pdf"
-  },
-  {
-    "id": "session-week-2-—-session-5slides",
-    "title": "WEEK 2 — SESSION 5SLIDES",
-    "file": "academy-assets/WEEK 2 — SESSION 5SLIDES.pdf"
-  },
-  {
-    "id": "session-week-2-—-session-5zlide",
-    "title": "WEEK 2 — SESSION 5ZLIDE",
-    "file": "academy-assets/WEEK 2 — SESSION 5ZLIDE.pdf"
-  },
-  {
-    "id": "session-week-2-core-services-(compute-+-storage-+-databases)sld",
-    "title": "WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES)sld",
-    "file": "academy-assets/WEEK 2 CORE SERVICES (COMPUTE + STORAGE + DATABASES)sld.pdf"
-  },
-  {
-    "id": "session-week-3-—-session-7-github-lab-—-networking-fundamentals",
-    "title": "WEEK 3 — SESSION 7 GITHUB LAB — NETWORKING FUNDAMENTALS",
-    "file": "academy-assets/WEEK 3 — SESSION 7 GITHUB LAB — NETWORKING FUNDAMENTALS.pdf"
-  },
-  {
-    "id": "session-week-3-session-7-amazon-vpc-•-subnets-•-internet-gateway-teaching-notes",
-    "title": "week 3 session 7 Amazon VPC • Subnets • Internet Gateway teaching notes",
-    "file": "academy-assets/week 3 session 7 Amazon VPC • Subnets • Internet Gateway teaching notes.pdf"
-  },
-  {
-    "id": "session-week-3-session-7notes-—-networking-fundamentals",
-    "title": "week 3 SESSION 7Notes — NETWORKING FUNDAMENTALS",
-    "file": "academy-assets/week 3 SESSION 7Notes — NETWORKING FUNDAMENTALS.pdf"
-  },
-  {
-    "id": "session-week1aws-cloud-practitioner-bootcampstudentnotes",
-    "title": "week1AWS CLOUD PRACTITIONER BOOTCAMPstudentnotes",
-    "file": "academy-assets/week1AWS CLOUD PRACTITIONER BOOTCAMPstudentnotes.pdf"
-  },
-  {
-    "id": "session-week3-session-7-—-networking-fundamentals-slides",
-    "title": "week3 SESSION 7 — NETWORKING FUNDAMENTALS slides",
-    "file": "academy-assets/week3 SESSION 7 — NETWORKING FUNDAMENTALS slides.pdf"
-  }
+%20%20{
+%20%20%20%20"id":%20"session-3-june-uca-cohort",
+%20%20%20%20"title":%20"3%20JUNE%20UCA%20COHORT",
+%20%20%20%20"file":%20"academy-assets/3+JUNE+UCA+COHORT.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-4week-execution-plan",
+%20%20%20%20"title":%20"4WEEK%20EXECUTION%20PLAN",
+%20%20%20%20"file":%20"academy-assets/4WEEK+EXECUTION+PLAN.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-aws-certification-",
+%20%20%20%20"title":%20"AWS%20Certification%20",
+%20%20%20%20"file":%20"academy-assets/AWS+Certification+.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-cheat-sheet-1--core-aws-services",
+%20%20%20%20"title":%20"CHEAT%20SHEET%201%20%E2%80%94%20CORE%20AWS%20SERVICES",
+%20%20%20%20"file":%20"academy-assets/CHEAT+SHEET+1+%e2%80%94+CORE+AWS+SERVICES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-governance-+-billing-+-exam-execution",
+%20%20%20%20"title":%20"GOVERNANCE%20+%20BILLING%20+%20EXAM%20EXECUTION",
+%20%20%20%20"file":%20"academy-assets/GOVERNANCE+%2b+BILLING+%2b+EXAM+EXECUTION.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-iam-session-3--hands-on-labs",
+%20%20%20%20"title":%20"IAM%20SESSION%203%20%E2%80%94%20HANDS-ON%20LABS",
+%20%20%20%20"file":%20"academy-assets/IAM+SESSION+3+%e2%80%94+HANDS-ON+LABS.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-iam-session-3--premium-student-notes",
+%20%20%20%20"title":%20"IAM%20SESSION%203%20%E2%80%94%20PREMIUM%20STUDENT%20NOTES",
+%20%20%20%20"file":%20"academy-assets/IAM+SESSION+3+%e2%80%94+PREMIUM+STUDENT+NOTES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-modern-cloud-architecture-+-high-availability-+-resilience",
+%20%20%20%20"title":%20"MODERN%20CLOUD%20ARCHITECTURE%20+%20HIGH%20AVAILABILITY%20+%20RESILIENCE",
+%20%20%20%20"file":%20"academy-assets/MODERN+CLOUD+ARCHITECTURE+%2b+HIGH+AVAILABILITY+%2b+RESILIENCE.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-s4-notes",
+%20%20%20%20"title":%20"S4%20notes",
+%20%20%20%20"file":%20"academy-assets/S4+notes.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-11-student-notes",
+%20%20%20%20"title":%20"SESSION%2011%20STUDENT%20NOTES",
+%20%20%20%20"file":%20"academy-assets/SESSION+11+STUDENT+NOTES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-2-labs",
+%20%20%20%20"title":%20"SESSION%202%20LABS",
+%20%20%20%20"file":%20"academy-assets/SESSION+2+LABS.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-2github",
+%20%20%20%20"title":%20"SESSION%202github",
+%20%20%20%20"file":%20"academy-assets/SESSION+2github.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-2student-learning-notes-",
+%20%20%20%20"title":%20"SESSION%202Student%20Learning%20Notes%20",
+%20%20%20%20"file":%20"academy-assets/SESSION+2Student+Learning+Notes+.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-6--databases",
+%20%20%20%20"title":%20"SESSION%206%20%E2%80%94%20DATABASES",
+%20%20%20%20"file":%20"academy-assets/SESSION+6+%e2%80%94+DATABASES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-6-instructor-notes",
+%20%20%20%20"title":%20"SESSION%206%20INSTRUCTOR%20NOTES",
+%20%20%20%20"file":%20"academy-assets/SESSION+6+INSTRUCTOR+NOTES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-6-session-notes",
+%20%20%20%20"title":%20"SESSION%206%20SESSION%20NOTES",
+%20%20%20%20"file":%20"academy-assets/SESSION+6+SESSION+NOTES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-6github-lab-",
+%20%20%20%20"title":%20"SESSION%206GitHub%20Lab%20",
+%20%20%20%20"file":%20"academy-assets/SESSION+6GitHub+Lab+.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-8--github-lab",
+%20%20%20%20"title":%20"SESSION%208%20%E2%80%94%20GITHUB%20LAB",
+%20%20%20%20"file":%20"academy-assets/SESSION+8+%e2%80%94+GITHUB+LAB.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-8--student-notessecurity-in-networking",
+%20%20%20%20"title":%20"SESSION%208%20%E2%80%94%20STUDENT%20NOTESSecurity%20in%20Networking",
+%20%20%20%20"file":%20"academy-assets/SESSION+8+%e2%80%94+STUDENT+NOTESSecurity+in+Networking.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-8-slides",
+%20%20%20%20"title":%20"Session%208%20slides",
+%20%20%20%20"file":%20"academy-assets/Session+8+slides.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-9-cloud-migration-concepts-&-modernization",
+%20%20%20%20"title":%20"SESSION%209%20CLOUD%20MIGRATION%20CONCEPTS%20&%20MODERNIZATION",
+%20%20%20%20"file":%20"academy-assets/SESSION+9+CLOUD+MIGRATION+CONCEPTS+%26+MODERNIZATION.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-9-final-lab",
+%20%20%20%20"title":%20"SESSION%209%20FINAL%20LAB",
+%20%20%20%20"file":%20"academy-assets/SESSION+9+FINAL+LAB.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-9-github-labs",
+%20%20%20%20"title":%20"SESSION%209%20GITHUB%20LABS",
+%20%20%20%20"file":%20"academy-assets/SESSION+9+GITHUB+LABS.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session-9-teaching-notes",
+%20%20%20%20"title":%20"SESSION%209%20TEACHING%20NOTES",
+%20%20%20%20"file":%20"academy-assets/SESSION+9+TEACHING+NOTES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session01-aws-storage-references",
+%20%20%20%20"title":%20"session01-aws-storage-references",
+%20%20%20%20"file":%20"academy-assets/session01-aws-storage-references.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session01-lab",
+%20%20%20%20"title":%20"session01-lab",
+%20%20%20%20"file":%20"academy-assets/session01-lab.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session01-notes",
+%20%20%20%20"title":%20"session01-notes",
+%20%20%20%20"file":%20"academy-assets/session01-notes.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session01-slides",
+%20%20%20%20"title":%20"session01-slides",
+%20%20%20%20"file":%20"academy-assets/session01-slides.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session01",
+%20%20%20%20"title":%20"session01",
+%20%20%20%20"file":%20"academy-assets/session01.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session2sharedrespsld",
+%20%20%20%20"title":%20"session2sharedrespsld",
+%20%20%20%20"file":%20"academy-assets/session2sharedrespsld.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-session3-identity-&-access-management-(iam)sld",
+%20%20%20%20"title":%20"SESSION3%20Identity%20&%20Access%20Management%20(IAM)sld",
+%20%20%20%20"file":%20"academy-assets/SESSION3+Identity+%26+Access+Management+(IAM)sld.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-student-github-portfolio-expectations",
+%20%20%20%20"title":%20"STUDENT%20GITHUB%20PORTFOLIO%20EXPECTATIONS",
+%20%20%20%20"file":%20"academy-assets/STUDENT+GITHUB+PORTFOLIO+EXPECTATIONS.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-1--session-1-mock",
+%20%20%20%20"title":%20"WEEK%201%20%E2%80%94%20SESSION%201%20mock",
+%20%20%20%20"file":%20"academy-assets/WEEK+1+%e2%80%94+SESSION+1+mock.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-1--session-1-revision-pack",
+%20%20%20%20"title":%20"WEEK%201%20%E2%80%94%20SESSION%201%20REVISION%20PACK",
+%20%20%20%20"file":%20"academy-assets/WEEK+1+%e2%80%94+SESSION+1+REVISION+PACK.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-1--session-1instructor-script",
+%20%20%20%20"title":%20"WEEK%201%20%E2%80%94%20SESSION%201Instructor%20Script",
+%20%20%20%20"file":%20"academy-assets/WEEK+1+%e2%80%94+SESSION+1Instructor+Script.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-1--session-1sld",
+%20%20%20%20"title":%20"WEEK%201%20%E2%80%94%20SESSION%201sld",
+%20%20%20%20"file":%20"academy-assets/WEEK+1+%e2%80%94+SESSION+1sld.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-2--session-4labs",
+%20%20%20%20"title":%20"WEEK%202%20%E2%80%94%20SESSION%204labs",
+%20%20%20%20"file":%20"academy-assets/WEEK+2+%e2%80%94+SESSION+4labs.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-2--session-4mockexams",
+%20%20%20%20"title":%20"WEEK%202%20%E2%80%94%20SESSION%204mockexams",
+%20%20%20%20"file":%20"academy-assets/WEEK+2+%e2%80%94+SESSION+4mockexams.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-2--session-5githublab",
+%20%20%20%20"title":%20"WEEK%202%20%E2%80%94%20SESSION%205GITHUBLAB",
+%20%20%20%20"file":%20"academy-assets/WEEK+2+%e2%80%94+SESSION+5GITHUBLAB.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-2--session-5notes",
+%20%20%20%20"title":%20"WEEK%202%20%E2%80%94%20SESSION%205NOTES",
+%20%20%20%20"file":%20"academy-assets/WEEK+2+%e2%80%94+SESSION+5NOTES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-2--session-5slides",
+%20%20%20%20"title":%20"WEEK%202%20%E2%80%94%20SESSION%205SLIDES",
+%20%20%20%20"file":%20"academy-assets/WEEK+2+%e2%80%94+SESSION+5SLIDES.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-2--session-5zlide",
+%20%20%20%20"title":%20"WEEK%202%20%E2%80%94%20SESSION%205ZLIDE",
+%20%20%20%20"file":%20"academy-assets/WEEK+2+%e2%80%94+SESSION+5ZLIDE.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-2-core-services-(compute-+-storage-+-databases)sld",
+%20%20%20%20"title":%20"WEEK%202%20CORE%20SERVICES%20(COMPUTE%20+%20STORAGE%20+%20DATABASES)sld",
+%20%20%20%20"file":%20"academy-assets/WEEK+2+CORE+SERVICES+(COMPUTE+%2b+STORAGE+%2b+DATABASES)sld.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-3--session-7-github-lab--networking-fundamentals",
+%20%20%20%20"title":%20"WEEK%203%20%E2%80%94%20SESSION%207%20GITHUB%20LAB%20%E2%80%94%20NETWORKING%20FUNDAMENTALS",
+%20%20%20%20"file":%20"academy-assets/WEEK+3+%e2%80%94+SESSION+7+GITHUB+LAB+%e2%80%94+NETWORKING+FUNDAMENTALS.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-3-session-7-amazon-vpc-•-subnets-•-internet-gateway-teaching-notes",
+%20%20%20%20"title":%20"week%203%20session%207%20Amazon%20VPC%20•%20Subnets%20•%20Internet%20Gateway%20teaching%20notes",
+%20%20%20%20"file":%20"academy-assets/week+3+session+7+Amazon+VPC+%e2%80%a2+Subnets+%e2%80%a2+Internet+Gateway+teaching+notes.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week-3-session-7notes--networking-fundamentals",
+%20%20%20%20"title":%20"week%203%20SESSION%207Notes%20%E2%80%94%20NETWORKING%20FUNDAMENTALS",
+%20%20%20%20"file":%20"academy-assets/week+3+SESSION+7Notes+%e2%80%94+NETWORKING+FUNDAMENTALS.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week1aws-cloud-practitioner-bootcampstudentnotes",
+%20%20%20%20"title":%20"week1AWS%20CLOUD%20PRACTITIONER%20BOOTCAMPstudentnotes",
+%20%20%20%20"file":%20"academy-assets/week1AWS+CLOUD+PRACTITIONER+BOOTCAMPstudentnotes.pdf"
+%20%20},
+%20%20{
+%20%20%20%20"id":%20"session-week3-session-7--networking-fundamentals-slides",
+%20%20%20%20"title":%20"week3%20SESSION%207%20%E2%80%94%20NETWORKING%20FUNDAMENTALS%20slides",
+%20%20%20%20"file":%20"academy-assets/week3+SESSION+7+%e2%80%94+NETWORKING+FUNDAMENTALS+slides.pdf"
+%20%20}
 ]
